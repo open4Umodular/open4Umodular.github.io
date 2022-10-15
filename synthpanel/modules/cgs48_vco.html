@@ -1,0 +1,293 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs48_vco.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:30 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=700>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="VCO" BORDER=0 WIDTH=600 HEIGHT=209 SRC="pic/photo_cgs48_vco.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>VCO</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This VCO started out life as a replacement for the original VCOs in my '73 Serge, so it replicates a lot of the functionality of that module. Of course there have been numerous enhancements to the design as well, making it right at home in a 1 volt per octave synthesizer. The core chosen is the well known Electronotes <a name="http://home.att.net/~synthsource/ens76/vco1.htm" target="_blank">ENS-76 VCO Option 1</a> as used in the <a href="http://rubidium.dyndns.org/~magnus/synths/friends/stopp/" target="_blank">ASM-1</a>, Modulus, etc. This core was an obvious choice due to the amount of information, lists of suitable substitutes and so on that are available on the web.
+<p>
+It has AC and DC linear CV inputs as well as 1 V/oct. inputs and scalable/reversible CV inputs. It has sawtooth and pulse/square outputs, as well as a waveshape that is variable between sawtooth and a "sine-like" shape, and a fixed "sine-like" output too. It also includes a simple sub-oscillator for those who wish to experiment with that.
+<p>
+<i>Note that the "sine-like" waveform is not a pure sine wave. There is a significant glitch in it that is almost impossible to trim out. As this is the recreation of a module that had such a waveshape, this is appropriate. If you require an accurate sine wave, this module is unsuitable for your purposes.
+<p>
+Please also note that there have been many variations of this PCB, and I no longer have copies of the artwork of the older variations. The variations are minor. I have no doubt there will be more variations as the module continues to evolve.
+</i>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=623 src="pic/schem_cgs48_vco_sm.gif">
+<br><i>The schematic of the VCO. <a href="pic/schem_cgs48_vco.gif" target="_blank">Click here for a larger version of this diagram.</a></i>
+</center>
+<p>
+<center>
+<img width=300 height=124 src="pic/dual_power_rail.gif">
+<br><i>Power rail decoupling for the VCO.</i>
+</center>
+<p>
+Take the time to look at the <a href="http://rubidium.dyndns.org/~magnus/synths/friends/stopp/" target="_blank">ASM-1</a> page where you will find suggested alternates for various components such as the dual transistor and the FET.
+<p>
+The sub-oscillator is based on that from an LM3900 app. note (NS AN-72), and will not cover the full range available from the VCO core itself.
+<p>The very top of the circuit diagram shows the inverting/non inverting scaling mixer as used in the original Serge VCO, while the bottom left hand corner shows the Saw to "Sine" converter from the same source. Some guestimation was needed when developing these sections of the circuit, as my original Serge VCOs are potted in epoxy.
+
+<p>
+<h4>Construction</h4>
+<p>
+
+
+
+<center>
+<a href="pic/pcb_cgs48_v1_vco.gif" target="_blank"><IMG BORDER=0 WIDTH=600 HEIGHT=200 SRC="pic/pcb_cgs48_v1_vco.gif"></a>
+<br><table width=600 cellspacing=0 cellpadding=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs48_v1_vco.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> Connections can be determined from the circuit diagram.</i>
+</td></tr></table>
+</center>
+
+<p>
+This is one of those PCBs than can be assembled in a number of different ways to suit the builder's panel space or "maximum knobs" requirements. <!--The wiring diagram below gives basic wiring details.-->
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The tempco resistor needs to be in physical contact with the matched transistor pair (LM394, MAT02 etc). For this reason it has been positioned on the PCB so that it goes diagonally across this chip. Make sure that the wires of the tempco do not touch the body of the transistor pair if it is of the metal can variety. A small amount of thermal compound (heatsink grease) should be put between the body of the tempco and the transistor pair, then the two held together snugly with a common wire tie (not yet fitted in the photo at the top of this page).
+<p>
+The "Tune" input on the PCB is set for dual rate operation. The pot must be wired between the +VE and -VE supplies, with the wiper to the tune input. Clockwise from around 12 oclock, the response will be a finer than anti-clockwise from this point, where the 1N4148 diode and extra resistor come in to play. This is to allow the VCO to be easilly cranked down to LFO speeds. The diode can be omitted if you do not want this functionality. A fine-tune control can be added by wiring a second pot as per the tune control, but wiring the wiper to the CSVN via a high value resistor such as 4M7, or even 10M.
+<p>
+The best value for the pots is 100k lin, though 50k lin would be usable.
+<p>
+<b>PWM</b>
+<p>
+Changes you can make to the PWM circuit on earlier versions so you can add an initial setting pot and extra inputs:
+Increase the value of the existing 1k input resistor to 100k. Mix your second input via another 100k to pin 6. Add extra inputs in the same way. If you need extra range, increase the existing 100k pulldown to 470k.
+The latest version of the PCB (Ver 1.0) has two 100k resistors in place of the 1k, giving two inputs. The pulldown is still specified as 100k.
+
+<p>
+<b><font color="red">REV 0.2 corrections.</font></b>
+<p>
+Modifications to the PCB are as follows:
+<ul>
+<li>Replace 330R connected to "SQ" pad with 1k.
+<li>Swap 1k and 1k8 resistors connected to "PWM" pad with each other.
+<li>Cut the track between these 1k8 and 1k resistors.
+<li>Jumper between "SQ" pad and the freshly isolated end of what is now the 1k8 resistor.
+<li>Remove jumper between Pin 5 of TL072 nearest the SAW out pads and the 22k "WS TRIM" trimmer.
+<li>Jumper pin 5 of the TL072 to "SAW OUT (AC)" pad.
+</ul>
+<p>
+<b><font color="red">REV 0.4 corrections.</font></b>
+<p>
+Modifications to the REV 0.4 and (probably) earlier PCBs are as follows:
+<ul>
+<li>Cut the track between Pin 5 of the TL072 in the bottom right corner and the 47uF capacitor. Make the cut near the capacitor.
+<li>Jumper pin 5 to the Saw AC output terminal via a 100k. This will set PWM control to 50% at 0 volts.
+<br>It is possible to place the resistor in place of the link on the PCB though the track modification is still required.
+<li>Replace the 330k resistor near the SYNC pad with a 220k resistor. This should stop clipping.
+</ul>
+<p>
+<b><font color="red">REV 0.5 corrections.</font></b>
+<ul>
+<li>Link SAW AC out to the -VE of the 47uF capacitor near it. For some reason or another, the PCB track disappeared when the board was etched. I've had holes go missing before, but a track? That's a new one! It is possible that not all REV 0.5 boards are affected.
+</ul>
+
+
+<p>
+<b><font color="red">VER 1.0 changes and corrections.</font></b>
+<ul>
+<li>A simple modification has been made to the PWM input to allow simultaneous use of a pot and an external CV. These inputs will require adjustment depending on personal requirements. <b>Note that due to a manufacturing error, one of the PWM input pads is not connected to it's resistor. The missing track is about .5mm long, so just bridge it with a blob of solder when you solder the wire in.</b>
+</ul>
+
+
+
+<table border="1" cellpadding="2" cellspacing="0">
+<tr><td colspan="2" align="center"><B><i>PCB connections</i></B></td></tr>
+<tr><td>FM AC</td><td>AC couple linear CV input</td></tr>
+<tr><td>FM DC</td><td>DC couple linear CV input</td></tr>
+<tr><td>1V/O</td><td>1 volt per octave input</td></tr>
+<tr><td>1V/O</td><td>1 volt per octave input</td></tr>
+<tr><td>(1V/O)</td><td>On the schematic, but not the PCB. Additional inputs can be added this way by using external 100k resistors connected to VG (CVSN), the virtual ground of the input mixer</td></tr>
+<tr><td>TUNE</td><td>Wiper of Tuning pot. (CW end to +VE, CCW end to -VE)</td></tr>
+<tr><td>CVSN (VG)</td><td>CV Summing Node/Virtual ground, marked as CVSN or VG depending on PCB version.</td></tr>
+<tr><td>PCCW</td><td>CCW end of processor pots</td></tr>
+<tr><td>PCW</td><td>CW end of processor pots</td></tr>
+<tr><td>PW1</td><td>processor pot 1 wiper</td></tr>
+<tr><td>PW2</td><td>processor pot 2 wiper</td></tr>
+<tr><td>CV2</td><td>Processor CV input 1</td></tr>
+<tr><td>CV1</td><td>Processor CV input 2</td></tr>
+<tr><td>PLS</td><td>Pulse output of the sub-oscillator</td></tr>
+<tr><td>CVS</td><td>Control voltage for the sub-oscillator (division)</td></tr>
+<tr><td>CVSP</td><td>Wiper connection of the manual setting pot for the sub-oscillator. Wire the pot between +VE (CW) and GND (CCW). Pot can be anything from 20k to 100k linear.</td></tr>
+<tr><td>STI</td><td>Clock input to the sub-oscillator</td></tr>
+<tr><td>STO</td><td>Staircase output of the sub-oscillator</td></tr>
+<tr><td>SSYNC</td><td>Sub-oscillator sync input</td></tr>
+<tr><td>SINE</td><td>"sine" output. DC coupled (above 0 volts)</td></tr>
+<tr><td>SP+</td><td>CW end of initial shape pot. (CCW end goes to GND)</td></tr>
+<tr><td>SPW</td><td>Wiper of initial shape pot</td></tr>
+<tr><td>SCV</td><td>Shape CV for sawtooth to sine output</td></tr>
+<tr><td>ATSO</td><td>Sawtooth to sine output (centered around 0v)</td></tr>
+<tr><td>TSO</td><td>Sawtooth to sine output (above 0v)</td></tr>
+<tr><td>SQ</td><td>Pulse/Square output</td></tr>
+<tr><td>PWM</td><td>pulse width modulation input</td></tr>
+<tr><td>SAW OUT (AC)</td><td>-2.5V to +2.5V sawtooth out</td></tr>
+<tr><td>SAW OUT (DC)</td><td>0 to +5V approx sawtooth out</td></tr>
+<tr><td>SYNC</td><td>VCO hard sync input</td></tr>
+<tr><td>GND</td><td>general 0V connection points</td></tr>
+</table>
+<p>
+<center>
+<img width=750 height=455 src="pic/wire_cgs48_v1_vco_p1.gif">
+<p>
+<img width=701 height=458 src="pic/wire_cgs48_v1_vco_p2.gif">
+</center>
+<br><i>Wiring diagrams for some of the VCO options. Not all options will be relevant, dependant upon the design of the front panel being used. The AC couple outputs are not shown above. The second processor (FREQ CV/LEVEL on diagram) is wired in the same manner as the first, sharing the PCCW and PCW connections.</i>
+
+
+
+<p>
+<p>
+<h4>Setting up</h4>
+<p>
+There are several trim pots that need to be adjusted. With no CV inputs connected, and the tune and frequency controls set to their center position, adjust the trim-pot marked "Zero" until there is 0 volts on pin 7 of IC1. The easiest place to connect to this pin is the end of the 100k resistor right next to the text "SP".
+<p>
+The next trimmer to adjust is the one marked "Span". Input 1.00 volts into one of the 1V/oct inputs, and adjust the trimmer until the output of the oscillator is exactly one octave higher than when the CV is removed. Now take the input voltage up to 3.00 volts or 4.00 volts, and fine tune this trimmer if needed. The best reference for this process is to have a second VCO or oscillator running at the same time at a fixed frequency. This way, the beat frequency can be used to fine tune. One the volt per octave ratio is correct, the Zero trimmer can be used to set the base frequency of the oscillator (e.g. to tune it to C with no inputs connected).
+<p>
+Don't be surprised if this process takes a few times to get right!
+<p>
+Once the oscillator is correctly tuned, connect 1.00 volts to one of the prosessor inputs (CV1 or CV2) and adjust the "PRO SP" trimmer until the oscillator runs 1 octave higher with the associated pot fully clockwise. Turning the pot fully anti-clockwise should result in an output frequency one octave lower than with no CV present, and a reversed responce to the CV.
+<p>
+"WS TRIM" should be adjusted so that TSO output varies between a sawtooth and a sine wave as the shape control is adjusted. A simpler alternative is to adjust this trimmer until the best sine wave possible is achieved at the "sine" output. Don't expect a perfect waveform - it will most likely have a substancial glitch in it at its best setting. Remember - this sine output is simply there to make use of a spare part of the LM3900 - it is not a key feature of the design.
+<P>
+The final adjustment is to "S TRIM". Play with it until the sub-oscillator responds the best over the best possible sweep range. Remember this will not follow the oscillator over its entire range. Again, it is simply there to make use of a spare part of the LM3900 - it is not a key feature of the design.
+<p>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>The PCB shown in the photograph is of one of my prototypes, actually designed to replace the oscillators in my Serge, thus it does have minor differences to the finished design.
+<li>The module will work on +/-12 volts if the 20k resistor connected to pin 3 of the LM311 is reduced to 14k.
+<li>For +/- 15V operation, you may prefer to replace the 330k/240k sawtooth bias resistors with 600k/200k as per the ASM-1. The ASM-1 sawtooth is centered around 0V, which would make the capacitive coupling to the second sawtooth output on this VCO redundant.
+<li>Dual transistors. Substitutes can be made for the LM394. Other dual transistors that should work are 2SC3381, 2SC1583, MAT02, SSM2210. Some will be of a physically different configuration.
+<li>Alternate FETs include 2N4091, 2N4391, PN4091 2N4391 PN4391 PN4856, MPF108.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>18pF</td><td align=right>1</td></tr>
+<tr><td>68pF</td><td align=right>1</td></tr>
+<tr><td>82pF</td><td align=right>2</td></tr>
+<tr><td>100pF</td><td align=right>3</td></tr>
+<tr><td>220pF</td><td align=right>1</td></tr>
+<tr><td>330pF</td><td align=right>1</td></tr>
+<tr><td>2n2 styro</td><td align=right>1</td></tr>
+<tr><td>4n7</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>7</td></tr>
+<tr><td>4u7</td><td align=right>2</td></tr>
+<tr><td>10uF</td><td align=right>2</td></tr>
+<tr><td>47uF</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors (1% metal film)</th></tr>
+<tr><td>330R</td><td align=right>5</td></tr>
+<tr><td>680R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>1k 3300ppm Temco</td><td align=right>1</td></tr>
+<tr><td>1k5</td><td align=right>1</td></tr>
+<tr><td>1k8</td><td align=right>1</td></tr>
+<tr><td>2k2</td><td align=right>1</td></tr>
+<tr><td>3k3</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>5</td></tr>
+<tr><td>10k 25t trim</td><td align=right>1</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>20k</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>22k-25k trim</td><td align=right>2</td></tr>
+<tr><td>33k</td><td align=right>2</td></tr>
+<tr><td>47k</td><td align=right>3</td></tr>
+<tr><td>56k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>23</td></tr>
+<tr><td>100k 25t trim</td><td align=right>2</td></tr>
+<tr><td>150k</td><td align=right>1</td></tr>
+<tr><td>220k</td><td align=right>1</td></tr>
+
+<tr><td>240k</td><td align=right>1</td></tr>
+<tr><td>330k</td><td align=right>2</td></tr>
+<tr><td>1M</td><td align=right>4</td></tr>
+<tr><td>1M5</td><td align=right>3</td></tr>
+<tr><td>4M7</td><td align=right>1</td></tr>
+<tr><td>10M</td><td align=right>1</td></tr>
+<tr><td>22M</td><td align=right>1</td></tr>
+
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>10</td></tr>
+<tr><td>BC547</td> <a href="parts_faq.html">or sim</a><td align=right>1</td></tr>
+<tr><td>2N4856 <a href="parts_faq.html">or sim</a></td><td align=right>1</td></tr>
+
+
+<tr><td>LM311</td><td align=right>1</td></tr>
+<tr><td>LM394 <a href="parts_faq.html">or sim</a></td><td align=right>1</td></tr>
+<tr><td>CA3140 or LM3140</td><td align=right>1</td></tr>
+<tr><td>LM3900</td><td align=right>1</td></tr>
+<tr><td>TL072</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS48 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs48_vco.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:46 GMT -->
+</HTML>

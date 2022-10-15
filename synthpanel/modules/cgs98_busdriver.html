@@ -1,0 +1,184 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs98_busdriver.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:12:24 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=920>
+<tr><td>
+
+
+
+
+<font face="ARIAL,HELVETICA">
+<center>
+<font face="ARIAL,HELVETICA" size=6>Bus Driver.</font><br>
+<P>
+<IMG alt="bus driver" BORDER="0" WIDTH="868" HEIGHT="300" SRC="pic/photo_cgs98_busdriver.jpg" hspace=10>
+<br clear=all>&nbsp;
+<P>
+</center>
+
+<p>
+The Bus Driver is a buffered bus for distributing CVs, or even audio to several modules, or even to several cabinets. In the basic configuration, it has four buffers, each of which (through the use of a CGS98 expansion) also offers inversions of these voltages. In the advanced configuration, input 1 is added to the signals of inputs 2, 3 and 4. As such, a root note can be fed into input 1, while sequencers are fed into the other inputs. Changing the voltage on input 1 would then change the root of all three of the sequences, allowing them to follow the root pitch. This was developed due to the drastic shortage of CV inputs on many Eurorack VCO modules.
+<p>
+An optional expansion board allows the buffered outputs to be bussed to other locations in the synthesizer. Also on the expansion board are inverted versions of the incoming signals. The non-inverted outputs on the expansion boards are hard-wired to the outputs on the driver board. The <i>inverted</i> outputs 2, 3 and 4 are <i>not</i> offset by the voltage on input 1, irrespecitive of whether the internal links are installed or not.
+
+
+
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<center>
+<img src="pic/schem_cgs98_busdriver.gif" width="517" height="725" border="0">
+<br><table width=600 border=0><tr><td><i>
+The schematic for the Bus Driver module.
+</i></td></tr></table>
+<p>
+
+<img width=597 height=210 src="pic/pcb_cgs98_busdriver.gif">
+<br><table width=600 border=0><tr><td><i>
+The main bus driver PCB contains all of the electronics.
+</i></td></tr></table>
+<p>
+<img width=597 height=156 src="pic/pcb_cgs93v10_trunk.gif">
+<br><table width=600 border=0><tr><td><i>
+The CGS93 trunk PCB is used for the extended outputs.
+</i></td></tr></table>
+</center>
+
+<p>
+<b>Pad identification:</b>
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>0V</td><td>0V/GND power rail for use with Banana installations</td></tr>
+</table>
+<p>
+
+<p>
+<h4>Construction</h4>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+Jack centers are at 1/2" spacing. The board will fit behind Euro and Frac rack panels.
+<p>
+<center>
+<IMG alt="bus driver" BORDER="0" WIDTH="800" HEIGHT="262" SRC="pic/photo_cgs98_busdriver1.jpg" hspace=10>
+<p>
+<i>The light colored surface mount parts are 39pF to 47pF. The dark ones are 100nF.</i>
+<p>
+</center>
+<IMG align="right" alt="DRIVER" BORDER=0 WIDTH=187 HEIGHT=600 SRC="pic/photo_cgs98_busdriver2.jpg" hspace=10>
+<p>
+Surface mount capacitors of 1206 or 805 are used on the rear of the PCB. See above.
+<p>
+For best results, hand match the resistors. This may necesitate you buying 100 resistors to sort through.
+<p>
+Use IC sockets. Once the unit is assembled, power it, with no inputs connected. Check the voltages at the outputs. Ideally, they will all be at zero. If an output is too far from zero, replace the corresponding chip. (0.083V = a semitone, so 0.005 V would be noticable.) That chip can be used in other projects where such an offset is not a problem.
+<p>
+If using a boxed header for the power connection, it will need a little filing so it clears the leads of the ferrite beads.
+<p>
+Between each set of pads for the mounting of the Cliff jacks, there is a large pad with two holes. This is so banana jacks can easily be mounted on the side of the board without the overlay. A short length of wire can be folded, looped through the banana jack's hole, then through the holes on the PCB, where it can be twisted to hold the jack in place while you solder it. The twist can then be trimmed back. As banana jacks have no earth connection, one has been provided on the PCB itself. Hook this to the nearest convenient power supply 0V/GND point on your panel. This will ensure the shield wires in the ribbon cable(s) are earthed.
+<p>If using banana jacks with the Euro panel, the jacks need to be mounted on the other side. A small portion needs to be trimmed from the tab of the jack to prevent it shorting against other tracks. See the photos on the <a href="cgs93_trunk.html">CGS93</a> page.
+<p>
+The three jumpers (J2,3,4) are to allow the output of the first driver to be disconnected from the other three drivers. You can use wire links, or removable jumpers.
+<p>
+The panel has two sides, one for use as the input panel, or as a stand-alone module, the other for the bus outputs, if used.
+
+
+<center>
+<IMG BORDER=0 width=600 height=99 SRC="pic/photo_cgs33euro_w.jpg">
+</center>
+To use the CGS98 as a bus driver, several CGS93 need to be used, and linked with a cable such as the one shown above, or using short, two-plug cables alternating between the top and bottom sockets. In this configuration, the multiples will be horizontal. See the <a href="cgs99_port.html">CGS99 Bus Expansion Port</a> for a convenient way of connecting between cases.
+<p>
+<center>
+<IMG BORDER=0 width=900 height=525 SRC="pic/wire_cgs93v10_trunk.gif">
+</center>
+<i>Both of these methods of interconnection are valid. On the CGS93, the box headers have identical pinouts and are in parallel. The lower header on the CGS98 is a standard Euro power connector.</i>
+<p>
+
+
+<p>&nbsp;
+<p>
+
+<!-- PARTS LIST -->
+
+<table border=0 cellpadding=10 cellspacing=0 align="left"><tr><td>
+<h3>Parts list (driver)</h3>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+
+<tr><td>Part</td><td align="right">Quantity</td></tr>
+
+<th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>330&#8486;</td><td align="right">8</td></tr>
+<tr><td>100k</td><td align="right">19</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>47pF <i>1206 </i></td><td align="right">8</td></tr>
+<tr><td>100nF <i>1206 </i></td><td align="right">8</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>TL072</td><td align="right">4</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>2 pin header and link</td><td align="right">3</td></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>16pin (2 x 8 pin) 90&deg; box headers</td><td align="right">2</td></tr>
+<tr><td>Cliff CL1384 (S6) 3.5mm Jack Sockets</td><td align="right">8</td></tr>
+<tr><td><a href="../pcb/index.html#CGS98">CGS98 V1.0 PCB set</a></td><td align="right">2</td></tr>
+</table>
+</td></tr></table>
+</td></tr></table>
+
+
+<table border=0 cellpadding=10 cellspacing=0 align="right"><tr><td>
+<h3>Parts list (expansion))</h3>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align="right">Quantity</td></tr>
+<tr><td>16pin (2 x 8 pin) 90&deg; box headers</td><td align="right">2</td></tr>
+<tr><td>Cliff CL1384 (S6) 3.5mm Jack Sockets</td><td align="right">8</td></tr>
+<tr><td><a href="../pcb/index.html#CGS98e">CGS98 expansion PCB set</a></td><td align="right">2</td></tr>
+</table>
+</td></tr></table>
+</td></tr></table>
+<br clear="all">
+<p>&nbsp;
+
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+Check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2013 by <a href="mailto:otherunicorn@gmail,com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs98_busdriver.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:12:38 GMT -->
+</HTML>

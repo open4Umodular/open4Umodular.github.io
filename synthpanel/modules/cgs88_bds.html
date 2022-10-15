@@ -1,0 +1,231 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs88_bds.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:08:06 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=920>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Triple Bi-directional Switch" BORDER=0 WIDTH=800 HEIGHT=133 SRC="pic/photo_cgs88_bds.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Triple Bi-directional Switch</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is a variation on the 1973 Classic Serge Triple Bi-directional Router, and the 1975 Bi-directional Quad Switch modules.
+<p>
+The TRIPLE BI-DIRECTIONAL ROUTER is a group of three switches each of which can route one input to either of two outputs, or either of two inputs to one output according to a pulse or control voltage level. Alternately, it can be assembled to sequentially route one input to one of four outputs, or one of four inputs to one output.
+<p>
+The switches are true bidirectional switches. You can feed signals through them in either direction.
+<p>
+Note that due to the limits of CMOS, it can switch signals that are up to about +/-7 volts.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<table border=0 cellpadding=10 cellspacing=0 width=680><tr><td>
+<img src="pic/schem_cgs88_bi-di_sw.gif" width="819" height="497" border="0" hspace="50">
+<br clear=all>
+<P><i>The schematic of the Triple Bi-directional Router module.</i>
+</td></tr></table>
+</center>
+<p>
+<center>
+<table border=0 cellpadding=10 cellspacing=0 width=680><tr><td>
+<img src="pic/schem_cgs88_quad_bi-di_sw.gif" width="860" height="567" border="0" hspace="50">
+<br clear=all>
+<P><i>The schematic of Bi-directional Quad Switch module.</i>
+</td></tr></table>
+</center>
+
+<p>
+Triple Bi-directional Router.<br>
+The module uses the CMOS "Toolkit" chip, the 4007 wired as FET bi-directional switches. An LM3900 is used to condition the incoming gate signals to control the switches. A simple regulator is used to position the circuitry mid way between the power rails, at the maximum voltage at which CMOS can run (15 volts). The fourth section of the LM3900 is a part of this regulator. Note that there is no 0V/GND connection to this module.
+<p>
+Bi-directional Quad Switch.<br>
+This version of the circuit adds a 4013 as a two bit binary counter, and some pre-wiring to form a one to four multiplexer/demultiplexer.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs88_bds.html" target="_blank"><img width=800 height=132 src="pic/pcb_cgs88_bdr.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs88_bdr.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors and diodes first, followed by the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, ICs and transistors.
+<p>
+If you are planning to use it with 6.3mm or 3.5mm jacks, the common of these jacks should be wired to 0V/GND as usual. Just solder the return wire to the (unused) center pins of the power connector.
+<p>
+<b>As presented, the circuit is set up for use with +/-12 volts.</b> Connecting it to +/-15 volts requires the value of four resistors to be altered. In the regulator portion of the circuit (near the power connector) replace the two 2k2 resistors with 4k7. Replace the two 8k2 resistors with 10k. Failure to make this modification when running on +/-15 volts will cause the destruction of the CMOS chips.
+<p>
+I would suggest powering the module for the first time without any chips in it and checking the voltage between the emitters of the two regulating transistors (2N3638 and 2N3566). If this voltage is over 15 volts, you will need to change the values of the resistors in the voltage divider.
+<p>
+Transistor types are not critical. The PCB specifies the types found on the original version. BC557 can be used for the PNP and BC547 for the NPN. 2N3906 and 2N3904 can be used if installed backwards with respect to the outline on the overlay.
+<p>
+<b>Notes for the Triple Bi-directional Router.</b>
+<p>
+If you are building the Triple Bi-directional Router version, simply do not install the components in the outlined area on the PCB.
+<p>
+<center>
+<IMG alt="Triple Bi-directional Switch" BORDER=0 WIDTH=800 HEIGHT=133 SRC="pic/photo_cgs88_bds2.jpg">
+</center>
+<p>
+<center>
+<img width=820 height=346 src="pic/wire_cgs88v10_bdr.gif">
+<P>
+<table border="0" cellspacing="0" width="820"><tr><td>
+<p>
+<i>Wiring the CGS88 is very straight forward. An optional manual-override switch is shown. Use a three position center-off single pole switch for each of the three sections of the router. The wiring shown replaces the direct wire for each control jack to the pads marked E, I and A.
+</i>
+</td></tr></table>
+</center>
+
+
+<p>
+<br><br>
+<b>Notes for the Bi-directional Quad Switch.</b>
+<p>
+<center>
+<IMG alt="Bi-directional Quad Switch" BORDER=0 WIDTH=800 HEIGHT=133 SRC="pic/photo_cgs88_bds.jpg">
+</center>
+<p>
+
+
+<center>
+<a href="pic/wire_cgs88_bdqs1.gif" target="_blank"><img width=800 height=132 src="pic/wire_cgs88_bdqs1.gif"></a>
+<br><table border=0><tr><td><i>The wiring required to use the PCB as a Bi-directional Quad Switch. <a href="pic/wire_cgs88_bdqs1.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+If you are Bi-directional Quad Switch, install all parts except for the 22k resistors. Wires need to be run from the pads marked M, N and O to one pad of each of the empty 22k resistor locations. See the photo above. You also need to link pads C to L and B to H complete the routing. In this configuration, the I input is the only one used. A positive gate or trigger signal will advance the switch to the next input/output.
+<p>
+<center>
+<IMG alt="Bi-directional Quad Switch" BORDER=0 WIDTH=800 HEIGHT=132 SRC="pic/photo_cgs88_bds3.jpg">
+</center>
+<p>
+As the gates are in series, some the protection resistors are not required, but were present on the original Serge version, effectively doubling the resistance of the switch. You can replace these extra resistors with links. On the prototype, I shorted out the extra resistors on the rear of the PCB as shown above.
+
+<center>
+<img width=820 height=346 src="pic/wire_cgs88_bdqs.gif">
+<P>
+<table border="0" cellspacing="0" width="820"><tr><td>
+<p>
+<i>Wiring the CGS88 Bi-directional Quad Switch. The original had two directly linked jacks for each of the input and output connections.
+</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>There is no setup.
+<p>
+<p>
+For those interested, original Serge kit assembly and set-up instructions can be found here:
+<br><a href="http://www.serge.synth.net/documents/kit/bi-di_switch.html" target="_blank">Triple Bi-Directional Router</a>
+<p>
+Info on the original Serge modules can be found here:
+<br><a href="http://www.serge.synth.net/modules/r4_rou/index.html" target="_blank">Triple Bi-Directional Router</a>
+<br><a href="http://www.serge.synth.net/modules/r4_rou/index_quad.html" target="_blank">Bi-directional Quad Switch</a>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>
+<li>The trigger/gate voltage is somewhat higher than used on CGS modules. Increasing the value of the upper resistor (8k2) in the reverence voltage divider will lower the detection point.
+<li>330R refers to 330 ohms. 100n = 0.1 UFO.
+<li>The module will work on +/-12 volts or with modification, on +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n monolithic ceramic</td><td align=right>1</td></tr>
+<tr><td>100n (0.1) monolithic ceramic</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k (1% metal film)</td><td align=right>9</td></tr>
+<tr><td>2k2 (12V) or 4k7 (15V)</td><td align=right>2</td></tr>
+<tr><td>8k2 (12V) or 10k (15V)</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>1</td></tr>
+<tr><td><font color="green">22k ROUE</font></td><td align=right>3</td></tr>
+<tr><td><font color="red">47k BS</font></td><td align=right>5</td></tr>
+<tr><td>1M5</td><td align=right>6</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>MC3401 or LM3900</td><td align=right>1</td></tr>
+<tr><td>CD4007AE, CD4007UBE etc.</td><td align=right>3</td></tr>
+<tr><td><font color="red">CD4013B or sim QBS</font></td><td align=right>1</td></tr>
+<tr><td>2N3566 or BC547</td><td align=right>1</td></tr>
+<tr><td>2N3638 or BC557</td><td align=right>1</td></tr>
+<tr><td><font color="red">BC547 QBS</font></td><td align=right>1</td></tr>
+<tr><td><font color="red">BC557 QBS</font></td><td align=right>1</td></tr>
+<tr><td></td><td align=right>1</td></tr>
+<tr><td></td><td align=right>1</td></tr>
+<tr><td></td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>Ferrite Bead </td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1 (2)</td></tr>
+<tr><td><a href="../pcb/index.html">CGS88 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+<font color="green"><p>ROU - Part required only for Triple Bi-directional Router version.</font>
+<font color="red"><p>QBS - Part required only for Quad Bi-directional Switch version.</font>
+
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs88_bds.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:08:36 GMT -->
+</HTML>

@@ -1,0 +1,138 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs33_matrix_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:56:09 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Matrix Mixer</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<center>
+<IMG alt="Matrix Mixer" BORDER=0 width=450 height=493 SRC="pic/photo_cgs33_matrix_mixer.jpg">
+</center>
+<p>
+<p>
+The matrix mixer is a five input, five output bipolar or unipolar DC couple mixer, for mixing control voltages or audio signals. In cases where you require several different mixes from a common set of signals, this module is ideal. Each output can be independently switched to operate in unipolar or bipolar mode. When in unipolar mode, all pots feeding that output behave in regular fashion, that is when the knob is fully counter-clockwise, no signal from the associated input passes into the mix. As the knob is advanced clockwise, a greater portion of the signal passes into the mix. In bipolar mode, each knob has a zero position mid-way through it's travel. Turning the knob anti-clockwise will add an increasing portion of a negative (inverted) version of the signal at the corresponding input, while turning the knob clockwise will add an increasing portion of the original signal to the mix.
+<p>
+<p>
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=189 src="pic/schem_cgs33_matrix_mixer2.gif">
+<br><i>Input buffers for the Matrix Mixer.</i>
+<p>
+<img width=600 height=253 src="pic/schem_cgs33_matrix_mixer.gif">
+<br><i>The column mixers of the Matrix Mixer.</i>
+<p>
+</center>
+<p>
+As is obvious from the circuit diagram, the matrix mixer is little more than a group of standard op-amp summing circuits and buffers. Any signal applied to an input is first buffered by a voltage follower based on a TL071 op-amp so as to not load down the output of whatever module is driving it. The buffered signal from each input are then fed to the inputs of five identical column mixers. The pots steer the signal to either the first or second op-amp of the mixer in bipolar mode, or the first op-amp or ground in unipolar mode. Any signal that is sent to the first op-amp is inverted, then mixed with any signal being sent to the second op-amp. This signal is then inverted again, and sent to the output jack.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=517 src="pic/pcb_cgs33_matrix_mixer.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram and the diagram below.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Before inserting the pots, it is a good idea to flatten the kinks out of the mounting pins, as these tend to put too much stress on the pot during insertion, leading to breakage. The very top row of pots overhang the edge of the board, so take care when lining these up. This is so boards can be stacked close together for cascading. If you do cascade the boards, there are two resistors at the bottom of the board that will need to be soldered on the copper side to get them out of the way.
+<p>
+On the main board there are five jumper locations marked U, B. Connecting the two holes marked by U set that mixer column to unipolar mode, while connecting the two holes marked by B set that mixer column to bipolar mode. You can use links here if you wish to permanently wire the mixer into one mode of operation, or you can run wires to SPDT switches to be able to switch between modes as required.
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="red"><b>Important.</b></font> On the first run of the PCBs, the input buffer board is missing its input pull-down resistors. These can be tacked across the contacts of the input jacks, between the tip and sleeve (ground) connections, or in a similar fashion back at the PCB itself, in the event that single-conductor (e.g. banana) jacks are being used.
+<li> On successive runs, one 100k input pulldown resistor is not connected to the corresponding input on the PCB. Compare the trackwork to one of its neighbors to see what needs to be linked.
+<li>There is nothing to stop the matrix mixer being installed at 90&deg; if you wish to swap the functions of the columns and rows.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite beads. If you don't care about power-rail noise, just use a link instead.
+<li><font color="green"><b>PCB info: </b></font>5" x 5" with pots on 1" centers, starting 0.3" from the left and 0.1" from the top. Secured by the pots. Sub board 0.8" x 5" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<center>
+<img width=600 height=550 src="pic/wire_cgs33_matrix_mixer.gif">
+<table><tr><td>
+<br><i>Wiring the boards. Please note that the external resistors are needed only on the first run of PCBs. The Unipolar/Bipolar mode switches have not been shown, as they are optional. Sufficient information exists in the text and schematic to add them. Input jacks are along the left hand side, and drive the corresponding row of pots. Output jacks are along the bottom, and correspond to the column of pots above each of them.</i>
+</td></tr></table>
+</center>
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>15</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>220R</td><td align=right>5</td></tr>
+<tr><td>390R</td><td align=right>5</td></tr>
+<tr><td>1k</td><td align=right>5</td></tr>
+<tr><td>4k7</td><td align=right>5</td></tr>
+<tr><td>47k</td><td align=right>40</td></tr>
+<tr><td>100k</td><td align=right>5</td></tr>
+<tr><td><a href="../pcb/index.html">10k lin pots</a></td><td align=right>25</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>10</td></tr>
+<tr><td>TL071</td><td align=right>5</td></tr>
+<tr><td>TL072</td><td align=right>5</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs33 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+The board is no longer stocked. This article is for reference only.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs33_matrix_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:56:18 GMT -->
+</HTML>

@@ -1,0 +1,164 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs102_epp.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:13:15 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border="0" cellpadding="0" cellspacing="0" width="900">
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Serge Equal Power Panner" BORDER="0" WIDTH="700" HEIGHT="244" SRC="pic/photo_cgs102v10_epp.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Equal Power Panner</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The Serge Equal Power Panner is a sub-module used in some of Serge's designs, such as stereo mixers and panners. It is essentially a small, purpose made analogue converter that converts and sums control voltages in such a way as when coupled with the exponential response of the cgs102v10 gain cells, you can achieve voltage control of signal level and equal powered panning.
+
+<h4>Quoted from the mixer section of the 1982 Serge catalog:</h4>
+<blockquote>
+EQUAL-POWER CONTROL OF PANNING AND CROSS-FADING<br>
+Linear response assures that panning and percentage cross-fade behave predictably in response to a control voltage, eliminating signal level changes as well as annoying slow and fast areas. Equal Power control assures that the perceived loudness of the VCA's will remain constant at all positions of a signal in stereo or quadraphonic space.
+</blockquote>
+<p>
+Note that this sub-module processes control voltages only. No audio signal is handled by it directly. It requires CGS108 gain cells to function.
+<p>
+<center>
+
+<img src="pic/schem_cgs102v10_epp.gif" width="706" height="478" border="0">
+<P><i>The schematic for Serge Equal Power Panner sub-module.</i>
+</center>
+<br>
+
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs102v10_epp.gif" target="_blank"><img width=837 height=301 src="pic/pcb_cgs102v10_epp.gif" vspace="10"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs102v10_epp.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+The circuit has been split over two PCBs, one containing the converter, the other the DC mixers.
+<p>
+An LM/CA3046 or LM/CA3086 transistor array has been used in the converter stage of the panner. Socket this chip as it can be fragile, and prone to self destruction. Transistor symbols on the PCB offer an alternative - to install regular transistors. These transistors would need to be matched
+See one of the other online resources for transistor matching, or follow this <a href="simple_transistor_matching.html">simple transistor matching</a> guide which will provide adequate results. <i>Note that this discrete configuration has not been tested,</i> and is offered only as a suggestion to experimenters.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+To install the header, slide the pins partially out of the plastic carrier strip so that you can solder the pins as close to the PCB as possible. (Some headers will not need the pins moved.) Before soldering, trim the portion of the pins that go through the PCB so they are just long enough to reach the other side. Once the header is soldered to the PCB, the carrier strip can be carefully clipped off as it is no longer required.
+<p>
+Alternatively, the pins could be fashioned from discarded component leads or tinned copper wire of an appropriate gauge. This option will not be as rigid as using a header.
+<center>
+<img width="545" height="466" src="pic/photo_cgs108_header.jpg" vspace="10">
+<br><table border=0><tr><td><i>Header fitting example. Once soldered, the plastic carrier is carefully clipped away with a pair of side cutters, leaving long pins. The long pins will be trimmed when fitting the module to the carrier PCB.</i>
+</td></tr></table>
+</center>
+<center>
+<img width="700" height="248" src="pic/photo_cgs102v10_epp2.jpg" vspace="10">
+<br><table border=0><tr><td><i>A number of SMT capacitors are used on the backs of this board set. See the photo above for positioning.</i>
+</td></tr></table>
+</center>
+
+
+<h4>Pad identification</h4>
+<p>
+There is no manual wiring on this module. All connections are made when the PCBs are soldered to the host PCB.
+<p>
+<h4>Set Up</h4>
+<p>
+No set up is required.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF, etc.
+<li>The module will work on +/-12 or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>1.4" x 1".
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>6.8k</td><td align="right">1</td></tr>
+<tr><td>10k</td><td align="right">1</td></tr>
+<tr><td>13k</td><td align="right">4</td></tr>
+<tr><td>33k</td><td align="right">3</td></tr>
+<tr><td>47k</td><td align="right">2</td></tr>
+<tr><td>82k</td><td align="right">1</td></tr>
+<tr><td>100k</td><td align="right">2</td></tr>
+<tr><td>110k</td><td align="right">2</td></tr>
+<tr><td>150k</td><td align="right">3</td></tr>
+<tr><td>220k</td><td align="right">1</td></tr>
+<tr><td>330k</td><td align="right">8</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>47pF</td><td align="right">1</td></tr>
+<tr><td>47pF 1206 SMT</td><td align="right">4</td></tr>
+<tr><td>10nF 1206 SMT</td><td align="right">1</td></tr>
+<tr><td>100nF 1206 SMT</td><td align="right">1</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">2</td></tr>
+<tr><td>CA3046, LM3046, CA3086 or sim.</td><td align="right">1</td></tr>
+<tr><td>TL071</td><td align="right">1</td></tr>
+<tr><td>TL074</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc</th></tr>
+<tr><td>5 pin 90&deg; 0.1" header strip</td><td align="right">2</td></tr>
+<tr><td>12 pin 90&deg; 0.1" header strip</td><td align="right">1</td></tr>
+<tr><td>CGS102 VER1.0 PCB set</td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs102_epp.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:13:38 GMT -->
+</HTML>
+
+
+

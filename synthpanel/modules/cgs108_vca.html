@@ -1,0 +1,171 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs108_vca.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:13:38 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border="0" cellpadding="0" cellspacing="0" width="900">
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Serge Gain Cell" BORDER="0" WIDTH="850" HEIGHT="288" SRC="pic/cgs108_vca.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Gain Cell</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The Serge gain cell is a sub-module used in many of Serge's designs, such as the various voltage controlled filters, Quad VCA, mixers, panners and so on. The circuit is proprietary, and I do not have permission to share the schematic. It is sufficient to say that it is essentially a voltage controlled op-amp. It can be used in amplifiers and integrators.
+<p>
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs108_vca.gif" target="_blank"><img width=170 height=200 src="pic/pcb_cgs108_vca.gif" vspace="10"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs108_vca.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+
+Note that the orientation for the transistors on the overlay is for BC547B and BC557B transistors. The pinout of modern PNXXXX devices is usually the reverse of what was used with the 2NXXXX devices. PN4250 (use instead of BC557B) would need to be installed backwards with respect to the  "D" on the overlay. 2N5089  (use instead of BC547B) has variant pinouts depending on manufacturer. Check with the datasheet for the brand you have purchased.
+<p>
+Like types of transistors must be matched, more so with the NPN pair, as the trimpot can deal with some degree of mismatch in the PNP pair. See one of the other online resources for transistor matching, or follow this <a href="simple_transistor_matching.html">simple transistor matching</a> guide which will provide adequate results.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+To install the header, slide the pins partially out of the plastic carrier strip so that you can solder the pins as close to the PCB as possible. (Some headers will not need the pins moved.) Before soldering, trim the portion of the pins that go through the PCB so they are just long enough to reach the other side. Once the header is soldered to the PCB, the carrier strip can be carefully clipped off as it is no longer required.
+<p>
+Alternatively, the pins could be fashioned from discarded component leads or tinned copper wire of an appropriate gauge. This option will not be as rigid as using a header.
+<center>
+<img width="545" height="466" src="pic/photo_cgs108_header.jpg" vspace="10">
+<br><table border=0><tr><td><i>Header fitting example. Once soldered, the plastic carrier is carefully clipped away with a pair of side cutters, leaving long pins. The long pins will be trimmed when fitting the module to the carrier PCB.</i>
+</td></tr></table>
+</center>
+
+
+<h4>Pad identification</h4>
+<p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>+VE</td><td>+VE</td></tr>
+<tr><td>-VE</td><td>-VE</td></tr>
+<tr><td>0V</td><td>0V (Both 0V pads are linked on the PCB)</td></tr>
+<tr><td>IN</td><td>Input</td></tr>
+<tr><td>OUT</td><td>Output</td></tr>
+<tr><td>FB</td><td>Feedback</td></tr>
+<tr><td>CV</td><td>Control Voltage</td></tr>
+</table>
+
+<p>
+<h4>Set Up</h4>
+<p>
+<center>
+<img width="369" height="335" src="pic/schem_cgs108_setup.gif" vspace="10">
+</center>
+<p>
+To correctly adjust the CGS108, it needs to be wired into the circuit shown above. It can easilly be lashed up on a piece of solderless protoboard/breadboard.
+<p>
+A scope is connected to the output. The scope is set to DC, and the beam centered on the screen. Vertical amplification can be set at 2V or 5V per division, and can be adjusted as needed to keep the trace on the screen.
+<p>
+A sine wave from an oscillator is fed into the input.
+<p>
+The gain pot is NOT connected to the CV input.
+<p>
+If the module is working correctly, the input signal will be present on the output. If there is distortion, reduce the level of the input signal.
+<p>
+Adjust the trimpot on the module until the peak of the signal below the 0V line on the scope is the same height as the peak of the signal above it.
+<p>
+Connect the gain pot is to the CV input. Using it, you should be able to increase and decrease the amplitude of the signal at the output.
+<p>
+<b>If you do not have a scope,</b> connect the output to an amplifier. Connect the gain pot to the CV input. Increase the gain until distortion is heard. Use the trimmer on the module to remove the distortion. Increase the gain again, trim out the distortion again, and so on until you reach a point where you can no longer trim out the distortion. Back the gain off slightly and retrim for no distortion.
+<p>It is possible that the last trimming as described above is the only one required.
+<p>
+If using a scope, you may notice some have slightly different overall gain. If so, group the most similar together. These similar ones are best used where better matching will help, such as in the two VCI stages on the CGS112, or the amplifiers in the CGS101. The VCA in the CGS112, for example, does not need to match any other module.
+
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF, etc.
+<li>The module will work on +/-12 or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>1.4" x 1".
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>100&#8486;</td><td align="right">1</td></tr>
+<tr><td>330&#8486;</td><td align="right">1</td></tr>
+<tr><td>8.2k</td><td align="right">2</td></tr>
+<tr><td>100k <i>trimmer</i></td><td align="right">1</td></tr>
+<tr><td>150k</td><td align="right">2</td></tr>
+<tr><td>1.5M</td><td align="right">1</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>5pF ceramic</td><td align="right">1</td></tr>
+<tr><td>47pF ceramic</td><td align="right">1</td></tr>
+<tr><td>10nF (=0.01uF) Monolithic ceramic, MKS or MKT </td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">2</td></tr>
+<tr><td>BC557B or C/2N4250/PN4250</td><td align="right">2</td></tr>
+<tr><td>BC547B or C/2N5089</td><td align="right">2</td></tr>
+<tr><td>TL072 or LF353</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc</th></tr>
+<tr><td>8 pin 90&deg; 0.1" header strip</td><td align="right">1</td></tr>
+<tr><td>CGS108 VER1.0 PCB</td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs108_vca.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:13:48 GMT -->
+</HTML>
+
+
+

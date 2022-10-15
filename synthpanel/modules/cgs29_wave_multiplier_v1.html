@@ -1,0 +1,184 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs29_wave_multiplier_v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:26:06 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ, serge, multiplier, wave">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Wave Multiplier</font><br>
+for music synthesizers.
+</center>
+<br>&nbsp;
+<p>
+<b>Version 1 documents, for those with original version boards.</b>
+<p>
+<a href="cgs29_wave_multiplier.html">(Go to current version docs)</a>
+<p>
+<p>The idea for this project came from the fabled middle section of the Serge wave multipliers. I have never seen or heard one of these units, nor have I seen its schematic diagrams, but armed with descriptions and suppositions by various people who had seen them, and a couple of photos of CRO traces from the output of the module, I decided to design myself one.
+<p>
+The result as displayed on the CRO is very close to those of the Serge, with the exception of the final fold, where in my design, the wave maintains more of its original shape. It can produce the most amazing, harmonically rich, filter-like sweeps.
+<p>It took me weeks of experimentation before I came up with the final design. I tried various configurations (usually mixing the outputs of successive rectifiers) as suggested on websites devoted to the original, and while I did have success, there were elements of the designs that I felt were poor.
+<p>It wasn't until I approched the problem from a different angle that I was happy with the result. The circuit I came up with I would describe as a "reflector", and is ingeniously simple. Going on it's performance, I would guess it to be very close to Serge's original design.
+<p>
+In addition to this multiplier, there is a second simple multiplier created by adding lag to the feedback path of an op-amp. The results are remeniscent of a well known tube modulator.
+<p>
+<center>
+<IMG alt="wave multiplier" BORDER=0 WIDTH=600 HEIGHT=221 SRC="pic/photo_cgs29_wave_multiplier.jpg" hspace=10>
+</center>
+<p>
+<b>How to use this module:</b>
+<p>
+For the primary multiplier, the "folder", connect the input to the triangle wave output of a VCO. Connect a LFO, envelope generator or even a DC voltage to the folds input. The result will be a harmonically rich signal at the "F out" output. A second input based on a lag circuit allows square waves and other hard-edged waveforms to be used as the signal source.
+<p>There is also a "squared" output available, with "pwm" inputs to further vary the posibilities.
+<p>
+To use the second multiplier, the "grinder", feed the input from the output of a VCO. Adjusting the "drive" and "lag" pots will give variation to the output signal.
+<p>
+Obviously both multipliers can also be used to mangle control voltages, the outputs from LFOs etc.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=381 src="pic/schem_cgs29_wave_multiplier.gif">
+<br><i>The partial schematic of the wave multiplier.</i>
+</center>
+<p>
+<a href="pic/r_schem_cgs29_wave_multiplier.gif">Full schematic can be seen here!</a>
+
+<p>
+The "grinder" is simply an inverting amplifier with a lag circuit in its feedback path. Depending on the time constant of the lag pot and its associated capacitor, the op-amp will take longer to settle. In trying to maintain the virtual ground at pin 2 of the first op-amp the output will overshoot, then as the virtual ground settles, then passes the optimal point, the output will again try to compensate, with the same results. The result is a "ringing" that is imposed on the input waveform around the points it changes direction. This introduces a lot of high frequency hash. The slew rate of the op-amp is critical in this location, so keep this in mind if substituting the LM358 for another chip. I have found that TL072 not particularly effective here, and the 4558 doesn't produce the effect at all.
+<P>
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/r_pcb_cgs29_wave_multiplier.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diodes and ICs. I would recommend the use of a socket for at least the LM358. This will allow a number of ICs to be tried and the best selected
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Where there was space on the PCB, I have allowed extra pads so that various size capacitors can be fitted. There are several decoupling capacitors, none of which are shown on the schematic.
+<p>
+There are three capacitors and a power bus at one end of the PCB. These can be ignored. +6 volts is NOT required by this design. This is simply a power bus so I can work one of these modules into an existing Serge.
+<p>
+It is a good idea to insert a 1k resistor between the +15V supply and the normalized connection on any CV jack you may chose to wire that way. This is because +15 will momentarily be fed out of this jack when you plug something into it, due to the mechanical nature of the contacts. The pads marked R+ are there for this purpose. There is also an R- pad as well, with the limiting resistor in series with the -15V supply.
+<p>
+The unused op-amp has been brought out to pads, though will require a couple of tracks to be cut if it is to be used. There is also a small prototyping area provided.
+<p>
+The LM324 op-amps can be replaced by other op-amps in the standard configuration, such as the TL074.
+<p>
+
+<center>
+<img width=324 height=254 src="pic/wire_cgs29_wave_multipler1.gif">
+<br><i>Wiring the Grinder</i>
+</center>
+
+</font>
+
+</td></tr>
+</table>
+<p>
+&nbsp;
+<p>
+<font face="ARIAL,HELVETICA">
+<center>
+<img width=823 height=394 src="pic/wire_cgs29_wave_multipler2.gif">
+<br><i>Wiring the Folder. This is merely a guide. Not all pots shown are needed, or even desirable. Other wiring arrangements may be just as useful.</i>
+</center>
+</font>
+<p>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>The current distribution of this PCB also includes the <a href="cgs52_folder.html">Simple Wave Folder</a> instead of the power-bus at the left hand end of the PCB. Refer to the <a href="cgs52_folder.html">Simple Wave Folder</a> article for details. You could try connecting its input directly to pin 14 of IC4d to gain access to the voltage controlled level and offset functions. You will probably want to delete the input pot of the Simple Wave Folder if you do this.
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47p</td><td align=right>1</td></tr>
+<tr><td>5n6</td><td align=right>1</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>8</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>220R</td><td align=right>2</td></tr>
+<tr><td>470R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>7</td></tr>
+<tr><td>3k9</td><td align=right>1</td></tr>
+<tr><td>4k7</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>12</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>39k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>15</td></tr>
+<tr><td>270k</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>10</td></tr>
+<tr><td>LM358</td><td align=right>1</td></tr>
+<tr><td>LM324</td><td align=right>3</td></tr>
+<tr><td>LM3080</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs29 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2002 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs29_wave_multiplier_v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:26:13 GMT -->
+</HTML>

@@ -1,0 +1,197 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs39_quad_gate.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:37 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=700>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--center>
+<IMG alt="Quad Logic Gate" BORDER=0 WIDTH=600 HEIGHT=207 SRC="pic/photo_cgs39_quad_gate.jpg">
+</center-->
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Quad Logic Gate</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The previous versions can be found <a href="cgs39_quad_gate_v1.html">here</a>.
+<p>
+The Quad Logic Gate is a very simple module that can be built in one of five flavors : XOR, OR, AND, NOR and NAND. It is a simple way to gain additional control of gate and trigger pulses within a system. It can also be used for some simple signal multiplying. The XOR is well known as a square wave "ring modulator", though interesting effects can also be generated using the other configurations. Each gate has an in-built LED to indicate the status of the output of that gate.
+<p>
+With some chip types, it is also possible to have some of the gates presented on the panel as basic inverters. For XOR and NOR gates, tie the disused input of that gate to 0V. For NAND gates, tie the disused input of that gate to +15V. It is not possible to create inverters with AND and OR gates.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<p>
+<b><br><a href="pic/schem_cgs39v2_logic.gif" target="_blank">Click here for the Schematic</a></b>
+<p>
+
+<p>
+Each input is configured to detect a voltage over approx. 2 volts. When this voltage is reached, a logic HIGH is presented to the corresponding gate input. The output will react to what is present at the inputs, and the result, depending on the gate chip used, is buffered by the emitter follower, and used to drive the LED and output jack.
+<p>
+<center>
+<table border=0 cellspacing=0 cellpadding=0><tr><td>
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4001</th></tr>
+<tr><th colspan="3">NOR</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4011, 4093</th></tr>
+<tr><th colspan="3">NAND</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4071</th></tr>
+<tr><th colspan="3">OR</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4081</th></tr>
+<tr><th colspan="3">AND</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th colspan="3">4030, 4070</th></tr>
+<tr><th colspan="3">XOR</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+</td></tr></table>
+<i>Truth tables for the different logic gates that can be used in this circuit.</i>
+</center>
+
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<img width=600 height=101 src="pic/pcb_cgs39_quad_gate_v2.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+<a href="pcb/cgs39v2ovr.gif" target="_blank">300DPI printable overlay</a>
+<p>
+Due to a manufacturing error, the overlay on one version of these PCBs has become cluttered. Print out the above file to assist with assembly.
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+In this case I recommend using a socket for the CMOS chip, as this will allow different chips to be substituted for the purpose of experimentation.
+<p>
+Valid choices are:
+<ul>
+<li>4030 or 4070: XOR
+<li>4001: NOR
+<li>4011 or 4093: NAND
+<li>4071: OR
+<li>4081: AND
+</ul>
+<p>
+There are four LED resistors, marked RL. The value of these is determined by the type of LED you have chosen. Try out your LED with various resistors before assembling the board. If you are using common LEDs, 1k to 2k2 would be appropriate. If you are using any of the super-bright modern LEDs for their unique colors, the resistors can be much higher, 10k to 33k for example, so that the LEDs don't dazzle you.
+<p>
+There are five 100n decoupling capacitors. These can be 1206 SMT or regular capacitors. The one on the logic chip must be mounted on the rear of the PCB regardless of the chosen type.
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on 12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspanpan=2>Capacitors</th></tr>
+<tr><td>100n (can be SMT1206)</td><td align=right>5</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspanpan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>4</td></tr>
+<tr><td>1k8</td><td align=right>4</td></tr>
+<tr><td>RL See text</td><td align=right>4</td></tr>
+<tr><td>10k</td><td align=right>8</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>26</td></tr>
+
+<tr><th colspanpan=2>Semi's</th></tr>
+<tr><td>BC547 or sim.</td><td align=right>4</td></tr>
+<tr><td>CMOS Logic chip</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+
+<tr><th colspanpan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS39V2 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs39_quad_gate.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:42 GMT -->
+</HTML>

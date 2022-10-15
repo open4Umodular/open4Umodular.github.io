@@ -1,0 +1,86 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/organ/schober/rezounder.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:29:20 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, Schober, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<font face="ARIAL,HELVETICA" size=6>Thoughts on the Schober Rezounder</font>
+<P>
+I have been looking at the design of the Rezounder, Schober's replacement
+for the Reverbatape, and it strikes me that they made an economic error in
+it's design.
+<P>
+Effectively, they copied of the design of the Reverbatape, when they would
+have been better taking a slightly different approach.
+<P>
+First the reverbatape:<br>
+The reverbatape records the signal to the tape, then retrieves it three
+times, with three separate heads spaced approx. 100ms apart. It then loops
+the signal from the last head back into the record head.
+<P>
+Why use three heads? The answer to this is sound quality. Each time a signal
+is recorded to tape, then played back again, it degrades. By playing back
+each recording three times, at delayed intervals, the number of
+record/playback cycles is effectively reduced by three - the playback from
+the second and third heads will be the same quality as that of the first.
+Likewise, echoes 4,5 and 6 all of which result from the signals second time
+though the system, are again of the same quality as each other, and only two
+generations old. A comparable echo done on a single head playback system
+would be 6 generations old, with three times as much quality loss by the
+last of the six echoes.
+<P>
+The Rezounder followed pretty much the design concept of the Reverbatape,
+though instead of using the distance between tape heads to introduce the
+delay, it uses a trio of BBD delay chips, each of which was frightfully
+expensive at the time.
+<P>
+The signal passes through each of these three delays in turn, then after the
+third delay is looped back into the input for delays 4,5, and 6, much like
+in the reverbatape. Each successive delay output (echo) is dropped by a
+further 1db when added to the output mix.
+<P>
+The sad thing here is that there is no advantage whatsoever in using three
+of these delay chips in series. Unlike the reverbatape, where there is only
+one record action for three playback actions, each delay chip in essence
+records and plays back within itself (not quite how it does it, but adequate
+for this concept), and thus subjects the signal to a loss of quality, so
+after passing through the three chips the first time, the signal has been
+degraded three times.
+<P>
+The exact same effect, with the exact same quality loss would result if a
+single delay chip was used, with a 1db reduced signal being fed back into
+itself, thus reducing the number of chips to 1/3. This I suspect, would have
+come near to halving the cost of the kit.
+<P>
+Ken
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>
+<font size=1>Article, art &amp; design copyright 1999-2003 by <a href="mailto:sasami@hotkey.net.au">Ken Stone</a></font>
+<p><b><a href="index.html">Schober Organs</a></b>
+<p><b><a href="../../index.html" target="_top">Modular Synth Home</a></b><P><a href="../../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/organ/schober/rezounder.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:29:20 GMT -->
+</HTML>

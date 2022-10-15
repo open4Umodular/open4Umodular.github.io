@@ -1,0 +1,246 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs89_gate_sequencer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:08:36 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Gate Sequencer" BORDER=0 WIDTH=800 HEIGHT=269 SRC="pic/photo_cgs89_gate_sequencer.jpg" hspace=10>
+<br clear=all>&nbsp;
+<p>
+<IMG alt="Gate Sequencer" BORDER=0 WIDTH=299 HEIGHT=600 SRC="pic/panel_cgs89_gate_sequencer.jpg" hspace=10 align="right">
+<P>
+<font face="ARIAL,HELVETICA" size=6>Gate Sequencer</font><br>
+for music synthesizers.
+</center>
+<p>
+
+The CGS89 is a sequencer designed for delivering pulsed or gated events, for rhythm and percussion, triggering other sequencers, or selecting stages in Programmers such as the Serge R15 PRG. It can be used as a replacement for the first generation Serge R10 SEQ Sequencer.
+<p>
+<b>How to use this module:</b>
+<p>
+The main function of the board is as a sequential pulse generator. When clocked by an external source, each of its outputs will come on one after the other. This can be used to sequentially trigger up to ten events. An example would be to set the number of steps to 2, then connect outputs 1 and 2 to two drum sound generators. A pulse train fed to the clock input would then produce a drum roll alternating between the two drum sounds.
+<p>
+When coupled with a switch bank and the onboard buffers, rhythms of up to ten steps can be created. There are two onboard buffers, giving two separate channels. While these outputs can be used to trigger drum sounds, that is not their only use. They can be used to trigger envelope generators, step waves in wave tables, drive other sequencers etc. Once you have a gate sequencer in your modular, you will wonder how you ever survived without it.
+<p>
+Multiple gate sequencers can also cascaded for longer rhythm lengths, or more channels.
+To cascade the outputs of several units, simply connect the "Full Out/Mix Out" and "Pulse Out" outputs on the first unit to the corresponding outputs on the second unit and so on. That is right, this module has been designed so it's outputs can be connected together with its other outputs, or outputs of other CGS89 gate sequencers via wire ORing.
+<p>
+Experiment with it.
+<p>
+<i>To the right: The prototype was built behind a Cynthia Gate Sequencer panel.</i>
+<p>
+<b>A little on how it works:</b>
+<p>
+First we will consider the main section of the board.
+<p>
+<center>
+<img width=773 height=593 src="pic/schem_cgs89_seq.gif">
+<br><i>The schematic of the main part of the Gate Sequencer. </i>
+</center>
+<p>
+An LM339 comparator is used to shape the input signals. These take whatever signal is fed into the module and convert them to signals appropriate for driving the rest of the circuitry. With the values given, the sensitivity is set at around 2V, allowing triggering from signals with a +/- 5 volt swing, or with a 0V to +10 volt swing, both of which are common in modular synths. The output waveforms of some modules will never fall below the 1.4V level, preventing triggering.
+<p>
+Pad identification:
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>HLD</td><td>Hold input</td></tr>
+<tr><td>CLK</td><td>Clock input</td></tr>
+<tr><td>RSB</td><td>Reset button</td></tr>
+<tr><td>RST</td><td>Reset and stop</td></tr>
+<tr><td>RSP</td><td>Reset and run</td></tr>
+<tr><td>LA1 to LA10</td><td>to LED anodes</td></tr>
+<tr><td>o1 to o10</td><td>Outputs</td></tr>
+<tr><td>0V</td><td>General 0V connection and cathode return for LEDs</td></tr>
+<tr><td>+VE</td><td>positive voltage power rail out, for external use if needed.</td></tr>
+<tr><td>-VE</td><td>negative voltage power rail out, for external use if needed.</td></tr>
+</table>
+<p>
+Functional descriptions:
+<ul>
+<li>The Clock signal is used to step the 4017 decade counter through its stages.
+<li>A gate signal at the Hold input will stop the sequencer, and disable the switched outputs on the other part of the circuit diagram until such a time as the gate signal stops.
+<li>RSB is for an optional reset button. Connecting it to +VE will set the sequencer back to step one, and hold it there for as long as the button is held on.
+<li>A gate signal at the RST reset input will also set the sequencer back to step one, and hold it there until the gate signal stops.  <li>A gate signal at the RSP reset input will set the sequencer back to step one, but allow it to keep counting, irrespective of the length of time the gate signal is present.
+</ul>
+<p>
+Each of the outputs of the 4017 are buffered with a transistor wired as an emitter follower. Any general purpose NPN transistor will work here. I use the BC547 because it is the most common transistor in Australia. This buffer drives an LED to display which step is active, as well as the individual outputs for each step.
+<p>
+<center>
+<img width=739 height=417 src="pic/schem_cgs89_seq2.gif">
+<br><i>The schematic of the switch matrix and buffers of the Gate Sequencer.</i>
+</center>
+<p>
+Pad identification:
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>F1, F2</td><td>Connects to the "full" contacts of the switches for each channel</td></tr>
+<tr><td>P1, P2</td><td>Connects to the "pulse" contacts of the switches for each channel</td></tr>
+<tr><td>FM1, FM2</td><td>Full/Mix output for each channel</td></tr>
+<tr><td>Po1, Po2</td><td>Pulse output for each channel</td></tr>
+</table>
+
+<p>
+SPDT Center-off switches are used to allow each step to be either the full length of the clock cycle, or gated with the incoming clock pulse. Varying the mark-space ratio of the clock signal can thus be used to vary the length of the output pulses.
+The channel outputs F1, F2 (full step length for channel 1, 2) and P1, P2 (partial step length for channel 1,2) are then fed back to the onboard buffers for processing. Note that diodes are needed for each switch and need to be mounted off-board.
+All switched signals, both full length and pulses, are mixed and sent to the corresponding Full/Mix output. Pulses are present at the Pulse output for all stages for which a switch is not off, i.e., if the switch is set to full, or pulse for a particular stage, there will be a corresponding pulse at the Pulse output.
+<p>
+<center>
+<img width=500 height=300 src="pic/schem_cgs89_seq3.gif">
+<br><i>A timing example from the Gate Sequencer. In this example, the clock signal has a 50% mark/space ratio.</i>
+</center>
+<p>
+<h4>Other ideas</h4>
+<p>
+
+<center>
+<a href="pic/event_generator.jpg" target="_blank"><img width=900 height=370 src="pic/event_generator.jpg"></a>
+<br><table border=0><tr><td><i>Event Generator concept. Unpatched panel. Note the steps are marked 0 to 9.</i>
+</td></tr></table>
+</center>
+<p>
+<center>
+<a href="pic/event_generator2.jpg" target="_blank"><img width=900 height=370 src="pic/event_generator2.jpg"></a>
+<br><table border=0><tr><td><i>Event Generator concept, example patch. The first CGS89 board is clocked at the frequency of the "master" clock as provided by the onboard LFO (modified CGS58). The second CGS89 board is clocked by the first stage of the previous CGS89. It advances at 1/10th of the rate. The third CGS89 board is clocked by the first stage of the previous CGS89. It advances at 1/100th of the rate of the first, i.e. 1/1000 the rate of the clock. Events are derived by AND gating together the various outputs. If you wanted base 8 instead of base 10, a cable can be run from the 8 output back to reset of each of the CGS89. The other RESET input on each CGS89 could be connected together to give you a "Reset to 0" input. The AND gates are CGS39 Quad Logic Gates. Additional functionality could be achieved with the addition of OR gates, flip-flops, etc. This is one situation where the wire-OR output ability of the CGS89 cannot be used, unless you don't mind having to certain events tied, e.g., if you wire-OR steps 4 and 6 together, ALL events that use either step 4 or 6 will fire for BOTH 4 and 6.</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs89_seq.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs89_seq.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs89_seq.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> The parts in the area enclosed with a line can be omitted if the switched outputs are not required, e.g. if using this as an R10 SEQ substitute.</i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Note the two parts marked in blue on the diagram above. Install a 4k7 in place of the 10k. Install a link instead of the diode. These parts are used to determine the gate output voltages. With a 10k installed, the minimum gate voltage is over 5 volts. The diode was to compensate for the different "High" voltages generated by the two types of output chip. If you find your non-switched outputs higher than the switched ones, the diode can be installed. In the prototype, I found it was not needed, so a link was added across the back of the diode. It may be more convenient to build it this way in the first place. Install the diode, then fold one of its the leads back across to the other pad, trim and solder it in place. That way, if you find you do need the diode, it is a simple matter of cutting off the shorting link.
+<p>
+Select RLED to suit your LEDs. In this case, the LEDs will be driven from 5 volts. The prototype used 1k resistors with high-brightness RED LEDs.
+<p>
+Resistors RY current limit the output, and are part of the wire-OR gate configuration. The prototype used 2 x 1k.
+<p>
+
+<p>
+If using banana jacks colored to Serge standards, I would suggest the use of orange jacks for all outputs, to indicate they are a non-standard outputs capable of being wire ORed. (ORange seems appropriate!)
+<p>
+<center>
+<img width=814 height=555 src="pic/wire_cgs89_seq1.gif"></a>
+<br><table border=0><tr><td><i>Wiring for use as a substitute classic Serge sequencer.</i>
+</td></tr></table>
+</center>
+
+<p>&nbsp;
+<p>
+
+<center>
+<img width=814 height=735 src="pic/wire_cgs89_seq2.gif"></a>
+<br><table border=0><tr><td><i>Wiring the switched outputs. Only three stages are shown. Note that the first stage does NOT go to the length switch. Either RST or RSB can be used as the reset input. Select which reset function you wish to bring to a panel jack, and wire the other one to the LOOP switch, or directly to the common pin of the rotary switch if you do not require the Loop/Hold function. 1N4148 (or similar) diodes must be mounted on each switch.</i>
+</td></tr></table>
+</center>
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+There is a single trimmer that needs adjustment. With the unit powered, monitor the output voltage of the active stage (with reference to 0V) and adjust the trimmer until it reads 5V. Turn the corresponding stage switch to FULL and measure the FULL/MIX output. The voltage should be around the same voltage, although it will not be exact. If it is less that 4.5 volts, install the diode marked in blue on the PCB then re-adjust for 5V.
+<p>
+<IMG alt="Gate Sequencer" BORDER=0 WIDTH=600 HEIGHT=301 SRC="pic/photo_cgs89_gate_sequencer2.jpg" hspace=10 align="left">
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>0.1/100n</td><td align=right>5</td></tr>
+<tr><td>220n</td><td align=right>1</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k, RY</td><td align=right>10</td></tr>
+<tr><td>RLED* 1k</td><td align=right>10</td></tr>
+<tr><td>4k7</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>29</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>16</td></tr>
+<tr><td>220k</td><td align=right>7</td></tr>
+<tr><td>1M</td><td align=right>3</td></tr>
+<tr><td>10k single turn trimmer</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>21</td></tr>
+<tr><td>BC547</td><td align=right>11</td></tr>
+<tr><td>4017</td><td align=right>1</td></tr>
+<tr><td>4081</td><td align=right>1</td></tr>
+<tr><td>LM339</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>1</td></tr>
+<tr><td>0.156 4 pin 90&deg; connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS89 V1.0 PCB</a></td><td align=right>1</td></tr>
+<tr><th colspan=2>Off board options:</th></tr>
+<tr><td>LED</td><td align=right>10</td></tr>
+<tr><td>1N4148</td><td align=right>20</td></tr>
+<tr><td>SPDT switch</td><td align=right>1</td></tr>
+<tr><td>SPDT Ctr-off switch</td><td align=right>20</td></tr>
+<tr><td>Alpha 12 position switch </td><td align=right>1</td></tr>
+<tr><td>Knobs</td><td align=right>1</td></tr>
+<tr><td>Jacks</td><td align=right>20</td></tr>
+
+<tr><td colspan=2>* see text</td></tr>
+
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>&nbsp;
+<p>
+
+<b>Notes:</b>
+<ul>
+
+<li>The module will work on +/-12 volts.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs. Parts within the boxed area can be omitted if the switched outputs are not required.
+<p>
+Check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a href="mailto:otherunicorn@gmail,com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs89_gate_sequencer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:09:36 GMT -->
+</HTML>

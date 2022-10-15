@@ -1,0 +1,168 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs63_psd.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:37 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Power Supply Delay</font><br>
+for music synthesizers.<p>
+</center>
+
+<!--center>
+<IMG alt="Power Supply Delay" BORDER=0 WIDTH=600 HEIGHT=245 SRC="pic/photo_cgs63_psd.jpg">
+</center-->
+
+<br clear=all>&nbsp;
+<p>
+
+The Power Supply Delay is a support module of sorts. Due to rather heavy usage of bypass capacitors in the synth and diy scene (a good thing) some shortcomings of commercial power supplies have come to light. The most frequent is the failure of one or both power rails to come up at power-on, caused by the initial demand of all the bypass capacitors. The power supplies sense this as an overload and shut down.
+<p>
+If modules were brought on-line in groups instead of all at once, the power-up surges would be limited to what the power supply can handle. Of course, once a group of modules has started, its current demands are less, allowing ample capacity for the supply to start another group of modules.
+<p>
+The Power Supply Delay does exactly that. After a predetermined time, it closes a set of relay contacts, powering the modules connected to it.
+<p>
+There is another advantage to doing this as well. The power supply has started and settled before modules are connected to it, giving them a cleaner power-on, and thus a cleaner reset signal for those modules that use a power supply based reset.
+<p>
+The delay is adjustable, so as more modules are added, extra Power Supply Delays can be added, adjusted to different times to keep the start-up load distributed.
+<p>
+It is better of course to have all Power Supply Delay boards powered directly from the power supply in a "star" configuration than to run them connected in series.
+<p>
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<center>
+<IMG alt="Power Supply Delay" BORDER=0 WIDTH=344 HEIGHT=442 SRC="pic/schem_cgs63_psd.gif">
+
+
+<p>
+<i>The schematic for the Power Supply Delay.</i>
+<p>
+</center>
+
+
+The circuit can be considered to be three parts, the delay, the +/- 15 volt system, and the +5 volt system.
+<p>
+When power is applied, the voltage across the 1uF capacitor slowly rises. When this voltage passes the reference voltage set by the trim pot, the output of the voltage comparator to which they are attached swings positive, turning on the buffer transistor and the relay(s). This in turn routes power from the inputs to the outputs.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs63_psd.gif">
+<br><table border=0><tr><td><i>The component overlay for the Power Supply Delay. The darker section is needed only if your system uses 5 volts as well as +/- 15 volts.
+
+</i></td></tr></table>
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+If you are using only +/- 15 volts in your synthesizer, there is no need to install the second relay.
+<p>
+An industry standard relay is used. If you are switching 5 volts as well as +/- 15 volts, relays with 5 volt coils can be used. instead of installing resistor RCO, a link can be wired between the end of RCO with two holes and the 5V pad near the second relay.
+<p>
+If you are using +/- 12 volts in your synthesizer, use a link for RCO and use relays with 12 volt coils.
+<p>
+If you are using only +/- 15 volts in your synthesizer, and using relays with 12 volt coils a little measurement and calculation is required. Once the relay (or relays) is/are in circuit, measure the resistance across the coil(s). RCO needs to be one fifth of this resistance in order for the relays receive the correct voltage.
+<p>
+It is technically possible to power 5 volt relays this way too. In this case RCO would need to be twice the resistance of the relay coil(s). Remember that Power = Volts squared / resistance.
+<p>
+With a single 5V relay with a 64 ohm coil it would be as follows:
+<br>2 x 64 ohms = 128 ohms. This is so 10 volts is lost across the RCO. We will use the nearest available value of 120 ohms.
+<p>In this case power dissipated (in watts) = 10V x 10V / 120 ohms, or 100/120 = 0.83 W. A 1 watt resistor would be needed for RCO. As such, I'd not recommend doing this.
+<p>
+Conversely, with the two 12 volt relays I used in parallel, dissipation (in watts) = 3V x 3V / resistance of RCO in ohms. In my case RCO = 120R, so dissipation = 9/120 = .075 W.
+<p>
+Depending on the relays selected, and the characteristics of the transistor used, the 47k base resistor may be too high, causing the relays to not pull in. Replace this resistor with a 10k. No harm will come if you just use a 10k to start with.
+<p>
+The extra rows of 4-pin jacks along each side are there for those who need to use them for control signals or similar.
+<p>
+If a longer delay is required, RDEL can be increased, or the 1uF capacitor replaced with a larger value. A low leakage capacitor would be best.
+<p>
+<b>Notes:</b>
+<ul>
+<li>It is possible to disable the delay by turning the trimpot to its counter-clockwise end.
+<li>If you can't find suitable relays, you aren't looking. Brands include Alcatel, NAIS, Aromat, PED and no doubt there are many more. The footprint is an industry standard that has been used for many years.
+<a href="http://au.mouser.com/ProductDetail/Omron/G5V-2-DC12/?qs=lK7M36XCk6JxdWY%2fV6sVqw%3d%3d" target="_blank">Mouser example.</a>
+<li><font color="green"><b>PCB info: </b></font>2" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>1uF 25V</td><td align=right>1</td></tr>
+
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>10k</td><td align=right>2 </td></tr>
+<tr><td>47k (use 10k)</td><td align=right>0</td></tr>
+<tr><td>100k trimmer</td><td align=right>1</td></tr>
+<tr><td>RDEL 1M</td><td align=right>1</td></tr>
+
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4002</td><td align=right>1</td></tr>
+<tr><td>BC338</td><td align=right>1</td></tr>
+<tr><td>741 or sim.</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Misc.</th></tr>
+
+<tr><td>DIP relays</td><td align=right>see text</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>as required</td></tr>
+<tr><td>0.156 6 pin connector</td><td align=right>as required</td></tr>
+<tr><td><a href="../pcb/index.html">CGS63 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs63_psd.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:40 GMT -->
+</HTML>

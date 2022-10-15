@@ -1,0 +1,192 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs57_bintic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:48 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=960>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Bi-N-Tic Filter</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Bi-N-Tic Filter" BORDER=0 WIDTH=900 HEIGHT=303 SRC="pic/photo_cgs57v14_bintic.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs57v10_bintic.html">here</a>.
+
+
+<p>
+<br>This is a strange mixture of a VCO and a switched capacitor filter based on the filter presented by Jan Hall in Electronotes. If you are after something different, this fits the bill. After all, how many filters have a sync input?
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+
+
+<center>
+<IMG alt="Bi-N-Tic Filter" BORDER=0 WIDTH=950 HEIGHT=729 SRC="pic/schem_cgs57v1.4_bintic.gif">
+</center>
+
+
+<p>
+This filter is based on the original idea by Jan Hall, as presented in Electronotes EN92 P14-15, which was in turn based on an idea in a 1974 issue of <i>Electronic Design</i> on a Biquart (twice the order) filter.
+<p>
+A VCO drives a pair of analog switches, switching two banks of eight 0.047uF (47nF) capacitors across op-amps (effectively creating multiple integrators), and this a multi-passband or comb filter is created at f<sub>0</sub>, f<sub>1</sub>, f<sub>2</sub> etc.. The overall filter configuration itself should be easily recognized. Two controls are provided within the structure of the filter - damping and bandwidth. Not all combinations of these two are actually valid, some resulting in silence, but none the less, quite an array of variations is possible.
+<p>
+The VCO section has been re-vamped, based on the well known Electronotes <a name="http://home.att.net/~synthsource/ens76/vco1.htm" target="_blank">ENS-76 VCO Option 1</a> as used in the <a href="http://rubidium.dyndns.org/~magnus/synths/friends/stopp/" target="_blank">ASM-1</a>, Modulus, etc. This core was an obvious choice due to the amount of information, lists of suitable substitutes and so on that are available on the web. In this case, a cut-down version is used as its purpose was simply to drive the analog switches. The VCO is connected via a signal processor to the input of a 4024 binary counter. The first three divisions are used to drive the address lines of the 4051 analog switches.
+<p>
+While not shown on the circuit diagram, the remaining divider outputs are also available. They are not buffered, and are thus not suitable for connection to panel jacks, but they can be wired to a rotary switch, followed by a level pot, and fed back into the input of the filter itself, thus giving the filter an excitation signal that is perfectly in sync with its operating frequency. When configured like this, the filter becomes a very unusual oscillator giving quite complex, waveforms or even simple waveform sequences (ringing bursts).
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+
+
+<center>
+<a href="pic/pcb_cgs57v14_bintic.gif" target="_blank"><img vspace="10" width=900 height=300 src="pic/pcb_cgs57v14_bintic.gif" border="1"></a>
+<br><table border=0><tr><td><i>The component overlay for the REV1.4 PCB. <a href="pic/pcb_cgs57v14_bintic.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> There is a 47pF marked on the PCB at the point shown in magenta. Do NOT install it. Despite there being SMT pads on the rear of the PCB, no SMT parts are required.</i>
+</td></tr></table>
+</center>
+
+<p>
+<center>
+<img width=688 height=542 src="pic/wire_cgs57v14_bintic.jpg">
+<br><table border=0><tr><td><i>The component overlay and basic wiring for the Bi-N-Tic Filter. All pots are viewed from the rear.
+<ul>
+<li>Tune  100k Lin (fine tune)
+<li>Freq  100k Lin (coarse tune)
+<li>Damping  50k Lin (resonance)
+<li>Bandwidth 100k Lin dual
+</ul>
+It is of course possible to add level pots to the CV and signal inputs. There are pads supplied for an optional second signal input and second output. Additional CV inputs may be added through additional resistors to the CVSN (Control Voltage Summing Node) pad.
+<p>
+The optional wiring for the Bi-N-Tic Filter: The lower divisor outputs of the 4024 are selected via positions 2 to 5 of a rotary switch. Position 1 is the optional Input 2 jack. The output of the switch is fed via a level pot to the second signal input on the PCB. Positions 2 to 5 of the rotary switch now provide four signals, one octave apart, to "excite" the the filter when it is adjusted to be near resonant, or if the filter is backed off, four octaves of square wave VCO output. There are also direct sawtooth and pulse outputs from the VCO.
+</i></td></tr></table>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+While LF356 op-amps have been specified, any single op-amp should be suitable. TL071, TL081 etc. certainly work in the circuit.
+<p>
+Experiment with using different values in place of the 47n capacitors connected to the 4051. Having mixed values creates some interesting effects.
+The speakers are probably bottoming out here - It's being played through a small docking station.<center>
+<object width="400" height="225"><param name="movie" value="http://www.youtube.com/v/xNw11UWFyjM?version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/xNw11UWFyjM?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="400" height="225" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+</center>
+<p>
+<b>Notes:</b>
+<ul>
+<li>Do not install the 47pF capacitor.
+<li>Despite there being surface mount pads on the rear of the PCB, no surface mount components are required.
+<p>
+<li>Some people find that "near enough is good enough" for filter tuning. In this case, the PT146 tempco resistor can be replaced with an ordinary 1k resistor, and the LM394 replaced with a pair of NPN transistors such as BC547 or 2N3904 (preferably matched).
+<li>Dual transistors. Substitutes can be made for the LM394. Other dual transistors that should work are 2SC3381, 2SC1583, MAT02, SSM2210. Some will be of a physically different configuration.
+<li>Alternate FETs include 2N4091, 2N4391, PN4091 2N4391 PN4391 PN4856, MPF108.
+<li>The module should work on +/-12 volts if the 20k resistor connected to pin 3 of the LM311 is reduced to 14k.
+<li><font color="green"><b>PCB info: </b></font>2" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>330&#8486;</td><td align="right">2</td></tr>
+<tr><td>680&#8486;</td><td align="right">1</td></tr>
+<tr><td><i>R1</i> 240k</td><td align="right">1</td></tr>
+<tr><td><i>R2</i> 300k</td><td align="right">1</td></tr>
+<tr><td><i>R3</i> 10k</td><td align="right">1</td></tr>
+<tr><td><i>R4</i> 10k</td><td align="right">1</td></tr>
+<tr><td><i>R5</i> 47k</td><td align="right">1</td></tr>
+<tr><td>1k PT146 tempco</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align="right">8</td></tr>
+<tr><td>2.2k</td><td align="right">2</td></tr>
+<tr><td>3.3k</td><td align="right">1</td></tr>
+<tr><td>8.2k</td><td align="right">2</td></tr>
+<tr><td>10k</td><td align="right">13</td></tr>
+<tr><td>10k <i>25 turn trimmer</i></td><td align="right">1</td></tr>
+<tr><td>15k</td><td align="right">2</td></tr>
+<tr><td>20k</td><td align="right">1</td></tr>
+<tr><td>47k</td><td align="right">2</td></tr>
+<tr><td>56k</td><td align="right">1</td></tr>
+<tr><td>100k</td><td align="right">10</td></tr>
+<tr><td>100k <i>25 turn trimmer</i></td><td align="right">1</td></tr>
+<tr><td>150k</td><td align="right">1</td></tr>
+<tr><td>1M</td><td align="right">1</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>18pF</td><td align="right">1</td></tr>
+<tr><td>100pF</td><td align="right">3</td></tr>
+<tr><td>2.2nF (=0.0022uF) styrene</td><td align="right">1</td></tr>
+<tr><td>47nF (=0.047uF)</td><td align="right">16</td></tr>
+<tr><td>100nF (=0.1uF)</td><td align="right">10</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">1</td></tr>
+<tr><td>2N4856 <a href="parts_faq.html">or sim</a></td><td align="right">1</td></tr>
+<tr><td>4024</td><td align="right">1</td></tr>
+<tr><td>4051</td><td align="right">2</td></tr>
+<tr><td>BC547</td><td align="right">3</td></tr>
+<tr><td>BC557</td><td align="right">1</td></tr>
+<tr><td>CA3140</td><td align="right">1</td></tr>
+<tr><td>LF356 or TL071</td><td align="right">4</td></tr>
+<tr><td>LM311</td><td align="right">1</td></tr>
+<tr><td>LM394 <a href="parts_faq.html">or sim</a></td><td align="right">1</td></tr>
+<tr><td>TL072</td><td align="right">2</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS57 VER1.4 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs57_bintic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:01:04 GMT -->
+</HTML>
+
+
+
+<table>
+<tbody>
+</tbody></table>

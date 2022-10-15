@@ -1,0 +1,115 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs20_dco.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:04 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Digitally Controlled Oscillator" BORDER=0 WIDTH=276 HEIGHT=200 SRC="pic/photo_cgs20_dco.jpg" align=right hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Digitally Controlled Oscillator</font><br>
+for music synthesizers.
+<br><h3><font color="red">PREVIEW</font></h3>
+</center>
+<br clear=all>&nbsp;
+<p>
+This board was really developed for my own use, for 486 based sequencer/synthesizer. It is a 16 bit digitally controlled oscillator designed for driving wavetable modules. If fed from a lower frequency, it could be used directly for audio. It could even be used with Walsh functions.
+<p>
+<b>How to use this module:</b>
+<p>
+This module is designed to connected to either a 16 or 8 bit bus, and contains two latches that can be latches independently. For a backplane/bus common Veroboard or strip board may be used, along with 0.1 pitch 90&deg; headers. It can be used with the <a href="../other/paraport/paraport.html">parallel port adapter</a>, which is how I use mine. Software is up to the individual, though I will share what code I develop for it.
+<p>
+<b>A little on how it works:</b>
+<p>
+Basically it is a down counter that reloads itself at the zero count, with the value stored in the latches. The monostable, which has a pulse length less than a single clock cycle, ensures the counters are correctly loaded, as well as giving an output pulse for driving the wavetable, or whatever you connect it to. A second monostable gives a slightly longer pulse for external use.
+<p>
+<center>
+<img width=500 height=496 src="pic/schem_cgs20_dco.gif">
+<br><i>The schematic of the Digitally Controlled Oscillator.</i>
+</center>
+<p>
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<IMG alt="Digitally Controlled Oscillator" BORDER=0 WIDTH=297 HEIGHT=200 SRC="pic/pcb_cgs20_dco.gif" align=right hspace=10>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the links and resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, electrolytics, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+You can also try 74HC or 74ACT chips in this board, and will probably get better performance, pluse the option of running at a higher frequency if you do.
+<p>
+Additional 100n decoupling capacitors should be soldered directly between pins 8 and 16 on each of the counter chips. There was simply no way I could route them on a single sided PCB.
+<p>
+A 90 degree 0.1 inch header and mating connector can be used to allow the module to be plugged into the Veroboard backplane.
+<p>
+<b>Notes:</b>
+<ul>
+<li>Fast 74xxxx CMOS latches with the same pin configuration can be used in the circuit.
+<li>Different latch chips with the same pin configuration can be used in the circuit. The obsolete 74LS273 can be used if <b>A</b> is linked to <b>B</b> instead of <b>D</b>. Check your data books.
+<li><b><font color="Red">This board has not yet been tested, though I may be prepared to sell a couple to people with sufficient skill to do their own trouble shooting, if they wish to evaluate it. Demand will determine how many are produced in the future. Despite what the listing on the PCBs for sale page says, I DO have some in stock.</font></b>
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100pF</td><td align=right>1</td></tr>
+<tr><td>220pF</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>8</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>680R</td><td align=right>1</td></tr>
+<tr><td>2k2</td><td align=right>1</td></tr>
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>74LS193</td><td align=right>4</td></tr>
+<tr><td>74LS123</td><td align=right>1</td></tr>
+<tr><td>74LS374</td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>24mHz Xtal oscillator</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS20 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+Please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question.
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs20_dco.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:14 GMT -->
+</HTML>

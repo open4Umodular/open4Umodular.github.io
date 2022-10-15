@@ -1,0 +1,141 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs27_tube.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:54:06 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Tube experimenter board" BORDER=0 WIDTH=300 HEIGHT=213 SRC="pic/photo_cgs27_tube1.jpg" align=right hspace=10>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Tube experimenter board</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+This circuit board was designed to allow for easier assembly of 7 pin tube based synthesizer circuits. Going on the number of requests I have had for a tube module that runs on +/- 15 volts, the first project I present using this board is exactly that. It is a simple VCA that doubles as a wave folder/distortion unit. There are no dangers in connecting this to solid state modules due to the voltages in use, and the fact that this is really a voltage controlled attenuator, and not an amplifier. There is about 50% signal level loss.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect a signal such as a VCO output to the signal input of the tube module. Feed the output to an amplifier or other signal processing module. Turn the LEVEL pot to maximum. This sets the gain to maximum. When fed an 8V peak to peak triangle wave, the first half of the travel of the DRIVE pot acts as an input level control. The second half of the travel sets the amount of overdrive/wave folding. A DC offset voltage can be added to the input signal via an external CD mixer to allow shifting of the fold point, animating the output signal.
+<p>
+A control voltage can be used to control the output level, in which case the LEVEL pot controls the amount of effect the control voltage has. This signal needs to be above 0 volts to turn the VCA on, though negative voltages will not hurt it.
+put.
+<p>
+
+<b>A little on how it works</b>
+<p>
+<center>
+<img width=400 height=341 src="pic/schem_cgs27_vca.gif">
+<br><i>The schematic of the VCA/Wave folder.</i>
+</center>
+<p>
+For a more detailed discussion on how a tube VCA works, see <a href="../tube/index.html">Audio Synthesis via Vacuum Tubes</a>
+<p>
+The 1uF capacitor is to reduce any clicks caused though CV bleed-through. The 1M on pin 1 of the tune is really only needed if you do not include the DRIVE potentiometer. While I have specified 50k and 100k pots, the values are not critical. Anything between 20k and 100k would be fine. The tube is not really critical either, though pinouts will vary depending on the tube selected. I chose this tube simply because I have a lot of them.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=349 height=200 src="pic/pcb_cgs27_tubev2.gif">
+<br><i>The component overlay. As you can tell, it is rather generic.</i>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When happy with the board, use wire and parts placement as shown in the following diagrams.
+<p>
+<img width=400 height=237 src="pic/wire_pcb_cgs27_tube1.gif">
+<br><i>Start by putting in the following links. Note that one wire runs under where the tube will be mounted. Test fit the tube socket. The holes may need enlarging, as may a few other holes around the board, depending on the components used.</i>
+<p>
+<img width=400 height=237 src="pic/wire_pcb_cgs27_tube2.gif">
+<br><i>After the wires are done, the components can be installed.</i>
+<p>
+<img width=400 height=337 src="pic/wire_pcb_cgs27_tube3.gif">
+<br><i>Wiring the board to the external components. On the connectors, SW is the switched terminal, SL is for the sleeve connection, and TP is for the tip connection. The pots are displayed as viewed from the front, with the shaft pointing towards you.</i>
+<p>
+</center>
+<p>
+The tube heater can be powered from 5 to 6 volts DC, as is convenient. It is best if the heater 0 volt wire is not the same wire that is the signal ground, though they should be connected together back at the power supply.
+<p>
+The resistors can all be 1/4 watt, and capacitors with a 50v rating will be quite adequate.
+<center>
+<p>
+<IMG alt="Tube experimenter board" BORDER=0 WIDTH=400 HEIGHT=255 SRC="pic/photo_cgs27_tube.jpg"  hspace=10>
+<p>
+<i>Above view without the tube in the socket.</i>
+<p>
+<IMG alt="Tube experimenter board" BORDER=0 WIDTH=300 HEIGHT=183 SRC="pic/photo_cgs27_tube2.jpg" hspace=10>
+<p>
+<i>Above view with the tube in the socket.</i>
+<p>
+</center>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>220n</td><td align=right>1</td></tr>
+<tr><td>1uF</td><td align=right>1</td></tr>
+<tr><td>22 mfd 25V electro</td><td align=right>1</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+
+<tr><td>2k2</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>39k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>680k</td><td align=right>1</td></tr>
+<tr><td>1M</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Tubes</th></tr>
+<tr><td>CV4014 or 6064</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td><a href="http://www.tubesandmore.com/" target="_blank">PP-ST7-195 socket</a></td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs27 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+<!--b>I am prepared to sell an appropriate socket and tube to those who request it. The cost per tube and socket is US$10.</b-->
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs27_tube.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:54:24 GMT -->
+</HTML>

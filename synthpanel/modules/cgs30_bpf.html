@@ -1,0 +1,158 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs30_bpf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:55:06 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Band Pass Filter</font><br>
+for music synthesizers.
+</center>
+<br>&nbsp;
+<p>
+<p>
+This module is a simple bandpass filter with manually adjustable center frequency and Q. It is good for setting up artificial resonances for virtual instruments. Personally I find this sort of filter more interesting than the VCF, and as I needed a few more of them in my system I have produced this PCB.
+<p>
+<center>
+<IMG alt="Band Pass Filter" BORDER=0 WIDTH=300 HEIGHT=200 SRC="pic/photo_cgs30_bpf.jpg" hspace=10>
+</center>
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=275 src="pic/schem_cgs30_bpf.gif">
+<br><i>The schematic of the Band Pass Filter.</i>
+</center>
+<p>
+CX on the overlay is simply an optional part to allow easy conversion to an AC coupled output. If you chose to install a capacitor here, you will need to cut the track below the component.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=250 height=250 src="pic/pcb_cgs30_bpf.gif">
+<br><i>The component overlay of the earlier version.</i>
+<p>
+<img width=250 height=238 src="pic/pcb_cgs30_bpf_r1.gif">
+<br><i>The component overlay of Rev 1. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diodes, and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The VER1.3 board has provision for the addition of two 1206 SMT decoupling capacitors per chip. These are soldered on the track side of PCB between the pairs of "square", hole-less pads under each chip.
+<p>
+I have allowed space on the PCB to mount 16mm pots directly on the PCB. There are two sets of holes to allow mounting at two different centers. Pots can be mounted off board if preferred or required (see below).
+<p>IMPORTANT: In the first version of the PCB, the on-board resonance pot is wired as a "band width" control, i.e. in reverse to a standard resonance control.  Rev 1 boards have this pot reversed, so that it behaves as a standard resonance pot. Pot centers are now at 1 inch.
+<p>
+For the frequency pot I have specified a log pot on the PCB itself, though a linear pot will actually give a better response. It is specified as a C taper on the original diagram, which according to info just to hand, is a reverse audio (anti-log) taper in Japan.
+<IMG alt="Band Pass Filter" BORDER=0 WIDTH=134 HEIGHT=250 SRC="pic/panel_cgs30_bpf.jpg" align=right hspace=10>
+<p>
+The original unit uses LM1458 op-amps. My prototype uses TL072 op-amps.
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+<li>To increase the resonance, try changing the 4k7 in line with one end of the resonance pot to something lower, e.g. 1k, or even 470R.
+</ul>
+
+<br clear="all">
+
+<center>
+<img width=492 height=590 src="pic/wire_cgs30_bpf_multi.gif">
+<br><i>Three BPF boards and a mixer cascaded to make a triple parallel filter. (The mixer PCB is slightly narrower than pictured.) </i>
+</center>
+<p>
+
+It is possible to stack the band pass filter PCB.
+<p>
+To make the multi-filter module, only the top board has the beads, 10uF decoupling capacitors and power connector inserted. On the remainder of the filter PCBs omit these parts.
+<p>
+<IMG alt="Band Pass Filter" BORDER=0 WIDTH=120 HEIGHT=250 SRC="pic/photo_cgs30_bpf_module.jpg" align=right hspace=10>
+The filter boards are then mounted one above the other with the fully stuffed board at the top.  There are three holes directly under where one of the ferrite beads mounts for the power rails. Tinned copper wire busses can be run between the above mentioned holes, starting at the bottom board, and running right through each board in the stack until they reach the pads below the top PCB. They are soldered to each PCB, making sure on the top PCB that the wires do not poke though and contact the bead. Two other bus wires are required. One is run between all the pads marked IN1, the other between all pads marked OUT2. The IN1 bus is connected to a front panel jack. A signal fed into this jack will be fed to all filters in the stack at once. Jacks connected to the IN2 pads on each board will allow for signals to be fed into each individual filter. Feeding signals into the IN1 bus and an IN2 pad will result in the two signals being mixed in that filter.
+<p>
+The bus wire connected between all of the OUT2 pads requires a little further processing. It should be wired to the signal node (virtual ground) of an op-amp summer. The <a href="mixer.html">D.C. Mixer</a> is ideal for this. The virtual ground is marked as pad B. The output of the mixer can now be used as an all filter mixed output. The regular mixer inputs can be retained to allow extra signals to be mixed with the combined band pass filter outputs.
+<p>
+<b>Note</b>: with the later CGS04 boards with 100k resistors marked on the overlay, the resistor marked with the asterisk (*) will need to be 47k. The other two can be 100k or 47k. It doesn't matter. The 6 input resistors are not needed as the 47k resistors are already on the bandpass filter boards.
+<p>
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>22n</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>2 (Rev 1)</td></tr>
+<tr><td>100n 1206 SMD</td><td align=right>4 (Rev 2)</td></tr>
+
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>680R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>4k7</td><td align=right>1</td></tr>
+<tr><td>6k8</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>3</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>4</td></tr>
+<tr><td>50k lin pot</td><td align=right>1</td></tr>
+<tr><td>100k dual pot. see text</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>2</td></tr>
+<tr><td>TL072 or 1458</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs30 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2002 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs30_bpf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:55:22 GMT -->
+</HTML>

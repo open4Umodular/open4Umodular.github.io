@@ -1,0 +1,203 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/uni33_matrix_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:19:27 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=950>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Matrix Mixer</font><br>
+for music synthesizers.
+</center>
+<p>
+<font face="ARIAL,HELVETICA" size=4>preliminary documentation</font><br>
+<br clear=all>&nbsp;
+<p>
+<center>
+<IMG alt="Matrix Mixer" BORDER=0 width=800 height=279 SRC="pic/photo_uni33_a_mix.jpg"><br>
+<IMG alt="Matrix Mixer" BORDER=0 width=800 height=302 SRC="pic/photo_uni33_b_mix.jpg">
+</center>
+<p>
+<p>
+The matrix mixer is a multiple input, four output bipolar or unipolar DC coupled mixer, for mixing control voltages or audio signals. In cases where you require several different mixes from a common set of signals, this module is ideal. Each output can be independently switched to operate in unipolar or bipolar mode. When in unipolar mode, all pots feeding that output behave in regular fashion, that is when the knob is fully counter-clockwise, no signal from the associated input passes into the mix. As the knob is advanced clockwise, a greater portion of the signal passes into the mix. In bipolar mode, each knob has a zero position mid-way through it's travel. Turning the knob anti-clockwise will add an increasing portion of a negative (inverted) version of the signal at the corresponding input, while turning the knob clockwise will add an increasing portion of the original signal to the mix. Each column has the option for three inputs, two DC coupled, and one AC coupled for audio use. The builder chooses which inputs to use. Each column also as a master level control, ranging between zero and unity gain.
+<p>
+<p>
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=655 height=849 src="pic/schem_uni33_mmix.gif">
+<br><i>The schematic, showing one input buffer and the master summers of for the Matrix Mixer.</i>
+<p>
+</center>
+<p>
+As is obvious from the circuit diagram, the matrix mixer is little more than a group of standard op-amp summing circuits.
+<p>
+Each column consists of an op-amp input stage and four pots. Any signal applied to an input is first buffered by an inverting summer based around a TL071 op-amp. The gain of this stage can be controlled by the pot in its feedback path. Three inputs are provided on the PCB, two DC coupled and one AC coupled via a 220n capacitor.
+<p>
+The buffered signal is then fed to the wipers of for pots, which direct the signal in varying proportions to the A and B buses.
+<p>
+The pots steer the signal to either the first or second op-amp of the mixer in bipolar mode, or the first op-amp or ground in unipolar mode. Any signal that is sent to the first op-amp is inverted, then mixed with any signal being sent to the second op-amp. This signal is then inverted again, and sent to the output jack.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_uni33a_mmix.gif" target="_blank"><img width=700 height=139 src="pic/pcb_uni33a_mmix.gif" border="1"></a>
+<p>
+<a href="pic/pcb_uni33b_mmix.gif" target="_blank"><img width=700 height=139 src="pic/pcb_uni33b_mmix.gif" border="1"></a>
+<p><i>The component overlays. Click for enlarged versions.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. It is possible to build this using Cliff style jacks on the PCBs, or to use other jacks, in which case a different method of mounting the buffer board will be required.
+<p>
+When you are happy with the printed circuit boards, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+On the UNI33B column PCB there is provision for an offset null trimmer. These (and their associated 1k5 resistors) can be omitted as they are only there for experimenters. <i>If you don't know what they are for, you don't need them.</i>
+<p>
+Other chips can be substituted for the TL071 (single op-amp) and TL072 (dual op-amp) if desired.
+<p>
+Column boards are connected to the main board via a 16 way ribbon cable and 16 pin insulation displacement connectors. For each additional column board used, you need only add another connector to the same ribbon cable. 90&deg; mounting box headers would be ideal for this, although, as the photo's show, regular box headers can be used if the insulation displacement connectors are spaced further apart on the ribbon cable.
+<p>
+The master PCB (UNI33A) has several mounting holes, allowing it to be bolted to one of the column boards at different heights, depending on your construction preferences. This also gives clearance for use of a standard power connector.
+<p>
+<IMG alt="Matrix Mixer" BORDER=0 width=450 height=375 SRC="pic/photo_uni33_mmix2.jpg" align="left">
+<IMG alt="Matrix Mixer" BORDER=0 width=450 height=375 SRC="pic/photo_uni33_mmix3.jpg">
+<p>
+<IMG alt="Matrix Mixer" BORDER=0 width=900 height=279 SRC="pic/photo_uni33_mmix4.jpg">
+<p>
+
+
+&nbsp;
+
+<p>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>+VE</td><td>Spare +VE connection</td></tr>
+<tr><td>-VE</td><td>Spare -VE connection</td></tr>
+<tr><td>0V</td><td>CCW end of FB pot, 0V connection to 3.5mm jacks</td></tr>
+</table>
+<p>
+<B>Pot and Resistor selection (RA and RB)</b>
+<p>
+The ratio of the value of the pot (RA) to that of the fixed resistors (RB) used in the processor will affect the response of the pot. The pot itself MUST be linear. For example, with RB = 100k, a 50k pot for RA will produce a slightly anti-log response. A 100k pot would produce a linear response.
+<p>
+For RB = 100k:
+<ul>
+<li>RA = 10k - Anti-log response - Greater sensitivity near center of rotation. Finer control towards ends of travel.
+<li><b>RA = 100k</b> - Linear response.  Mostly for CV mixing
+<li>RA = 1M - Log response - Finer control near center of rotation. Greater sensitivity towards ends of travel. Mostly for audio mixing
+</ul>
+For RB = 10k:
+<ul>
+<li><b>RA = 10k</b> - Linear response. Mostly for CV mixing
+<li><b>RA = 100k</b> - Log response - Finer control near center of rotation. Greater sensitivity towards ends of travel. Mostly for audio mixing
+</ul>
+Recommended choices are in bold.
+<p>
+<img width=400 height=438 src="pic/processor_pot_response.gif">
+<p>
+
+<p>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>Board dimensions: 5" x 1". Pots are spaced at 1".
+
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>"A" board. Master mixer</tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>330&#8486;</td><td align="right">4</td></tr>
+<tr><td>RB (see text)</td><td align="right">12</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>47pF</td><td align="right">8</td></tr>
+<tr><td>100nF (=0.1uF)</td><td align="right">5</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>TL072</td><td align="right">4</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>ID connector <i>16 pin dual row</i></td><td align="right">1</td></tr>
+<tr><td>box header<i>16 pin dual row</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 connector <i>4 pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4 pin</i></td><td align="right">1</td></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>16 way ribbon cable</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html#uni33">UNI33_A PCB</a></td><td align=right>1</td></tr>
+
+<tr><td colspan="3"><hr></td></tr>
+
+<tr><td>"B" board. 1 per column.</td></tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>1.5k (see text)</td><td align="right">1</td></tr>
+<tr><td>linear<i>PCB mounted pot</i> RA (see text)</td><td align="right">5</td></tr>
+<tr><td>100k <i>trimmer</i> (see text)</td><td align="right">1</td></tr>
+<tr><td>100k</td><td align="right">4</td></tr>
+<tr><td>RB (see text)</td><td align="right">4</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>47pF</td><td align="right">1</td></tr>
+<tr><td>10nF (=0.01uF)</td><td align="right">2</td></tr>
+<tr><td>100nF (=0.1uF)</td><td align="right">1</td></tr>
+<tr><td>220nF (=0.22uF)</td><td align="right">1</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>TL071</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>ID connector <i>16 pin dual row</i></td><td align="right">1</td></tr>
+<tr><td>box header<i>16 pin dual row</i></td><td align="right">1</td></tr>
+<tr><td><a href="../pcb/index.html#uni33">UNI33_B PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+<img src="pic/photo_uni33_mmix.jpg" width="600" height="647">
+<p>
+<i>Despite Serge Synthesizer being printed on this panel, this particular matrix mixer is not a Serge design. It can, however, use the same panel layout.</i>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2008 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/uni33_matrix_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:20:14 GMT -->
+</HTML>

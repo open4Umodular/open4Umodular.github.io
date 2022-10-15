@@ -1,0 +1,85 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/synth/serge/peak_and_trough.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:29:52 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, Serge">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<p>
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+
+<font face="ARIAL,HELVETICA" size=6>Classic Serge</font>
+<font face="ARIAL,HELVETICA">
+
+<p>
+
+<img width=114 height=400 src="pic/peak_and_trough_panel.jpg" border=0 align="right" hspace=5>
+<br>
+
+<p>
+The following are presented for educational/historic purposes only and are not to scale. These designs are copyright Serge Tcherepnin.
+<p>
+Some info on the 1973 variant of the <b>Peak and Trough</b> module:
+<ul>
+
+
+<li><a href="pic/peak_and_trough_pcb1.jpg">pcb pattern</a>
+<li><a href="pic/peak_and_trough_pcb2.jpg">pcb pattern and components</a>
+<li><a href="pic/peak_and_trough_pcb.jpg">pcb component side</a>
+<li><a href="pic/schem_serge_r3.gif">schematic</a>
+</ul>
+<p>
+
+Functionally it is remarkably simple. Diodes form the linear equivalent of an OR gate or an AND gate. There is a 0.6V voltage loss across the diodes. This is followed by a complementary emitter follower which loses 0.6 volts in the opposite direction, thus compensating for the loss in the diodes. A constant current source acts as a pull-up or pull-down for the emitter follower. The "no inputs" base state is derived from a resistor pull-up or pull down to an appropriate voltage rail, while using another diode to clamp it to either 6 volts (trough) or 0 volts (peak).
+<p>FD6666 diodes were used, though any common silicon signal diode would do. Generic general purpose silicon signal transistors can be substituted.
+
+
+<p>
+PCB connections:
+
+<br>A = Peak input
+<br>C = Peak input
+<br>B = Peak input
+<br>D = Peak input
+<br>E = Peak output
+<br>F = Trough input
+<br>G = Trough input
+<br>H = Trough input
+<br>I = Trough input
+<br>J = Trough output
+
+<br>W = 0v
+<br>X = +12v
+<br>Y = +6v
+<br>Z = -12v
+<p>
+
+<p>
+<a href="index.html">Classic Serge</a>
+
+<p>
+</font>
+<font face="ARIAL,HELVETICA">
+<p>
+<font size=1>
+<p>Page design copyright 1999 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+
+</td></tr>
+</table>
+</center>
+
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/synth/serge/peak_and_trough.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:30:04 GMT -->
+</HTML>

@@ -1,0 +1,180 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/burst_generator.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:51 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer - Sub-oscillator project. ">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ, Burst Generator">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Burst Generator" BORDER=0 WIDTH=192 HEIGHT=400 SRC="pic/photo_burst_generator2.jpg" align=right hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Burst Generator</font><br>
+for music synthesizers.
+<p>
+</center>
+<p>
+This module is a rhythm and timing accessory. It generates a burst of gate or trigger pulses at various speeds as set from a front panel control.
+<p>
+At higher speeds it can be used for washboard, maracas or similar rapid-burst percussive effects when connected to the appropriate sound generating device such as a ringing oscillator.
+<p>
+At lower speeds it can be used to step a sequencer a certain number of steps or retrigger an envelope shaper. The output pulses are quite narrow when the specified component values are used, and would best be described as trigger pulses in synths that distinguish gates from triggers. Increasing some component values will give longer gate like pulses.
+<p>
+<b>How to use this module:</b>
+<p>
+Experiment with it. Here's a few ideas to get you started. It can be used alone or cascaded with other burst generators. When cascaded, it could form the basis of a weird rhythm/timing generator. It could be used to step your sequencer through so many notes each down-beat. Fed to the modulation input of a VCO either directly or via an envelope shaper, it will cause a trill at the beginning of each note. It can use either its internal synchronized clock, or an external clock. It can be configured to be retriggerable or not, in which case the event in progress is concluded before it will respond to another.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<IMG alt="Burst Generator schematic" BORDER=0 WIDTH=600 HEIGHT=528 SRC="pic/schem_burst_generator.gif">
+<p>
+<i>The schematic of the Burst Generator.</i>
+</center>
+<p>
+The circuit consists of several distinct blocks. The first are the input shapers, made from IC1A and IC1B and their associated components. These take whatever signal is fed into the module and convert them to signals appropriate for driving the rest of the circuitry. With the values given, the sensitivity is set at around 1.4V, allowing triggering from signals with a +/- 10 volt swing, or with a 0V to +10 volt swing, both of which are common in modulars. The output waveforms of some modules will never fall below the 1.4V level, preventing triggering. This can be solved by increasing the value of the 10k resistor between pin 3 of IC1 and ground to 22k, or higher if needed.
+<p>
+IC1A is part of the circuit used to trigger the burst event. Coupled with IC1F and its associated components, it forms a "gate to trigger converter", generating a narrow positive going pulse when the "Trigger" input goes above the 1.4 volt threshold. This pulse is buffered and sent to an output jack for external use if needed. It also sends a pulse to the reset pin the 4017 via a simple AND gate. (More on this later).
+<p>
+IC1B is used to process the "External Clock" input. The frequency of the clock signal determines the speed of the output pulses. It can be either an external clock derived from an LFO, sequencer or similar, or from the internal clock circuit, which is normalized to the input jack.
+<p>
+Unlike any external clock signal, the internal clock is synchronized so that it generates a series of even length pulses when the burst generator is triggered. It has two ranges, selected by switching in or out a 330nF capacitor. The 2 meg pot specified for speed is not critical, and be anything from 1M to 5M, though obviously this will affect the range.
+<p>
+The output of IC1B is fed to the clock input of the 4017 decade counter, and also to an AND gate consisting of a 100k resistor and 1N4148 diode. The output of this AND gate goes to a pulse generator made from IC2E, IC2D and associated components. This pulse generator functions very similarly to the gate to trigger converter mentioned above, converting each cycle of the clock signal to a narrow pulse. This is buffered and sent to an external jack, and is the primary output of this module, namely a burst of pulses.
+<p>
+The 4017 decade counter forms the heart of the module. When reset, it counts up to the number selected by the switch connected to its outputs at the speed determined by the clock frequency. If we consider the rotary switch to be set to position "2" as shown in the schematic, the second clock pulse sent to the 4017 after it has been reset will present a logic HIGH to its Clock Inhibit pin (13) via the diode OR gate. This will stop the counter at that point, and any further clock pulses will be ignored. This inhibit signal is also inverted by IC2B and sent to the AND gate preventing the clock signal from reaching the second pulse generator. The inhibit signal also sends the event "End Out" output high.
+<p>
+The inhibit signal is reinverted and fed to another diode/resistor AND gate at the Reset input of the 4017, and another output buffer, this one for event "Duration Out". While the burst event is occurring the Clock Inhibit pin of the 4017 is held low via the 100k resistor. IC2B inverts this, presenting a HIGH to the event "Duration Out" buffer, the clock control AND gate and the input of IC2A. This will cause the output of IC2A to be LOW.
+If the Retrigger switch is closed, this LOW will hold the Reset pin of the 4017 LOW via the diode, preventing the event from being retriggered by any more pulses appearing on the the "Trigger" input, thus preventing retriggering of the burst.
+<p>
+How do the resistor/diode AND gates work? First, consider the outputs of both IC1B and IC2B to be HIGH. The input of IC2E, will be pulled HIGH via the 100k resistor. As the cathode of the diode is also being held HIGH, the diode has no effect on the input of IC2E.
+When the output of IC1B falls LOW, the diode will be forward biased, pulling the input of IC2E LOW with it. Alternately, if the output of IC2B is LOW when the output of IC1B is HIGH, the input of IC2E is pulled low via the 100k resistor as the diode will be reversed biased, blocking the HIGH from IC1B. When the outputs of both IC1B and IC2B are both low, it should be fairly obvious the input of IC2E will also be low. Thus, if either or both inputs are LOW, the output will also be LOW.
+<p>
+<b>Summary of inputs, outputs and controls:</b>
+<ul>
+<li><b>External Clock</b> - Normalized to the internal clock, but can be overridden by plugging in an external signal. Waveshape is not critical, as long as the waveform passes the trigger point.
+<li><b>Trigger</b> - Input for the external signal needed to start the event. Waveshape is not critical, as long as the waveform passes the trigger point.
+<li><b>Pulses</b>. Output for the burst event.
+<li><b>Trigger Out</b>. Output for the trigger signal derived from the Trigger input.
+<li><b>Event Duration</b>. Output. Goes high for the duration of the event. i.e. for the period the <b>Pulses</b> output is active
+<li><b>End Out</b> Output. Goes high when the burst event is over. This can be used to trigger another module if you wish to cascade them.
+<li><b>Clock Speed</b>. The rate at which the internal clock runs.
+<li><b>Range</b>. High and low range for the internal clock.
+<li><b>Pulses</b>. Select between 1 and 9 pulses per event.
+<li><b>Retrigger</b>. When the switch is closed, the unit cannot be retriggered during an event.
+</ul>
+<p>
+<b>Notes:</b>
+<ul>
+<li>The length of the reset/trigger out pulse can be increased by increasing the value of the 100k resistor marked "#" on the schematic and PCB, or by increasing the value of the 10n capacitor associated with it. Increasing it too much will mess up the timing of the burst, as it will hold the reset pin of the 4017 high for the full length of this pulse.
+<li>The length of the clock pulse presented at the "Pulses out" jack can be increased by increasing the value of the 100k resistor marked "*" on the schematic and PCB, or by increasing the value of the 10n capacitor associated with it. Increasing it too much will limit the maximum burst rate, as the pulses will all run together. If a DPDT switch is used for the "Range" function, a second capacitor could be added across the 10n capacitor when the lower speed range is selected, giving longer output pulses when most likely to be needed. The adventurous could increase the capacitor to 100n, drop the resistor to 10k, and put a 100k pot in series with it. This pot could be mounted on the panel, giving full control of the pulse length.
+<li>The diodes and associated resistors around the internal clock oscillator disable the oscillator and prime it for the next burst when an event is over. In theory it halts the oscillator just after the beginning of its cycle. This is so when reset, a full cycle period will pass before the 4017 receives it's first clock pulse. When external clocks are used, there is no way to do this synchronizing.
+<li>40106/74C14 chips by different manufacturers will have different speeds. This will affect the timing of various parts of this module, though should not cause any problems, perhaps with the exception of the internal clock synchronization.
+<li>The LED and its associated resistor are unassigned. They are there for people who cannot live without a pilot light, or something that flashes. If you don't want them, don't install them. Mine is connected with the cathode to 0V and the anode to the emitter of the transistor driving the "Duration Out" output.
+<li>If you have separate digital and analog power supplies for your synth, connect this one to the digital supply. <a href="cgs14_psu.html">+/- 15 Volt Power Supply</a>.
+<li>The module will work on +/-12 to +/-15 volts.
+<li>I have used BC547 transistors. These are generic NPN silicon signal transistors. Any common signal NPN should work. Emitter, Base and Collector (ebc) are marked on one transistor on the PCB to help you substitute other devices.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<p>
+<IMG alt="Burst Generator overlay" BORDER=0 WIDTH=201 HEIGHT=391 SRC="pic/pcb_burst_generator.gif">
+<p>
+<i>The overlay of the Burst Generator.</i>
+<p>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the diodes and resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the diodes, LED, electrolytic capacitors and the transistors and ICs. You may want to leave soldering in the LED until you work out what height they will need to be to pass through hole in the panel.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay. Please note that the CMOS chips are static sensitive devices, so make sure you handle them correctly.
+<p>
+The rotary switch chosen solders directly onto the PCB. It is deliberately a tight fit. The pins may need tweaking so they go through the holes. Under the nut and washer there is a special washer that allows you to set the maximum range of the switch. Turn the switch fully anti-clockwise, then insert the washer so that its tab goes between holes 9 and 10. The one in the photo does not have the washer installed. Due to the configuration of the board, the direction in which you mount the board will affect the home position of the switch, and thus the flat of the shaft may be pointing in an inappropriate direction for your panel label. File yourself a new flat, if you feel it necessary. The knob on the prototype was such a tight fit no flat was needed.
+<p>
+If you wish to use a MOTM style power connector, you will either need to use a 90&deg; connector or to mount it on flying leads. There is insufficient space between the PCB and the panel for a regular connector to fit.
+<p>
+When mounting this boards on the front panel, you will find that the height of the switch will determine the required gap. You may prefer to mount the PCB on a sub panel, and just pass the long switch shaft through a smaller hole on the front panel. That will also afford your more clearance for other components. Alternatively, you could use longer stand-offs to give more space.
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>330n</td><td align=right>1</td></tr>
+<tr><td>10uF 25V</td><td align=right>1</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>6</td></tr>
+<tr><td>10k</td><td align=right>5</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>22k</td><td align=right>2</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>8</td></tr>
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>8</td></tr>
+<tr><td>4017</td><td align=right>1</td></tr>
+<tr><td>40106 or 74C14</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>4</td></tr>
+<tr><td>LED (optional)</td><td align=right>1</td></tr>
+<tr><td>LM358</td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Wire</td><td align=right></td></tr>
+<tr><td>2M Lin pot</td><td align=right>1</td></tr>
+<tr><td>SPDT switch</td><td align=right>2</td></tr>
+<tr><td>Alpha 12 position switch </td><td align=right>1</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>1</td></tr>
+<tr><td>Knobs</td><td align=right>2</td></tr>
+<tr><td>Jacks</td><td align=right>6</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS06 PCB</a></td><td align=right>1</td></tr></table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying one of these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<p>
+<IMG alt="Burst Generator" BORDER=0 WIDTH=208 HEIGHT=400 SRC="pic/photo_burst_generator1.jpg" hspace=10>
+<p>
+
+
+Individual construction of modules based on the original designs of Ken Stone is                encouraged. Commercial production of these designs is prohibited without written permission from the designer, Ken Stone. Note that no guarantees are given for any of these designs.
+
+<p>
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/burst_generator.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:56 GMT -->
+</HTML>

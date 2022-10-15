@@ -1,0 +1,115 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/smt04_mix.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:43 GMT -->
+<HEAD>
+    <TITLE>D.C. Mixer for Synthesizers</TITLE>
+    <META name="description" content="Electronic project describing a D.C. Mixer for Synthesizers and other control applications.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+     <table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<font face="ARIAL,HELVETICA" size=7>D.C. Mixer</font><br>
+for music synthesizers.
+</center>
+<p>This project arose out of a need for a small mixer that preserved the D.C. component of signals, at audio frequencies and below, specifically for the hobbyist synthesizer builder, though it's applications do not stop there. Its compact size means it can easily be included along with other circuit boards in modules that do not have enough inputs of their own, such as some VCAs or VCFs. It can just as appropriately be used as a module in its own right. In this case there are six inputs.
+<p>
+This particular variant was designed to be a relatively simple SMT project for those who would like to have a go. A standard, fine-tipped soldering iron and 0.7mm resin cored solder were used to assemble it - the exact same tools as for through hole boards. The chip is a regular through-hole DIP-8 to keep things possible! 1206 or 805 SMT parts can be used for the remaining components.
+<br clear=all>
+<center>
+<IMG BORDER=0 WIDTH=510 HEIGHT=230 SRC="pic/schem_smt04_mix.gif" vspace=5><br clear=all>
+</center>
+<p>
+The circuit design is quite conventional, using two op-amps in a unity gain inverting configuration. The first stage mixes the signals from the six inputs. The output signal from this op-amp is inverted. The second op-amp,  simply re-inverts it. Provision is mad to mix an additional signal here. This signal will "subtract" from the signals on the main inputs. I.e., it will appear inverted at the output.
+<P>
+<p>The 330R between the output of the op-amp and the output jack simply offers some protection to the op-amp in the event of a short circuit, which happens frequently when patch cords are being used. As it is in the feedback loop, the output will not be affected by varying loads, within reason. I.e. connecting several VCOs to the output will not cause any droop. The 47pF capacitors across each op-amp are to prevent oscillation.
+
+<P>The two 100nf capacitors give some power supply isolation. Power rails can be almost anything from +/- 6V to +/- 15V. Asymmetrical rail voltages will work, but the mixer will behave as if it was running on supply of +/- of the <i>lower</i> of the rail voltages. E.g. supply rails of +12V/-6V would cause the mixer to behave if it was running on a +/- 6V supply.
+
+<p>
+
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<IMG BORDER=0 WIDTH=400 HEIGHT=304 SRC="pic/photo_smt04_front.jpg" hspace=5 vspace=5><br clear=all>
+<table width = 400><tr><td>
+<i><font size=2>The overlay for the PCB, showing external connections. Note that the SMT parts are soldered on the <b> other side</b> of the PCB.</font></i>
+</td></tr></table>
+<p>
+<IMG BORDER=0 WIDTH=500 HEIGHT=385 SRC="pic/photo_smt04_rear.jpg" hspace=5 vspace=5><br clear=all>
+<table width = 500><tr><td>
+<i><font size=2>A close-up of the component side of the PCB. The small (805) unmarked devices are 47pF while the large (1206) ones are 100n.</font></i>
+</td></tr></table>
+</center>
+
+<p>
+<b>A simple way to solder larger SMT passive components to a PCB.</b>
+<p>
+Place a <i>small</i> amount of solder on one of the two pads for the component. Place the component across the two pads. It will be propped up at one end on the solder. Using your fingernail, or a fine tool, hold the part in place while you reheat your solder. The component should sink into it and remain fixed. If it is not square, try reheating and adjusting it. Solder the other end. Re solder the first end. Note that <i>very little</i> solder is required.
+<p>
+The holes without pads near the input and output pads are to allow a wire to be fed up from the bottom side, looped over and then soldered to the pad. The slack is then pulled back through the hole, creating an anchor that holds the wire by its insulation, reducing the chance of wire breakage.
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>0.9" x 1.2" with two 3mm mounting holes 0.1" in from the edges at opposing corners.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF 1206 or 805 smt</td><td align=right>2</td></tr>
+<tr><td>100n 1206 or 805 smt</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R 1206 or 805 smt</td><td align=right>1 </td></tr>
+<tr><td>47k 1206 or 805 smt</td><td align=right>2 </td></tr>
+<tr><td>100k 1% 1206 or 805 smt</td><td align=right>12 </td></tr>
+
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072 or similar DIP</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td><a href="../pcb/index.html">SMT04 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2009 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/smt04_mix.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:46 GMT -->
+</HTML>

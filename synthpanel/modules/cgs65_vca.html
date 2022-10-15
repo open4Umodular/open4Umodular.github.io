@@ -1,0 +1,219 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs65_vca.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:48 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=800>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Tube VCA / Timbral Gate</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="VCA" BORDER=0 WIDTH=600 HEIGHT=105 SRC="pic/photo_cgs65_vca.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+
+This is a tube based Voltage Controlled Amplifier / timbral gate. While this module basically operates as a VCA, it does add a degree of distortion to the signal. How much distortion depends on how hard it is driven. Add feedback and it begins to oscillate, synchronizing to the incoming signal to some extent. All this while running on a standard synthesizer power supply, with no extra heater supply required.
+<p>
+
+<center>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/S6_AF28BrQM" frameborder="0" allowfullscreen></iframe>
+
+
+<p>
+A demonstration of feedback oscillation and synchronizing on the Panther Euro version of this module.
+</center>
+
+<p>
+<h4>A little on how it works.</h4>
+
+
+<p>
+<center>
+<img width=759 height=499 src="pic/schem_cgs65_vca.gif" vspace="10">
+</center>
+<p>
+
+
+There are several distinct sections to this circuit. First to consider is the heater supply. The tube chosen is the Russian sub-miniature 1J24B (1SH24B, 1&#1046;24&#1041;). It operates on low voltage, and uses a mere 13ma at 1.2 volts for its heater. In other words, the heater uses less power than the average LED. Power for the heater is derived from the negative rail, by passing the current through first the heater, then some current limiting resistors with LEDs in series with them. Two resistors have been used to keep the dissipation within the resistors to appropriate levels. The LEDs are also using a little of the waste power. More info on this is given alongside a photo below. The two 1N4148 are merely an insurance policy. They are to prevent the heater seeing any more than around 1.5 volts if an incorrect resistor is installed, or a similar mishap occurs.
+
+<p>
+The top left of the schematic is a very standard summing amplifier/mixer with unity gain. It's output is AC coupled to the grid of the tube.
+
+<p>
+The bottom left of the schematic is a very standard summing amplifier/mixer with a gain of around 2. It's output is fed through a "de-thump" lag circuit and into a second stage, also with a gain of around 2. This part of the circuit is the CV mixer. It converts the expected 0 to 5 volt CV signal into something appropriate for driving the second grid of the tube by both amplifying it and adding an offset voltage.
+
+<p>
+The core of the circuit is of course the tube itself. It can be viewed as running on a 30 volt single rail supply, as its cathode is referenced to the negative 15 volt rail instead of 0 volts. It is a mixture of a triode wired pentode and a multiplier, though sans the usual automatic cathode bias, due to the use of a directly heated cathode.
+<p>
+The final section of the circuit is simply a load-independent, non-inverting buffer/gain stage.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=253 src="pic/wire_cgs65_vca.gif">
+<br><table border=0><tr><td><i>The component overlay and basic wiring for the VCA. The pots are viewed from the rear. Additional pots can be added as per the examples given.
+
+</i></td></tr></table>
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+<p>
+Do not replace the LM358 with another type. It was chosen for its ability to drive down to its negative rail.
+<p>
+Setting up involves adjusting one trimmer.
+<p>
+Set the panel CV controls to their zero position, and feed a signal into the input. Make sure you have the input level/drive pot turned at least part way up. Adjust the trimmer until a signal is heard at the output, then back off until it just stops.
+<p>
+CV Init is used to set the VCA to zero gain at 0 volts CV input.
+Feed an audio signal into an input, and monitor the output.
+With no CV at any of the inputs, and the optional external Initial Gain pot, if used, set to its zero position, adjust this until no signal is heard.
+
+
+<p><a href="pic/photo_cgs65_vca2.jpg" target="_blank"><img width=100 height=94 src="pic/photo_cgs65_vca2_s.jpg" align="left" vspace="10"></a>
+<a href="pic/photo_cgs65_vca2.jpg" target="_blank">Mounting the tube.</a> The tube is positioned between two MKT or MKS type 220n capacitors, giving clearance for the two LEDs mounted below. The cathode glow of the 1J24B is almost invisible, so if you wish to display the tube through a window in the panel, some sort of illumination is required. These LEDs are using waste power that would otherwise need to be dissipated in the current-limiting resistors for the heater, so even if you are hiding the tube, the LEDs must still be included. The differing voltage drops of various colored LEDs makes very little difference over all, so there is no need to adjust anything if different colored LEDs are used. The plate resistor is the 8k2 behind the right end of the tube.
+
+<br clear=all>
+<p>
+<a href="pic/photo_cgs65_vca4.jpg" target="_blank"><img width=100 height=78 src="pic/photo_cgs65_vca4_s.jpg" align="left" vspace=10></a>
+<a href="pic/photo_cgs65_vca4.jpg" target="_blank">Close up</a> of tube wiring. There is a direct relationship between the holes provided on the PCB and the positions the wires come out of the base of the tube. There is a paint spot on the tube marking pin 1, though it is not visible in this photo, as pin 1 is the furthest from us. Do <B>not</B> bend the wires at the glass, but allow a couple of millimetres at least before you bend. The 330k resistor at the lower right of the  picture is the grid bias resistor referred to below.
+
+<br clear=all>
+<p>
+<a href="pic/photo_cgs65_vca3.jpg" target="_blank"><img width=100 height=100 src="pic/photo_cgs65_vca3_s.jpg" align="left" vspace="10"></a>
+<a href="pic/photo_cgs65_vca3.jpg" target="_blank">Using a 1J17B.</a> The 1J17B is very similar to the 1J24B and can be used in its place should the 1J24B prove too hard to get. It does however use about five times as much heater current. A 270 ohm resistor soldered in as shown here (and on the circuit diagram in yellow) will provide the extra current needed. The resistor will get hot. The glow from the cathode of a 1J17B can be seen, but it is not very bright.
+
+
+<br clear=all>
+<p>
+<b>Modifications</b>
+
+<p>Read <a href="http://electro-music.com/forum/viewtopic.php?t=26469&amp;sid=0f33337746dbb1112f78f71b6aff9730" target="_blank">Tube vca modifications and results</a> on electro-music.com forum for more ideas.
+
+<p>
+On the first (yellow) run of PCBs, the grid bias resistor (330k) goes to the negative rail. In this position, it causes some distortion of the signal. This can be a good thing. I prefer the resistor in this position when using the unit as a timbral gate. This is shown in BLUE on the schematic. An alternative is to bias the grid to around 1.2V with respect to the negative rail - in other words, to the other end of the heater/cathode. This is shown in RED on the schematic. Doing so will reduce the distortion at low input levels. Do not put in both red and blue options at the same time or you will short out the heater.
+It may be appropriate to connect pin 4 of the tube to pin 1 of the tube instead of pin 2 as well, if making this modification.
+
+<p>
+It is possible to increase the value of the plate resistor. I would not go above 27k, as strange (not good) things start happening. Increasing the value of this resistor will increase the over all gain, and may reduce the distortion at low signal levels. If you get too much gain doing this, overall gain can be reduced by increasing or even removing the 100k resistor marked "Gain" in RED on the schematic. Removing it convert the output gain stage to a 1:1 buffer. Reducing the value of the 100k between pin5 and 0 volts may also help reduce gain. Alternately if you wish to increase the gain of the output buffer, reduce the value of the 100k resistor marked "Gain" in RED on the schematic. 10k would give a gain of 10.
+<p>
+Positive feedback adds some versatility to this unit. It isn't really a modification. Just make sure you have two audio inputs with level pots, one for the incoming signal, and the other for direct connection to the output. Having two output jacks would of course make wiring this up easy. Alternatively you could normalize the output to one of the input jacks.
+<p>
+<b>Rev 1.1 PCB</b>
+<p>
+Install the 330k in the position marked "330k" AND the jumper in the position marked with a dashed line*,
+<p>
+OR
+<p>Install the 330k in the position with no value specified AND the jumper in the position marked with a solid line*.
+<p>
+* note that the above two connections were incorrectly displayed on this page until updated on 15 Nov 2008. No real harm will come if the incorrect wiring was followed.
+<p>
+Pins 1 and 2 of the tube can be swapped by installing them in the two holes next to the ones marked 1 and 2 (saves getting the wires crossed).
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>Tubes can usually be acquired from ebay, or one of several European tube sellers. Members of the CGS yahoo group may choose to band together to buy tubes rather than pushing up each other's bids on ebay. <a href="http://www.engineersatwork.nl/" target="_blank">http://www.engineersatwork.nl</a> appear to stock them, though I have not tried their service.
+
+<a href="http://www.military-tubes.com/xtcommerce/product_info.php/info/p314_1J24B--1SCH24W--russische-Bleistiftr-hre.html" target="_blank">www.military-tubes.com/</a> also have them listed.
+
+<br>
+<B>DO NOT ask me to supply the tubes.</b> I have as much trouble as you will to get them, if not more, being in Australia.
+
+
+<li><font color="green"><b>PCB info: </b></font>1" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>The board is designed so it may be cut in half and jumpered with a 0.1" header or wire links, so it can be fit behind smaller panels.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+<li>Purists and tube experts - if you don't like what I've done, instead of complaining, how about you share some of your secrets. The amount of info on these so called "common as dirt" tubes is dismal, and that which can be found is usually in Russian.
+<li><a href="http://www.dragonflyalley.com/constructionCGS65tubeVCA.htm" target="_blank">Bill and Will's version</a>.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF </td><td align=right>4</td></tr>
+<tr><td>100n </td><td align=right>3</td></tr>
+<tr><td>220n </td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R </td><td align=right>1</td></tr>
+<tr><td>1k5 </td><td align=right>2</td></tr>
+<tr><td>2k2 </td><td align=right>1</td></tr>
+<tr><td>8k2 </td><td align=right>1</td></tr>
+<tr><td>10k </td><td align=right>1</td></tr>
+<tr><td>100k </td><td align=right>12</td></tr>
+<tr><td>220k </td><td align=right>2</td></tr>
+<tr><td>330k </td><td align=right>1</td></tr>
+<tr><td>100k trimmer</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148 </td><td align=right>2</td></tr>
+<tr><td>3mm LED </td><td align=right>2</td></tr>
+<tr><td>LM358 </td><td align=right>1</td></tr>
+<tr><td>TL072 </td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>1J24B/1SH24B </td><td align=right>1</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS65 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2006 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs65_vca.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:03:06 GMT -->
+</HTML>

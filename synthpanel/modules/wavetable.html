@@ -1,0 +1,182 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/wavetable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:18 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<center>
+<IMG alt="Wave Table" BORDER=0 WIDTH=162 HEIGHT=400 SRC="pic/photo_wavetable.jpg" align=right hspace=10>
+<IMG alt="Wave Table" BORDER=0 WIDTH=102 HEIGHT=400 SRC="pic/panel_wavetable.gif" align=left hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=7>Wave Table</font><br>
+<font face="ARIAL,HELVETICA">for music synthesizers.</font>
+</center>
+<font face="ARIAL,HELVETICA">
+<p>
+Please note that there are several version of the PCB for this module, so not all comments in this article are relevant to all boards.
+<p>
+This module is loosely based on the digital portions Digisound VCDO. There is no onboard VCO.
+Originally, provision was made in the design to increase ROM size from the out of date 2716 to the equally out date TMS2532. At the moment one of my wave table modules is running a copy of the original Digisound ROM while the other has been modified to take a 2732 which contains an experimental table I put together.
+<p>
+Various changes were made to the design, which went untried from paper to PCB. I certainly wasn't prepared to lash this one up by hand. The only thing found lacking when construction was finished was a capacitor between the switches and the Bank and Wave inputs as there was undesirable interaction between the inputs and switches when a switch was pushed. These capacitors have not been added to any of the PCBs released so far.
+<p>
+Bank and Wave tables can be selected either by a pulse on the appropriate input, or by pushing one of the front panel switches. The currently selected Bank and Wave are displayed by two single digit led displays. The displays used are a HP type, 5082 7340, which accept binary as inputs and include all driving circuitry onboard. A local distributor dumped the last of his stock of these devices some time in the early eighties, so I imagine they might be hard to buy now. The examples I have were picked up second hand, here and there over the last decade. Some I used while similar, were not identical, bearing the code 1990 0330.
+<p>
+Also of interest are the way the switches have been done. They look like membrane switches in that there is no visible cutout on the front panel for them, rather just an area marked on the artwork. The "tactile" switches themselves were salvaged from a VCR, and have been mounted on a PCB in such a way that they protrude through the aluminium panel cutouts, with their actuator pressed hard up against the back of the laminated paper panel artwork. Small compression springs have been used as spacers for the PCB, allowing the switches to be adjusted to the correct height for them to respond to someone pressing on the panel artwork. These springs are not visible in the photo, but the Nyloc adjusting nuts are, on the far side of the blue PCB.
+
+<p>This was never intended to be any more than a project for my own synthesizer. I didn't even advertise the spare boards for sale, but due to popular demand, I sold the spares from the first batch, then had more runs made each with some changes.
+There are now three versions of this board in circulation.
+<p>
+<b>Identifying your board</b>
+<ul>
+<li>Version 1: Has 8 pin "dip switch" location near ROM. Very small pads. Has the 2532 error.
+<li>Version 2: Has NO "dip switch" location near ROM. Has the 2532 error.
+<li>Version 3: Has CGS02 printed on the overlay. Takes a 2732 or even a 2764. Also has the dip switch location. This board is slightly longer than the previous versions. Referred to as the CGS02 version throughout the text.
+</ul>
+<p>
+<b>Overview</b>
+<p>
+To understand what the inputs do, here is a brief description of the 2716 ROM and how it is addressed. The ROM contains 32 different waveform tables, each 64 bytes long. The contents of any one of these tables is sequentially addressed by the wave step counter which runs at high frequency (64 times the required audio frequency - effectively 6 octaves up). The tables themselves are arranged in a 4 x 8 array of "banks" and "waveforms". Each "bank" contains a set of eight waveform tables that are usually related in tonal quality. Each waveform in a bank can be selected sequentially by applying pulses to the W_A Wave Advance input. Each bank of waveforms can be selected sequentially by applying pulses to the B_A Bank Advance input. If a 2532 or 2732 ROM is used, the number of banks is doubled to eight.
+<p>
+If using the CGS02 version of the board, a 2764 can be substituted for the 2732. Instead of adding another set of waveforms, this in fact doubles the resolution of the waves to 128 step. Due to needing to remain compatible with the other ROM types, the addressing is a little odd. Effectively there are two 4k blocks arranged in identical fashion to the 2732 version, but with the first half of each waveform in the lower block, and the second half in the upper block. At the moment there are no available ROMS for this.
+<p>
+Experimenters could even put in a 27128, though the A13 address line (pin 26) is simply tied to the positive rail. You would need to cut the track, and run a wire to the Q4 output of either the bank or the wave counters. That would double the number of waveforms available. There is provision on the PCB for this cut to be made easily.
+<p>
+<b>Connections</b>
+<p>
+Place the board in front of you with the 741 in the top right hand corner. When viewed like this, the connections to the module are:
+<ul>
+<li><b>In</b> <br> High frequency note pitch from driving oscillator
+<li><b>Out</b> <br> Resultant "analog" waveform
+<li><b>B_A</b> <br> Bank Advance / Bank Clock (Select which set of eight waveforms to be used)
+<li><b>W_A</b> <br> Wave Advance / Wave Clock (Select a wave from the current bank)
+<li><b>B_R</b> <br> Bank and Wave Reset (Resets both bank and wave counters to 0)
+<li><b>T_R</b> <br> Table Reset / Hard Sync (Resets the wave step counter)
+<li><b>0V</b> <br> The 0 volt connection for this module
+<li><b>+5</b> <br> +5 volts for the digital parts of the circuit
+<li><b>+15</b> <br> +15 volts for the analog parts of the circuit
+<li><b>-15</b> <br> -15 volts for the analog parts of the circuit
+<li><b>Q7</b> <br> The final output of the wave step counter. Not really of any use.
+<li><b>4k/2k</b> <br> This is actually a jumper position. Link the left hole with the center hole to use a TMS2532. Link the right hole with the center hole to use a 2716.
+<li><b>J1 <font color="#CC3333">(WAVE DSP on CGS02)</font></b> <br> This header allows easy connection of a numeric display to indicate which wave has been selected. From left to right the pins are: [+5V][A][B][C][0V] where A, B and C are the data lines to the display decoder. On the CGS02 boards, there is a double line drawn at the +5 volt end. See the <a href="cgs12_displayadapter.html">Display Adapter</a>.
+<li><b>J2 (Version 1 and 2 boards only)</b> <br> This header allows easy connection of a numeric display to indicate which bank has been selected. From left to right the pins are: [A][B][C] where A, B and C are the data lines to the display decoder.
+<li><b><font color="#CC3333">J2 (CGS02)</font></b> <br> On the latest version of the board J2 is no longer for connecting to the numeric display. Instead it is intended that a removable "jumper" or "shunt" can be placed between the left and center pins when using a 2716, or between the center and right pins when using a 2732.
+<li><b><font color="#CC3333">BANK DSP (CGS02)</font></b> <br> This is only on the latest version of the board. BANK DSP is a 2 row x 3 pin header. This header allows easy connection of a numeric display to indicate which bank has been selected. From bottom to top the pins are: [A][B][C] where A, B and C are the data lines to the display decoder. Connect the display to the <B>left</b> row of 3 pins when using a 2732 or 2764 and to the <B>right</b> row of 3 pins when using a 2716.
+See the <a href="cgs12_displayadapter.html">Display Adapter</a>.
+</ul>
+<p>
+For those of you wanting to use a 2732, as distinct from the 2532 on the earlier versions of the board (Versions 1 and 2), a couple of modifications are required. Isolate Pin 21 of the ROM by cutting the PCB track. Isolate Pin 18 of the ROM by cutting the PCB track. Run a wire from Pin 18 of the ROM to Pin 20 (0V). Run a wire from Pin 21 to the center pin of the 4k/2k Jumper. Make sure the left hole of the 4k/2k Jumper is linked to the center hole. The right hole should not be connected to anything. Note that this modification prevents a 2716 from being used.
+<p>
+<center>
+<IMG alt="Wave table PCB" BORDER=0 WIDTH=600 HEIGHT=492 SRC="pic/schem_cgs02_wavetable.gif">
+<p>
+<i>Schematic of the CGS02 version. The previous versions are similar.</i>
+</center>
+
+<p>
+<center>
+<IMG alt="Wave table PCB" BORDER=0 WIDTH=371 HEIGHT=281 SRC="pic/pcb_wavetable.gif">
+<p>
+<i>PCB overlay for version 2 of the wave table. Not to scale. Note: The overlay is incorrect in that it specifies a 2732. The actual device needed is a TMS2532.</i>
+</center>
+<p>
+<p>
+<center>
+<IMG alt="Wave table PCB" BORDER=0 WIDTH=381 HEIGHT=281 SRC="pic/pcb_cgs02_wavetable.gif">
+<p>
+<i>PCB overlay for version 3 (CGS02) of the wave table. Not to scale.</i>
+</center>
+
+
+
+<p>
+<b>Notes:</b>
+<p>
+<ul>
+<li>In line with the four lowest address lines of the ROM on Version 1 and CGS02 boards, there is provision to place a dip switch. Four tracks will need to be cut, and pull-up resistors (4k7) soldered to the address lines of the ROM. The theory is that disconnecting these address lines, and thus reducing the resolution, creates a somewhat more "grungy" sound. I have never tried it. It was placed there after reading Kevin Lightner did the same thing. Some builders have done so and liked it, complaining when it was removed from the version 2 boards.
+<li>One 100n decoupling capacitor is mounted directly under the ROM. It can either be placed under the socket, if a socket that leaves enough space is used, or soldered onto the back of the PCB. I used a tubular capacitor salvaged off some old computer equipment.
+<li>Unlike most of my other modules, this one does not have the ferrite beads. If you wish to use them, you will need to mount them off-board.
+<li>Three voltages are needed for this module: +15V, -15V and 5V. The +5V will have a significant load on it, up to 500ma* depending on the ROM used, though most likely in the 150 to 200ma range. It is probably a good idea to use a separate 5V supply, rather than hanging a regulator off the 15V rail. Both methods will work, but running the 5V rail off the 15V rail will needlessly load your 15V rail, messing it up for other modules.<br>* Some very old ROMs were real current guzzlers.
+<li>A display adapter specifically for this module has been developed. I am waiting on delivery of the PCBs and will update the page when they arrive.
+<li>The 7k5 resistor in the DAC circuit can be replaced with a common 6k8 if need be. As I had no 7k5 resistors to hand, I tested a dozen 6k8 5% resistors, and selected one that read as 7k3.
+<li>Do not upgrade the 741 to a better device. It's poor slew rate acts as a filter, smoothing off the waveforms.
+</ul>
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td><table border=1 cellpadding=3 cellspacing=0><tr><td><table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100p</td><td align=right>2</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>33n</td><td align=right>4</td></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>5</td></tr>
+<tr><td>7k5</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>22k</td><td align=right>3</td></tr>
+<tr><td>220k</td><td align=right>2</td></tr>
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>5V6 400mw Zener</td><td align=right>5</td></tr>
+<tr><td>741</td><td align=right>1</td></tr>
+<tr><td>4011</td><td align=right>1</td></tr>
+<tr><td>4024</td><td align=right>1</td></tr>
+<tr><td>4520</td><td align=right>1</td></tr>
+<tr><td>40106 or 74C14</td><td align=right>1</td></tr>
+<tr><td>DAC0800</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">Programmed ROM <br>2716 CGS02R1 or <br>2732 CGS02R2</a></td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Wire</td><td align=right></td></tr>
+<tr><td>24 pin IC socket</td><td align=right>1</td></tr>
+<tr><td>3 pin headers</td><td align=right>3</td></tr>
+<tr><td>5 pin headers</td><td align=right>1</td></tr>
+<tr><td>0.1 jumper shunts</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS02 PCB</a></td><td align=right>1</td></tr>
+<tr><td><a href="cgs12_displayadapter.html">CGS12 Display Adapter</a></td><td align=right>1</td></tr>
+</table>
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only, and covers just the components on the PCB. Parts needed will vary with individual constructor's needs.
+<p>
+I am no longer selling this PCB or ROMs.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+<a href="panels/wavetable.gif">200 DPI B&amp;W printable panel artwork.</a>
+<p>
+<a href="vcdorom.zip">Original 2716 ROM data</a>
+<p>
+
+300dpi printable PCB artwork for home etching (right click and save).
+<p>
+<IMG alt="Wave table PCB" BORDER=0 WIDTH=371 HEIGHT=281 SRC="pcb/cgs02overlay.gif">
+<p>
+<IMG alt="Wave table PCB" BORDER=0 WIDTH=371 HEIGHT=281 SRC="pcb/cgs02bottomlayer.gif">
+<p>
+
+<font size=1>Article, art &amp; design copyright 1999 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/wavetable.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:34 GMT -->
+</HTML>

@@ -1,0 +1,213 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs22v2_master_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:28 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<a href="cgs22_master_divider.html">Click here for the old version of the Master Divider.</a>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Master Divider</font><br>
+for music synthesizers.
+</center>
+<p>
+<IMG alt="Master Divider" BORDER=0 WIDTH=600 HEIGHT=199 SRC="pic/photo_cgs22_v2_md2.jpg" hspace=10>
+<br clear=all>&nbsp;
+<p>
+This module is series of dividers and "phase shifters" for converting a single clock pulse train into an array of frequencies. The incoming clock signal is divided into successive clock signals, each half the frequency (twice the period) of the previous. Three other outputs, each successively shifted by 90$deg; are also provided. While the first stage has outputs for 90&deg; and 270&deg;, the usability of these outputs is dependent entirely on the waveshape of the clock signal, with square being optimal.
+<p>
+A LED can be included for each of the outputs, enough to satisfy anyone with a love of flashing LEDs.
+<p>
+<b>How to use this module:</b>
+<p>
+The purpose of this module is to divide down a system master clock (e.g. a VCLFO) to drive an array of sequencers or other timed events. The different phase outputs are to allow for modules that may trigger from the falling edge of a wave, or to allow for deliberate lagging of an event. It would for example be possible to have two sequencers running from this unit, one at 1/8 of the frequency of the other, their outputs being mixed to give a sequence that changes fundamental pitch each eight notes.
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<b><br><a href="pic/schem_cgs22v2_md.gif" target="_blank">Click here for the Schematic</a></b>
+
+<p>
+The master divider is a fairly simple circuit with a lot of repetition.
+The circuit consists of several distinct blocks. The first are the input shapers, made from the TL072 and its associated components. These take whatever signal is fed
+into the module and convert them to signals appropriate for driving the rest of the
+circuitry. With the values given, the sensitivity is set at around 2 volts, allowing triggering
+from signals with a +/- 10 volt swing, or with a 0V to +10 volt swing, both of which are
+common in modulars. The output wave forms of some modules will never fall below the
+1.4V level, preventing triggering.
+<p>
+The upper section of the TL072 is used to process the Clock input. The frequency of the clock signal determines the speed of the output pulses. It can be derived from an LFO, sequencer or any similar pulse source. It is best if a square wave is used, or the 90&deg; and 270&deg; outputs of the first stage will be distorted.
+<P>
+The lower section of the TL072 and its associated components form a "gate to trigger converter", generating a narrow positive going pulse when the "Reset" input goes above the 2 volt threshold. This is used to reset the 4024 divider, and sends all "A" outputs HIGH, and "C" outputs LOW.
+<p>
+The exclusive OR gates of IC1 - 4 are wired into identical networks, each which combines a output stage with the one above it to get the four phase outputs.
+
+<p>
+<center>
+<img width=600 height=361 src="pic/cgs22_phases.gif">
+<br><i>Timing diagram for the CGS22 V2 master divider</i>
+</center>
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs22v2_md2.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram and tables. </i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Suggested values for the resistors are as follows:
+<br>RA = 1k8
+<br>RB = 1k
+<br>RL = 2k2
+<p>
+This will give an output that moves between approximately 5 volts and 0 volts, and will drive a common LED with reasonable brightness. If you use high brightness LEDs, you can easily increase RL to 10k as shown on my prototype, though if you do this, you may need to match the LEDs for consistent brightness. The LEDs can be omitted with no further circuit modification.
+<p>
+Note that on this board I decided to mount most of the decoupling capacitors directly to the solder side of the board. Pads are provided on pin 7 and 14 of each of the 4070 for 100n the decoupling capacitors. The remaining decoupling capacitors are 1206 100n SMT devices, though in all but one case, regular through hole capacitors could be substituted.
+
+<center>
+<img width=600 height=201 src="pic/photo_cgs22_v2_md2_rear.jpg">
+<br><i>The underside of the Ver 2 board showing the decoupling capacitors. The circled SMT location is the only one that does not allow for a through-hole alternative.</i>
+</center>
+<p>
+
+
+<p>
+For each pair of output pads, the left one is the output while the right one is to drive the LED.
+<p>
+<b>There is a modification needed on the VER2.0 run of these PCBs only. These boards are easilly identified because they are RED. (VER2.1, VER2.2 do not need these changes.):</b>
+<ul>
+<li>Power rails have been swapped. You will need to cut and swap the power rails after the decoupling capacitors. See the image.
+<li>The extra coupling on the negative power rail can be omitted.
+<li>Pin 8 of the IC1 needs to go to Pin 6 of the 4024 instead of pin 1. Leave out the link from pin 8 of the 4070, and directly jumper pin 8 of the 4070 to pin 6 of the 4024.
+</ul>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs22v2_md2_mod.gif">
+<br><i>The underside of the Ver 2.0 board showing the required modifications. This board is was made with a RED solder mask.</i>
+</center>
+<p>
+
+
+Note that the designators on the output pads (1A, 1B 1C etc.) refer to the chip to which they are connected, not the output group to which they belong. Be careful this doesn't confuse you.
+<i>Pads 4A and 4C are swapped with each other on VER2.0 and VER2.1 PCBs.</i>
+
+<p>
+Make sure you do NOT get any 74HCT40xx, or some other 74xxx variant designed to run on 5 volts. You want CD40xx or in the case of Motorola, MC140xx. If the salesman behind the counter tells you the 74xxx will work just as well, IGNORE HIM - he's a salesman, not a technician or engineer.
+<p>
+Transistor type is not critical. Any general purpose NPN should work.
+<p>
+<center>
+<table border=0 cellpadding=2 cellspacing=0>
+<tr><td>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>Des.</td><td>Function</td></tr>
+<tr><td>1D</td><td>Div by 2 Phase 1</td></tr>
+<tr><td>2A</td><td>Div by 2 Phase 2</td></tr>
+<tr><td>1B</td><td>Div by 2 Phase 3</td></tr>
+<tr><td>2C</td><td>Div by 2 Phase 4</td></tr>
+<tr><td>2D</td><td>Div by 4 Phase 1</td></tr>
+<tr><td>3A</td><td>Div by 4 Phase 2</td></tr>
+<tr><td>2B</td><td>Div by 4 Phase 3</td></tr>
+<tr><td>3C</td><td>Div by 4 Phase 4</td></tr>
+<tr><td>3D</td><td>Div by 8 Phase 1</td></tr>
+<tr><td>4A</td><td>Div by 8 Phase 2</td></tr>
+<tr><td>3B</td><td>Div by 8 Phase 3</td></tr>
+<tr><td>4C</td><td>Div by 8 Phase 4</td></tr>
+<tr><td>4D</td><td>Div by 16 Phase 1</td></tr>
+<tr><td>1A</td><td>Div by 16 Phase 2</td></tr>
+<tr><td>4B</td><td>Div by 16 Phase 3</td></tr>
+<tr><td>1C</td><td>Div by 16 Phase 4</td></tr>
+</table>
+</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+</td></tr>
+</table>
+<p>
+<i>The table above shows how to wire up the outputs.</i>
+</center>
+<p>
+<b>Notes:</b>
+<ul>
+<li>The division ratios are correct for 4/4 based rhythms. Deriving 3/4 based rhythms may prove challenging! A voltage controlled divider or a sequential pulse generator could be used to reset the divider at appropriate times, though whether this results in a usable ratio or not is debatable!
+<li>If you have separate digital and analog power supplies for your synth, connect this one to the digital supply. Due to all the LEDs, it may introduce fluctuations to any supply to which it is connected.
+<li>While untested, the module should work on 12 volts.
+<li>A 10 ohm resistor can be used instead of the ferrite bead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n 1206 SMT</td><td align=right>10 </td></tr>
+<tr><td>100n monolythic ceramic</td><td align=right>4 </td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><td>100uF 25V</td><td align=right>1</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>10R</td><td align=right>1</td></tr>
+<tr><td>RA - see text</td><td align=right>16</td></tr>
+<tr><td>RB - see text</td><td align=right>16</td></tr>
+<tr><td>RL - see text</td><td align=right>16</td></tr>
+<tr><td>15k</td><td align=right>3</td></tr>
+<tr><td>100k</td><td align=right>6</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>4024B</td><td align=right>1</td></tr>
+<tr><td>4070B</td><td align=right>4</td></tr>
+<tr><td>1N4148</td><td align=right>2</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>16</td></tr>
+<tr><td>LED </td><td align=right>16</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs22 V2 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock. The prototype boards are being sold at half price, because I am not totally happy with them.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs22v2_master_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:42 GMT -->
+</HTML>

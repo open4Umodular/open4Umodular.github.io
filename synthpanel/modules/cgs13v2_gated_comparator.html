@@ -1,0 +1,217 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs13v2_gated_comparator.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:52:00 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=700>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+
+<center>
+<IMG BORDER=0 WIDTH=600 HEIGHT=194 SRC="pic/photo_cgs13v2-2_pcb.jpg">
+</center>
+
+
+<center>
+<br>
+The previous versions can be found <a href="cgs13_gated_comparator.html">here</a>.
+<p>
+<font face="ARIAL,HELVETICA" size=6>Gated Comparator</font><br>
+for music synthesizers.
+</center>
+<br>&nbsp;
+<p>
+<p>The idea for this project came when I was listening to some music in which part of the background was jumping between octaves in a semi-random fashion. Feeding noise into a comparator was my immediate thought, but I soon realized this wasn't going achieve what I wanted. I needed to be able to control when these jumps could occur. As such, some form of memory element was required, into which the level could be clocked when required.
+<p>
+I have used an 8 stage digital shift register as the memory element. Each clock pulse, the remembered level (logic 0 or logic 1) is moved into the next stage "bucket brigade" fashion, and the new value stored in the first memory cell. The result is a random level (on or off) at a predetermined time at the first output, plus time delayed versions of previous levels across the remaining outputs.
+<p>
+As well as the 8 shifted gate outputs available, the raw comparator output is also available. The status of each of the outputs is displayed by a LED, making adjusting the unit so much easier.
+<p>
+There is also a secondary voltage control input so the comparator break/reference point can be varied by an external control voltage.
+<p>
+On top of all this, there is a D/A converted connected to the outputs of the shift register, with the last 4 bits capable of being switched in or out. This gives some great little melodies or sequences. They will depend largely on what is fed into the shift register, though due to the configuration will always have a certain flavor. There is an inverted output for this as well. When the resultant voltage is fed to a VCO, effects from subtle semi-random melodies to 70s sci-fi computer sounds can be generated.
+<p>
+Version 2 adds a Loop input so that several gated comparators can be cascaded together, or its own output can be fed back into its input. Other digital sources could also be used. This new "digital" input is OR gated with the original "analog" input, so keep this in mind when patching. It is quite possible to rapidly set all stages in a loop to HIGH, in which case there will be no further activity on the outputs.
+<p>
+Loop Enable has two inputs.   The "H" input is for connection to a panel mounted switch to set your default preference. Connect this to one side of a SPST switch. The other side of this switch goes to +VE.
+The "L" input is for external control via a jack. This input will override the switch setting unless a high impedance output is being used to drive it. Most Synthesizer outputs are low impedance, so it should not be an issue. Note that it is <i>active LOW</i>. A positive gate on this input, or the switch being CLOSED results in the loop being disabled. Swap the connections to pins 5 and 6 of the LM393 if you wish it to work the other way around.
+
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the input to a noise source, LFO, VCO or other signal source. Connect a LFO or similar clock signal from a sequencer, etc. to the clock input. Connect the shift register outputs as required to VCOs, VCFs or other clocked modules, and/or connect the CV (RV and RVI) outputs to a module that requires a CV input.
+<p>
+The unit can also be used as a simple gate delay, where the delay is controlled by the frequency of the clock signal. The length of the resulting delayed gate signal would of course be a multiple of the clock period.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=517 height=746 src="pic/schem_cgs13v2_gc.gif">
+<br><i>The schematic of the Gated Comparator.</i>
+</center>
+<p>
+The circuit consists of two comparators, one with it's sensing point adjustable by a front panel knob an and external CV. This is for processing the input signal, and the other to square up the gate or clock signal and provide some isolation for the CMOS shift register (4015).
+<P>
+Each of the digital outputs is buffered by a transistor/resistor buffer.
+<P>
+The two shift registers in the 4015 are clocked from the same source. The fourth output of the first shift register needs to be slightly delayed to ensure reliable loading of the second shift register.
+<p>
+The outputs of all of the shift register stages are also fed to D to A converter consisting of an R/2R resistor ladder and an op amp wired as a voltage follower. A second op amp provides an inverted output.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs13v22_gated_comp.gif" target="_blank"><IMG BORDER=0 WIDTH=600 HEIGHT=200 SRC="pic/pcb_cgs13v22_gated_comp.gif"></a>
+<br><table width=600 cellspacing=0 cellpadding=0><tr><td><i>The component overlay for the VER2.2 PCB. <a href="pic/pcb_cgs13v22_gated_comp.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, LEDs,diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+1206 SMT bypass capacitors have been used on the rear of the board. The are simply soldered between each pair of square/rectangle pads without holes.
+<p>
+<center>
+<img width=600 height=199 src="pic/photo_cgs13v2-2_pcb_rear.jpg">
+<br><table border=0><tr><td><i>
+This photo of the rear of the PCB show the positions for the surface mount decoupling capacitors.
+</i></td></tr></table>
+</center>
+
+<p>
+The LED resistors (RL) can be selected as needed. If you are using common LEDs, 1k to 2k2 would be appropriate. If you are using any of the super-bright modern LEDs for their unique colors, the resistors can be much higher, 10k to 33k for example, so that the LEDs don't dazzle you.
+<p>Resistors RA and RB form the voltage divider that determines the gate output voltage. Use 1k for RB. When running off +/-15 volts use 1k8 for RA. When running off +/-12 volts, use RA = 1k5.
+<p>
+To use the wire anchor holes:
+<br>1) Trim off the end of a suitable gauge of hookup wire
+<br>2) Pass it through the larger (pad-less) hole from below and pull a couple of inches through.
+<br>3) Strip the insulation from the end of the wire, twist and tin it.
+<br>4) Bend the wire over and pass the tinned part through the associated pad hole. Trim as needed.
+<br>5) Flip the board and solder the tinned wire to the pad.
+<br>6) Pull the excess wire back through the first hole so only a short length remains between the hole and the second pad. Make sure this is the LAST step, or the insulation will peel back from the wire as it is soldered.
+<p>
+
+Pad pairs A-B, C-D, E-F and G-H are to allow for optional switches to add the 5th through 8th bits to the random melody output. If these are left open, the melody will be limited to 16 notes. Optionally a header can be installed, allowing removable links to be used to set the desired number of bits semi-permanently.
+<p>
+Pad pairs J-K, L-M, O-P, Q-R are so the same can be done to the first four bits, but unlike the ones above, these are pre-linked by PCB tracks. These tracks will need to be cut if adding switches for these bits. The tracks that are to be cut form a "V" between each pair of pads.
+<p>
+
+<center>
+<img width=650 height=718 src="pic/wire_cgs13_bestofcgs_11.gif">
+<br><table border=0><tr><td><i>
+This diagram shows how a 'Klee' type sequencer can be added to the gated comparator, as has been done on the BEST of CGS sequencer panel. A CGS04 PCB is also required, to act as the mixer.
+</i></td></tr></table>
+</center>
+<P>
+
+<center>
+<img width=650 height=410 src="pic/wire_cgs13_bestofcgs_2.gif">
+<br><table border=0><tr><td><i>
+This diagram shows the wiring for the fourth row (or fifth if you count the LEDS) on the BEST of CGS sequencer panel. The wire shown going to the (already used) GND wire can be connected to the GND wire on the other pots.
+</i></td></tr></table>
+</center>
+<P>
+<center>
+<img width=650 height=413 src="pic/wire_cgs13_bestofcgs_3.gif">
+<br><table border=0><tr><td><i>
+This diagram shows the wiring for the third row (or fourth if you count the LEDS) on the BEST of CGS sequencer panel. The manual loop switch is entirely optional, and uses a momentary-off-on type toggle switch.
+</i></td></tr></table>
+</center>
+
+
+<p>
+
+
+<b>Notes:</b>
+<ul>
+<li>To manually load a sequence into the gated comparator, a push button switch can be connected to pin 2 of the LM393 via an additional 15k resistor to the positive rail.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>If you would rather the inverted CV output (RVI) operated above 0 volts, a resistor can be soldered between pin 2 of the associated TL072 and the negative rail. Try a value around 47k to 100k.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>1n</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>5</td></tr>
+<tr><td>100n 1206 SMT</td><td align=right>9</td></tr>
+<tr><td>10uF 25V </td><td align=right>3</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>10R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>3</td></tr>
+<tr><td>RA 1k8 or 1k5</td><td align=right>9</td></tr>
+<tr><td>RB 1k</td><td align=right>9</td></tr>
+<tr><td>RL see text</td><td align=right>9</td></tr>
+<tr><td>10k</td><td align=right>7</td></tr>
+<tr><td>15k</td><td align=right>4</td></tr>
+<tr><td>47k</td><td align=right>3</td></tr>
+<tr><td>100k 1%</td><td align=right>17</td></tr>
+<tr><td>200k 1%</td><td align=right>10</td></tr>
+<tr><td>10k Lin pot</td><td align=right>1</td></tr>
+<tr><td>100k Lin pot</td><td align=right>as needed</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>2</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>9</td></tr>
+<tr><td>BC557 (or sim)</td><td align=right>1</td></tr>
+
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><td>LM393</td><td align=right>1</td></tr>
+<tr><td>(CD)4015B</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>9</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs13 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+The cool panel artwork at the top of the page is by Cynthia Webster. Her design is for the Modcan Panel Format
+<p>
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs13v2_gated_comparator.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:52:24 GMT -->
+</HTML>

@@ -1,0 +1,162 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs55_asm.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:32 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Analog Switch Matrix</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Analog Switch Matrix" BORDER=0 WIDTH=800 HEIGHT=277 SRC="pic/photo_cgs55v2_asm.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+
+<b>Ver2.0 documents</b>
+<p>
+<a href="cgs55v1_asm.html">(Go to archive - V1 docs)</a>
+
+<p>
+
+The Analog Switch Matrix is a complex router, allowing one input to be switched between four outputs, or vice versa, or even to route one signal through one of four external effects (e.g. wave multipliers, filters etc.). It can also be used as four independent analog switches.
+<p>
+All analog switches are independently addressed, so combinations of these arrangements are also possible. Further enhancing this is that the common input and output external are to the main switching matrix. There is also a separate mixer than can be used for recombining signals when routing between different effects, or the mixer can be used as an independent general purpose DC coupled unity gain mixer.
+<p>
+The analog switch is DC coupled so can be used for both control voltages and audio signals.
+<p>Suitable drivers for one-at-a-time switch control include the <a href="gate_sequencer2.html">Gate Sequencer</a> and the <a href="cgs51_wrs.html">Weighted Random Switch</a>. Any module, or combination of modules, that generates gate signals can be used to drive the matrix if having more than one switch closed at time is acceptable or desirable.
+<p>
+The <a href="cgs51_wrs.html">Weighted Random Switch</a> is a companion module, as it can be directly connected while leaving the standard gate inputs functional.
+
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=656 height=974 src="pic/schem_cgs55v20_switch_matrix.gif">
+
+<br><i>The schematic of the Analog Switch Matrix.</i>
+</center>
+<p>
+
+How does a device (the 4066) that has only a 15v range allow at least +/-10V to pass through it? The answer is it doesn't. By powering the 4066 and its associated drive circuitry from +14.4V and -0.6V, and placing the output of the analog switch at the virtual ground point of an inverting op-amp buffer, the full range of the signal is allowed to pass while the voltage at that point is held near or at 0V by the action of the op-amp while the analog switch is closed. When the analog switch is open, the diode connected between the input and 0V prevents in incoming signal from going below -0.6V, and thus prevents it from going outside the allowed input range. There is no need to protect against excursions in the positive direction, as these are in the allowed input range. A second diode at the output of the analog switch prevents the op-amp from driving the output below -0.6V, should the switch open while such potential exists.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs55v2_asm.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs55v2_asm.gif"></a>
+<br>
+<table border=0 width="800"><tr><td><i>The component overlay for the VER2.0 PCB.
+<a href="pic/pcb_cgs55v2_asm.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi for a correct scale printout.</a></i>
+</td></tr></table>
+</center>
+
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+<p>
+
+
+<p>
+<h4>Weighted Random Switch</h4>
+<p>
+
+As mentioned, this switch matrix can be used to expand the switching capabilities of the <a href="cgs51_wrs.html">Weighted Random Switch</a>.
+<p>
+Joining the two is relatively straight forward.
+<p>
+On the CGS51 board there is an area of the board marked off with a thin line, containing the text "The Neurotic". All parts are to be omitted from this area as they are not needed.
+<p>
+There are numerous pads around this area marked with a white outline. Of interest are those marked <b>0</b>, <b>1</b>, <b>2</b>, <b>3</b>, and <b>C</b>. These connect directly to the corresponding pads on the CGS55 board, thus linking the two together.
+<p>
+It is possible to omit the power supply parts from one of the two PCBs and link the pads marked <b>+VE</b>, <b>-VE</b>, <b>0V</b> and <b>-0.6V</b> as well. If it is easier, there is no reason why the power supply parts can't be installed on both boards, with each board being fed via its power connector.
+<p>
+These pads line up on the two boards, so it would be possible to mount the boards one on top of the other, with a plug and socket arrangement between the two boards to allow easy servicing. These plugs and sockets could be made from machine socket pins or similar. Again, this is only optional, and simply running insulated wires between the corresponding pads may prove more reliable and easier to build.
+<p>
+A switch could be placed between the <b>C</b> pads, allowing the switch matrix to be isolated from the weighted random board when the switch matrix is needed without the random function.
+
+
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>330&#8486;</td><td align="right">6</td></tr>
+<tr><td>2.2k</td><td align="right">2</td></tr>
+<tr><td>10k</td><td align="right">4</td></tr>
+<tr><td>15k</td><td align="right">1</td></tr>
+<tr><td>100k</td><td align="right">49</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>47pF</td><td align="right">14</td></tr>
+<tr><td>100nF (=0.1uF)</td><td align="right">8</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">3</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">14</td></tr>
+<tr><td>4066</td><td align="right">1</td></tr>
+<tr><td>TL072</td><td align="right">7</td></tr>
+<tr><td>TL074</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS55 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs55_asm.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:42 GMT -->
+</HTML>

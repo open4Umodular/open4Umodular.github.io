@@ -1,0 +1,178 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs40v1_modulo_magic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:55 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=680>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Modulo Magic" BORDER=0 WIDTH=600 HEIGHT=200 SRC="pic/photo_cgs40_modulo_magic.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Modulo Magic</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<b>Version 1 documents, for those with original version boards.</b>
+<p>
+<a href="cgs40_modulo_magic.html">(Go to current version docs)</a>
+<p>
+
+<p>
+A CV and signal processor based on the mathematical modulo principle.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+In the mathematical world, modulo gives the remainder after an integer division. For example 7 divided by 4 would give a result of 1, with 3 remainder, so 7 modulo 4 would be 3. 11 modulo 4 would also be 3, as would 15 modulo 4 and so on.
+<p>
+This module allows a similar principle to be applied to a voltage. If the modulo (Step Initiation CV) is set at 1 volt and the step size also set at 1V, the output would follow the input while the input remained between 0V and 1V. As soon as 1V was reached, 1 volt would be subtracted from the output, so for an input varying between 1V and 2V, the output would track at a volt less, i.e. between 0V and 1V again. There are 8 stages to the module, so this process would occur again as the input voltage passed 2 volts and so on up to 8 volts. Of course, the Step Initiation CV and Step size are adjustable.
+<p>
+This can be used to constrain a CV to a single octave or similar interval as needed.
+<p>
+Now consider if the step size is greater than the Step Initiation CV (SICV) - each time a multiple of the SICV is passed, the greater step size voltage will be subtracted, resulting in successive negative offsets to the output. A smaller step size will have the opposite effect, with successive positive offsets being added. When a rising voltage is fed via this particular setup to a VCO, rising "bubbles" will result.
+<p>
+There is also an offset adjustment to adjust the initial value to which the modulo will be applied. An optional switch will allow the number of modulo cycles to be limited between 8 and 1.
+<p>
+Of course that is not the only way this module can be used. It can also be used as an audio frequency wave multiplier. A triangle, sine or sawtooth waveform at audio frequencies can be modified to produce some pleasant reedy type sounds. As the inputs can be controlled by CVs, these timbres can of course be swept.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=367 src="pic/schem_cgs40_modulo_magic.gif">
+<br><i>The schematic of the Modulo Magic. <a href="pic/schem_cgs40_modulo_magic_large.gif" target="_blank">Click here for a larger copy of the schematic.</a></i>
+<p>
+<img width=300 height=135 src="pic/analogsw_power_rail.gif">
+<br><i>Power rail connections</i>
+<p>
+</center>
+<p>
+IC3 is forms a mixer with both inverted and non-inverted inputs for the control of the size of the step (Step Size) that is added to or subtracted from the CV being processed. Of note is that the output is inverted so as to work with the remainder of the circuitry, which is designed to work with an inverted signal to keep the parts count down. Keep this in mind when studying the diagram.
+<p>
+A mixer output is provided so this section of the module can be used as a plain CV mixer when not being used for other processing. When used as a mixer, if a non-inverted output is required, the signal must be fed into the 'subtract' inputs.
+<p>
+IC1 is a straight forward, two (inverting) stage, non-inverting DC summer/buffer with unity gain. The CV to be processed is fed into this buffer, and the modified signal is taken from its output. All processing is done to the voltage between these two inverting stages.
+<p>
+The output of the first inverting stage of IC1 (pin 1) is fed the sense inputs of a row of comparators (IC4-7). This voltage is compared with a series of reference voltages created by a string of resistors being driven by the first op-amp of IC2. The voltage present at the input of this stage (the Step Initiation CV) is divided into equal portions by the resistor string, to provide the equally spaced modulo points. The actual number of points is determined by a rotary switch that grounds the string part way though by connecting one of the "T" points to 0 volts. If none of the points are grounded, there are 8 modulo points.
+<p>
+As the CV being fed into IC1 increases, each comparator is triggered as its sense point is passed. The output of each comparator in turn switches on an analog switch, routing the output of step size mixer to the second stage summer of the CV processing buffer. This voltage will be summed with the input CV before being passed to the output. Each of these comparators controls an identical stage, so each time another is triggered, the exact same voltage is summed with the input CV, producing another "step". The size and direction of this step depends on the output of the Step Size mixer. If it is equal to the Step Initiation CV, the result will be true modulo, otherwise it will be one of the other effects described above.
+<p>
+An offset voltage can be added to the point where the first step occurs, using the second op-amp of IC2, an inverting buffer. Its outputs are fed simultaneously to both stages of the CV buffer (IC1) - thus canceling out any overall voltage offset at the output. This offset however is present at pin 1 of IC1 - the output of the first stage, and thus also present at the sense inputs of all of the comparators. This offset effectively shifts all sensing points by exactly the same amount, allowing a wider or narrower point before the first step occurs.
+<p>
+How does a device (the 4066) that has only a 15v range allow at least +/-10V to pass through it? The answer is it doesn't. By powering the 4066 and its associated drive circuitry from +14.4V and -0.6V,
+and placing the output of the analog switch at the virtual ground point of an inverting op-amp buffer, the full range of the signal is allowed to pass while the voltage at that point is held near or at 0V by the action of the op-amp while the analog switch is closed. When the analog switch is open, the diode connected between the input and 0V prevents in incoming signal from going below -0.6V, and thus prevents it from going outside the allowed input range. There is no need to protect against excursions in the positive direction, as these are in the allowed input range. A second diode at the output of the analog switch prevents the op-amp from driving the output below -0.6V, should the switch open while such potential exists.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs40_modulo_magic.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+It is also possible to wire in a "steps" switch. Each of the "T" pads is wired to a successive position on an 8 position rotary switch, with the switch common connected to 0 volts/GND. I recommend using the GND pad next to the T7 pad for the switch.
+<p>
+Again, the number of knobs, inputs etc. will depend very much upon how the builder wishes to use this module. I will make the following suggestions:
+<ul>
+<li>One step size input should be taken to a pot to allow for a fixed step size to be selected without additional CVs present. A 100k linear pot wired between +15 and -15 volts fed into one of the subtract inputs would be ideal. Note that the +15 should be connected to the counter-clockwise end of the pot. The range should be limited by connecting a resistor of 220k to 470k between the wiper of the pot and the SS pad on the PCB. A second pot could also be added as such, but with a larger value series resistor, so as to operate as a "fine tuning" control. Doing so would sacrifice the second subtractive input. Alternately, the series resistor could be taken directly to pin 6 of IC3.
+<li>The remaining step size inputs can be taken to panel jacks either directly, or via attenuators. To wire up such an attenuator, use a 100k linear pot with its counter-clockwise end connected to 0V/GND, its clockwise end connected to the panel jack, and its wiper connected to the SS or SA pads on the PCB.
+<li>There is a single input provided, marked IN. This can be taken to a panel jack either directly, or via an attenuator wired as above.
+<li>Additional inputs can be wired to the pad marked M2, though these will need series resistors of 100k added.
+<li>There is a single offset input provided. It can be wired as per the input, either directly to the panel, or via an attenuator. Additional inputs, such as an "initial offset" pot can be wired to the point marked M1, again using additional series resistors.
+
+<li>There is a single reference (Step Initiation CV) input provided, which in retrospect is a slip-up. It can be wired as per the input, either directly to the panel, or via an attenuator. Additional inputs, such as an "initial setting" pot can be wired directly to pin 6 of IC2, again using additional series resistors. This input could benefit fit from a "fine tuning" control as well.
+<li>It should be possible to wire up a fixed modulo control, where the reference is fed the exact same voltage as the step size, though to do this would require the addition of a switch to isolate any other input to the reference input. A multi-turn trimpot would be required as the series resistor into the reference input to allow the correct scaling to be set. Note that changing the number of modulo points also changes the distance between the sensing points, so the fixed modulo switch would also need to disconnect the common of the rotary switch.
+</ul>
+<p>
+<center>
+<img width=673 height=671 src="pic/wire_cgs40_modulo_magic.jpg">
+<br><i>A possible wiring solution, showing several options mentioned in the text above. The Pos/Neg switches were included as this will allow the manual controls to be easily set to zero by turning the pots fully counter-clockwise.</i>
+</center>
+<p>
+
+
+
+
+<b>Notes:</b>
+<ul>
+<li>Yes, it's a very complex, even confusing, design. Yes, I did consider using a bar-graph driver.
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite beads. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>9</td></tr>
+<tr><td>10uF 25V </td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>2k2</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>8</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>100k 1%</td><td align=right>42</td></tr>
+<tr><td>100k Lin pots</td><td align=right>see text</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>4066</td><td align=right>2</td></tr>
+<tr><td>TL072</td><td align=right>3</td></tr>
+<tr><td>LM393</td><td align=right>4</td></tr>
+<tr><td>1N4148</td><td align=right>19</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>8 position rotary switch</td><td align=right>see text</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs40 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2003 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs40v1_modulo_magic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:28:06 GMT -->
+</HTML>

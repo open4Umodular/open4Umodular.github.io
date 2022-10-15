@@ -1,0 +1,167 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs46_sba.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:06 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Stomp Box Adapter" BORDER=0 WIDTH=600 HEIGHT=245 SRC="pic/photo_cgs46_sba.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Stomp Box Adapter</font><br>
+<P>
+</center>
+<br clear=all>&nbsp;
+<p>
+The Stomp Box Adapter has been designed to allow some of the regular CGS modules to be used as guitar effects. It has an integral power supply and provides two channels of amplification to bring guitar signal levels up to those used by synthesizers, and two attenuators to drop them again, post effect. It also provides the essential bypass circuit.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+CGS filters and wave multipliers are probably the most likely candidates for combination with this module. For example, two Steiner VCFs could be used to give a stereo/two channel filter. The filter of course could then be driven by an LFO such as the super psycho for further effects.
+<p>
+Combined with this board, the Metalshop wave multiplier could be used as a radical fuzz unit for solo work. This particular combination would not be very effective on chords though, as the resultant waveform becomes rather muddy.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=550 height=413 src="pic/schem_cgs46_sba.gif">
+<br><i>The schematic of the core of the Stomp Box Adapter.</i>
+</center>
+<p>
+<center>
+<p>
+<img width=400 height=294 src="pic/schem_cgs46_psu.gif">
+<br><i>The power supply portion of the Stomp Box Adapter.</i>
+<p>
+</center>
+<p>
+The preamplifiers of the stomp box adapter are basic non-inverting amplifiers with an AC gain of 20, and suppression capacitors as needed. Their input impedance is approximately 150k. The bypass circuit is relay based and switches both preamplifiers. To do this, the output jacks are either connected directly to the input jacks or to the output attenuators of the internal circuitry. This is <i>not</i> what is sometimes referred to as true bypass - the inputs to the preamplifiers remain connected to the input jacks at all times.
+
+<p>
+The power supply section of the circuit is a basic half-wave rectifier followed by a pair of standard voltage regulators. While 7815 and 7915 regulators are specified, 7812 and 7912 would be equally appropriate. Most CGS circuits will work perfectly well on the lower voltage, and the lower voltage requirement may allow the use of a power pack (plug-pack, wall-wart, or line-lump) that is to hand. A rough guide is to use a power pack that has its voltage specified as being equal to or higher than that on the regulators - i.e. a 15V A.C. line-lump would be suitable for a power supply built using 7815 and 7915 regulators. The power pack <b>must</b> be A.C. (alternating current output). D.C. power packs will not work. If you hear excessive hum in the signal output, the power-pack chosen is inadequate for the job.
+See the <a href="cgs14_psu.html">+/- 15V Power Supply</a> for further description of the
+the basic power supply circuit.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs46_sba.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+This is one of those PCBs than can be assembled in a number of different ways to suit the builder's needs.
+<p>
+
+The value of R_CO should be around 1/5 of that of the relay coil if using a 12 volt relay on a 15 volt supply. If using a 12 volt supply, R_CO needs to be a wire link.
+<p>
+The relay is in bypass mode by default, or when there is no power. Connecting the pads marked "BYPASS SW" together via a switch will activate the effect.
+<p>
+Some DIP relays are polarized - specifically they will only operate with current flowing though their coil in one direction. If the relay, once installed, refuses to close when the switch is closed, reverse the connections to the relay coil by cutting the tracks and jumpering them.
+<p>
+(*) The circuit diagram shows a pair of 1M resistors at the inputs of the buffers. Add these if you have thumping problems when plugging something into the unit. These resistors are not on the PCB and will need to be tacked onto the PCB side of the board below the socket.
+<p>
+As supplied, the PCB is designed to pass a stereo signal in via J1 and out via J6. If you want a mono signal, you may leave out the RING preamplifier. If you still want two inputs, but wish to use mono jacks, cut the trace to the ring connection of J1 and jumper it to the tip connection of another jack (e.g. J2) instead. The same can be done to the output socket.
+<p>
+The amplified signals are available at pads marked SIG 1 and SIG 2. These are wired to the inputs of the piggyback CGS filter boards (or whatever it is you are adapting). The output from the piggyback boards are taken to RO (Ring out) and TO (Tip out). Needless to say, if you are making a mono effect, just use the tip connections (SIG 1 and TO).
+<p>
+The remaining jacks are optional, to be used for external control voltages or whatever.
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+<!--center>
+<img width=600 height=551 src="pic/wire_cgs46_sba1.gif">
+<br><i>Basic wiring of the Cynare. Point "A" can be joined for automatic coupling of the sustain and trigger functions. The LED MUST be installed. If it is not wanted on the front panel, mount it directly on the PCB.</i>
+</center-->
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>To use the module with +/-12 volts, replace the regulators with the 7X12 variants (7812, 7912).
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pF</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>7</td></tr>
+<tr><td>10uF 25V</td><td align=right>4</td></tr>
+<tr><td>1000uF 35V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>R_CO (56R)</td><td align=right>1</td></tr>
+<tr><td>100R</td><td align=right>2</td></tr>
+<tr><td>470R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>4</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>22k</td><td align=right>2</td></tr>
+<tr><td>150k</td><td align=right>2</td></tr>
+<tr><td>(1M)</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL071</td><td align=right>2</td></tr>
+<tr><td>1N4002</td><td align=right>5</td></tr>
+<tr><td>7815</td><td align=right>1</td></tr>
+<tr><td>7915</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Power connector to suit</td><td align=right>1</td></tr>
+<tr><td>6.3mm stereo sockets.-<br>&nbsp;PCB mount</td><td align=right>2 to 6</td></tr>
+<tr><td>Relay 12V DPDT -<br>&nbsp;(industry standard pin-out)</td><td align=right>1</td></tr>
+
+<tr><td><a href="../pcb/index.html">CGS46 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs46_sba.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:17 GMT -->
+</HTML>

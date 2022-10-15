@@ -1,0 +1,129 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs60v1_sba.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:21 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Stomp Box Adapter" BORDER=0 WIDTH=400 HEIGHT=129 SRC="pic/photo_cgs60_sba.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Stomp Box Adapter</font><br>
+<P>
+</center>
+<br clear=all>&nbsp;
+<p>
+This is a smaller version of the <a href="cgs46_sba.html">Stomp Box Adapter</a> and is basically for use in the reverse situation - namely to allow use of stomp-boxes (effects pedals, effects racks etc.) as part of a synthesizer setup. While the original will do the job, this one dispenses with the power supply and bypass switching, and handles a single channel.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=400 height=242 src="pic/schem_cgs60_sba.gif">
+<br><i>The schematic of the Stomp Box Adapter. The connections to the right go to the panel mounted jacks of the type used by the rest of your synthesizer, while the jacks to the left are 6.5mm for connection to the stomp-box.</i>
+</center>
+<p>
+Modular synthesizers generally use much higher signal levels than are used in effects pedals, so directly connection the two will create two problems. First, the excessive signal will cause the input of the effects pedal to overload/distort. Second, the output from effects pedal is too weak to drive synthesizer modules without some amplification. To compensate for these problems, the signal from the synthesizer must be dropped to a fraction of what it was, while the output of the effects pedal must be amplified by the same amount to restore it to a level suitable for the synthesizer. I have chosen to use a ratio of 20 as this encompases the signal levels of many synths. If you know for certain that the ratio is too great, the ratio can be reduced to reduce the amplification of any effects pedal noise. For example, if an effects pedal works on a 1V p-p signal, and a synthesizer has a maximum output of 5V p-p, a ratio of 5 would be adequate.
+
+<p>
+The preamplifier of the stomp box adapter is a basic non-inverting amplifier with an AC gain of 20, and suppression capacitors as needed. Their input impedance is approximately 150k. The AC gain can be reduced if need by by increasing the value of the 470R resistor. For example, a 1k resistor in this position would give a gain of 10. The 1k resistor of the input divider would need to be increased to 2k2 to keep the drop and gain matched.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=400 height=101 src="pic/pcb_cgs60_sba.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+There are pads provided on the rear of the circuit board for three decoupling capacitors. Values between 10n and 100n are suitable. One is soldered directly across pins 7 and 4 of the TL071, while the two others are between the power rails and earth below the effects input socket. These two can be surface mount capacitors.
+<p>
+
+<!--center>
+<img width=600 height=551 src="pic/wire_cgs46_sba1.gif">
+<br><i>Basic wiring of the Cynare. Point "A" can be joined for automatic coupling of the sustain and trigger functions. The LED MUST be installed. If it is not wanted on the front panel, mount it directly on the PCB.</i>
+</center-->
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>4" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pF</td><td align=right>1</td></tr>
+<tr><td>47pF</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>470R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>150k</td><td align=right>1</td></tr>
+<tr><td>1M</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL071</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>6.3mm sockets.-<br>&nbsp;PCB mount</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS60 PCB</a></td><td align=right>1</td></tr>
+
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs60v1_sba.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:30 GMT -->
+</HTML>

@@ -1,0 +1,249 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs775_vcs.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:03:44 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Voltage Controlled Slope</font><br>
+for music synthesizers.<p>
+<p>
+</center>
+
+
+<!--center>
+<IMG alt="VCS" BORDER=0 WIDTH=600 HEIGHT=198 SRC="pic/photo_cgs775_vcs.jpg">
+</center-->
+
+
+<br clear=all>&nbsp;
+<p>
+
+<p>
+<b>This is a licensed adaptation of the classic Serge DTG/DUSG</B>
+<p>
+The Serge VCS module released in conjunction with from bananalogue.com is an extremely versatile control voltage generator and audio source. In the early 1970s, Serge Tcherepnin developed the Positive Slew and Negative Slew modules for the original Serge synthesizer. In time these merged into the classic Dual Universal Slope Generator. The Bananalogue VCS/ CGS775 is an adaptation of Serge's original circuit with a few new features.
+<p>
+The VCS is a unity gain voltage follower. The rising and falling slopes are independently and jointly voltage controllable over a wide range.
+<p>
+<B>VC Transient Envelope Generator</B>
+<p>
+A pulse at the trigger input will start the envelope, or a gate input will sustain the level and the envelope will fall when the gate goes low. Rise and fall are independently and jointly voltage controllable, with variable linear and exponential wave shapes.
+<p>
+<B>VC Portamento</B>
+<p>
+Voltage is slewed according to the rise and fall times.
+<p>
+<B>VC LFO</B>
+<p>
+When the cycle switch is thrown, the trigger input is connected internally to the end trigger output, creating a VC clock with variable waveform and independent rise and fall times.
+<p>
+<B>VC Oscillator</B>
+<p>
+While not as wide ranged, or accurate as a dedicated oscillator module, the VCS is still an excellent audio source. The Exp CV input is scaled <i>approximately</i> to the 1v/oct standard. The Output wave can be swept from triangle to saw with linear and non-linear waveforms. End Out also produces a pulse waveform.
+<p>
+<B>VC Non-Linear Audio Processor (Low-Pass Gate)</B>
+<p>
+If an audio rate signal is slewed, the module responds like a VCF, and a rough VCA. The signal is low-pass filtered down to silence, similar to a low-pass gate.
+<p>
+<B>Envelope Follower</B>
+<p>
+Positive and negative peak detection envelope follower.
+<p>
+<B>VC Pulse Delay</B>
+<p>
+Trigger input starts the envelope and a trigger will be produced again at the <b>End Out</b> when the envelope completes its cycle.
+<p>
+<B>Sub-Harmonic Generator</B>
+<p>
+If a series of triggers are applied to the VCS faster than the total rise and fall times, the module will divide the incoming signal by a whole number. In the audio range the output will be the sub-harmonic series.
+<p>
+<font size=1>(Description taken from the former Bananalogue site)</font>
+
+<p>
+<h4>A little on how it works.</h4>
+Closing switches EXP. RISE or EXP. FALL feeds some of the output back into the voltage controlled inputs, changing the curve of the response - i.e. allowing for increasing or decreasing rates of change of the output, thus allowing the output waveshape to be non-linear.
+<p>AC out gives the non-inverted signal, but centered around 0V.
+
+<p>For those interested in the theory of operation, I recommend <a href="http://www.timstinchcombe.co.uk/index.php?pge=vcs" target="_blank">Tim Stinchcombe's page on the subject.</a>
+
+<p>
+<center>
+<img width=891 height=799 src="pic/schem_cgs775_vcs.gif">
+<br><i>The schematic of the VCS.</i>
+</center>
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+
+
+<center>
+<img width=600 height=543 src="pic/pcb_cgs775_vcs.gif">
+<br><table border=0><tr><td><i>The component overlay for the VCS. The component values are correct on this diagram.
+
+</i></td></tr></table>
+
+<p>
+
+</center>
+<p>
+<b>Notes:</b>
+<ul>
+<li>It is a good idea to match the transistors of the same type in the core with each other. At least use transistors from the same batch.
+<li>
+CGS775 VER1.0 main PCB incorrectly labels one 2N3906 as a 2N3904, however the associated sybmol on the PCB itself does show a PNP transistor. This is lone transistor near the rear of the PCB.
+</ul>
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. You will need to tidy up the break points for the panelized boards.
+<p>
+When you are happy with the printed circuit boards, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+All parts are mounted directly on the PCBs with the exception of the cycle switch. The "VC Both" jack should be fitted to the panel, along with the assembled BAN01A board, then adjusted so that its pins contact the appropriate pads on the rear if the BAN01A board. Solder it in place.
+<p>
+The 90%deg; single row headers that are used to connect the sub PCBs to the bus board should be soldered with the plastic carrier against each of the sub PCBs. If you solder them on the wrong way around, the plastic carrier will force the bus board up, and risk fouling with the case.
+<p>
+
+<p>
+The following photographs of the earlier Euro version are to assist with assembly of the boards. The only significan change between these photos and the new double sided PCB is that the power connector has been rotated 180 degrees to match the Doepfer standard.
+
+<center>
+<IMG alt="VCS" BORDER=0 WIDTH=300 SRC="pic/photo_ban01_panel1.jpg">
+<p>
+<IMG alt="VCS" BORDER=0 WIDTH=500 SRC="pic/photo_ban01_main1.jpg">
+<p>
+<IMG alt="VCS" BORDER=0 WIDTH=500 SRC="pic/photo_ban01_sub1.jpg">
+<p>
+<IMG alt="VCS" BORDER=0 WIDTH=500 SRC="pic/photo_ban01_assem1.jpg">
+<p>
+<IMG alt="VCS" BORDER=0 WIDTH=500 SRC="pic/photo_ban01_join1.jpg">
+<p>
+<IMG alt="VCS" BORDER=0 WIDTH=500 SRC="pic/photo_ban01_join2.jpg">
+<p>
+<IMG alt="VCS" BORDER=0 WIDTH=500 SRC="pic/photo_ban01_join3.jpg">
+<p>
+</center>
+
+
+<p>
+<h4>Setting up</h4>
+<p>
+Adjustments on the VCS board are set to obtain a 0 to +5 volt level when the unit is cycling, producing a 100Hz triangle wave. An oscilloscope is required for this adjustment. In an oscilloscope is not available, adjust for the least distorted sounding waveshape.
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>Pot values are not critical. 100k lin could be substituted for both the 50k lin and 10k log pots.
+<li>Will run on +/- 12 volts or +/-15 volts.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=1 cellpadding=3 cellspacing=0 align="left" bordercolor="white">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>6 (C3-6 optional)</td></tr>
+<tr><td>1n</td><td align=right>2</td></tr>
+<tr><td>10n</td><td align=right>4</td></tr>
+<tr><td>22n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><td>47uF 25V</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>100R </td><td align=right>1</td></tr>
+<tr><td>1k </td><td align=right>2</td></tr>
+<tr><td>1k8 </td><td align=right>1</td></tr>
+<tr><td>2k2 </td><td align=right>3</td></tr>
+<tr><td>22k </td><td align=right>1</td></tr>
+<tr><td>33k </td><td align=right>2</td></tr>
+<tr><td>68k </td><td align=right>1</td></tr>
+<tr><td>82k </td><td align=right>5</td></tr>
+<tr><td>100k </td><td align=right>12</td></tr>
+<tr><td>150k </td><td align=right>1</td></tr>
+<tr><td>220k </td><td align=right>4</td></tr>
+<tr><td>330k </td><td align=right>3</td></tr>
+<tr><td>470k </td><td align=right>2</td></tr>
+<tr><td>820k </td><td align=right>4</td></tr>
+<tr><td>1M </td><td align=right>9</td></tr>
+<tr><td>10M </td><td align=right>2</td></tr>
+<tr><td>100k trimmer</td><td align=right>1</td></tr>
+<tr><td>50k lin pot with switch<br>MouserP/N: 313-1600F-50k</td><td align=right>2</td></tr>
+<tr><td>10k log pot<br>16mm Alpha or sim)</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LED</td><td align=right>1</td></tr>
+<tr><td>1N4148</td><td align=right>6</td></tr>
+<tr><td>2N3904 </td><td align=right>3</td></tr>
+<tr><td>2N3906 </td><td align=right>3</td></tr>
+<tr><td>5V6 400mW Zener </td><td align=right>1</td></tr>
+<tr><td>TL072 </td><td align=right>1</td></tr>
+<tr><td>TL074 </td><td align=right>1</td></tr>
+<tr><td>LM3900 </td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>90&deg; 5 pin header</td><td align=right>1</td></tr>
+<tr><td>90&deg; 6 pin header</td><td align=right>1</td></tr>
+<tr><td>90&deg; 10 pin header</td><td align=right>1</td></tr>
+
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>SPST switch</td><td align=right>1</td></tr>
+<tr><td>16 pin IDC 90&deg; box header</td><td align=right>1</td></tr>
+
+<tr><td><a href="../pcb/index.html">CGS775 PCB set</a></td><td align=right>1</td></tr>
+<tr><td><a href="http://www.elby-designs.com/contents/en-us/d31.html">CGS775 Panel</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+
+
+<p>
+Classic Serge style knobs can be purchased from<br>
+<a href="http://www.smallbearelec.com/" target="_blank"><b>Small Bear Electronics LLC</b></a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=707" target="_blank">phenolic clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=831" target="_blank">ABS clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=727" target="_blank">Colored ABS clones of Davies 1900H</a>
+
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2006 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs775_vcs.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:11 GMT -->
+</HTML>

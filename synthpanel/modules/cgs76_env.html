@@ -1,0 +1,204 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs76_env.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:11 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<center>
+<font face="ARIAL,HELVETICA">
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Envelope Generator</font><br>
+for music synthesizers.<p>
+</center>
+
+
+<!--center>
+<IMG alt="VCS" BORDER=0 WIDTH=600 HEIGHT=198 SRC="pic/photo_cgs76_env.jpg">
+</center-->
+
+
+<br clear=all>&nbsp;
+<p>
+This is an adaptation of the original Serge Envelope Generator from the early "R" series PCBs. It has been produced under licence from Serge. This is NOT an ADSR style generator, and can be used as a voltage controlled LFO.
+<p>
+<b>A little on how it works:</b>
+<p>
+<a href="pic/schem_cgs76_env.gif" target="_blank"><img src="pic/schem_cgs76_env.gif" width="860" height="699" border="0"></a>
+<p>
+<h4>Construction</h4>
+<p>
+
+
+
+<center>
+<a href="pic/pcb_cgs76_env.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs76_env.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.1 PCB. <a href="pic/pcb_cgs76_env.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a><br>
+<a href="pic/pcb_cgs76v10_env.gif" target="_blank">Click here for the messed up overlay Ver1.0 board.</a>
+</i>
+</td></tr></table>
+<p>
+<a href="pic/pcb_cgs76v1.2_env.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs76v1.2_env.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.2 PCB. <a href="pic/pcb_cgs76v1.2_env.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a><br>
+</i>
+</td></tr></table>
+
+
+</center>
+<p>
+
+<b>PCB connections:</b>
+
+<p>A = start input
+<br>B = Window pulse output
+<br>C = envelope output
+<br>D = End pulse output
+<br>E = cycle input
+<br>F = Hold input
+<br>G = Duration CV
+<br>H = Window size CV
+<br>LA = LED Anode
+<br>LC = LED Cathode
+<br>Q = not used
+<p>
+
+<b>PCB assembly notes.</b>
+<ul>
+<li>An LM3900 can be substuted for the lesser rated MC3401.
+<li>All transistors on the board have pin-outs that correspond to the original epoxy type transistors. This means they have the emitter in the direction shown on the 2N4248 with the symbol in its outline. PN4248 are reversed - i.e. EBC from the flat face, rather than CBE as used on the PCB. A such, you will need to install any affected transistor substitutions in backwards with reference to the PCB. You will need to refer to the data for the transistors you are using.
+<li>
+BC557 can be substituded for all PNP transistors. BC547 can be substituted for all NPN transistors.
+<li>
+There is provision of the PCB for adding a LED to monitor both the Envelope Output and the Window Pulse Output. The connections are labelled LA (LED Anode) and LC (LED Cathode). They are positioned near the corresponding output pad.
+<li>Pot connections are marked with arrows indicating the appropriate end of the pot's travel and the wiper (CCW arrow, CW arrow and triangle).
+<li>Pot values are NOT critical. The original design used 25k for all pots. 100k pots work equally well, if not better. One 20k is listed in the parts list for use in the duration control, though a 50k or a 100k will work there, though giving a different curve response, and possibly a slightly larger range.
+The associated 22k resistors marked # on the schematic should be replaced with values to match the associated pot. If you use a 100k pot, use 100k resistors, and so on.
+<li>Resistors marked RLED determine the brightness of the LEDs. A 1k resistor can be used for low mcd LEDs. If you use a superbright LED, this value should be increased, to as much as 33k, dependent on the individual LED. Trial and error is the only way to correctly determine the value. This can be done with a LED, resistor and a power supply of approximately the same voltage as the positive rail of your synth. (i.e. +12V or +15V)
+<li>33k resistors marked # on the schematic could be replaced with 100k resistors to bring the input impedances up to more modern standards.
+</ul>
+
+
+<p>
+<b>Set-up.</b>
+<ul>
+<li>DTRIM is used to set the initial cycle speed. Turn RISE and FALL to the fasted positions. Adjust DTRIM until you get 4.00 volts on pin 4 of the LM3900 (NOT the one marked MC3401 on the PCB). I did this with END patched to CYCLE.
+<li>The second trim pot is to stabilize the HOLD function. Too high, the signal drifts, too low and the signal "pulses". To adjust this, plug the ENV out into a VCO, then trigger hold during an envelope. Adjust the trimpot using the VCO tone as a guide.
+</ul>
+<p>
+<b>Comments on usage.</b>
+<ul>
+<li>The HOLD function only works when the Window Pulse Output LED is lit.
+<li>The rise and fall pots are wired to control rate, not length. As such they seem backwards for envelope generator functions, but correct for LFO functions.
+<li>To use it as a VCLFO, patch end to cycle, and feed a CV into duration.
+</ul>
+
+<p>
+
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>2" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Runs on +/-12 volts. To run on +/-15 volts, replace the 1k8* resistor with a 2k7 in the local 6 volt regulator
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100pF </td><td align=right>1</td></tr>
+<tr><td>220pF </td><td align=right>1</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>100n 1206 SMT (optional)</td><td align=right>3</td></tr>
+<tr><td>470n MKT or poly</td><td align=right>1</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>33R </td><td align=right>1</td></tr>
+<tr><td>470R </td><td align=right>5</td></tr>
+<tr><td>1k </td><td align=right>2</td></tr>
+<tr><td>1k8 </td><td align=right>1</td></tr>
+<tr><td>2k2 </td><td align=right>2</td></tr>
+<tr><td>3k3 </td><td align=right>1</td></tr>
+<tr><td>6k8 </td><td align=right>2</td></tr>
+<tr><td>15k </td><td align=right>1</td></tr>
+<tr><td>22k </td><td align=right>2</td></tr>
+<tr><td>33k </td><td align=right>7</td></tr>
+<tr><td>68k </td><td align=right>2</td></tr>
+<tr><td>82k </td><td align=right>2</td></tr>
+<tr><td>100k </td><td align=right>5</td></tr>
+<tr><td>330k </td><td align=right>2</td></tr>
+<tr><td>470k </td><td align=right>7</td></tr>
+<tr><td>1M </td><td align=right>2</td></tr>
+<tr><td>1M5 </td><td align=right>2</td></tr>
+<tr><td>10M </td><td align=right>2</td></tr>
+<tr><td>10k trim pot</td><td align=right>1</td></tr>
+<tr><td>25k or similar trim pot</td><td align=right>1</td></tr>
+<tr><td>100k lin pot</td><td align=right>3</td></tr>
+<tr><td>20k lin pot (see text)</td><td align=right>1</td></tr>
+<tr><td>RLED LED Resistors</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+<tr><td>1N4148</td><td align=right>6</td></tr>
+<tr><td>2N3391A NPN</td><td align=right>1</td></tr>
+<tr><td>2N3565 NPN</td><td align=right>4</td></tr>
+<tr><td>2N3566 NPN</td><td align=right>1</td></tr>
+<tr><td>2N3638 PNP</td><td align=right>1</td></tr>
+<tr><td>2N4248 PNP</td><td align=right>2</td></tr>
+<tr><td>BC547 NPN</td><td align=right>3</td></tr>
+<tr><td>LM3900 </td><td align=right>1</td></tr>
+<tr><td>MC3401 or LM3900</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>SPST switch</td><td align=right>3</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+
+<tr><td><a href="../pcb/index.html">CGS75 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+
+Classic Serge style knobs can be purchased from<br>
+<a href="http://www.smallbearelec.com/" target="_blank"><b>Small Bear Electronics LLC</b></a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=707" target="_blank">phenolic clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=831" target="_blank">ABS clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=727" target="_blank">Colored ABS clones of Davies 1900H</a>
+
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2006 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs76_env.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:19 GMT -->
+</HTML>

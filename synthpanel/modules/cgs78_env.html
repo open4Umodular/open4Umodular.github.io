@@ -1,0 +1,206 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs78_env.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:40 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=750>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Utility Envelope Generator" BORDER=0 WIDTH=600 HEIGHT=199 SRC="pic/photo_cgs78_ueg.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Utility Envelope Generator</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+
+This module is a very standard logarithmic response ADSR envelope generator. It is not voltage controlled. It is for use where a basic envelope generator is adequate. There are two identical envelope generators on the PCB.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect your external GATE signal to the Gate input. Adjust the pots as required. Rotating the pots clockwise will increase the time of any particular stage, or in the case of SUSTAIN increase voltage of the sustain portion of the cycle. The output is exponential due to the basic resistor/capacitor configuration used in the timing cycle.
+<ul>
+<li>A push button is supplied to provide a manual GATE signal.
+	<li>Upon the GATE input going HIGH the UEG immediately begins it's ATTACK cycle. This will continue until one of the following occurs:
+<ul>
+<li>the GATE input returns to LOW. If this occurs, the UEG immediately goes into its RELEASE cycle, the output decreasing to zero. Thus with longer attack times set, a short GATE signal will produce an envelope with a reduced output, which can be useful for expression.
+<li>the attack peak is reached (approximately 5 volts). When this occurs, the UEG immediately goes into its DECAY cycle, where the output will decrease until it reaches the voltage set by the SUSTAIN pot. If this is zero, the output will drop to zero, effectively terminating the cycle. If it is above zero, this voltage will be held as long as the GATE input is HIGH. When the GATE input returns to LOW, the UEG immediately goes into its RELEASE cycle, the output decreasing to zero.
+</ul>
+<li>The retrigger input (RETRIG) restarts the ATTACK portion of the cycle if the GATE input is HIGH. It can be used to modulate the ATTACK, DECAY, SUSTAIN portion of the cycle. A rapid burst of pulses on this input can push the envelope higher than the usual peak if the ATTACK is set to a sufficiently short length.
+<li>The LED and ATTACK PULSE output are active during the ATTACK part of the cycle. This allows the UEG to be used as a gate to pulse converter, the pulse length controlled by the setting of the ATTACK pot.
+<li>The UEG CANNOT be set to self oscillate or cycle.
+</ul>
+
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=733 height=659 src="pic/schem_cgs78v10_env.gif">
+<P><i>The schematic of the Utility Envelope Generator.</i>
+</center>
+<p>
+IC1A is the GATE detector and is set to detect signals over about 2 volts. It's output falls when a gate signal is present. This turns off the RELEASE circuit and trips the ATTACK/DECAY bistable IC1D. This "bistable" is actually a schmitt trigger that also servers as the peak detector for the ATTACK period.
+<p>IC1C is the output buffer. It follows the voltage on the main timing capacitor C. Its signal is fed back into IC1D. When the ATTACK peak voltage is reached (approximately 5V when running from +/-15V power rails) the bistable resets, shutting off the ATTACK circuit and turning on the DECAY circuit.
+<p>The DECAY circuit discharges capacitor C until it reaches the voltage set by the SUSTAIN pot.
+<p>When the GATE input goes LOW the bistable is set, if it hasn't already been set by other circuit elements, ready for the next ATTACk cycle, and the RELEASE circuit is turned on, and discharges capacitor C.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs78v10_env.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs78v10_env.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. Parts in RED can be omitted if the board is not being separated into two individual units.<a href="pic/pcb_cgs78v10_env.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+<p>
+<img width=600 height=201 src="pic/photo_cgs78_ueg2.jpg">
+<br><table border=0><tr><td><i>The rear of the VER1.0 PCB. The line in RED indicates a missing track, which is only needed if the board is being separated into two sub-boards, and/or the power connector at that end is being used. Note the decoupling capacitors soldered between the power pins of the two chips. Regular monoblock capacitors would be easier to install than the 1206 SMD devices used here, due to the wide gap between the pads.</i>
+</td></tr></table>
+
+</center>
+
+
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+It is a good idea to test each transistor before you use it. Cheap multimeters often have a suitable tester in them. The purpose of this test is to determine the pin-out of the transistor, because increasingly frequently "rogue" transistors are being sold - transistors with their pinout reversed with respect to others bearing the same part number.
+<p>
+There are several resistors shown on the board as designators. The values given here are recommended starting points for experimentation. Use the BOLD values if you do not wish to experiment. These are their functions:
+<p>
+<table border="1" cellspacing="0">
+<tr><td>Designator</td><td>Function</td><td>Recommended Value</td></tr>
+<tr><td>RATT</td><td>Minimum Attack rate</td><td>At least <b>4k7</b> with a C=1uF. 10k-15k with C=330n. Lower than recommended will cause overshooting at the faster settings.</td></tr>
+<tr><td>RDEC</td><td>Minimum Decay rate</td><td>220R to <B>1k</B> (or more). 220R is very fast.</td></tr>
+<tr><td>RSUS</td><td>Maximum Sustain voltage</td><td>Ideally select this so sustain maximum voltage is the same as the peak voltage of the attack. <b>270k</b>. The only reason this value would need to be changed is to match a pot of a different value.</td></tr>
+<tr><td>RREL</td><td>Minimum Release rate</td><td><B>10k</B> to 22k</td></tr>
+<tr><td>RG</td><td>Output stage gain</td><td>Not fitted for 5V output range (0 to 5V). 10k for 10 volt output range (0 to 10V). This does mess up the feedback to the detector stage, turning the decay stage into a second attack, if set high enough. To cure this try putting a 10k/10k voltage divider between the output and ground, and connecting the 100k resistor to that instead of the output. (untested)</td></tr>
+<tr><td>RL</td><td>LED current</td><td>33k for modern high-brightness LEDs. 1k for standard LEDs.</td></tr>
+<tr><td>C</td><td>Main timing capacitor</td><td>330n (finer control on pots) to <b>1uF</b> (greater range)</td></tr>
+</table>
+<p>
+<table border="1" cellspacing="0">
+<tr><td>PAD</td><td>Function</td></tr>
+<tr><td>COM</td><td>ATT/DEC/REL pot common (wipers)</td></tr>
+<tr><td>ATT</td><td>Attact pot CCW end</td></tr>
+<tr><td>DEC</td><td>Decay pot CCW end</td></tr>
+<tr><td>SCW</td><td>Sustain pot CCW end</td></tr>
+<tr><td>SW</td><td>Sustain pot wiper</td></tr>
+<tr><td>REL</td><td>Release Pot CCW end</td></tr>
+<tr><td>PB</td><td>Manual Gate Push Button</td></tr>
+<tr><td>+VE</td><td>Other contact of Push Button</td></tr>
+<tr><td>GA</td><td>Gate input</td></tr>
+<tr><td>RE</td><td>Retrigger input</td></tr>
+<tr><td>OUT</td><td>Envlope out</td></tr>
+<tr><td>AP</td><td>Attack Pulse out</td></tr>
+<tr><td>LED</td><td>to LED Anode. Cathode goes to 0V</td></tr>
+<tr><td>0V</td><td>0V/GND connection for LED and jacks.</td></tr>
+</table>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+With no gate input, adjust the ZERO trimpot until the output sits at 0 volts.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>1M pots can be substituted for the 2M2 pots if the value of C is doubled.
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>This circuit has also been tested with 2N3904 and 2N3906 transistors.
+<li>While untested, the module should work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>2</td></tr>
+<tr><td>10n</td><td align=right>4</td></tr>
+<tr><td>100n (decoupling)</td><td align=right>12</td></tr>
+<tr><td>C *</td><td align=right>2</td></tr>
+<tr><td>10uF 25V </td><td align=right>2 (4)</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+
+<tr><td>330R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>1k8</td><td align=right>2</td></tr>
+<tr><td>6k8</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>34</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>56k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>16</td></tr>
+<tr><td>100k trim</td><td align=right>2</td></tr>
+<tr><td>100k lin pot</td><td align=right>2</td></tr>
+<tr><td>2M2 log pot</td><td align=right>6</td></tr>
+<tr><td>RATT *</td><td align=right>2</td></tr>
+<tr><td>RDEC *</td><td align=right>2</td></tr>
+<tr><td>RG *</td><td align=right>2</td></tr>
+<tr><td>RREL *</td><td align=right>2</td></tr>
+<tr><td>RSUS *</td><td align=right>2</td></tr>
+<tr><td>RL *</td><td align=right>2</td></tr>
+<tr><td colspan=2>* See text</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>12</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>10</td></tr>
+<tr><td>BC557 (or sim)</td><td align=right>6</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2 (4)</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1 (2)</td></tr>
+<tr><td><a href="../pcb/index.html">CGS78 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2010 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs78_env.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:50 GMT -->
+</HTML>

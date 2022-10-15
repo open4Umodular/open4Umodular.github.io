@@ -1,0 +1,146 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs94_pot_rail.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:11:20 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=920>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<font face="ARIAL,HELVETICA" size=6>POT Mounting Rail for Serge style panels.</font><br>
+<P>
+<IMG BORDER=0 WIDTH=900 HEIGHT=107 SRC="pic/photo_cgs94_v1.0_pot_rail3.jpg" hspace=10>
+<br clear=all>&nbsp;
+<P>
+</center>
+
+<p>
+This PCB is designed to help mounting and wiring pots or LEDs to panels. It uses the 1 inch horizontal spacing standard of Serge panels, and provides mounting for 16 pots or LEDs.
+<p>
+Vertical height is limited by the size of the pots you use. 16mm pots are too large for 1" vertical spacing, so you will need to use 9mm pots in that case. Pads for both footprints are included.
+<p>
+
+<center>
+<img width=450 height=150 src="pic/pcb_cgs94v1.1.gif">
+<br><table width=900 border=0><tr><td><i>
+This diagram shows three of the cells. The two extra, unmarked pads to the left correspond to two pads at the right of the PCB, to allow easy linking between the boards in the unlikely event a 32 pot strip is needed. The board can also be cut to shorter lengths if required.
+</i></td></tr></table>
+</center>
+
+<center>
+<img width=342 height=307 src="pic/schem_cgs94_v10_pot_rail.gif">
+<br><table width=340 border=0><tr><td><i>
+Representative schematic of three cells.
+</i></td></tr></table>
+</center>
+
+
+
+
+<p>
+Pad identification:
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>A</td><td>Input via RI</td></tr>
+<tr><td>B</td><td>Input (Pot CW)</td></tr>
+<tr><td>C</td><td>LED common</td></tr>
+<tr><td>D</td><td>Out (Pot wiper)</td></tr>
+<tr><td>E</td><td>Pot common (0V)</td></tr>
+<tr><td>L</td><td>LED input via RL</td></tr>
+<tr><td>M</td><td>Mix output from all pots via RM</td></tr>
+<tr><td></td><td></td></tr>
+</table>
+<p>
+Component identification. One of each part is required per cell used, dependent upon the application.
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>RI</td><td>Input resistor for use with the A input. This forms a voltage divider with the overall resistance of the pot. A capacitor can be substituted in this location to AC couple the input. If no voltage divider or AC coupling is required, omit this part, and use the B pad as the input.</td></tr>
+<tr><td>RL</td><td>LED current limit resistor. Value depends on LED and voltage used.</td></tr>
+<tr><td>RM</td><td>Summing resistor. If using this board with a sequencer or a mixer, the RM resistor allows for the minimizing of wiring. The value of RM depends upon the circuit with which you are using the PCB.</td></tr>
+<tr><td>LED</td><td>Your choice of LED, if needed.</td></tr>
+<tr><td>POT</td><td>The value of the pots used depends upon the circuit with which you are using the PCB.</td></tr>
+</table>
+<p>
+If you are using the board for pots, you probably won't want the LED related parts, and vice versa.
+
+<p>
+<h4>Construction</h4>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+The CGS94 consists of 16 individual 'cells' at 1 inch spacing. Common to all cells are:
+<br>the LED return (C) which will in most circumstances be connected to 0 volts,
+<br>the pot return (E) which will in most circumstances be connected to 0 volts,
+<br>the mix bus (M) which will be your output, usually buffered by an op-amp.
+
+<p>
+On the VER1.0 PCB there is an error with the pot pads. The inner CW pad is not connected to the outer CW pad. If you are using pots that use the outer pads, this is not a problem. If you use pots that have 0.1" spaced leads, you will need to join the two outer pads together. If the pot lead is long enough, just bend it across and solder it across both pads. If not, try bridging the pads with solder.
+<center>
+<img width=600 height=288 src="pic/photo_cgs94_v1.0_pot_rail.jpg">
+<br><table width=620 border=0><tr><td><i>
+The pads that need to be bridged when using 0.1" spaced pots are arrowed in red. This applies to the pad pair on every pot across the board. No bridges are needed when 0.2" spaced pots are used (as per this example).
+</i></td></tr></table>
+</center>
+<p>
+<center>
+<img width=600 height=361 src="pic/photo_cgs94_v1.0_pot_rail2.jpg">
+<br><table width=620 border=0><tr><td><i>
+The board with parts installed for either a basic mixer, or sequencer.
+</i></td></tr></table>
+</center>
+
+
+<p>&nbsp;
+<p>
+<h3>Parts list</h3>
+Part values will be determined by the circuit with which you are using this board.
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><td><a href="../pcb/index.html#CGS94">CGS94 V1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<br clear="all">
+<p>&nbsp;
+<h3>Shipping</h3>
+<p>
+Due to the cost of packing materials and the different shipping rates these boards will attract, shipping <b>per order</b> will be US$20. In other words, it will cost US$20 to ship one board or 20 board at the same time. I suggest you buy all you will need in a single transaction to reduce your costs. Other PCBs can of course be included for no extra shipping costs.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs. Parts within the boxed area can be omitted if the switched outputs are not required.
+<p>
+Check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2013, 2014 by <a href="mailto:otherunicorn@gmail,com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs94_pot_rail.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:11:36 GMT -->
+</HTML>

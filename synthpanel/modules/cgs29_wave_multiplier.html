@@ -1,0 +1,269 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs29_wave_multiplier.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:54:40 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ, serge, multiplier, wave">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=800>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Wave Multiplier</font><br>
+for music synthesizers.
+</center>
+<br>&nbsp;
+
+
+<p>
+<center>
+<IMG alt="wave multiplier" BORDER=0 WIDTH=700 HEIGHT=233 SRC="pic/photo_cgs29_wave_multiplier_r20.jpg" hspace=10>
+<p><i>Photo of the VER2.0 PCB.</i>
+</center>
+
+
+<p>
+<b>Ver2.0/Ver2.1 documents</b>
+<p>
+<a href="cgs29_wave_multiplier_v11.html">(Go to archive - V1 Rev 2 docs)</a>
+<p>
+<a href="cgs29_wave_multiplier_v1.html">(Go to archive - V1 docs)</a>
+<p>
+
+<p>The idea for this project came from the fabled middle section of the Serge wave multipliers. At the time I designed this, I had never seen or heard one of these units, nor had I seen its schematic diagrams, but armed with descriptions and suppositions by various people who had seen them, and a couple of photos of CRO traces from the output of the module, I decided to design myself one.
+<p>
+The result as displayed on the CRO is very close to those of the Serge, with the exception of the final fold, where, in my design, the wave maintains more of its original shape. It can produce the most amazing, harmonically rich, filter-like sweeps.
+<p>It took me weeks of experimentation before I came up with the final design. I tried various configurations (usually mixing the outputs of successive rectifiers) as suggested on websites devoted to the original, and while I did have success, there were elements of the designs that I felt were poor.
+<p>It wasn't until I approached the problem from a different angle that I was happy with the result. The circuit I came up with I would describe as a "reflector", and is ingeniously simple.
+<p>
+The day after I released the first version of this module, I was emailed the schematic of the Serge version, and apart from the value of the resistors, the "folder" was the same "reflector" I had designed. There were some other differences, such as in how I drove the VCA, and how the final fold was dealt with. Initially I decided to release a four-stage unit, having experimented with up to 7 stages. This version re-instates two of the folding stages.
+<p>
+In addition to this multiplier, there are two more simple multipliers, one created by adding lag to the feedback path of an op-amp, the other being the "Nonselective Frequency Tripler" by R. Lockhart. Its functionality is not unlike Moog's single transistor sawtooth to triangle wave converter. It's intended purpose is to convert a signal into another of three times the frequency. To do this it expects a +/-1.2 volt triangle or sine wave, and outputs a +/-0.4 volt complex waveform. Unfortunately, due to the uneven spacing of the frequency multiplied waveform, it does not sound like it is a fifth above the incoming signal. This of course in of no particular concern in this application, as the purpose of this module is to create a complex harmonic structure from a simple input, not to triple the frequency. See the <a href="cgs52_folder.html">Simple Wave Folder</a> for further details on this circuit.
+<p>
+Input range of signals is +/- 5V. Greater signals will not damage it, but may cause distortion.
+<p>
+<b>Changes in this version (VER2.0):</b>
+<p>
+Two extra folding stages have been added to the main multiplier. The prototyping area has been modified to allow easy substitution of an LM13600/LM13700/NE5517N for the LM3080/CA3080, which is now obsolete. TL07x series chips have been substituted for the LM324. Resistors affecting levels have been marked. In addition to this, there are some suggested modifications to improve it further, though it <i>will</i> work without the modifications.
+<p>
+<b>How to use this module:</b>
+<p>
+For the primary multiplier, the "folder", connect the input to the triangle wave output of a VCO. Connect a LFO, envelope generator or even a DC voltage to the folds input. The result will be a harmonically rich signal at the "F out" output. A second input based on a lag circuit allows square waves and other hard-edged waveforms to be used as the signal source.
+<p>There is also a "squared" output available, with "pwm" inputs to further vary the possibilities.
+<p>
+To use the second multiplier, the "grinder", feed the input from the output of a VCO. Adjusting the "drive" and "lag" pots will give variation to the output signal.
+<p>
+Obviously both multipliers can also be used to mangle control voltages, the outputs from LFOs etc.
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<b><a href="pic/schem_cgs29_v20_wave_multiplie.gif">Click here for the schematic.</a></b>
+<p>
+
+<p>
+The "grinder" is simply an inverting amplifier with a lag circuit in its feedback path. Depending on the time constant of the lag pot and its associated capacitor, the op-amp will take longer to settle. In trying to maintain the virtual ground at pin 2 of the first op-amp the output will overshoot, then as the virtual ground settles, then passes the optimal point, the output will again try to compensate, with the same results. The result is a "ringing" that is imposed on the input waveform around the points it changes direction. This introduces a lot of high frequency hash. The op-amp best suited to this circuit is the LM358. The characteristics of the grinder will differ significantly if another chip type is substituted. You may even find you need to try several LM358 variants and select the best.
+<P>
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs29v20_wavemultiplier.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs29v20_wavemultiplier.gif"></a>
+<br>
+<table border=0><tr><td><i>The component overlay for the VER2.0 PCB. Due to a manufacturing error, the overlay on these PCBs has a few labels obscured by extra text. Print out the above file to assist with assembly.
+<a href="pic/pcb_cgs29v20_wavemultiplier.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi for a correct scale printout.</a></i>
+</td></tr></table>
+<p>
+<a href="pic/pcb_cgs29v21_wave_multiplier.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs29v21_wave_multiplier.gif"></a>
+<br>
+<table border=0><tr><td><i>The component overlay for the VER2.1 PCB. With the exception of the 22k and 4k7 resistors associated with the input jack and pot of the Lockhart folder, this version of the board includes the additional components outlined in the text. It is a double sided PCB. <b>Note:</b> There is a track missing, as marked in red on this diagram. Use a short length of copper wire to make the connection.<a href="pic/pcb_cgs29v21_wave_multiplier.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi for a correct scale printout.</a></i>
+</td></tr></table>
+
+
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diodes and ICs. I would recommend the use of a socket for at least the LM358. This will allow a number of ICs to be tried and the best selected
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Where there was space on the PCB, I have allowed extra pads so that various size capacitors can be fitted. There are several decoupling capacitors, none of which are shown on the schematic.
+<p>
+There is provision on the rear of the PCB for an additional 7 100n 1206 SMT decoupling capacitors.
+<p>
+It is a good idea to insert a 100k resistor between the +15V supply and the normalized connection on any CV jack you may chose to wire that way. This is because +15 will momentarily be fed out of this jack when you plug something into it, due to the mechanical nature of the contacts. The pads marked R+ are there for this purpose. There is also an R- pad as well connected directly to the -15V supply.
+<p>
+The unused op-amp has been brought out to pads, though will require a couple of tracks to be cut if it is to be used. There is also a small prototyping area provided. If substituting a LM13600/LM13700/NE5517N for the LM3080/CA3080, you need to run wires from the 3080 pin locations to the corresponding numbered pad in the prototyping area. Two additional 220 ohm resistors are then soldered between Pins 14 and GND, and 13 and GND. The GND trace is immediately next to the provided pads. See the photo at the top of the page.
+<p>
+As originally presented, the input level pot on the Lockhart wave folder allows the input to be taken right down to zero. If a 4k7 resistor is soldered between the CCW end of the pot and GND, the Lockhart will pass an essentially unmodified signal with the pot rotated to its CCW end, assuming a +/-5 volts or lower strength signal. Placing a 22k resistor between the CW end of the pot and the input jack limits the maximum amount of folding to +/- 5 volts. If a greater signal is fed to it, or if this upper resistor is omitted, the folded signal will continue to grow until it forces the op-amp into clipping, giving a signal strength near that of the power rails. The above resistor values were selected using a 100k pot that actually measured 110k, which is within tolerance. The resistor values may need tweaking depending on the pot chosen, and the signal strengths used in your synthesizer. (These resistors are marked with #1 on the schematic.)
+<p>
+<b>Modifications to the VER2.0 board</b>
+<p>
+These are shown on the circuit diagram in dark red. The addition of a 10k resistor and two 4.7 volt 400mw zener diodes wired back-to-back limits the total voltage going into the PWM comparator to a level that is less than the signal level of the multiplied waveform. This helps prevent signal drop out at the extremes of the PWM control range. It will not prevent drop-outs when the 'Folds' setting is at its lowest, or when the input signal is too weak to cause any wave folding to occur. This requires a track to be cut on the rear of the PCB.
+<p>
+The addition of a 1k resistor and two 4.7 volt 400mw zener diodes wired back-to-back at the output of the Grinder limits the output waveform to roughly +/- 5 volts. Without these diodes, the output can easily reach the near-power rail voltages. These parts can be tacked on the PCB as shown in the photo, or they can be added between the PCB and the output jack.
+<p>The 5n6 specified affects the frequency of the instability in the Grinder. Other values may prove more satisfying to your ear. On this occasion I substituted a 15n and used a 100k pot instead of the original 1M.
+<p>
+<b>Additional construction notes for the VER2.0 PCB:</b>
+<p>
+There are two pads marked DC. do not confuse them. One is the DC input for the Lockhart and is located near the text "LHF IN". The other is the wiper connection for the Grinder Drive pot and is also marked with a small triangle.
+
+<p>
+<b>Additional construction notes for the VER2.1 PCB:</b>
+<p>
+An error has been found on the VER2.1 PCB. In the Lockhard multiplier the end of the 15k resistor that is meant to connect to the -VE rail has somehow become isolated. A short link to the nearby -VE pad will correct the problem. At assembly time, this can be done by folding the resistor lead across to the adjoining pad and soldering it before trimming it. See the PCB image above for the location. It is marked in red.
+<p>
+
+<b>Additional construction notes for the VER2.2 PCB:</b>
+<p>
+This board can be built as is. The 4k7 used at the CCW end of the Lockhart Folds pot is now onboard. It is accesible via the pad marked LO.
+<p>
+Resistor Designations:
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>DES</td><td>VALUE</td><td>FUNCTION</td></tr>
+<tr><td>LPOL</td><td>1k8</td><td>Lockhart pulse level</td></tr>
+<tr><td>LHL</td><td>220k</td><td>Lockhart "Triangle" output level</td></tr>
+<tr><td>MFL</td><td>100k</td><td>Manual Folds</td></tr>
+<tr><td>FCV</td><td>47k</td><td>Folds CV</td></tr>
+<tr><td>PWR</td><td>270k</td><td>PWM pot range</td></tr>
+<tr><td>PWS</td><td>47k</td><td>Pulse Width span</td></tr>
+<tr><td>POL</td><td>1k8</td><td>PWM level</td></tr>
+<tr><td>FOL</td><td>4k7</td><td>Folds output level</td></tr>
+</table>
+<p>
+The 100n AC input capacitor on the Lockhart should be at a polyester type such as greencap or MKT. The remaining six 100n can be ceramic monoblock decoupling capacitors.
+<p>
+<center>
+
+<img width=643 height=655 src="pic/pcb_cgs29v20_lockhart_grinder.gif">
+<P><i>Wiring the <B>VER 2.0</B> PCB version of the Grinder and Lockhart folder.</i>
+<p>&nbsp;
+<p>&nbsp;
+<P>
+<img width=643 height=655 src="pic/pcb_cgs29v20_multiplier.gif">
+<br><i>Wiring the <b>VER2.0</b> version of the Folder. This is merely a guide. Other wiring arrangements may be just as useful.</i>
+</center>
+<p>&nbsp;
+<p>&nbsp;
+<p>
+
+</font>
+
+<p>
+&nbsp;
+<p>
+<font face="ARIAL,HELVETICA">
+<center>
+
+<img width=643 height=655 src="pic/wire_cgs29v21_lockhart_grinder.gif">
+<P><i>Wiring the <B>VER 2.1</B> PCB version of the Grinder and Lockhart folder.</i>
+<p>&nbsp;
+<p>&nbsp;
+<p>
+<img width=643 height=655 src="pic/wire_cgs29v21_lockhart_multiplier.gif">
+<br><i>Wiring the <b>VER2.1</b> version of the Folder. This is merely a guide. Other wiring arrangements may be just as useful.</i>
+
+
+</center>
+
+
+<p>&nbsp;
+<p>
+<b>Notes:</b>
+<ul>
+<li>You could try connecting the input of the Lockhart directly to pin 14 of IC4d to gain access to the voltage controlled level and offset functions. You will probably want to delete the input pot of the Simple Wave Folder if you do this.
+<li>You could use the AC input of the Lockhart for the signal input, and the DC input as an offset control voltage.
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of a ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>6</td></tr>
+<tr><td>5n6</td><td align=right>1</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n ceramic</td><td align=right>6</td></tr>
+<tr><td>100n 1206 SMT</td><td align=right>7</td></tr>
+<tr><td>100n MKT</td><td align=right>1</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>220R</td><td align=right>2</td></tr>
+<tr><td>330R</td><td align=right>1</td></tr>
+<tr><td>470R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>6</td></tr>
+<tr><td>1k8</td><td align=right>2</td></tr>
+<!--tr><td>2k2</td><td align=right>1</td></tr-->
+<tr><td>3k9</td><td align=right>1</td></tr>
+<tr><td>4k7</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>20</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>39k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>15</td></tr>
+<tr><td>220k</td><td align=right>1</td></tr>
+<tr><td>270k</td><td align=right>2</td></tr>
+<tr><td>100k lin pot</td><td align=right>7</td></tr>
+<tr><td>1M lin pot</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>14</td></tr>
+<tr><td>4V7 400mW Zener</td><td align=right>4</td></tr>
+<tr><td>2N3904</td><td align=right>1</td></tr>
+<tr><td>2N3906</td><td align=right>1</td></tr>
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><td>LM358 (select)</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>3</td></tr>
+<tr><td>LM3080 or CA3080</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS29VER2.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2002 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs29_wave_multiplier.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:55:06 GMT -->
+</HTML>

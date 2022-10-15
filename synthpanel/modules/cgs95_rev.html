@@ -1,0 +1,217 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs95_rev.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:11:36 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<IMG alt="Reverb" BORDER=0 WIDTH=800 HEIGHT=209 SRC="pic/photo_cgs95v10_rev2.jpg">
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Reverb</font><br>
+for music synthesizers.
+</center>
+&nbsp;
+<p>
+This is a basic reverb module constructed around the Belton BTDR-2H Reverb Module (Available from <a href="http://www.smallbearelec.com/servlet/Detail?no=1211" target="_blank">SmallBear Electronics</a>). From a single input, two channels of raw reverb are generated. Mix outputs are also provided, allowing the input/reverb mix to be controlled via a panel pot. An additional feedback function is provided for emphasizing the effect, or even for generating screaming feedback. <a href="http://youtu.be/i0J-6cNisjU" target="_blank">Video demo of prototype unit.</a>
+<p>
+
+<b>A little on how it works:</b>
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=680 align="left"><tr><td>
+<img src="pic/schem_cgs95v10_rev.gif" width="771" height="654" border="0">
+<P><i>The schematic for Reverb module.
+<font color="purple">PURPLE (A) components are only installed if you have a separate 5V power rail.</font>
+<font color="green">GREEN 	(B) components are only installed if you have only +/-15V power rails.</font>
+</i>
+
+</td></tr></table>
+
+<br clear="all">
+<p>
+C8, R3 and R4 are part of a high pass filter and gain recovery circuit. The values of these parts determine how "tinny" the reverb sounds. The <a href="http://www.accutronicsreverb.com/" target="_blank">http://www.accutronicsreverb.com/</a> web site has further details, a data sheet and so on.
+<br>
+Formulae for determining the values are:
+<br>
+High-pass frequency (Hz) = 1/(2&pi; · C8 · R3)
+<br>
+High frequency gain (dB) = 20 · log(R4/R3)
+<p>
+If you do not require this high pass filter, short out C8.
+My prototype uses R3=100k, R4=15k, C8=10n(0.01&mu;F). A 20k trimmer in series with R4 allows for gain adjustment.
+<p>
+The Belton BTDR-2H Reverb Module comes in three different delay lengths. Select the one that sounds most useful to you. I chose one medium delay and one long delay	for my prototypes.
+<p>
+The 22pF capacitors marked * are to prevent the op-amps from oscillating, however, due to the high value of the feedback resistor, the form a low pass filter. At 22pF, the effect is fairly insignificant. If you have an oscilloscope and can check these outputs, you may try omitting the 22pF capacitors.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs95v10_rev.gif" target="_blank"><img width=800 height=200 src="pic/pcb_cgs95v10_rev.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB.
+<font color="purple">Components are only installed in the PURPLE (A) area if you have a separate 5V power rail.</font>
+<font color="green">Components are only installed in the GREEN (B) area if you have only +/-15V power rails.</font>
+<a href="pic/pcb_cgs95v10_rev.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components. It is better to use metal film resistors throughout this PCB in order to keep resistor generated noise to a minimum.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The board supports both horizontal and vertical mounting versions of the reverb module.
+<p>
+If you are using a 6-pin style MOTM power distribution system with +5 available, you need to install the parts in the area on the PCB marked "A". If you are using the more standard +/-12V or +/-15V	two rail systems, you need to install the parts in the area on the PCB marked "B". These parts form a local 5V regulator. Specified maximum current of both the reverb device and the 78L05 device are both 100mA, so if you prefer a larger safety margin, you may prefer to install a 78M05 regulator instead.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts.
+<p>
+A dual 10k linear pot can be used for the two 10k mix pots.
+<p>
+If you do not want the feedback function, simply omit the feedback pot. The FB LEVEL trimmer, 220k resistor and 22n capacitor can also be omitted.
+<p>
+100n (0.1&mu;F) 1206 SMT capacitors are mounted on the rear of the PCB as shown in one of the photos below. <a href="http://youtu.be/UUHAAVftAXU" target="_blank">Video of how to solder SMT parts.</a>
+<p>
+<IMG alt="Reverb" BORDER=0 WIDTH=800 HEIGHT=210 SRC="pic/photo_cgs95v10_rev1.jpg">
+<p>
+<i>Module assembled for use with external 5V supply</i>
+<p>
+<IMG alt="Reverb" BORDER=0 WIDTH=800 HEIGHT=209 SRC="pic/photo_cgs95v10_rev2.jpg">
+<p>
+<i>Module assembled for use with internal 5V supply</i>
+<p>
+<IMG alt="Reverb" BORDER=0 WIDTH=800 HEIGHT=199 SRC="pic/photo_cgs95v10_rev3.jpg">
+<p>
+<i>SMT positions.</i>
+<p>
+&nbsp;
+
+<p>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>+VE</td><td>Spare +VE connection</td></tr>
+<tr><td>-VE</td><td>Spare -VE connection</td></tr>
+<tr><td>LMo</td><td>Left Mix Out</td></tr>
+<tr><td>RMo</td><td>Right Mix Out</td></tr>
+<tr><td>FBo</td><td>Feedback Out (to CW end of FB pot)</td></tr>
+<tr><td>LMW</td><td>Left Mix Wet (CCW end of left mix pot)</td></tr>
+<tr><td>RMW</td><td>Right Mix Wet (CCW end of right mix pot)</td></tr>
+<tr><td>IN</td><td>Input</td></tr>
+<tr><td>FB</td><td>Feedback pot wiper connection.</td></tr>
+<tr><td>Lo</td><td>Left Out (reverb only)</td></tr>
+<tr><td>Ro</td><td>Right Out (reverb only)</td></tr>
+<tr><td>0V</td><td>CCW end of FB pot, 0V connection to 3.5mm jacks</td></tr>
+<tr><td>LMG</td><td>Left Mix Ground (wiper of left mix pot)</td></tr>
+<tr><td>RMG</td><td>Right Mix Ground (wiper of right mix pot)</td></tr>
+<tr><td>LMD</td><td>Left Mix Dry (CW end of left mix pot)</td></tr>
+<tr><td>RMD</td><td>Right Mix Dry (CW end of right mix pot)</td></tr>
+</table>
+
+<p>
+<!--center>
+<img width=680 height=694 src="pic/wire_cgs95v10_rev.jpg">
+<P>
+<table border="0" cellspacing="0" width="650"><tr><td>
+<i>Example wiring for the Reverb.</i>
+</td></tr></table>
+</center-->
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+If you have access to an oscilloscope, you can monitor the input and of one of the "raw" reverb outputs, and adjust the GAIN trimmer so they match. Note that the reverb output will probably have greater excursions than the input signal, especially if you are just using a basic wave shape from a VCO. As such you are setting the level of the "bulk" of the waveform. The alternative method is to adjust the GAIN trimmer until they sound about the same.
+<p>
+The feedback trimmer (FB LEVEL) is adjusted with the feedback pot set to maximum. Adjust it to taste.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>For the 20k trimmer, anything between 20k and 50k is adequate.
+<li>330R refers to 330 ohms. 100n = 0.1&mu;F.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 1.5" with 3mm mounting holes 0.15" in from the edges. Extra holes are provided to match the CGS91 mounting rails, with left or right offsets, or centered.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+
+<table><tbody><tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>330&#8486;</td><td align="right">4</td></tr>
+<tr><td>10k</td><td align="right">2</td></tr>
+<tr><td>15k {R4}</td><td align="right">1</td></tr>
+<tr><td>100k {R3}</td><td align="right">1</td></tr>
+<tr><td>100k </td><td align="right">12</td></tr>
+<tr><td>220k</td><td align="right">1</td></tr>
+<tr><td>1.2M</td><td align="right">2</td></tr>
+<tr><td>10k <i>single turn trimmer</i></td><td align="right">1</td></tr>
+<tr><td>20k <i>single turn trimmer</i></td><td align="right">1</td></tr>
+<tr><td>10k <i>dual linear pot</i></td><td align="right">1</td></tr>
+<tr><td>100k <i>linear pot</i></td><td align="right">1</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>22pF</td><td align="right">2</td></tr>
+<tr><td>47pF</td><td align="right">4</td></tr>
+<tr><td>22nF (=0.022&mu;F)</td><td align="right">1</td></tr>
+<tr><td>10nF (=0.01&mu;F) {C8}</td><td align="right">1</td></tr>
+<tr><td>100nF (=0.1&mu;F)</td><td align="right">A=0 B=2</td></tr>
+<tr><td>100nF (=0.1&mu;F) 1206 SMT</td><td align="right">7</td></tr>
+<tr><td>10&mu;F <i>electrolytic</i></td><td align="right">3</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>TL072</td><td align="right">3</td></tr>
+<tr><td>BTDR-2V reverb module</td><td align="right">1</td></tr>
+<tr><td>78L05 or 78M05 regulator</td><td align="right">A=0 B=1</td></tr>
+<tr><th colspan="3">Misc</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">3 (2)</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>A=0 B=1</td></tr>
+<tr><td>0.156 6 pin connector</td><td align=right>A=1 B=0</td></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td><a href="../pcb/index.html#CGS95">CGS95 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</tbody></table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2013 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs95_rev.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:11:52 GMT -->
+</HTML>

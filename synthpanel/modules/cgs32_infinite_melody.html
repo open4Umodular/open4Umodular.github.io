@@ -1,0 +1,223 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs32_infinite_melody.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:55:34 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--center>
+<IMG alt="Infinite Melody" BORDER=0 WIDTH=600 HEIGHT=207 SRC="pic/photo_cgs32_infinite_melody.jpg">
+</center-->
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Infinite Melody</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs32v1_infinite_melody.html">here</a>.
+<p>
+The name of this module is a play on its function. Put simply, it generates a series of semi-random or themed stepped control voltages, or if you prefer, white and pink control voltages. The pink function is probably better known as 1/f, and thus the name of "<b><font color="red">1</font></b>l<b><font color="red">/</font></b>l<b><font color="red">f</font></b>inite melody".
+<p>
+Assuming a 1 v/oct VCO is being driven by the module, in the 1/f mode, the size of a pitch step is inversely related to the frequency at which it will occur. In other words, the smallest steps are most common, steps twice their size occur half as often, and so on.
+<p>
+As well as the 1/f mode, it has a pure random mode, where no weighting is put on the selection of notes. A large step is as likely as a small one.
+<p>
+As well as having these two modes of operation, there are 4 CV outputs available. With the exception of the fourth, each successive output is a shifted version of the previous. In random mode, this is very much the same effect as produced by an Analog Shift Register (ASR), but in 1/f mode, it takes on a whole new feel, as each of the six shift registers involved shifts at a different rate, according to the 1/f weighting. As such, the second and third outputs are related to the first, but not identical to it. The fourth output is subject to the same shifting weighting according to the mode of operation, but instead of driving a D/A converter, it drives a bank of knobs, allowing harmonic relationships to be set up.
+<p>
+And if that wasn't enough, the randomness used by this module is obtained externally, from a regular white noise generator, or other varying voltage source, allowing more structured themes to be created. The random values are loaded in series at a rate determined by an external fast clock. This can simply be a spare output of a VCO (even one in use playing melodies etc.) or it can be deliberately controlled, or slowed right down to gain even more effects. The sensitivity of the random input can also be controlled via CV, again giving more possibilities.
+<p>
+See <a href="cgs41_diatonic_converter.html">Diatonic Converter</a> for an alternate output for this module.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=881 height=959 src="pic/schem_cgs32v2_infinite_melody.gif">
+<p>
+<img width=519 height=391 src="pic/schem_cgs32v2_infinite_melody_mix.gif">
+<P><i>The schematic of the Infinite Melody.</i>
+</center>
+
+<p>
+First, a very simple theory lesson - 1/f implies a weighted ratio between a level and its corresponding rate. A change in level of 1 will occur at the clock rate. A change in level of 2 will occur at half the clock rate, a change in level of 4 will occur at a quarter of the clock rate, etc., thus giving rise to the 1/f ratio. This means the larger the step in output level, the less frequently it will occur. On the other hand, random implies exactly that - there is no determination of how great a step will occur - any step size is as likely as any other.
+<p>
+As is shown in the schematic, the Infinite Melody consists of several distinct sections.
+<p>
+The first section is the clock and random or 1/f selector. The clock and reset signals are processed by the LM358. When the 1f/Ra input is LOW (below about 2V), the reset line of the 4024 will be held LOW, allowing it to count, and clock signal connected to the second input of each EXOR gate via the 10k resistor will be blocked by the forward biased diode. The output of the counter is then fed via the EXOR gates (inverted in the process) to the clock inputs of each of the 4015 shift registers. Each successive shift register receives it's clock at half the rate of the one above it.
+<p>
+When the 1f/Ra input is HIGH (above about 2V), the reset line of the 4024 will be held HIGH, forcing all of the outputs of the 4024 to LOW. The clock signal connected to the second input of each EXOR gate via the 10k resistor will pass as the associated diode is now reverse-biased, and no longer blocking the signal. The clock signal is now fed via the EXOR gates (inverted in the process) to the clock inputs of each of the 4015 shift registers. All shift registers are now being clocked at the same rate.
+<p>
+The second section of the schematic is the random number processor. Each shift register in the chain requires a random level to be present at its data input when it receives its clock signal. Traditionally this would be achieved by having a series of six independent random number generators. Instead it was decided to clock random data in serially at a rate significantly higher than needed. This section is essentially identical to the <a href="cgs13_gated_comparator.html">Gated Comparator</a>, so I suggest you investigate that article for more information on how it works.
+<p>
+
+<center>
+<img width=398 height=399 src="pic/block_cgs32v2_infinite_melody.gif">
+<P><i>The block diagram of the Infinite Melody.</i>
+</center>
+
+
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs32v2_infinite_melody.gif" target="_blank"><img width=600 height=300 src="pic/pcb_cgs32v2_infinite_melody.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER2.0 PCB. <a href="pic/pcb_cgs32v2_infinite_melody.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The master level pot for the mix-out is optional. It can be omitted if the resistor marked 27k* is installed. If using the pot, do not install the 27k resistor.
+<p>
+Euro rack users can cut the PCB along the row of holes, and double the board back on itself. You will need to install links between the two parts of the PCB. Pads are provided for this. There are two mounting holes that match on each board, allowing them to be secured to each other.
+<p>
+<h4>Pad identification</h4>
+<p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>0V</td><td>0V/GND connection for 3.5 or 6.5mm jacks and CCW end all mix bit pots. </td></tr>
+<tr><td>CLK</td><td>Clock input to advance the melody. "ADVANCE" on Best of GCS panels.</td></tr>
+<tr><td>-V</td><td>-VE access point if required.</td></tr>
+<tr><td>MSW</td><td>Common contact of MODE switch.</td></tr>
+<tr><td>MB0</td><td>Mix bit. Goes to CW end of corresponding mixer pot. (1 on Best of CGS Panel)</td></tr>
+<tr><td>MB1</td><td>Mix bit. Goes to CW end of corresponding mixer pot. (2 on Best of CGS Panel)</td></tr>
+<tr><td>MB2</td><td>Mix bit. Goes to CW end of corresponding mixer pot. (3 on Best of CGS Panel)</td></tr>
+<tr><td>MB3</td><td>Mix bit. Goes to CW end of corresponding mixer pot. (4 on Best of CGS Panel)</td></tr>
+<tr><td>MB4</td><td>Mix bit. Goes to CW end of corresponding mixer pot. (5 on Best of CGS Panel)</td></tr>
+<tr><td>MB5</td><td>Mix bit. Goes to CW end of corresponding mixer pot. (6 on Best of CGS Panel)</td></tr>
+<tr><td>BD4</td><td>To common connection of optional bit 4 disable switch.</td></tr>
+<tr><td>BD5</td><td>To common connection of optional bit 5 disable switch.</td></tr>
+<tr><td>LA</td><td>Sense LED Anode</td></tr>
+<tr><td>LC</td><td>Sense LED Cathode</td></tr>
+<tr><td>P1</td><td>Gain pot connects between the two pads marked P1. Wiper is wired to CW end of pot. POT HAS NO 0V CONNECTION.</td></tr>
+<tr><td>O1</td><td>Output for sequence 1</td></tr>
+<tr><td>P2</td><td>Gain pot connects between the two pads marked P2. Wiper is wired to CW end of pot. POT HAS NO 0V CONNECTION.</td></tr>
+<tr><td>O2</td><td>Output for sequence 1</td></tr>
+<tr><td>P3</td><td>Gain pot connects between the two pads marked P3. Wiper is wired to CW end of pot. POT HAS NO 0V CONNECTION.</td></tr>
+<tr><td>O3</td><td>Output for sequence 1</td></tr>
+<tr><td>PM</td><td>Optional master gain pot connects between the two pads marked PM. Wiper is wired to CW end of pot. POT HAS NO 0V CONNECTION.</td></tr>
+<tr><td>OM</td><td>Output for mixed sequence</td></tr>
+<tr><td>MIX&nbsp;IN</td><td>Each goes to the wiper on oneof the mix bit pots. There are two extra inputs that can be wired to external input jacks, or an offset pot.</td></tr>
+<tr><td>SV</td><td>Sense control voltage input. If using a panel that has a level pot for this input, wire the jack to the CW end of a 100k linear pot. The CCW end goes to 0V and the wiper goes to the SV pad on the PCB.</td></tr>
+<tr><td>ST</td><td>Initial Sense voltage setting pot CW end</td></tr>
+<tr><td>SC</td><td>Initial Sense voltage setting pot wiper</td></tr>
+<tr><td>SB</td><td>Initial Sense voltage setting pot CCW end</td></tr>
+<tr><td>RI</td><td>Input for random analog or digital pulse train</td></tr>
+<tr><td>+V</td><td>+VE access point. To one side of mode switch.</td></tr>
+<tr><td>RC</td><td>Fast clock for random loading, for example from any VCO in your system, even if it is being used for other purposes at the time. If you are hardwiring to CGS31 digital noise board, this can go to the output of the CGS31's onboard VCO.</td></tr>
+
+</table>
+<p>
+
+
+<center>
+<img width=762 height=642 src="pic/wire_cgs32v20_inf_mel.gif">
+
+<p>
+<img width=800 height=489 src="pic/wire_cgs32v20_inf_mel_1.gif">
+<br>
+<table border=0><tr><td>
+<i>An example of hard wiring the Infinite Melody board. If building the unit into a Best of CGS panel, the Channel Gain pots are replaced with fixed resistors soldered directly to the PCB. 100k will give unity gain. Smaller value resistors, resulting in smaller steps may be of more use to some people. On this example the 27k marked "27k*" is installed, and the master gain pot (GM pads) is not used.
+</i>
+</td></tr></table>
+</center>
+
+
+
+
+ <p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><th colspan=2>VER 2.0</th></tr>
+
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47p</td><td align=right>8</td></tr>
+<tr><td>1n</td><td align=right>1</td></tr>
+<tr><td>100n (0.1)</td><td align=right>13</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>RL - select to suit LED</td><td align=right>1</td></tr>
+<tr><td>330R</td><td align=right>4</td></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>4k7</td><td align=right>5</td></tr>
+<tr><td>10k</td><td align=right>7</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>2</td></tr>
+<tr><td>27k</td><td align=right>1</td></tr>
+<tr><td>33k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k 1%</td><td align=right>48</td></tr>
+<tr><td>200k 1%</td><td align=right>24</td></tr>
+<tr><td>4M7</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>3</td></tr>
+<tr><td>TL072</td><td align=right>6</td></tr>
+<tr><td>4015</td><td align=right>4</td></tr>
+<tr><td>4024</td><td align=right>1</td></tr>
+<tr><td>4030 or 4070</td><td align=right>2</td></tr>
+<tr><td>BC547</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>3</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs32 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+
+</td></tr></table>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>This module will work on +/-12 volts.
+<li>Make sure you use a standard 4000 series CMOS, not 74XXX4000 series, e.g. CD4015, MC14015, HEF4015.
+<br>Markings such as HC4015, HCT4015 imply 74HC4015 and 74HCT4015 and are unsuitable.
+<li>If you don't care about power-rail noise, just use a link instead of the ferrite beads.
+<li><font color="green"><b>PCB info: </b></font>6" x 3" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs32_infinite_melody.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:55:50 GMT -->
+</HTML>

@@ -1,0 +1,188 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs36_pulse_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:04 GMT -->
+<HEAD>
+ <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+ <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+ <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=920>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Pulse Divider" BORDER=0 WIDTH=800 HEIGHT=269 SRC="pic/photo_cgs36v14_pulse_divider.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Pulse Divider and Boolean Logic</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The previous versions can be found <a href="cgs36v1_pulse_divider.html">here</a>.
+<p>
+This module consists of several parts, a pulse divider with integer divisions between 2 and 8, and several logic elements. The divider is used to generate interrelated pulses for use in creating poly-rhythms, and unusual sequences. It can also be run at audio frequencies as a sub-oscillator/sub harmonic generator. The output pulse from each division is one clock cycle in length, and the relationship between pulses is fixed. Specifically, the /4 output will correspond to every second pulse from the /2 output. Likewise, the /8 will correspond to every second pulse from the /4 output, and the /6 will correspond to every second pulse from the /3 output. Needless to say, the /2 and /3 groups are not related to each other, or to the /5 or /7 outputs. All however share a common external reset, so they can be synchronized. All outputs go high on reset.
+<p>
+As well as the pulse divider, there are also five boolean logic elements. Two are basic inverters. If you apply a LOW (e.g. a gate output in its OFF state) they will give a HIGH (gate ON) output, and vice versa. The OR gate has two inputs, and gives a HIGH whenever <i>one</i> or <i>both</i> inputs are HIGH. The AND gate has two inputs, and gives a HIGH only when <i>both</i> inputs are HIGH. The fifth is an exclusive OR gate (XOR), giving a LOW when both inputs are within 1.2 volts of each other, and a HIGH when they are not. The OR, AND and XOR also offer inverted outputs, giving the option of using them as NOR, NAND and XNOR gates. Unlike the Analog Logic module, these are for processing gate, trigger and clock signals, although the XOR gate can accept linear inputs as well.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+Feed a clock signal into the input of the pulse divider. The divided signal is available simultaneously for each output. If running at audio frequencies, feed some of these to a mixer or other signal processing device. If running at low speed, try driving two different sequencers at the same time from different divisions.
+<p>
+Try feeding the /8 output into the reset - this will force all to synchronize to a /7 count, with the lesser divisions becoming "syncopated".
+<p>
+The AND gate could be used to control a clock signal. If the second input is LOW, no clock signal passes. If the second input is high, the signal passes unimpeded. Of course, there are a lot more things that can be done with the logic gates. For example, the /6 and /7 outputs could be ANDed together, and that would give a pulse every 6 x 7 (42) clock pulses (i.e. 1 pulse immediately the pulse divider is reset, and the second 42 pulses after that etc.).
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<table border=0 cellpadding=10 cellspacing=0 width=900><tr><td>
+<img src="pic/schem_cgs36v14_pulse_divider.gif" width="834" height="510" border="0" hspace="50">
+<p><br>
+<img src="pic/schem_cgs36v14_boolean.gif" width="800" height="700" border="0" hspace="50">
+</td></tr></table>
+</center>
+
+<p>
+The clock and reset signals are processed by the TL072. The reset is sensitive to rising edges only, meaning that a continuous gate signal would initially reset the dividers, then allow the module to continue counting. The Reset button on the other hand is wired so that holding it in will stop all counting, and hold all outputs high for as long as the button is held.
+<p>
+Following the input processor are four 4017 decade counters wired to give the various divisions. Where possible, sub-divisions have been taken from the same chip, with the various pulses being ORed together by diodes. Each output is buffered by an emitter follower. Many different types of small signal or switching transistors (e.g. BC547) can be used here without affecting the performance.
+<p>
+The boolean logic are simple discrete R/DTL designs. When either input of the OR gate receives a voltage high enough, the first transistor is switched on, pulling the base of the second transistor low, and thus turning it on as well. This results in the output being pulled up to the voltage governed by the resistor divider. In the case of the AND gate, both input transistors must be turned on before the output transistor can be turned on, as the input transistors are in series with each other. The inverters are basically just the same as the first stage of the OR gate, with the exception of there being only one input.
+<p>
+Further explanation of how the Exclusive OR gate works can be found <a href="cgs54_xor.html">here</a>.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs36v14_pulse_divider.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs36v14_pulse_divider.gif"></a>
+<br><i>The component overlay. <a href="pic/pcb_cgs36v14_pulse_divider.gif" target="_blank">Click here</a> for an enlarged printable version.</i>
+</center>
+<p>
+VER1.4 PCBs have the upper part of the output dividers marked as RA, RB, RC, RD and RE on the PCB. These resistors are 1k8 for +/-15V operation and 1k5 for +/-12 volt operation. Check your output voltages when you have assembled them. Ideally the voltages will swing between 0 volts and +5 volts. Some small variance either way is nothing to be concerned about.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors and other low profile components such as diodes first, followed by IC sockets if used, then moving onto the taller components.
+<p>
+At this point, if surface mount capacitors have been specified, turn the board over and add these now. It is not difficult to solder these onto the board with a regular soldering iron. First put a small amount of solder on one pad. Place the component between the two pads, one end resting on the solder you just put there. Press the component down with your finger nail or a small tool, and briefly reapply heat to the solder. The part will sink into it and remain held there. Solder the other end of the component to its pad. Re solder the first pad to make sure you have a good connection.
+<p>If you are unable to use the surface mount devices, you could use small ceramic monoblock capacitors instead, soldering them directly to the associated IC's power pins on the solder side of the PCB, or the appropriate pad in the case of transistors/capacitors.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes, IC and transistors.
+<p>
+When inserting ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>0V</td><td>0V connection for all LED cathodes, jack sleeve connections etc.</td></tr>
+<tr><td>-VE</td><td>-VE (Test point only)</td></tr>
+<tr><td>+VE</td><td>+VE to Reset push button.</td></tr>
+<tr><td>CLK</td><td>Clock input</td></tr>
+<tr><td>RSB</td><td>Optional Reset button</td></tr>
+<tr><td>RST</td><td>Reset input</td></tr>
+<tr><td>Lx</td><td>LED anode for div by x</td></tr>
+<tr><td>/x</td><td>div by x output</td></tr>
+<tr><td>II</td><td>Inverter 1 input</td></tr>
+<tr><td>IO</td><td>Inverter 1 output</td></tr>
+<tr><td>IL</td><td>Inverter 1 LED anode</td></tr>
+<tr><td>JI</td><td>Inverter 2 input</td></tr>
+<tr><td>JO</td><td>Inverter 2 output</td></tr>
+<tr><td>JL</td><td>Inverter 2 LED anode</td></tr>
+<tr><td>RL</td><td>OR gate LED anode</td></tr>
+<tr><td>RI</td><td>OR gate input</td></tr>
+<tr><td>RO</td><td>OR gate output</td></tr>
+<tr><td>RN</td><td>Test point/not used</td></tr>
+<tr><td>AL</td><td>AND gate LED anode</td></tr>
+<tr><td>AI</td><td>AND gate input</td></tr>
+<tr><td>AO</td><td>AND gate output</td></tr>
+<tr><td>AN</td><td>Test point/not used</td></tr>
+<tr><td>XI</td><td>XOR/XNOR gate input</td></tr>
+<tr><td>XO</td><td>XOR gate output</td></tr>
+<tr><td>XL</td><td>XOR gate LED anode</td></tr>
+<tr><td>NO</td><td>XNOR gate output</td></tr>
+<tr><td>NL</td><td>XNOR gate LED anode</td></tr>
+</table>
+
+<p>
+
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n 1206 SMD/SMT</td><td align=right>12</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>19</td></tr>
+<tr><td>10k</td><td align=right>10</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>23</td></tr>
+<tr><td>4M7</td><td align=right>2</td></tr>
+<tr><td>RLED 10k (see text)</td><td align=right>13</td></tr>
+<tr><td>RA 1k8 (see text)</td><td align=right>7</td></tr>
+<tr><td>RB 1k8 (see text)</td><td align=right>2</td></tr>
+<tr><td>RC 1k8 (see text)</td><td align=right>2</td></tr>
+<tr><td>RD 1k8 (see text)</td><td align=right>2</td></tr>
+<tr><td>RE 1k8 (see text)</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LED</td><td align=right>13</td></tr>
+<tr><td>1N4148</td><td align=right>29</td></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>CD4017</td><td align=right>4</td></tr>
+<tr><td>BC547</td><td align=right>12</td></tr>
+<tr><td>BC557</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs36 VER1.4 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>Make sure you use a standard 4000 series CMOS, not 74XXX4000 series, e.g. CD4017, MC14017, HEF4017.
+<br>Markings such as HC4017, HCT4017 imply 74HC4017 and 74HCT4017 and are unsuitable. MC4017 is also unsuitable.
+<li>This module will work on +/-12 volts. See the text for resistor value changes.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs36_pulse_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:16 GMT -->
+</HTML>

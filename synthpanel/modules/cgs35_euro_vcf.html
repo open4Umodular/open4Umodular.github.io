@@ -1,0 +1,221 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs35_euro_vcf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:56:50 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Synthacon VCF" BORDER=0 WIDTH=411 HEIGHT=300 SRC="pic/photo_cgs35euro_vcf.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Synthacon VCF</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+This module is a "tribute" module, based on the awesome Steiner-Parker Synthacon VCF. Those who know me will know I'm not a big VCF fan. Nonetheless, this VCF really appeals to me. This time I have added an optional input mixer, as well as extending the range of the filter. Extra adjustments are also possible.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the CV input to a voltage source such as a keyboard, envelope generator or sequencer. Connect the output to a VCA or amplifier. Feed the signal to be filtered into the high-pass, band-pass or low-pass input.
+<p>
+Unlike the original, this version allows signals to be fed into all inputs simultaneously. If the same signal is used in all inputs, the result is reminiscent of a phaser. The real fun starts when you feed different signals into each input, then you get a frequency based "interpolating scanner", where panning between different sound sources is possible, though also subject to the frequency at which they are running. I have never heard an effect like it before.
+<p>
+Each of the filter type inputs has its own level control. The ALL input is also affected by these level pots as it mixed with the individual inputs prior to the level controls.
+<p>
+If using only a single input, it may be better to feed the signal into the ALL input, and adjust the level pots to select LP, BP or HP, rather than changing the patch cord between the specific input jacks.
+<p>
+<b>A little on how it works:</b>
+<p>
+<b><br><a href="pic/schem_cgs35euro_steiner.gif" target="_blank">Click here for the Schematic</a></b>
+<p>
+
+
+</center>
+<p>
+The circuit uses a standard, non-inverting amplifier configuration. The three modes (HP, BP, LP) are obtained by injecting the signal into three different points of the circuit. An increase in the gain of the amplifier increases the filter's Q. The Q remains almost constant as the filter is swept across the audio spectrum.
+<p>
+In the circuit, diode strings are used as voltage controlled resistors. The differential-amplifier transistors apply the bias voltage to the parallel diode string RC networks in opposing phase. The opposing phases cancel the control voltage so that none appears at the output.
+<p>
+The final pair of transistors form a non-inverting amplifier. The variable resistor adjusts the gain of this amplifier, and thus its Q.
+<p>
+The final stage is a simple gain stage, as I found the original was too quiet for my needs. The feedback resistor (RG) can be increased for more output level, or reduced for less. Start with 100k.
+<p>
+<i>(Based on an article by Nyle Steiner from Electronic Design 25, Dec 6th, 1974.)</i>
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=432 height=501 src="pic/pcb_cgs35euro_steiner.gif">
+<p>
+
+<br><i>The component overlay. There is no wiring!</i>
+</center>
+<p>
+<b>Construction Notes/modifications:</B>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics  and IC and transistors.
+<p>
+When inserting the IC in its socket, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+There are two ways this module cab be assembled - with the input level pots and ALL input, and without. The first way uses all four PCBs, the second only two, and a few lengths of tinned copper wire.
+<p>
+The EUR35D board is designed to connect all three main PCBs, eliminating wiring. 90 degree pin headers are used to achieve this. See the photos. It is designed to space the pots and jacks at one inch centers on the panel. Note that in this configuration, the bottom jack of the input board is the ALL input and the CV input is below the level pots.
+<p>
+If omitting the EUR35C level pot board, the EUR35D must also be omitted. Instead, tinned copper wire is run between the following pads on the input jack board (EUR35B) and the main board (EUR35A): 0V, HP, BP, LP, CV. Note that in this configuration, the bottom jack of the input board is the CV input.
+<p>
+Small square pads on the rear of the circuit boards are for 100n 1206 SMT decoupling capacitors. Positions are marked in dark grey on the overlay above.
+<p>
+On the overlay above two resistors are marked in different colors. If you find you have insufficient resonance, replace the 2k2 marked in red with a trimpot in the range of 2k to 4k7. You should now be able to adjust the resonance to a suitable level. This may be needed to compensate for variations in transistor gains.
+<p>
+The resistor marked in blue can be replaced with a trimpot in the range of 2k to 4k7, its purpose being to set the minimum resonance resistance. It's function is not dissimilar to the trimmer mentioned above.   It is most likely to be used to offset the range of the pot. It is also best if the trimmer is never adjusted to zero. Perhaps a 470ohm could be wired inline. <I>It is unlikely this modification will be needed.</i>
+<p>
+On the boards with pots, the jacks will need to be mounted on short lengths of tinned copper wire.
+Either solder tag or PCB mount Cliff jacks can be used. (CL 1366?)
+<p>
+<b>IMPORTANT!</b> Further builds have discovered a problem when running this design on 12 volts. If you wish to run on 12 volts and find the module hard or impossible to set up due to uncontrollable resonance, short out every third diode in the diode divider chain. It will still work on 15 volts with these diodes shorted out.
+<p>
+A quick and dirty guide to trimming:
+<p>
+If need be, adjust the resonance pot and resonance trimmer until it stops squeaking. Feed a LFO square wave in to the CV with no signal at the inputs. Adjust the CV span to get some response. Adjust CV reject for minimum thump. Turn resonance up. Adjust the resonance trim so that the screech can be controlled. It will depend on the initial frequency pot setting somewhat, so you will need to tweak it so you have acceptable resonance at the low frequencies, while not being uncontrollable or stoppable at the top of the frequency range. CV span - adjust it so you get more or less one octave per volt. Don't waste too much time here. There is no way it will be either accurate or thermally stable. Be aware that unstable and "nasty" resonances are a feature of the sallen-key filter.
+<p>
+
+
+
+<p>
+
+
+
+<center>
+<img width=295 height=200 src="pic/photo_cgs35euro_vcf1.jpg">
+<p>
+
+<i>Close up of one of the 90 degree headers.</i>
+</center>
+<p>
+
+
+<center>
+<img width=548 height=350 src="pic/photo_cgs35euro_vcf2.jpg">
+<p>
+
+<i>Front view of the assembly. Note the zigzag wire links to the floating jacks, and the orientation of the 90 degree headers used to join the boards together.</i>
+</center>
+
+<p>
+
+<center>
+<img width=307 height=501 src="pic/panel_cgs35eur_vcf.gif">
+<p>
+
+<i>Identification of the jacks and pots. The grid is 1 inch.</i>
+</center>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>All pots are linear.
+<li>As the resonance is increased, the gain also increases. depending on the input signals, clipping may occur.
+<li>If you have inadequate output from the filter, try increasing the value of the feedback resistor (RG) of the output op-amp.
+<li>This module will work on either +/-12 volts or +/-15 volts.
+<li>Frequency to CV response is exponential.
+<li><font color="green"><b>PCB info: </b></font>Designed to mount on a 1 inch grid, suspended by the jacks and pots.
+
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF </td><td align=right>4 </td></tr>
+<tr><td>2n2 MKT etc. </td><td align=right>3 </td></tr>
+<tr><td>10n MKT etc. </td><td align=right>2 </td></tr>
+<tr><td>100n MKT etc. </td><td align=right>1 </td></tr>
+<tr><td>100n 1206 SMT </td><td align=right>5 </td></tr>
+<tr><td>1uF 25V </td><td align=right>4 </td></tr>
+<tr><td>10uF 25V </td><td align=right>2 </td></tr>
+<tr><td>47uF 25V </td><td align=right>2 </td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>82R </td><td align=right>1 </td></tr>
+<tr><td>390R </td><td align=right>1 </td></tr>
+<tr><td>1k </td><td align=right>5 </td></tr>
+<tr><td>2k2 </td><td align=right>4 </td></tr>
+<tr><td>3k9 </td><td align=right>1 </td></tr>
+<tr><td>8k2 </td><td align=right>1 </td></tr>
+<tr><td>10k </td><td align=right>1 </td></tr>
+<tr><td>47k </td><td align=right>3 </td></tr>
+<tr><td>100k </td><td align=right>9 </td></tr>
+<tr><td>180k </td><td align=right>1 </td></tr>
+<tr><td>220k </td><td align=right>2 </td></tr>
+<tr><td>390k </td><td align=right>1 </td></tr>
+<tr><td>2M2 </td><td align=right>1 </td></tr>
+
+<tr><td>1k trim</td><td align=right>1 </td></tr>
+<tr><td>25k or 22k trim</td><td align=right>1 </td></tr>
+
+<tr><td>1K LIN 16mm pot </td><td align=right>1 </td></tr>
+<tr><td>100K LIN 16mm pot </td><td align=right>5 </td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>2N3904 </td><td align=right>3 </td></tr>
+<tr><td>2N3906 </td><td align=right>1 </td></tr>
+<tr><td>1N4148 </td><td align=right>12 </td></tr>
+<tr><td>TL071 </td><td align=right>1 </td></tr>
+<tr><td>TL074 </td><td align=right>1 </td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td>16 pin dual 0.1 header</td><td align=right>1</td></tr>
+<tr><td>5 pin 90 degree  0.1 header</td><td align=right>1</td></tr>
+<tr><td>7 pin 90 degree  0.1 header</td><td align=right>1</td></tr>
+<tr><td>11 pin 90 degree  0.1 header</td><td align=right>1</td></tr>
+<tr><td>Cliff Jacks </td><td align=right>6 </td></tr>
+<tr><td><a href="../pcb/index.html">CGS35EUR PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs35_euro_vcf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:04 GMT -->
+</HTML>

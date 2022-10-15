@@ -1,0 +1,165 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs41v10_diatonic_converter.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:28:06 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Diatonic Converter" BORDER=0 WIDTH=600 HEIGHT=200 SRC="pic/photo_cgs41_diatonic_converter.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Diatonic Converter</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+The latest version can be found <a href="cgs41_diatonic_converter.html">here</a>.
+<p>
+The Diatonic Converter is an adapter for projects such as the <a href="cgs32_infinite_melody.html">Infinite Melody</a> and <a href="cgs13_gated_comparator.html">Gated Comparator</a>, constricting their outputs to the notes of a major or minor diatonic scale instead of the chromatic scale. A single control line selects between major and minor. Three control lines select the note in the scale, and three more select the octave.
+<p>
+The key in which the notes are played is determined by sending the appropriate voltage into the unit's mix input, or mixing the output of the unit with other voltage sources externally.
+<p>
+Of course a 1 volt per octave VCO is required to convert the control voltage output of this module into an actual pitch.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+The Diatonic Converter can be integrated into modules such as those mentioned above, or by using the integral gate interface, can be controlled by other events in the synthesizer, such as keyboard gate signals, LFOs etc.
+<p>
+Of note is that if the note and octave control lines were connected directly to a binary counter in ascending order, there would be two of the root note of the scale present at each octave, except for the first and last. This is because the scale as generated contains eight notes per octave, starting with "C" and ending with "C1", so "C1" of the first octave played would be followed immediately by "C" of the second octave played, though an octave higher than its first sounding.
+<p>
+While this may seem awkward, when fed from random generators, the doubled weighting of the root note actually is an advantage, reinforcing the notion of the particular key in which the melody is playing.
+<p>
+There are only six integral gate converters in the interface, and seven digital inputs used by the diatonic converter itself, so if wiring these inputs directly to a front panel, the third octave control bit is simply tied to 0v, as the higher four octaves are of limited use anyway. More details will be given below.
+<p>
+A span input allows the span between notes to be adjusted, for microtonal or non-scaled applications.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=482 src="pic/schem_cgs41_diatonic_converter.gif">
+<br><i>The schematic of the core of the Diatonic Converter.</i>
+<p>
+<img width=312 height=300 src="pic/schem_cgs41_diatonic_converter2.gif">
+<br><i>The integral gate converters (2 of 6 shown).</i>
+<p>
+<img width=300 height=124 src="pic/dual_power_rail.gif">
+<br><i>Power rail decoupling for the Diatonic Converter.</i>
+</center>
+<p>
+<p>
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs41_diatonic_converter.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+The PCB is divided into two sections, the interface and the converter. The interface may be omitted if the board is being hard wired to another PCB with suitable (0-15V) digital outputs. If any external connections are required, the interface circuits will need to be constructed. In my case, the Minor/Major selector is panel mounted, so I only needed to construct one of the interface circuits. It may be easiest to simply install all of the interface components except for the chips, adding those as needed.
+<p>
+A REF02 chip has been selected as a 5 volt reference for the circuit. In the event you are unable to obtain one, or if you wish to run the unit on +/-12 volts, an alternative will be needed. On the same area of PCB that is meant to take the REF02, there is provision for installing a 78L05 voltage regulator and 1k load resistor instead. While not as accurate, or as stable, it will be adequate for most people. The pad marked TEMPR. is the REF02 temperature output, and is not used here.
+<p>
+There are two adjustments required to set up the converter - the gain of the octave buffer and the gain of the note buffer. Multi-turn trim-pots would be best here. Alternatively, the trim-pots and associated series resistors can be omitted if a 240k 1% resistor and 20k 1% resistor are installed in the alternative positions as shown on the PCB. The trim-pots will allow for more accurate adjustment, but for some applications the fixed resistors will be adequate.
+<p>
+Pads D and E are for expanding the offset mixer if required. Additional input resistors can be added here.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+
+<center>
+<img width=600 height=461 src="pic/wire_cgs41_diatonic_converter.gif">
+<br><i>An example of hard wiring the Diatonic Converter to an Infinite Melody board.</i>
+</center>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts, though the 78L05 will need to be used in place of the REF02.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>7</td></tr>
+<tr><td>10uF</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>4</td></tr>
+<tr><td>3K9 1%</td><td align=right>12</td></tr>
+<tr><td>10k</td><td align=right>6</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>18k 1%</td><td align=right>1</td></tr>
+<tr><td>100k 1%</td><td align=right>20</td></tr>
+<tr><td>220k 1%</td><td align=right>1</td></tr>
+<tr><td colspan=2 align="right">* see text</td></tr>
+<tr><td>4k7 or 5k trim</td><td align=right>1</td></tr>
+<tr><td>47k or 50k trim</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>4</td></tr>
+<tr><td>LM358</td><td align=right>3</td></tr>
+<tr><td>REF02 or 78L05</td><td align=right>1</td></tr>
+<tr><td>4051</td><td align=right>2</td></tr>
+<tr><td>4053</td><td align=right>1</td></tr>
+<tr><td>1N4148</td><td align=right>6</td></tr>
+<tr><td>3V9 400mw Zener</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS41 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs41v10_diatonic_converter.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:28:16 GMT -->
+</HTML>

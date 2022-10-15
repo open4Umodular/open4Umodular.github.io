@@ -1,0 +1,159 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs34_asr1_1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:26:54 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Analog Shift Register" BORDER=0 WIDTH=600 HEIGHT=207 SRC="pic/photo_cgs34_asr.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Analog Shift Register</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+This module is an analog control voltage shift register, three stages in length. It duplicates the functionality of the Serge ASR, but goes about it in a very different way. It is great for producing "arabesque-like" sequences, trills etc., when used with VCOs. Of course it's use is not limited to VCOs only.
+<p>Unlike ASRs produced using "bucket brigade" techniques, the CV outputs are constant from the beginning of the cycle to the end - there is no "charge period" in which a brief glide is heard.
+<p>
+The CV input/output range of the ASR is approximately +/- 10V.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the CV input to a voltage source such as a keyboard or sequencer. Connect the three   CV outputs to the three modules to be controlled. Connect the clock input to a LFO or other low frequency trigger source.
+<p>
+To cascade the unit with others, connect the clock inputs to the same trigger source, and connect the third CV output of the first ASR to the CV input of the second ASR. Unlike the Serge ASR, there is no need to used delayed trigger pulses.
+
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=427 src="pic/schem_cgs34_asr.gif">
+<br><i>The schematic of the Analog Shift Register.</i>
+</center>
+<p>
+The ASR is nothing more than a 4 stage analog memory. Each cell of this memory is a capacitor, followed by an LF356 buffer.
+<p>Addressing each stage of this in turn is half of a 4052 4 pole analog switch. As each cell is addressed, it is forced to follow the incoming voltage. The cell remains connected to the incoming voltage for a full clock cycle, giving it ample time to reach the correct level.
+<p>
+At the same time as this is happening, there are three other 4 pole analog switches that are pointing to each of the other three cells. The first of these points to the cell filled the previous clock cycle, the second to the cycle before than, and the third to the one before that.
+<p>
+As such, once each cell is filled, it remains that way for 3 clock cycles, then is filled with a new voltage on the fourth. The other three cells are cycled in turn to the 1st, 2nd and 3rd outputs.
+<p>
+The TL071 and 4024 form the clock pulse to address converter.
+<p>
+The remaining circuitry is an input buffer and three output buffers designed to adapt the voltage to that suitable for switching by the 4052. The input range of the ASR itself is approximately +/- 10V.
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs34_asr.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+The capacitors specified as CX on the circuit board and diagram are the S&amp;H capacitors and as such should be high quality low leakage sorts, such as polypropylene. None the less, quite satisfactory results can be achieved using common 100n MKT capacitors. The value of them will depend on the speed at which you intend to run the unit. The larger the capacitor, the lower the maximum speed at which it will run, but the longer it will be able to hold the voltage without drooping. 47n is probably the smallest that should be used, though drooping becomes quite noticeable at slow speeds. It may be possible to go as high as 220n for really slow operation, though this will somewhat limit the maximum speed (see the notes below). Do NOT use capacitors in which the dielectric is exposed: one such example is block shaped and green in color will not work.
+<p>
+The 10k and 22k resistors in the input and output buffers should be <i>matched</i> 1% metal film for best results. Where do you get matched resistors? Buy a few more resistors than you need (maybe twice as many), and compare them with your multimeter!
+<p>
+Other FET input op-amps may work in place of the LF356. CA3140, or TL071 would work though may introduce minor offset errors. I don't recommend TL071 though. CA3140 may reduce the rate of any "droop", but you may need to hand select them to remove any offset inconsistencies.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the links first, followed by the resistors, the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as the electrolytics and ICs.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay. Note that sockets introduce a point for future failure. I only use sockets when I expect to try several ICs for test purposes.
+<p>
+For those who wish to take things further, here is an alignment procedure.
+<ul>
+<li>Connect a constant voltage to the input. Connect one output to a VCO and the Clock input to an LFO or clock running at a few hertz. You should get a constant tone. If there is a stepped warble, one of your ICs has a different offset to the others. You can work out which chip it is by holding your finger on the pins of each chip in turn. Swap the affected chip for another. Repeat if needed until you get a constant tone. I have only had this happen with LM3140/CA3140 chips.
+<li>Feed around 6 volts into the input and check each of the outputs are the same. They should be if you correctly matched your resistors. Adjust parts as needed.
+<li>Feed around negative 3 volts into the input and check each of the outputs are the same. This is where you are likely to find variation. Place a 100 ohm resistor in series with the 10k resistor between pins 13 and 14 of the TL074. Check again. Adjust the value of this resistor as needed. You could use a 500 ohm trimmer if you wish. A digital meter will often have a greater resolution in the +3.2 to -3.2 volt range. Use this range for more accurate readings. A VCO is probably the best "meter" available to you. Use your ears to judge if you have the same voltage going in as coming out.
+</ul>
+<p>
+<b>Notes:</b>
+<ul>
+<li>Being a CV processor, this module requires nice clean power rails. Initially mine was exhibiting slight stepped voltage shifts (resulting in pitch shifts). I traced these to the mass of flashing LEDs in the next module - a module that should have been connected to my "dirty" power supply.
+<li>Due to the inversion used in the inputs and outputs of this circuit, the voltage droop is upside down! As the capacitors lose their charge, the output voltages will rise! Also note that the expanded range of the input will also amplify the rate of droop.
+<li>The range available in this module really is excessive. you can half it, improving your hold time and precision with a few parts changes. All 10k resistors associated with the TL074 should be replaced with 22k resistors. The four 22k offset resistors (the ones connected to -15V) should be replaced with 47k. Alignment is as already described. This has been tested.
+
+<li>If you choose to use larger capacitors for CX, you may wish to cut the track between pin 14 of the TL074 and pin 3 of the first 4052, and insert a resistor between them. A value around 100R to 330R would probably be suitable. This is to limit the stress put on the devices. According to my data books I can see no reason why this would be needed. If the 4052 fails for no apparent reason, or either the 4052 or TL072 run too hot, this is the fix. If the 4024 runs too hot, it probably driving a failed 4052. This will further limit the maximum speed at which the module will run, so you will need to settle on a suitable compromise.
+<li>The +6V rail is NOT used. It is merely part of a general voltage bus I am using on a private project. The unmarked capacitors on this bus can be omitted, or can be anything in the range 10n to 100n. Ceramic will suffice as these are merely for decoupling.
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>7</td></tr>
+<tr><td>CX (47n)</td><td align=right>4</td></tr>
+<tr><td>10uF 25V </td><td align=right>3</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+
+<tr><td>1k</td><td align=right>3</td></tr>
+<tr><td>10k 1%</td><td align=right>5</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>22k 1%</td><td align=right>8</td></tr>
+<tr><td>100k</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>1</td></tr>
+<tr><td>TL071</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>1</td></tr>
+<tr><td>LF356</td><td align=right>4</td></tr>
+<tr><td>4024</td><td align=right>1</td></tr>
+<tr><td>4052</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs34 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs34_asr1_1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:06 GMT -->
+</HTML>

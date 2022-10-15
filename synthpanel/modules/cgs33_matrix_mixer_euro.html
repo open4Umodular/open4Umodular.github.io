@@ -1,0 +1,181 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs33_matrix_mixer_euro.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:55:50 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Matrix Mixer</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<center>
+<IMG alt="Matrix Mixer" BORDER=0 width=400 height=186 SRC="pic/photo_cgs33euro_a.jpg"><br>
+<IMG alt="Matrix Mixer" BORDER=0 width=400 height=366 SRC="pic/photo_cgs33euro_b.jpg">
+</center>
+<p>
+<p>
+The matrix mixer is a four input, multiple output bipolar or unipolar DC coupled mixer, for mixing control voltages or audio signals. In cases where you require several different mixes from a common set of signals, this module is ideal. Each output can be independently switched to operate in unipolar or bipolar mode. When in unipolar mode, all pots feeding that output behave in regular fashion, that is when the knob is fully counter-clockwise, no signal from the associated input passes into the mix. As the knob is advanced clockwise, a greater portion of the signal passes into the mix. In bipolar mode, each knob has a zero position mid-way through it's travel. Turning the knob anti-clockwise will add an increasing portion of a negative (inverted) version of the signal at the corresponding input, while turning the knob clockwise will add an increasing portion of the original signal to the mix.
+<p>
+<p>
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=272 height=636 src="pic/schem_cgs33_matrix_mixer_euro_a.gif">
+<br><i>Input buffers for the Matrix Mixer.</i>
+<p>
+<img width=569 height=384 src="pic/schem_cgs33_matrix_mixer_euro.gif">
+<br><i>The column mixers of the Matrix Mixer.</i>
+<p>
+</center>
+<p>
+As is obvious from the circuit diagram, the matrix mixer is little more than a group of standard op-amp summing circuits and buffers. Any signal applied to an input is first buffered by a voltage follower based on a TL071 op-amp so as to not load down the output of whatever module is driving it. The buffered signal from each input are then fed to the inputs of five identical column mixers. The pots steer the signal to either the first or second op-amp of the mixer in bipolar mode, or the first op-amp or ground in unipolar mode. Any signal that is sent to the first op-amp is inverted, then mixed with any signal being sent to the second op-amp. This signal is then inverted again, and sent to the output jack.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=400 height=267 src="pic/pcb_cgs33_eur_mixer.gif">
+<br><i>The component overlays.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. It is possible to build this using Cliff style jacks on the PCBs, or to use other jacks, in which case a different method of mounting the buffer board will be required.
+<p>
+When you are happy with the printed circuit boards, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+If you are adventurous, you could probably mount PCB type switches on the foil side of the PCB, as there are pads to allow doing so, but using regular switches on flying leads is probably a better way to do it. If you do not install switches, you will need to put links in their place. Installing a link in the position shown will make that board behave in a bipolar fashion. Linking between the center hole and the opposite pad (0V) will set that board in unipolar mode.
+<p>
+Column boards are connected to the main board via a 16 way ribbon cable and 16 pin insulation displacement connectors. For each additional column board used, you need only add another connector to the same ribbon cable.
+<p>
+<center>
+<IMG alt="Matrix Mixer" BORDER=0 width=600 height=99 SRC="pic/photo_cgs33euro_w.jpg">
+</center>
+
+
+<p>
+If additional rows are required, add extra input resistors and pots as per those already on the PCB, and add another row buffer per row using another TL071.
+
+<p>
+The value of the pot used in the processor will affect the response of the pot. The pot itself MUST be linear. For example, a 50k will be slightly anti-log. Despite the circuit diagram listing 20k, I would recommend the use of 100k pots.
+<ul>
+<li>10k - Anti-log response - Greater sensitivity near center of rotation. Finer control towards ends of travel.
+<li>100k - Linear response.
+<li>1M - Log response - Finer control near center of rotation. Greater sensitivity towards ends of travel.
+</ul>
+<p>
+<img width=400 height=438 src="pic/processor_pot_response.gif">
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>There are 2 resistors on the later "B" boards are marked NF. These are pot wiper resistors for row 5 and 6, and are not fitted for a standard build. If you wish to increase the number of rows to 6, these are fitted with 100k resistors. The pads marked 5 and 6 then go to the wipers of pots 5 and 6. CW and CCW terminals of the additional pots are paralleled with the other pots on that column board. On the "A" board are two pads marked 5 and 6. These connect via the loom to all row 5 and 6 pot wiper resistors. These need to be fed by additional buffers, though there is no provision for these on the PCB.
+<li>The value of the pots is not particularly critical. Any of 20k, 22k, 25k will work.
+<li>This board can be built to be powered from +/- 15V using a MOTM standard power connector or +/- 12V using a Doepfer standard connector. The ONLY difference to construction for these two versions is the power connector you will need to install.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite beads. If you don't care about power-rail noise, just use a link instead.
+<li>Board dimensions: 0.9" x 3.9" and 1.6" x 3.9". Pots are spaced at 0.8", with the first being 0.35" from the edge of the PCB.
+
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>"A" board.</tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>6</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>4</td></tr>
+<tr><td>100k</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL071</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>(1)</td></tr>
+<tr><td>16 pin dual row header for power</td><td align=right>(1)</td></tr>
+<tr><td>16 pin dual row header and connector</td><td align=right>1</td></tr>
+<tr><td>16 way ribbon cable</td><td align=right>1</td></tr>
+<tr><td>Jacks as required (CL 1366?)</td><td align=right>4</td></tr>
+<tr><td><a href="../pcb/index.html">cgs33EUR_A PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+
+
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>"B" board. 1 per column.</tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pf</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>NF = NOT FITTED</td><td align=right>2</td></tr>
+<tr><td>220R</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>7</td></tr>
+<tr><td>lin pots - See text (16mm)</a></td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+
+<tr><td>SPDT switch</td><td align=right>1</td></tr>
+<tr><td>Jacks as required (CL 1366?)</td><td align=right>1</td></tr>
+<tr><td>16 pin dual row header and connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs33EUR_B PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+
+
+
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2008 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs33_matrix_mixer_euro.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:56:09 GMT -->
+</HTML>

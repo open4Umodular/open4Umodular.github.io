@@ -1,0 +1,278 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs59_prog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:01:16 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,H7ELVETICA" size=6>Programmer/Sequencer</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Programmer/Sequencer" BORDER=0 WIDTH=400 HEIGHT=314 SRC="pic/panel_cgs59_prog.jpg">
+</center>
+<p>&nbsp;
+
+<H2>Experienced builders only!</H2>
+
+<br clear=all>&nbsp;
+<p>
+
+The Programmer/Sequencer is a Serge inpired multi-stage sequencer. Unlike most sequencers, this one makes no use of binary counters. Rather, it uses a set of individual stages, each one directly accessible. As such it could be considered to allow "random access". The first sequencer produced by Serge was a 4017 based counter that put out gate pulses. In order to get a control voltage sequencer, the gate outputs were fed to the input stages of a multi-state programmer. Usually built in groups of four, but sometimes coupled through a switch, these programmers would only allow a single stage to be active at any time, outputting the corresponding control voltages to their bussed output jacks. The stages could be selected either via a gate/trigger input or a panel mounted push button.
+<p>
+This module replicates the programmer, but with one major exception - up and down inputs allow it to be sequenced without connection to an external gate source. Any stage can be activated at any time by a direct pulse or button press. Up or down pulses will then step it from that stage. To limit the number of steps in the sequence, the pulse (gate) output of a stage is simply routed to the external pulse input for the first stage of the sequence. Note that the first stage used in a sequence need not be the first stage on the panel. For example it would be possible to have the first few stages used as an "introduction", with the sequence automatically looping to a stage in the middle of the panel once the sequence's first run was completed.
+<p>
+There is also no theoretical limit to the number of stages that can be used, though I have only tested to a maximum of 10 stages. The maximum number of stages is of course chosen prior to building. The astute will recognise the circuits as having grown from that published in the Synapse article. Make no mistake - it wasn't simply copied. Hundreds of hours of R&amp;D and numerous prototypes were needed to get it right, as the circuit has been taken far beyond its original intentions.
+
+
+<p>
+<b>A little on how it works:</b>
+<p>
+
+
+<b><br><a href="pic/schem_cgs59_prog.gif" target="_blank">Click here for the Schematic</a></b>
+<br>
+On the schematic, each colored area represents a stage "A" board. The areas in white are the master board and the wiring bus.
+<p>
+Simply put, bus "C" is the output of a current source. This source is capable of holding only one stage on at a time. When a second stage is triggered, it deprives the currently latched stage of current, causing it to reset. In doing so, it removes its load from the current source, allowing the recently triggered stage to remain on.
+<p>
+The up-down function is provided by a dedicated pulse generator in each stage. Only when that stage is active are the pulse generators enabled. Upon receiving an up or down pulse from the corresponding bus, either the next or previous stage will be sent a trigger pulse.
+
+<ul>
+<li>CPO - Common Pulse Out. (original Serge name. A better name would be 'Button Gate Out') Goes high and remains high while a push button is pushed.
+<li>AEP - All Event Pulse. Gives a trigger pulse on any change of stage.
+</ul>
+
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<img width=600 height=261 src="pic/pcb_cgs59_prog.gif">
+<br><table border=0><tr><td><i>The component overlay for the Programmer/Sequencer.
+
+</i></td></tr></table>
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+On the rear of the "B" board there are a number of small square pads, near the TL072s and the PSU connector. These pads are in pairs, one on pin 8, and its pair near by on the thick 0V rail, and one on pin 4, and its pair nearby on the 0V rail. These are for 100n 1206 (or even 805) SMD capacitors (or 10n, or 47n - it isn't critical). Put a little solder on one pad. Move the capacitor into position, and re-heat the solder. The capacitor will now be held in place. Solder the opposite end, then go back and tidy up the first joint if needed. Use ceramic monoblock caps, NOT electro or tant.
+
+<p>
+On the rear of the "B" board, below the LM393 there are two square pads connected to pins 4 and 8. These are to allow a 100n monolythic capacitor to be soldered directly across the power pins.
+
+
+<p>
+This board set is a little different to most CGS boards. There would be too much wiring needed if pots had to be hand wired to the PCBs, so I have gone with a design that mounts as much as possible directly on the PCBs themselves, as well as making parts that do need wiring as close as physically possible to their wiring points. The photographs below will help explain things. If you wish to use a different panel arrangement, it would of course be possible to remote-mount the pots etc, though I expect you would soon be wishing you hadn't.
+<p>
+The vertical centers for <b>ALL</b> of the holes is 3/4 of an inch - standard Serge spacing for 8 vertical controls. Horizontal spacing is not fixed, but is best at an inch (Serge standard).
+<p>
+Once all the boards have been assembled, each of the stage (A) boards should be mounted in turn to the panel using the pots as mounting brackets. There are 4 pots per board and later wiring will add to structural rigidity, so brackets are not really needed. The push switch, jacks and LED should then be wired to the PCB. (Yes, you can substitute a suitable touch switch for the push switch).
+Wiring will be easier if you start with the last "A" board first, as that will allow clear access to the solder side of that board as you wire it.
+<p>
+Once you reach the final board you will also need to add a pair of bolts and nuts/spacers to mount the "B" board. You will probably find it easier if the bolt head it on the "A" board, the opposite way to what is shown in the photos.
+<p>
+Attach the "B" board to the "A" board using the bolts, and wire it to its jacks.
+<p>
+The next part is the tricky part - wiring up the buses. using tinned copper wire, run a wire between each corresponding lettered hole through the whole run of PCBs, with the exception of G, H and J. Make sure you include the "B" board! Solder the wires to each of the PCBs. The solder pads have been brought right up to the edge to assist with this.
+<p>
+Probably the area that will cause most problems is the G, H and J wiring. Starting from the first (Stage 1) "A" board, a wires is run through the G hole, to the second "A" board it goes through the H hole, and the third "A" board it goes through the J hole. Once soldered to all three boards, this wire is then trimmed. Now starting at the second "A" board, the same procedure is repeated, and so on for the remainder of the "A" boards.
+<p>
+The boards at the ends need to be connected to each other as well, following the exact same pattern. The G hole on the second last "A" board goes to the H hole on the last, and via a long wire, the J hole on the first "A" board.
+The G hole on the last "A" board goes via a long wire to the H hole on the first "A board", and the J hole on the second A board.
+<p>
+
+<p><a href="pic/photo_cgs59_prog_rear.jpg" target="_blank"><img width=100 height=70 src="pic/photo_cgs59_prog_rear_s.jpg" align="left"></a>
+<a href="pic/photo_cgs59_prog_rear.jpg" target="_blank">Rear view</a> of the prototype module. The modifications are not needed on the production boards. As can be seen, I used a variety of transistors for the purpose of testing suitability. All worked fine. All were general purpose transistors.
+
+<br clear=all>
+
+<p><a href="pic/photo_cgs59_prog_rear2.jpg" target="_blank"><img width=100 height=81 src="pic/photo_cgs59_prog_rear2_s.jpg" align="left"></a>
+<a href="pic/photo_cgs59_prog_rear2.jpg" target="_blank">End view</a> showing some of the "A" board details.
+
+<br clear=all>
+
+<p><a href="pic/photo_cgs59_prog_rear3.jpg" target="_blank"><img width=100 height=50 src="pic/photo_cgs59_prog_rear3_s.jpg" align="left"></a>
+<a href="pic/photo_cgs59_prog_rear3.jpg" target="_blank">"B" board mounting.</a> Having only jacks and no pots to support it, the "B" board is connected to the first "A" board using 3mm bolts.
+
+<br clear=all>
+
+<p><a href="pic/photo_cgs59_prog_rear4.jpg" target="_blank"><img width=100 height=43 src="pic/photo_cgs59_prog_rear4_s.jpg" align="left" vspace=15></a>
+<a href="pic/photo_cgs59_prog_rear4.jpg" target="_blank">Close up</a> of the inter "A" board wiring. These slanted wires are what connect the up/down triggers between each stage. They are marked "G" and "H" on the schematic and the PCB. The green/white and brown/white wires connect the first and last stages together
+
+<br clear=all>
+
+<p><a href="pic/photo_cgs59_prog_rear5.jpg" target="_blank"><img width=100 height=152 src="pic/photo_cgs59_prog_rear5_s.jpg" align="left"></a>
+<a href="pic/photo_cgs59_prog_rear5.jpg" target="_blank">Close up</a> of part of the bus, showing how it continues right through onto the "B" board.
+<P>One of the mounting bolts can also be seen. Three nuts are used, one clamping the bolt head to the "B" board, and one each side of the "A" board. A spacer could be substituted.
+<br clear=all>
+
+<p><a href="pic/photo_cgs59_prog_rear6.jpg" target="_blank"><img width=100 height=95 src="pic/photo_cgs59_prog_rear6_s.jpg" align="left"></a>
+<a href="pic/photo_cgs59_prog_rear6.jpg" target="_blank">Close up</a> of jack, LED and switch wiring. Jack wiring will vary depending on the chosen jack type. The LED wires should be long enough to reach the PCB if you don't cut them. The switch need only be a single pole, single throw (SPST) type of push button. The ones used here were from the parts box, thus the variety.
+
+<br clear=all>
+
+<p><img width=323 height=230 src="pic/wire_cgs59_skip.gif" align="left" vspace=20> It is possible to add skip/stop switches to each stage. What's more, it is possible to do it in such a way that behavior in each direction can be controlled independently. Instead of running wires between pads J, H and G as described above, switches can be wired in as shown in the diagram to the left. Using on-off-on switches will result in each stage having three possible behaviors: Normal, where the stage will activate in sequence; Refuse, where the stage refuses to activate, causing the sequence to stop at the stage before, where it will remain until either the sequence is reversed, or some other manual override forces the sequence away from that stage, and; Skip, where that stage behaves as if it is not there, the following enabled stage activating on the next clock pulse. Setting several steps in a row to Skip will result in all of those stages being skipped.
+<p>If two single pole on-off-on switches are used per stage, each direction can be set independently. If one double pole switch is used per stage, only a single switch per stage is required, though functionality will be reduced.
+<p>The skip functionality was developed at the suggestion of and in conjunction with Ryk Thekreator.
+<br clear=all>
+
+
+
+<p>&nbsp<p>
+<b>Resources:</b>
+<ul>
+<li><a href="pic/panel_cgs_59_seq_prog.gif" target="_blank">Panel art.</a> Print at 300 DPI (i.e. change the 72 DPI to 300DPI without rescaling the image).
+</ul>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>6" long, mounting off pots at 3/4" centers.
+<li>All Type B boards that do not have a revision number have an error. Physically between the two BC557s on the PCB is a 47k resistor. This should be 470k, and will solve problems some of you are having with the common pulse out. Electrically it forms the upper leg of a voltage divider connected to the emitter of lower transistor in the Common Pulse out circuit.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+<tr><th colspan=2>TYPE B</th></tr>
+
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>    5</td></tr>
+<tr><td>100n 1206 SMD</td><td align=right>   10</td></tr>
+<tr><td>100n monoblock or sim</td><td align=right>   6</td></tr>
+<tr><td>10uF</td><td align=right>   2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R</td><td align=right>   4</td></tr>
+<tr><td>1k</td><td align=right>     4</td></tr>
+<tr><td>2k2</td><td align=right>    2</td></tr>
+<tr><td>10k</td><td align=right>    6</td></tr>
+<tr><td>22k</td><td align=right>    1</td></tr>
+<tr><td>33k</td><td align=right>    1</td></tr>
+<tr><td>47k</td><td align=right>    9</td></tr>
+<tr><td>100k</td><td align=right>  13</td></tr>
+<tr><td>150k</td><td align=right>   1</td></tr>
+<tr><td>220k</td><td align=right>   2</td></tr>
+<tr><td>470k</td><td align=right>   3</td></tr>
+<tr><td>1M</td><td align=right>     1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right> 2</td></tr>
+<tr><td>BC547</td><td align=right>  3</td></tr>
+<tr><td>BC557</td><td align=right>  2</td></tr>
+
+<tr><td>LM393</td><td align=right>  1</td></tr>
+<tr><td>TL072</td><td align=right>  4</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>  8</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS59B PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+
+
+
+
+<b>Parts list</b>
+<p>
+The parts list has been divided into two, one part per board type used. Only one "B" type board and its associated parts will be needed. A minimum of three type "A" boards and associated parts will be needed.
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+
+
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+<tr><th colspan=2>TYPE A</th></tr>
+
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>470pF</td><td align=right>  1</td></tr>
+<tr><td>22n</td><td align=right>    1</td></tr>
+<tr><td>10n</td><td align=right>    1</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>680R</td><td align=right>   1</td></tr>
+<tr><td>820R</td><td align=right>   1</td></tr>
+<tr><td>47k</td><td align=right>    3</td></tr>
+<tr><td>100k</td><td align=right>   1</td></tr>
+<tr><td>150k</td><td align=right>   3</td></tr>
+<tr><td>220k</td><td align=right>   4</td></tr>
+<tr><td>470k</td><td align=right>   1</td></tr>
+<tr><td>1M</td><td align=right>     1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right> 5</td></tr>
+<tr><td>BC547</td><td align=right>  1</td></tr>
+<tr><td>BC557</td><td align=right>  3</td></tr>
+<tr><td>LED</td><td align=right>    1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+
+<tr><td>Push Switch</td><td align=right> 1</td></tr>
+<tr><td>Jacks</td><td align=right>  2</td></tr>
+<tr><td>16mm Lin 100k pots</td><td align=right>  4</td></tr>
+<tr><td>LED</td><td align=right>    1</td></tr>
+
+<tr><td><a href="../pcb/index.html">CGS59A PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs59_prog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:09 GMT -->
+</HTML>
+

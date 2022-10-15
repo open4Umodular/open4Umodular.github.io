@@ -1,0 +1,64 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/comparator.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:20:14 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Gated Comparator" BORDER=0 WIDTH=160 HEIGHT=400 SRC="pic/photo_comparator.jpg" align=right hspace=10>
+<IMG alt="Gated Comparator" BORDER=0 WIDTH=102 HEIGHT=400 SRC="pic/panel_comparator.jpg" align=left hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=7>Gated Comparator</font><br>
+for music synthesizers.
+</center>
+<p>The idea for this project came when I was listening to some music in which part of the background was jumping between octaves in a semi-random fashion. Feeding noise into a comparator was my immediate thought, but I soon realized this wasn't going achieve what I wanted. I needed to be able to control when these jumps could occur.
+<P>By feeding the output of the comparator into the Data input of a D type flip-flop, it is possible to control when the transition occurs by applying the rising edge of a pulse to the Clock input of the flip-flop.
+<P>The result is a random level (on or off) at a predetermined time.
+<P>As the flip-flop chosen (the 4013) was a dual flip-flop, as second stage was also easy to add, effectively forming a two-stage shift register. Each also has complimentary outputs, adding to the versatility.
+<p>The prototype also has two transistor based LED drivers, indicating when a stage is on, though these have been omitted from the circuit diagram. On the prototype system, LEDs are powered from a separate supply to reduce supply rail fluctuations, an unnecessary complication for this article.
+<br clear=all>
+<center>
+<IMG BORDER=0 WIDTH=600 HEIGHT=541 SRC="pic/schem_comparator.gif" vspace=10><br clear=all>
+</center>
+<p>
+
+The circuit consists of two comparators, one adjustable by a front panel knob, for processing the input signal, and the other to square up the gate signal and provide some isolation for the CMOS flip-flops (4013B).
+<P>
+The output of the signal comparator is fed to an output jack via a 1k resistor. Of note is that this output swings between positive and negative, as distinct from positive and 0v like all other outputs in this module.
+<P>
+The outputs of these comparitors are converted to levels suitable for driving the 4013 by diode resistor combinations.
+<P>
+The two flip-flops in the 4013 are clocked from the same source.
+<p>
+The signal being processed is fed into the D input of the first flip flop. The output of this flip flop is fed into the D input of the second flip-flop via a short R-C delay. Wired like this, the two flip-flops function like a two-stage shift register. The R-C delay is there to reduce false triggering of the second stage.
+<p>
+All outputs of the flip-flops are buffered using conventional op-amp voltage followers made from LM358's before being fed to the output sockets via 1k resistors. The prototype used a single LM324 instead of two LM358's.
+<P>
+The two 10mfd capacitors give some power supply isolation. Power rails could probably be almost anything from +/- 9V to +/- 15V, though I've only tested the unit on +/- 14V. Asymmetrical rail voltages should work, but the range of the pot will be affected, as will the direct comparator output.
+<p>
+In this case the circuit was lashed up on a piece of "Designer Board" a PCB equivalent of one of those white "proto boards".
+<p>
+<a href="panels/comparator.gif">200 DPI B&amp;W printable panel artwork.</a>
+<p>
+<font size=1>Article, art &amp; design copyright 1999 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/comparator.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:20:30 GMT -->
+</HTML>

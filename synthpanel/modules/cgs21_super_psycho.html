@@ -1,0 +1,174 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs21_super_psycho.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:14 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<IMG alt="Super Psycho Modulation Source" BORDER=0 WIDTH=91 HEIGHT=400 SRC="pic/photo_cgs21_super_psycho2.jpg" hspace=10 align="right">
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Super Psycho Modulation Source</font><br>
+for music synthesizers.
+</center>
+<p>
+This module is a much expanded version of the <a href="psycho_lfo.html">Psycho LFO</a>, featuring six free-running oscillators, each variable between LFO and audio ranges, two of which can be switched to have triangular wave outputs. Each oscillator can be switched between low and high ranges, as well as off, and also has a rate LED, to allow visual determination of the frequency at which it is running. As per the original, there are also level and glide controls.
+<p>
+<b>How to use this module:</b>
+<p>
+This module can be used to create a range of pseudo-random modulation voltages that can be used to generate unusual sequences, control VCFs or or VCAs etc. When run at higher frequencies, it can be used as a series of audio drones, or to generate complex sounds by frequency modulation a VCO.
+<p>
+<br clear="all">
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=372 src="pic/schem_cgs21_super_psycho.gif">
+<br><i>The schematic of the Super Psycho Modulation Source.
+<br>
+<a href="cgs21_super_psycho_large.html">Click here for a larger version.</a></i>
+</center>
+<p>&nbsp;<br>
+<center>
+<img width=300 height=151 src="pic/schem_cgs21_super_psycho_r2.gif">
+<br><i>The schematic of the updated power filtering on the R2 PCBs. One of each of the 100n capacitors could be replaced with 10n, or even 220pF to improve the spread of response times to spikes.</i>
+</center>
+<p>
+The Super Psycho Modulation Source is a fairly simple circuit with a lot of repetition.
+The circuit consists of several distinct blocks. The first are the oscillators, each based on a section of a 40106 hex schmitt inverter and their associated components. The switch allows extra capacitance to be added, reducing the speed of the oscillator to a lower range. The same switch allows the capacitor to be bypassed to the negative rail via a protection resistor, disabling the oscillator, and setting its output to near 0 volts. The 1M pots specified allow the upper frequency range to extend over a large portion of the audio spectrum, and in the lower frequency position, to extend from sub-audio to low audio frequencies.
+<p>
+Two of the oscillators are equipped with voltage followers that follow the the roughly triangular shape of the wave present on the oscillator capacitors. The 100k and 470k resistors on the output, when coupled to the virtual ground summing node of the following mixer, via the switch, correct the amplitude and offset of the triangle wave.
+<p>
+The next block is a traditional op amp inverting mixer stage. Signals from the six oscillators are mixed through 470k resistors, the overall gain controlled by a 100k pot in the feedback path of the op amp.
+<p>
+What is interesting here is that in order to keep the output signal of the mixer positive without the need for an additional inverting stage, the chip used to build the six oscillators is powered from the negative rail, it's positive power pin connected to 0V and its earth pin connected to -15V. Take special note of this, because it is an unusual way to power a digital chip, and inadvertent poking with a logic probe powered from the positive rail could cause you grief!
+<p>
+The final stage is a simple glide circuit consisting of a potentiometer, a capacitor and unity gain voltage follower. The switch is to allow easy switching in and out of a preadjusted glide setting. It can be omitted, and a link soldered in its place on the circuit board.
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<a href="pic/pcb_cgs21ver2-1_super_psycho.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs21ver2-1_super_psycho.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER2.1 PCB. <a href="pic/pcb_cgs21ver2-1_super_psycho.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> Due to a manufacturing error, the overlay on one version of these PCBs has become cluttered. Print this out to assist with assembly.
+</i>
+</td></tr></table>
+</center>
+
+<p>
+
+<center>
+<img width=600 height=201 src="pic/pcb_cgs21_super_psycho_2.gif">
+<br><table border=0><tr><td><i>The component overlay of the REV2 version of the PCB. Connections can be determined from the circuit diagram.
+<br>There is also a basic emitter follower LED driver on this version of the PCB. LA = LED anode. LK = LED cathode. LD = LED drive. Connect LD to the output jack so you can monitor the output of the module, or simply don't install the components if you don't need it.
+ <a href="pic/pcb_cgs21_super_psycho.gif" target="_blank">Click here for old version of overlay.</a></i>
+</td></tr></table>
+</center>
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. Most likely you will find no faults.
+<p>
+<center>
+<IMG alt="Super Psycho Modulation Source" BORDER=0 WIDTH=500 HEIGHT=209 SRC="pic/photo_cgs21_super_psycho.jpg" hspace=10>
+</center>
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, LEDs, transistors and ICs. Most likely the LEDs will be panel mounted. I have arranged the board so that connections each oscillator can be run through a 0.1 inch pitch plug and header if desired.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The glide and level connections on the PCB can be hard to read as there are usually holes drilled right through them. They are as follows:
+<p>GS  Glide switch
+<br>GS  Glide switch
+<br>GC  Glide pot center
+<br>GB  Glide pot beginning
+<br>LC  Level pot center
+<br>LB  Level pot beginning
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>When switching the oscillators with triangular outputs off, it is best to switch their outputs to square wave, as otherwise an offset voltage will be introduced into the mixed output.
+<li>If you have separate digital and analog power supplies for your synth, connect this one to the digital supply. Due to all the LEDs, it will introduce fluctuations to any supply to which it is connected.
+<li>While untested, the module should work on 12 volts.
+<li>A 10 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>The later version of this PCB includes an uncommitted LED driver. Just install the parts as indicated on the PCB if you wish to use it to monitor the output level. LA = LED anode. LC = LED cathode. LD = LED Drive. This needs to be connected to the signal source you wish to monitor, e.g. the module output.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>22n</td><td align=right>6</td></tr>
+<tr><td>100n</td><td align=right>11</td></tr>
+<tr><td>220n</td><td align=right>1</td></tr>
+<tr><td>2u2 25V </td><td align=right>6</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><td>100uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>10R</td><td align=right>2</td></tr>
+<tr><td>330R</td><td align=right>1</td></tr>
+<tr><td>820R</td><td align=right>6</td></tr>
+<tr><td>1k</td><td align=right>8</td></tr>
+<tr><td>4k7</td><td align=right>6</td></tr>
+<tr><td>10k</td><td align=right>6</td></tr>
+<tr><td>22k</td><td align=right>6</td></tr>
+<tr><td>100k</td><td align=right>3</td></tr>
+<tr><td>470k</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><td>40106B</td><td align=right>1</td></tr>
+<tr><td>BC547 (or sim.)</td><td align=right>1</td></tr>
+<tr><td>BC557 (or sim.)</td><td align=right>6</td></tr>
+<tr><td>LED </td><td align=right>7</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>SPDT Ctr Off switch</td><td align=right>6</td></tr>
+<tr><td>SPDT switch</td><td align=right>3</td></tr>
+<tr><td>1M lin pot</td><td align=right>6</td></tr>
+<tr><td>1M log pot</td><td align=right>1</td></tr>
+<tr><td>100k lin pot</td><td align=right>1</td></tr>
+
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs21 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs21_super_psycho.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:28 GMT -->
+</HTML>

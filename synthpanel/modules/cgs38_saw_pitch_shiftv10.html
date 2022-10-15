@@ -1,0 +1,153 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs38_saw_pitch_shiftv10.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:42 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Saw Pitch Shifter/Wave Multiplier" BORDER=0 WIDTH=600 HEIGHT=109 SRC="pic/photo_cgs38_saw_pitch_shift.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Saw Pitch Shifter/Wave Multiplier</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The current version can be found <a href="cgs38_saw_pitch_shift.html">here</a>.
+<p>
+The Saw Pitch Shifter is an experimental combination of op-amp summers and comparators with surprising results, ranging from complex wave shaping to pitch shifting of saw tooth waves.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+As a waveform mangler - feed it any combination of waveforms, or a waveform and a control voltage and adjust as needed. For example, feed a waveform from a VCO or LFO into one input, and adjust the input level for differing effects. Use a control voltage as an offset signal to introduce variation. This can be from an envelope generator, keyboard or LFO or another VCO.
+<p>
+As a sawtooth frequency doubler - feed in a single sawtooth wave, and adjust the associated gain. When the gain reaches 2, assuming a 0 to 5 volt waveform, the result will be a sawtooth of twice the frequency at the first output.
+<p>
+As a sawtooth pitch shifter - feed an audio frequency sawtooth wave into one input, and a sawtooth wave from an LFO into the other. Disable one input using the switch, then adjust the input level of the other input until the LED lights, then back off until it goes out. Disable the other input using the switch, then repeat the procedure for the other input. Return the switch to the center position. The LED will now work as a "signal present" indicator and can be ignored. One output will be the sum of the two frequencies, and the other should be the difference, depending on the relative slopes of the two sawtooth signals. If the result sounds rough, tweak one of the inputs until it sounds clean.
+<p>
+Note that getting the pitch shift to work correctly takes some experimenting and tweaking. The input waveforms should be in the range of 0 to 5 volts - specifically with the bottom of the waveforms actually hitting 0 volts. An external offset may need to be mixed in if this cannot be achieved. The downward shift output is very sensitive to gains and offsets, and is unlikely to be as pure as the upward shift output. If you want a more accurate downward shift, swap the direction of one of the input waves, and upward shift output will act as a downward shift output and vice versa. Some very powerful sound can result, even with impurities in the shifting, especially when the incoming frequency, and the up and down outputs are mixed together.
+<p>
+Also note that this is NOT a frequency shifter - the relationship between the harmonics are preserved.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=315 src="pic/schem_cgs38_saw_pitch_shift.gif">
+<br><i>The schematic of the Saw Pitch Shifter/Wave Multiplier.</i>
+<p>
+</center>
+<p>
+The first half of the circuit is essentially a mixer. The two incoming waveforms are buffered the sent through the "setup matrix" that allows grounding of one signal or the other to help setting up the signal levels. The two signals are then summed and fed to another summer and a comparator. The second summer adds the voltages from the comparator, and a fixed reverence voltage that compensates for the offset introduced by the comparator.
+<p>
+Note that the processing between the two summers actually occurs while the signal is inverted. If the output of the first summer exceeds the preset value of 5 volts, the comparator output changes, subtracting 5 volts from the total present at the output. This means that if the instantaneous voltage of an incoming wave has passed 5 volts, it will suddenly be converted to 5 volts - 5 volts (i.e. 0 volts) where it will continue to rise at the previous rate until it reaches its peak. When the waveform again falls below 5 volts, the comparator will switch back, restoring the original input output relationship. The LED lights whent he comparator is subtracting 5 volts from the output.
+<p>
+The downward shift output is generated in much the same way, with the exception that the second incoming signal is inverted and offset before being fed into the associated summer. There are no setup matrix present or monitoring LED for this output.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=101 src="pic/pcb_cgs38_saw_pitch_shift.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+Several 600k resistors are specified, though purchasing these may prove difficult. If so, simply use a pair of 1.2 meg resistors in parallel, or use a 604k instead. (Note: on the prototype run, these are incorrectly marked as 300k. On the Rev1 board, one of these resistors is still incorrectly marked as 300k).
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+<h4>Setting up</h4>
+<p>
+With the unit set to do basic pitch shifting as described above, using an LFO and a VCO, watch each output in turn with a CRO, and adjust the trimpots until a smooth sawtooth wave results. There may be a spike there that cannot be adjusted away. What you are trying to achieve is to line up the two parts of the slope so it looks like a single slope, irrespective of the spike. The spike can be suppressed by adding a 0.047 uf (47n) capacitor at the output socket between the output and 0 volts/ground.
+<p>
+Do this for both outputs.
+<p>
+If you do not have a CRO, adjust each trimpot so that the value of the trimpot and 470k resistor in series with it add to a little under 600k.
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts though the wave levels will be affected.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite beads. If you don't care about power-rail noise, just use a link instead.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>3</td></tr>
+<tr><td>18k 1%</td><td align=right>2</td></tr>
+<tr><td>47k</td><td align=right>2</td></tr>
+<tr><td>82k 1%</td><td align=right>2</td></tr>
+<tr><td>100k 1%</td><td align=right>9</td></tr>
+<tr><td>200k 1%</td><td align=right>3</td></tr>
+<tr><td>470k</td><td align=right>2</td></tr>
+<tr><td>600k 1% (604k)</td><td align=right>3</td></tr>
+<tr><td>100k lin pot</td><td align=right>2</td></tr>
+<tr><td>200k trim</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL071</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+<tr><td>BC547</td><td align=right>1</td></tr>
+<tr><td>1N4148</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Center off SPDT switch</td><td align=right>1</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS38 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs38_saw_pitch_shiftv10.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:48 GMT -->
+</HTML>

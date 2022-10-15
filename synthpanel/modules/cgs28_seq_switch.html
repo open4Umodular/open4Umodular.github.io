@@ -1,0 +1,192 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs28_seq_switch.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:54:24 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=950>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Sequential Switch" BORDER=0 WIDTH=800 HEIGHT=267 SRC="pic/photo_cgs28v20_seq_switch.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Sequential Switch</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs28v10_seq_switch.html">here</a>.
+
+<p>
+A basic switching/sequencing module with many uses.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+This is a "core" module for sequencer type work. In its simplest form, it can be used to select between different signal or CV sources. With a simple pot-based front end and an external clocking LFO, it can be made to function as a regular sequencer. It is also possible to sequence between constant and modulated signals, for example, to enable vibrato to be placed on every fourth note. It can also count down, under external control, allowing for some interesting patterns to be produced with the addition of an extra clocking LFO. It can handle voltages in the range of +/-10v. It is a multiplexor, i.e. <i>not bidirectional</i>. It can route one of eight signals to its output, <i>but not the other way around</i>. It can also provide in dependant gate signals for each selected input.
+<p>
+
+
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=848 height=848 src="pic/schem_cgs28v2_seq_switch.gif">
+<p><i>The schematic of the Sequential Switch.</i>
+<p>
+</center>
+<p>
+Along the left side of the circuit diagram there are the four control input processors. These convert any incoming CV or gate signal to those suitable for the internal circuitry of the module. Their sensing point is around 2V.
+<p>
+The up/down control is gated with the reset input to produce two different behaviors for reset. When the up/down control is set to UP, reset will set the switch to position 1. When the up/down control is set to DOWN, reset will set the switch to position 8 by preloading this value into the counter at the core of the design.
+<p>
+The external CV will override the setting of the up/down panel switch.
+<p>
+The counter itself is a 4516, and up/down counter with programmable inputs. While it is allowed to count through it's sixteen step cycle, only the three least significant bits are used, giving an output that ranges between 0 and 7. These bits are routed to the address inputs of two 4051 analog multiplexer/demultiplexers. The 4051 to the left, operating as a demultiplexer, routes +14.4 volts to each of 8 buffers in turn. These buffers drive a LED to indicate the selected channel, as well as providing a corresponding gate output.
+<P>
+The 4051 to the right, operating as a multiplexer, routes one of the eight input signals through to the output buffer, where both inverted and non-inverted outputs are available. There is an additional Mix In input provided to allow another signal or CV to be mixed with the selected channel of the sequential switch.
+<p>
+How does a device (the 4051) that has only a 15v range allow at least +/-10V to pass through it? The answer is it doesn't. By powering the 4051 and its associated drive circuitry from +14.4V and -0.6V,
+and placing the output of the analog switch at the virtual ground point of an inverting op-amp buffer, the full range of the signal is allowed to pass while the voltage at that point is held near or at 0V by the action of the op-amp while the analog switch is closed. When the analog switch is open, the diode connected between the input and 0V prevents in incoming signal from going below -0.6V, and thus prevents it from going outside the allowed input range. There is no need to protect against excursions in the positive direction, as these are in the allowed input range. A second diode at the output of the analog switch prevents the op-amp from driving the output below -0.6V, should the switch open while such potential exists.
+
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<a href="pic/pcb_cgs28v2_seq_switch.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs28v2_seq_switch.gif" border="1"></a>
+<br><i>The component overlay. Connections can be determined from the circuit diagram. Click the image for an enlarged printable version.</i>
+</center>
+
+<p>
+Pad identification:
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>PAD&nbsp;ID</td><td>Function</td></tr>
+<tr><td>CLK</td><td>Clock input</td></tr>
+<tr><td>UD</td><td>Up/Down (direction) input</td></tr>
+<tr><td>SW</td><td>Direction switch. Other contact of switch goes to +VE</td></tr>
+<tr><td>INH</td><td>Inhibit input</td></tr>
+<tr><td>RST</td><td>Reset input</td></tr>
+<tr><td>RSE</td><td>Reset button. Other contact of button goes to +VE</td></tr>
+<tr><td>RSS</td><td>Optional length switch common pin. (The switch other contacts go to P2 to P8. Position 8 on the switch is not connected.)</td></tr>
+<tr><td>INV</td><td>Inverted sequencer output</td></tr>
+<tr><td>OUT</td><td>Sequencer output</td></tr>
+<tr><td>MIX</td><td>Optional signal to be mixed with sequencer outputs</td></tr>
+<tr><td>I1 to I8</td><td>Sequencer input 1 to 8</td></tr>
+<tr><td>P1 to P8</td><td>Gate outputs 1 to 8</td></tr>
+<tr><td>L1 to L8</td><td>LED anodes 1 to 8</td></tr>
+<tr><td>-VE</td><td>negative voltage power rail out, for external use if needed.</td></tr>
+<tr><td>GND</td><td>0V pad, for external use, LED cathodes etc.</td></tr>
+<tr><td>+VE</td><td>positive voltage power rail out, for external (e.g. reset buton).</td></tr>
+
+</table>
+<p>
+
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+Resistors marked RL determine the brightness of the LEDs. A 1k resistor can be used for low mcd LEDs. If you use a superbright/ultrabright LED, this value should be increased, to as much as 33k, dependent on the individual LED. Trial and error is the only way to correctly determine the value. This can be done with a LED, resistor and a power supply of approximately the same voltage as the positive rail of your synth  (i.e. +12V or +15V). A good starting point is 10k.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+There are numerous ways this board can be used. For example, each input could be fed by a pot wired as a voltage divider, with it's input end normalized to +VE via a 100k (formerly 1k) resistor. This way you would be able to use the module as a sequencer when not using it as a switch. 100k will give quite adequate range on your pots, with improved sensitivity.
+<p>
+It is also possible to wire in a "length" switch. Each gate output goes to one position of a 10 way rotary switch, with the common being fed into the RSS pad. At each end of the switches rotation, there should be a position where nothing is connected. Reset behavior when wired like this is a little unusual because the sequence will reset differently when running in Up or Down modes. The two end switch positions are to allow the sequence to run unimpeded. One such position would be okay, the second is simply for convenience. The gate outputs can still be wired to jacks as normal.
+<p>
+<IMG alt="Sequential Switch" BORDER=0 WIDTH=100 HEIGHT=200 SRC="pic/photo_cgs28_seq_switch2.jpg" align="right">
+<p>
+<center>
+<img width=500 height=330 src="pic/wire_cgs28_input.gif">
+<br><table border=0><tr><td><i>This diagram shows how you can wire banana jacks into the module. The switch replaces the switching action of a switched jack. A 100k fixed resistor in series with each 100k pot limits the each pot's range to 1/2 the positive voltage, which is more than adequate. This allows rapid switching between the fixed voltage and an external input.</i>
+</td></tr></table>
+
+<img width=500 height=240 src="pic/wire_cgs28_input_type2.gif">
+<br><table border=0><tr><td><i>This diagram shows an alternative that does away with the switch. It relies on the low impedance of the outputs of other modules to swamp the voltage coming through the 100k resistor from the positive rail. This version saves the use of 8 switches and the corresponding panel space.</i>
+</td></tr></table>
+
+</center>
+
+
+
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts.
+<li>A link be used instead of the ferrite beads if you don't care about power-rail noise.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td width="200">Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>NF (Not fitted)</td><td align=right></td></tr>
+<tr><td>47pF</td><td align=right>2</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>5</td></tr>
+<tr><td>10uF 25V </td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>NF (Not fitted)</td><td align=right></td></tr>
+<tr><td>330R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>8</td></tr>
+<tr><td>1k8</td><td align=right>8</td></tr>
+<tr><td>2k2</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>3</td></tr>
+<tr><td>15k</td><td align=right>3</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>22</td></tr>
+<tr><td>RL (to suit LEDs)</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>TL074 (was LM324)</td><td align=right>1</td></tr>
+<tr><td>4051</td><td align=right>2</td></tr>
+<tr><td>4516</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>9</td></tr>
+<tr><td>1N4148</td><td align=right>19</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align=right>4</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs28 VER2.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001,2013 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs28_seq_switch.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:54:40 GMT -->
+</HTML>

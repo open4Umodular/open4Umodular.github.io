@@ -1,0 +1,280 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/tube/ts21.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:32 GMT -->
+<HEAD>
+  <TITLE>Audio Synthesis via Vacuum Tubes</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, eric barbour, tube, valve">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width="810">
+<tr><td>
+<font face="ARIAL,HELVETICA" SIZE=2>
+<center>
+<font size=6>Audio Synthesis via Vacuum Tubes</font>
+</center>
+<CENTER><I><B>Eric Barbour</B></I>
+<BR>Owner, <a href="http://www.metasonix.com/" target="_blank">METASONIX</a>, Redwood City, California USA <BR>e-mail: <I><A HREF="mailto:synth@metasonix.com">synth@metasonix.com</A></I></CENTER>
+<p>
+
+<center>
+<H3>METASONIX TS-21 Hellfire Modulator</h3>
+</center>
+
+<img width=800 height=586 src="pic/ts21schematic.gif" border=0 alt="Hellfire modulator schematic">
+<br><table border=0><tr><td><i>The circuit diagram of the TS-21 Hellfire Modulator.
+<a href="pic/ts21schematic.gif" target="_blank">Click here for an enlarged, printable version.</a></i>
+</td></tr></table>
+<p>
+<font color="red">The following is taken directly from the original owners manual. Only some parts of this document will apply to any home constructed units. Please note that Metasonix is <i>not</i> available for troubleshooting help.</font>
+<p>
+<h3>TS-21 "Hellfire Modulator" owner's manual</h3>
+<p>Metasonix ------- E. Barbour 11/99
+<P>
+<h4>BEGINNER'S QUICK REFERENCE</h4>
+<P>
+The TS-21 is unlike any electronic audio processor you have tried before. So,
+we recommend reading this manual carefully and thoroughly before starting.
+Experimentation with the TS-21's controls is encouraged! You can't damage the
+TS-21, no matter how "wrong" you hook up the controls--because it is all-tube.
+<P>
+1. Plug the TS-21 into a source of 100-120v AC power. It uses about 25 watts.
+(Check the label on the back--if the unit is wired for 240v, attach 220-240v power.)
+<P>
+2. Plug a signal source into the AUDIO INPUT jack. A line-level signal is best,
+though it will also accept dynamic microphone or electric guitar.
+<P>
+3. Attach the AUDIO OUTPUT to an amplifier or mixing board's high-impedance
+line-level input. A mono cable is OK. TS-21 produces a stereo signal at all
+times--to hear the stereo signal, use a 3-wire (ring/tip/sleeve) ¼" cable to
+go to a stereo mixer.
+Please use the volume control in the amp or mixer to control the listening level.
+(Stereo headphones are especially useful in understanding the TS-21's sounds
+when first starting out.)
+<P>
+4. Set the controls of the TS-21 as follows:
+<ul>
+<li>INPUT LEVEL--full counterclockwise
+<li>PWM MANUAL--full counterclockwise
+<li>PWM BYPASS--down
+<li>RANGE--down
+<li>BEAM SCREEN--12-o'clock position
+<li>L1--full counterclockwise
+<li>L2--full counterclockwise
+<li>SPEED--doesn't matter
+</ul>
+Turn on the power. Allow the unit to warm up for a few minutes.
+<P>
+5. Play the signal. Adjust the INPUT LEVEL and the volume controls in the amp or
+mixer to get a comfortable signal level. (If the amp/mixer has a clipping level
+indicator, keep the TS-21 output level below clipping indication.)
+<P>
+6. First, try adjusting the BEAM SCREEN control. Observe how the waveform and
+its "tone" change. (You might hear a slight crackle at around the 3-o'clock position--
+this is normal for the circuit--you do not have a bad TS-21!) Set the BEAM SCREEN
+to the 4-o'clock position.
+<P>
+7. Then try adjusting the PWM MANUAL control. As it is turned up, you will hear the
+tone get "spikier". At around the 12-o'clock position, it will break into a howl of
+self-oscillation. Keep the control below this point. (Note: this point varies with the
+input signal level and the INPUT LEVEL setting.)
+<P>
+8. Now try the beam tube's L1, L2 and SPEED controls. Turn the L1 and L2 controls
+to the 12-o'clock position. You should hear the signal switching back and forth.
+(It sounds very "sloppy" and weird--this is normal.) Adjust the L1 and L2 controls
+to set the switching effect--the signal distortion will change also.
+The SPEED control and L1/L2 will interact to control the speed of switching.
+<P>
+9. Now set the RANGE switch to the up position. It will interact with all the beam
+tube controls and produce all kinds of unexpected effects.
+<P>
+<h4>HOW IT WORKS</h4>
+<P>
+The TS-21 Hellfire Modulator contains two independent effects circuits.
+<P>
+The first one is the PWM circuit. This circuit was taken directly from a 1960
+textbook on pulse and switching circuits using vacuum tubes. Its behavior is
+so peculiar that we just HAD to make an audio waveform processor out of it!
+<P>
+The PWM is actually a very crude "monostable multivibrator". Because it uses
+positive feedback, it belongs to a class of designs known as "metastable"
+circuits. Varying the PWM MANUAL control causes the switch point of the
+PWM circuit to change. It only responds well to sharply-defined waveforms, such
+as square waves or sawtooth waves. The output pulses tend to be short and rich
+in harmonics--but also might have noise or bursts of oscillation riding on them.
+There are some settings which will cause the PWM to burst into oscillation,
+whether a signal is going into it or not. It can produce something resembling
+"VCO sync" effects with certain settings and input waveforms.
+<P>
+The second circuit is the beam modulator. This is based on an obscure
+tube, which (so far as we know) has NEVER been used in audio equipment.
+The 6AR8/JH8/ME8 was originally intended as a balanced modulator for
+use in TV sets, as the chroma detector! It is a very, VERY crude form of
+balanced modulator--it literally uses electrostatic deflection to switch the
+input signal between two anodes, while also providing some signal gain.
+It's not a perfect balanced modulator, as it does pass some of the input
+signal to the output (in other words, it doesn't completely suppress the
+carrier signal). However, its electrical behavior is so strange and
+un-solid-state-like that it can be used as a sound effect.
+<P>
+The beam modulator in the TS-21 is wired to a built-in LFO. This LFO
+can be disabled if the modulation effect is not wanted, by turning down both
+the L1 and L2 controls.
+<P>
+It causes the beam to switch back and forth between two anodes, which
+then go to the output. That's right--this is a STEREO modulator. You can
+insert either a mono 1/4" plug into the AUDIO OUTPUT jack, and get a
+mono signal. Or you can insert a stereo plug, and get a STEREO effect.
+The beam tube switches the signal back and forth between the two outputs.
+Plus, the beam tube has something solid-state lacks--a screen grid. By
+adjusting its voltage, we get both gain control, and we get variable
+distortion--of a very unusual nature! You have to hear its effect to
+understand. The beam tube is very non-linear in most settings, so it
+can be used as a distortion effect. At some positions, the beam screen
+control causes waveform "folding" roughly similar to that seen in the
+Serge Waveshaper modules--but with tube-style nonlinearities.
+<P>
+<h4>CONTROLS</h4>
+<P>
+The controls on the LEFT of the TS-21 control the input preamp and PWM.
+<P>
+<ul>
+<li>INPUT LEVEL--just what it says--controls input volume.
+The input goes into a pentode preamp, which provides lots of gain.
+
+<li>PWM MANUAL--this is the PWM's most important control--its setting both
+controls the width of the pulses, and allows the PWM circuit to burst into oscillation
+if turned past the 12-o'clock point, going in the clockwise direction. You really
+need to adjust this control carefully, while listening to the results, to find out what 	the PWM circuit does. It can be a "touchy" control.
+NOTE: The PWM circuit works best with waveforms having sharp
+discontinuities, such as square or sawtooth waves.
+Although the TS-21 can be used to process "smooth" signals from sources
+such as guitar or voice, it works best with synthesizer waveforms. The setting
+of the INPUT LEVEL also is critical for PWM operation.
+
+<li>PWM BYPASS--switches the PWM circuit out of the signal path, when switched 	UP. Then, only the pentode preamp and beam modulator are in the signal path.
+
+<li>RANGE--switches the signal into different input electrodes on the beam tube.
+Try experimenting with the two settings to get a feel for the results. When the
+RANGE switch is in the up position, the L1-L2 controls have to be turned up
+somewhat to get a signal.
+</ul>
+<P>
+Also on the left is a VCA CV input, which lets you control the gain of the pentode preamp and use it as a VCA. If using this, the gain of the circuit is limited, requiring a fairly "hot" input signal to get interesting results.
+Note that this does not affect the output--there may be some noise in the output,
+internally generated by the PWM and beam tube, even if this CV is at zero volts.
+Use of a post-TS-21 noise gate is recommended if you intend to use it as
+a tube VCA.
+<P>
+The controls on the RIGHT of the TS-21 panel deal with the beam modulator.
+<P>
+<ul>
+<li>BEAM SCREEN--controls the screen-grid voltage to the beam modulator
+tube. Turn it fully counterclockwise and the tube is fully cut off, with no
+signal reaching the output. Turn it to the 12-o'clock position to fully turn the
+signal output on. Turn it past the 12-o'clock point to vary the distortion.
+Various settings of this knob cause different waveform "folding" effects.
+You should experiment to fully understand it.
+
+<li>L1 and L2--these adjust the level of the built-in LFO which is applied
+to the deflection electrodes in the beam tube. They also interact with the
+LFO to control its speed slightly. Try setting them to the 12 o'clock position
+to start, and increase them slowly until the deflection effect is heard.
+
+<li>SPEED--controls the rate of the built-in LFO.
+Turn the control to approximately the 10 o'clock position to obtain LFO
+rate control. From this point to the fully-clockwise position, the LFO
+speed is adjustable from approximately 1 Hertz to about 5 Hertz.
+NOTE: this control interacts with the L1 and L2 controls.
+</ul>
+<P>
+Also on the right is a BEAM/PWM CV input. This input modulates both the PWM
+MANUAL setting and the BEAM SCREEN setting, and is in parallel with the
+settings of these controls. This input is capacitively coupled, so an LFO or other
+fast-changing control voltage is required to get usable effects. An audio signal may
+also be used to drive it--this signal should be very "hot" (we recommend at least
+10 volts p-p) to get good results.
+<P>
+The audio input is high impedance (250k ohms). It can be driven with any line-level source. The outputs are 10k-ohms impedance, and should be used only with high-impedance line-level equipment inputs (such as are found on most modular and pre-patched analog synthesizers). The VCA CV input is high-impedance and is usable with an input voltages from 0v DC to +5vDC or greater. The BEAM/PWM CV input is 10k ohms
+and should be driven only from a low-impedance control voltage output.
+<P>
+
+<h4>MAINTENANCE</h4>
+<p>
+When mounting the TS-21 in an EIA 19" rack, note that it produces some heat.
+It will not get as hot as a guitar amp--but convection cooling must be allowed for.
+We recommend at least ½" space above and below it to allow airflow.
+The TS-21 uses a 0.5 amp, 5x20mm fast-blow fuse. This fuse SHOULD NOT BLOW
+under normal circumstances.
+<P>
+Obviously, you should keep the TS-21 cool and dry. Moisture can ruin it instantly.
+<P>
+The tubes in the TS-21 will PROBABLY last for many tens of thousands of hours. They are being run conservatively. Nevertheless, should you need to replace any of them, this is the
+replacement guide:
+<P>
+WARNING: the TS-21 is full of high voltages. If you are not experienced in working
+with tube electronics, leave the following to a competent servicer!
+<P>
+Unplug the unit and let it sit for at least 15 minutes, to give the capacitors time to discharge.
+<P>
+Remove the top cover--eight small Phillips-head sheet metal screws. Be sure to
+replace the cover and screws when done.
+<P>
+The tubes are as follows. Be careful not to break any wires when removing
+or inserting a tube.
+<P>
+
+V1 is a 6AL5 or 6097. It is the plate-voltage rectifier tube that power the other circuits.
+<P>
+V2 is the pentode preamp. Types from the 6AK5/5654 family work here. You can also use
+the 6AU6/6BA6/5749 family. There is a long list of tubes which will work in this socket. We
+recommend 6AK5 types as a safe choice (unless you are really crazy and want to
+experiment with "tube rolling"---in that case, you are on your own! Be sure to get the right pinout tubes, or you will invalidate the TS-21's warranty!).
+<P>
+V3 is the PWM tube. We recommend a 6AQ8, 6BQ7, 6BK7, 6BZ7, 6BZ8 or similar
+type. (Some types that will work in the socket, such as 6DJ8/6922 or 6CG7, may not
+work as pulse generators as well as the 6AQ8/6BQ7 family, which have really awful
+electrical characteristics--making them interesting for the TS-21!)
+<P>
+V4 is the beam deflection tube. 6AR8, 6JH8 or 6ME8 will work here. The 6ME8 will
+sound different from the other types, as its voltage gain is lower.
+<P>
+V5 is the LFO for beam switching. It is the same type as V3. You can try different
+tubes here, but as it's only used as a simple oscillator, you won't notice any tonal
+differences.
+<P>
+
+<font color="red">
+These circuits are for experienced DIYers only. They are NOT easy
+to construct, and involve dangerous high voltages. Metasonix is not
+available for troubleshooting help----build these at your own risk.
+The schemas are hopefully self-explanatory, to the experienced
+builder who knows tubes.
+<p>
+Also note: readers are permitted to construct these circuits
+FOR THEIR OWN PERSONAL USE ONLY. Eric Barbour retains all rights to them.
+Any attempt to patent, copyright, trademark, or manufacture them for sale,
+without the express written permission of Eric Barbour, will result in
+legal action.
+</font>
+
+<p><b><a href="index.html">Audio Synthesis via Vacuum Tubes Home</a></b>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+
+
+</FONT>
+
+
+<p>
+</td></tr>
+</table>
+</CENTER>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/tube/ts21.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:33 GMT -->
+</HTML>

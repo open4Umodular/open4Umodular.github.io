@@ -1,0 +1,157 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/tube/vca.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:15 GMT -->
+<HEAD>
+  <TITLE>Audio Synthesis via Vacuum Tubes</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, eric barbour, tube, valve">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width="900">
+<tr><td>
+<font face="ARIAL,HELVETICA" SIZE=2>
+<center>
+<font size=6>Audio Synthesis via Vacuum Tubes</font>
+</center>
+<CENTER><I><B>Eric Barbour</B></I>
+<BR>Owner, <a href="http://www.metasonix.com/" target="_blank">METASONIX</a>, Redwood City, California USA <BR>e-mail: <I><A HREF="mailto:synth@metasonix.com">synth@metasonix.com</A></I></CENTER>
+<p>
+
+<B>The VCA: simplest module</B>
+
+<P>It is ironic that the modern concept of a voltage-controlled
+amplifier has become rigidly fixed into a single topology, that of the
+differential amplifier with controlled current source used for gain control.
+This circuit came about due to the need for a two-quadrant multiplier for
+use in analog computers, an application which has been rendered meaningless
+by modern digital computers. Although the diff-amp VCA can be implemented
+with tubes in the usual manner, it is universally in the form of a monolithic
+IC today. Amusingly, this is due to mental inertia and conservatism among
+instrument designers, and not because there are no alternate schemes available.
+(Indeed, some experts have chosen to 'gild the lily' by pursuing ever-more-complex
+diff amp designs, in order to utterly exterminate small technical issues
+such as control-voltage feedthrough. Often, such pursuits become far more
+important than the original intention, the making of music!)
+
+<P>Even more ironically, there is a vacuum tube method of
+achieving a usable VCA. And it, too, was initially discovered for use in
+multipliers in analog computers. This incredibly primitive scheme was utterly
+forgotten and buried in old textbooks until I rediscovered it in 1993.
+
+<P>In an obscure 1949 text called ELECTRONIC COMPUTING CIRCUITS,
+page 270 shows a multiplier used with log and antilog circuits to obtain multiplication. And yet, on the very next page, this complex circuit was shown to be replaced by exactly one tube. The 6L7 pentagrid
+converter tube was used as a first RF amplifier and heterodyne oscillator
+in radio receivers. Some forgotten engineer discovered, during WWII, that
+it could also multiply two DC voltages. By simply putting one voltage into
+the control grid, as usual; and by putting the other voltage into the SCREEN
+GRID, thus modulating the gain of the tube.
+
+<P>This takes advantage of something which has no direct solid-state analog, that of the screen
+grid in a multigrid tube. Although the gain-control effect of the screen
+grid was known before WWII, it was not fully exploited until the dawn of
+electronic analog computing.
+
+<P>In a TETRODE, there are only two grids; control (the usual
+signal input point) and the screen. The latter was added to increase the
+gain of the tube, and to greatly decrease the Miller-effect capacitance
+between plate and grid, thus making high-frequency operation of the tube
+easier. The new grid 'screens' out the effect of the plate, by absorbing low-energy
+electrons. And this grid changes the electrical behavior of the tube if
+its applied voltage is varied.
+
+<P>Later came the PENTODE. Another grid was added, to absorb
+electrons which bounced off the plate (this was the cause of nonlinearity
+and a huge 'kink' in the plate characteristics of the tetrode). The third
+grid was called a suppressor grid, as it suppressed secondary electrons.
+A carefully-made pentode is capable of linearity the equal of nearly any
+triode, plus much greater voltage gain than any triode. Later came pentagrid
+tubes, with five grids to perform various radio functions; plus hexagrid
+tubes, hexodes, octodes and even nonodes. All were variations on the tetrode
+idea.
+
+<p>Figure 1 shows the VCA design, implemented with an EF86 miniature pentode. This circuit has been extensively tested, and it has unique electrical characteristics and sound which make it musically valid. In order to completely cut off the tube when zero volts is applied to the control input, a voltage divider applies about -1 volts to the screen. Then, when the CV rises above about +1v, the tube will start to amplify
+the signal at the input (pin 9).
+
+<P>Virtually any tetrode, pentode, pentagrid or other tube containing a screen grid will work in this circuit. The EF86 has some advantages for this, however: it has a built-in shield, it has low distortion compared to most radio-frequency pentodes, and it is still being produced in Russia at this time. No other small pentodes enjoy continued manufacture.
+
+<P>The behavior of this circuit is well-known. Gain below about 1 and above about 6 varies roughly linearly with screen voltage, and roughly exponentially between those points. (So, this can be used as a linear VCA if the CV is kept below approximately 3 volts, making it compatible with solid-state CV sources.)
+
+<P>If a 100-mV signal is at the grid, distortion at the output will rise steadily with CV until it tops out at about 2% at a CV of about 3 volts; then it will drop down to about 1.0%, remaining fixed until the screen voltage reaches about 50 volts dc, then producing peak gain of roughly 150. The distortion is unlike that obtained with modern solid-state circuits, being almost entirely second harmonic due to waveform flattening on one peak side and a total lack of negative feedback. This tends to give a 'thick'
+or 'creamy' sonic effect. With so much gain available, this circuit can also be used to obtain voltage-variable clipping distortion, by feeding a considerable signal to the input and varying the CV appropriately.
+
+<P>Yet another advantage of the EF86 over other tubes is
+shown. Nearly all pentodes have their suppressor grid internally connected
+to the cathode, which is the normal operating scheme for pentodes in RF
+and audio use. The EF86 does not connect its suppressor; it is accessible
+and usable as yet another modulation input. The gain of each grid descends
+as one moves out from the cathode; control (pin 9) is highest in gain and
+the usual signal input; the screen (pin 1) is much lower in gain; and the
+suppressor (pin 8) is very low in gain. Still, in the connecton shown,
+an additional modulation CV can be injected into the suppressor. It should
+have a considerable voltage swing to sufficiently modulate the tube. This
+is a good place to inject an LFO signal, if desired.
+
+<P>There is a slight amount of CV feedthrough with this circuit,
+which is transient in nature due to the output coupling capacitor. It may
+be mitigated (but not entirely eliminated) by providing slew-rate limiting
+of the CV, using the optional capacitor C1. The combination of R1 and C1
+gives a time constant of about 10 mS, sufficient to reduce the 'click'
+from a key-down gate signal.
+
+<P>Construction does not require a PC board. The simplicity
+of the circuit makes the use of a conventional chassis-mounted tube socket
+and a low-cost terminal strip feasible. My prototype was combined on a
+2U rack-mount panel with a VCF (about which more later), with tube sockets
+mounted through holes in the panel, and controls and input/output jacks
+mounted around the tubes. Persons wanting the 150v supplies inaccessible
+are advised to build the circuits into a conventional enclosure, instead.
+In a future article we will discuss a low-cost and very simple power supply
+for these synth circuits, using parts available from any mail-order or
+surplus distributor.
+<P>
+A note to readers: this circuitry is intended for the
+more advanced builder. Because high voltages are used, a shock hazard exists.
+We do NOT recommend that the novice DIY musician try to construct this
+synthesizer. Some experience with tube electronics is highly recommended.
+
+<P>Also note: readers are permitted to construct these circuits
+FOR THEIR OWN PERSONAL USE ONLY. Eric Barbour retains all rights to them.
+Any attempt to patent, copyright, trademark, or manufacture them for sale,
+without the express written permission of Eric Barbour, will result in
+legal action.
+
+<P><B>Schematics</B>
+<center>
+<img width=500 height=633 src="pic/schem_vca_small.gif" border=0 alt="VCA schematic">
+</center>
+<ul>
+<li><A HREF="pic/schem_vca.gif">Click here for a higher resolution schematic, suitable for printing</A>
+</ul>
+
+<p>
+<B>About the Author</B>
+
+<P>Eric Barbour holds a BSEE degree from Northern Arizona
+University. He has been a regular contributor with GLASS AUDIO magazine since 1991, staff editor of VACUUM TUBE VALLEY magazine since its founding in 1995, and has written articles for many other music and audiophile publications.
+<p>
+<CENTER>&copy; 1997 Eric Barbour, All Rights Reserved</CENTER>
+
+<p><b><a href="index.html">Audio Synthesis via Vacuum Tubes Home</a></b>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+
+</FONT>
+
+
+<p>
+</td></tr>
+</table>
+</CENTER>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/tube/vca.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:17 GMT -->
+</HTML>

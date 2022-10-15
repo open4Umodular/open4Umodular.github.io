@@ -1,0 +1,114 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/psycho_lfo.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:34 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer - Sub-oscillator project. ">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ, sub-oscillator">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Psycho LFO</font><br>
+for music synthesizers.
+<p>
+<IMG alt="Psycho LFO" BORDER=0 WIDTH=200 HEIGHT=196 SRC="pic/photo_psycho_lfo.jpg" align=left hspace=10>
+</center>
+<p>
+This is a bizarre little LFO that produces a wide range of pseudo random effects. It is essentially a reworked version of my 1984 "fluorescent simulator" for model railways, and came about when I was wondering what I could do with a left-over PCB from this project. The effect was so good, I've designed a PCB specifically for it.
+<p>
+The circuit consists of several distinct blocks. The first is the collection of square wave oscillators, three of which run at fixed though different frequencies. The fourth is variable between  much slower than the others to much faster than the others. These oscillators are all based on single schmitt trigger stages of a CMOS 74C14, 40106 or similar.
+<p>
+The second block is a traditional op amp inverting mixer stage. Signals from the four oscillators are mixed through 560k resistors, the overall gain controlled by a 100k pot in the feedback path of the op amp.
+<p>
+What is interesting here is that in order to keep the output signal of the mixer positive without the need for an additional inverting stage, the chip used to build the four oscillators is powered from the negative rail, it's positive power pin connected to 0V and its earth pin connected to -15V. Take special note of this, because it is an unusual way to power a digital chip, and inadvertent poking with a logic probe powered from the positive rail could cause you grief!
+<p>
+The third stage is a simple glide circuit consisting of a potentiometer, a capacitor and unity gain voltage follower. The glide range is quite adequate with a 100k pot, though some might like to experiment by putting an larger value here. The switch is to allow easy switching in and out of a preadjusted glide setting. It can be omitted, and a link soldered in its place on the circuit board. My prototype had the switch, though the modules I have made since do not.
+<p>
+The power supply is decoupled using a pair of 22 ohm resistors and 10 mfd capacitors. The two unused sections of the chip are tied as per good CMOS practice.
+<p>
+
+<center>
+<IMG alt="Psycho LFO schematic" BORDER=0 WIDTH=500 HEIGHT=515 SRC="pic/schem_psycho_lfo.gif">
+<p>
+<i>The schematic of the Psycho LFO.</i>
+<p>
+
+
+<IMG alt="Psycho LFO schematic" BORDER=0 WIDTH=250 HEIGHT=239 SRC="pic/pcb_cgs03_psycho_lfo.gif">
+<p>
+<i>The overlay of the Psycho LFO.</i>
+<p>
+</center>
+
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>1</td></tr>
+<tr><td>2u2 25V</td><td align=right>5</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>22R or ferrite bead</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>1</td></tr>
+<tr><td>18k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>1</td></tr>
+<tr><td>150k</td><td align=right>1</td></tr>
+<tr><td>220k</td><td align=right>1</td></tr>
+<tr><td>560k</td><td align=right>4</td></tr>
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>40106</td><td align=right>1</td></tr>
+<tr><td>LM358</td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>wire</td><td align=right></td></tr>
+<tr><td>100k Lin pot</td><td align=right>1</td></tr>
+<tr><td>100k Log pot</td><td align=right>1</td></tr>
+<tr><td>1M Lin pot</td><td align=right>1</td></tr>
+<tr><td>Knobs</td><td align=right>3</td></tr>
+<tr><td>SPST switch</td><td align=right>1</td></tr>
+<tr><td>PCB</td><td align=right>1</td></tr>
+<tr><td>Jack</td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying one of these boards, check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+<b>Notes:</b>
+<ul>
+<li>A different effect can be achieved if the four 560K resistors are replaced with differing values. Try a 1R, 2R, 4R, 8R set, where R is at least 100k. You may need to reduce the value of the level pot if you do this.
+<li>Want it to run slower? Try increasing the 2.2mfd capacitors in the oscillators to 4.7 mfd or even 10 mfd.
+<li>If you really wanted to, speed controls could be added to the other oscillators.
+<li>Ferite beads can be used instead of the 22 ohm decoupling resistors if desired.
+<li>Remember, the digital chip (40106) is powered from the NEGATIVE rail in this project. Take care if connecting a logic probe or if adding external logic for whatever reason.
+</ul>
+<p>
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 1984, 2000 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/psycho_lfo.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:47:40 GMT -->
+</HTML>

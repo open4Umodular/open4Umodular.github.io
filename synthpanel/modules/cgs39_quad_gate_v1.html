@@ -1,0 +1,210 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs39_quad_gate_v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:48 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--center>
+<IMG alt="Quad Logic Gate" BORDER=0 WIDTH=600 HEIGHT=207 SRC="pic/photo_cgs39_quad_gate.jpg">
+</center-->
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Quad Logic Gate</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The Quad Logic Gate is a very simple module that can be built in one of five flavors : XOR, OR, AND, NOR and NAND. It is a simple way to gain additional control of gate and trigger pulses within a system. It can also be used for some simple signal multiplying. The XOR is well known as a square wave "ring modulator", though interesting effects can also be generated using the other configurations. Each gate has an in-built LED to indicate the status of the output of that gate.
+<p>
+With some chip types, it is also possible to have some of the gates presented on the panel as basic inverters. For XOR and NOR gates, tie the disused input of that gate to 0V. For NAND gates, tie the disused input of that gate to +15V. It is not possible to create inverters with AND and OR gates.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=314 src="pic/schem_cgs39_quad_gate.gif">
+<br><i>The schematic of the Quad Logic Gate.</i>
+<p>
+<table border=1 cellspacing=0 cellpadding=3>
+<tr><TH>Pins</TH>  <th>A</th> <th>B</th> <th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th></tr>
+<tr><TH>Gate 1</TH><td>I1</td><td>I1</td><td>5</td><td>6</td><td>7</td><td>3</td><td>2</td><td>1</td><td>1</td><td>2</td><td>3</td><td>O1</td><td>Out 1</td></tr>
+<tr><TH>Gate 2</TH><td>I2</td><td>I2</td><td>12</td><td>13</td><td>14</td><td>10</td><td>9</td><td>8</td><td>12</td><td>13</td><td>11</td><td>O2</td><td>Out 2</td></tr>
+<tr><TH>Gate 3</TH><td>I3</td><td>I3</td><td>3</td><td>2</td><td>1</td><td>5</td><td>6</td><td>7</td><td>6</td><td>5</td><td>4</td><td>O3</td><td>Out 3</td></tr>
+<tr><TH>Gate 4</TH><td>I4</td><td>I4</td><td>12</td><td>13</td><td>14</td><td>10</td><td>9</td><td>8</td><td>8</td><td>9</td><td>10</td><td>O4</td><td>Out 4</td></tr>
+</table>
+<br><i>Connection/pin identification table for the above
+<br>diagram. Note that there are two LM324 chips involved,
+<br>one for In 1 and 2, the other for In 3 and 4.</i>
+<p>
+
+<img width=200 height=75 src="pic/single_power_rail.gif">
+<br><i>A single power rail is used.</i>
+</center>
+
+<p>
+Each input is configured to detect a voltage over approx. 2 volts. When this voltage is reached, a logic HIGH is presented to the corresponding gate input. The output will react to what is present at the inputs, and the result, depending on the gate chip used, is buffered by the emitter follower, and used to drive the LED and output jack.
+<p>
+<center>
+<table border=0 cellspacing=0 cellpadding=0><tr><td>
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4001</th></tr>
+<tr><th colspan="3">NOR</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4011, 4093</th></tr>
+<tr><th colspan="3">NAND</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4071</th></tr>
+<tr><th colspan="3">OR</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2 align="left">
+<tr><th colspan="3">4081</th></tr>
+<tr><th colspan="3">AND</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+</table>
+
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th colspan="3">4030, 4070</th></tr>
+<tr><th colspan="3">XOR</th></tr>
+<tr><td>IN a</td><td>IN b</td><td>OUT</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td></tr>
+</table>
+</td></tr></table>
+<i>Truth tables for the different logic gates that can be used in this circuit.</i>
+</center>
+
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=101 src="pic/pcb_cgs39_quad_gate.gif">
+<br><i>The component overlay. Note that this version of the board (the prototype run) incorrectly connects to the negative rail. The ferrite bead on the negative rail should be omitted (marked in red), and a link used instead of the corresponding capacitor (marked in blue). Use LM324, not TL074 as marked.</i>
+
+<p>
+<img width=600 height=101 src="pic/pcb_cgs39_quad_gate1.gif">
+<br><i>The corrected version of the PCB. Connections can be determined from the circuit diagram.</i>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+In this case I recommend using a socket for the CMOS chip, as this will allow different chips to be substituted for the purpose of experimentation.
+<p>
+Valid choices are:
+<ul>
+<li>4030 or 4070: XOR
+<li>4001: NOR
+<li>4011 or 4093: NAND
+<li>4071: OR
+<li>4081: AND
+</ul>
+<p>
+There are four LED return pads, marked LR1-4. The order in which these are used is not critical. Each pair of inputs to a gate share the same designator. The order in which each pair is wired to the panel sockets is not critical.
+<p>
+<b>Notes:</b>
+<ul>
+<li>The TL074 can be convinced to work in the circuit instead of the LM324, though as it's common mode input range does not extend to the negative rail (in this case 0 volts), the circuit may require
+modification. Of two devices tested in the prototype, seven of the eight op-amps worked, while the eighth failed. Decreasing the value of the 100k in the reference voltage divider cured this problem, at the cost of increasing the trigger sensing point. The reason why the prototype board has TL074 specified is that it was partially configured to work with +/- 15 volts, though I mistakenly used the single supply input configuration with it. It must have been late....
+<li>While untested, the module should work on 12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspanpan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>2</td></tr>
+<tr><td>10uF 25V </td><td align=right>1</td></tr>
+
+<tr><th colspanpan=2>Resistors</th></tr>
+<tr><td>680R</td><td align=right>4</td></tr>
+<tr><td>820R</td><td align=right>4</td></tr>
+<tr><td>10k</td><td align=right>8</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>17</td></tr>
+
+<tr><th colspanpan=2>Semi's</th></tr>
+<tr><td>1N4148 or sim.</td><td align=right>8</td></tr>
+<tr><td>BC547 or sim.</td><td align=right>4</td></tr>
+<tr><td>CMOS Logic chip</td><td align=right>1</td></tr>
+<tr><td>LM324</td><td align=right>2</td></tr>
+
+<tr><th colspanpan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>1</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS39 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs39_quad_gate_v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:55 GMT -->
+</HTML>

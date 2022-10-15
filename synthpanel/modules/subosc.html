@@ -1,0 +1,190 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/subosc.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:24:47 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer - Sub-oscillator project. ">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ, sub-oscillator">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Sub Oscillator" BORDER=0 WIDTH=145 HEIGHT=200 SRC="pic/panel_subosc.jpg" align=right hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Sub Oscillator</font><br>
+for music synthesizers.
+</center>
+<p>&nbsp;
+<p>
+The sub oscillator was one of the first synthesizer modules I ever built, back around 1980. The  <a href="eti_subosc.html">first version</a> was designed with the ETI 4600 in mind, and was published as a circuit idea in the Australian edition of ETI.
+<p>
+Another circuit I used at the time to "fatten up" the sound of my single oscillator synth was a "harmony generator", achieved by running a 4017 decade counter chip wired to divide by six or divide by three.
+
+<p>This design combines both of these circuits, giving a two channel sub oscillator, which allows each channel to be used independantly, or driven from the same oscillator, but set to different intervals. As a bonus, both channels can be multiplied or "digitally ring modulated" giving even more effects.
+
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+Fed by two VCO's it can operate as two independant sub-oscillators, with optional ring modulated outputs.
+<p>Running both sub-oscillators from the same VCO, tuned to a fifth over the base note you require, and with the prescaller set to divide by 3, it is possible to create harmonies. An unusual effect here is that the ring modulated outputs give a fatter chord-like sound that remains indepenant of minor or major scales, allowing "one finger chords" which can be handy when used with a related sequencer driven bass line.
+<p>
+Careful mixing of the ring modulated output with one channel's divided output results in some interesting sounds, especially if one of the channels is being driven from a low frequency oscillator. Running like this, it could be considered to be a "harmonic sequencer"
+<p>
+Running both inputs from the same LFO/clock signal, and feeding the mixed output into the 1V/oct input of a VCO gives you a pattern based sequencer, where the prescaler, ring modulated outputs, etc., all have a bearing on the pattern. Quite interesting patterns can be created this way. Each knob of course varies part of the overall structure, instead of a single note as per a regular step sequencer.
+<p>
+<b>A little on how it works:</b>
+<p>
+In a way, this design can be considered as a sub oscillator construction kit, as there are many ways it can be configured.
+<p>
+<center>
+<IMG alt="Sub-oscillator schematic" BORDER=0 WIDTH=600 HEIGHT=134 SRC="pic/schem_subosc1.gif">
+<p>
+<i>Input stage of the sub-oscillator. Two are used, one per channel.</i>
+<p>
+<IMG alt="Sub-oscillator schematic" BORDER=0 WIDTH=258 HEIGHT=220 SRC="pic/schem_subosc2.gif">
+<p>
+<i>Prescale stage of the sub-oscillator. This is used only in the "B" or second channel.</i>
+<p>
+<IMG alt="Sub-oscillator schematic" BORDER=0 WIDTH=236 HEIGHT=211 SRC="pic/schem_subosc3.gif">
+<p>
+<i>Divider stage of the sub-oscillator. Two are used, one per channel. Only the first four divisions are of musical value, though the last three divisions may prove useful in control applications</i>
+<p>
+<IMG alt="Sub-oscillator schematic" BORDER=0 WIDTH=220 HEIGHT=229 SRC="pic/schem_subosc5.gif">
+<p>
+<i>Multiplier stage of the sub-oscillator. This multiplies the top four divider outputs together. Other gate types could be dropped into the socket, though the best effect is with an EXCLUSIVE OR gate.</i>
+<p>
+<IMG alt="Sub-oscillator schematic" BORDER=0 WIDTH=500 HEIGHT=271 SRC="pic/schem_subosc4.gif">
+<p>
+<i>Mixer stage of the sub-oscillator. Only one is on the PCB, though there is nothing to stop an extra <a href="mixer.html">mixer</a> being added. More resistors can be added as well. My prototype uses one more pot and its associated resistors than is allowed for on the PCB. To take full advantage of the multipliers, the outputs of one channel and the multipliers should be fed to the same mixer. See the text below for details on the components marked in red.</i>
+<p>
+<IMG alt="Sub-oscillator PCB" BORDER=0 WIDTH=476 HEIGHT=306 SRC="pic/schem_subosc6.gif">
+<p>
+<i>PCB overlay for the sub-oscillator. Unfortunately it isn't to scale, as I don't have appropriate software to convert the output of the PCB program to a gif. This was made from a series of screen-grabs.
+<p>Note that pin 1 of the top 4024 is marked "0" not "C", but a hole drilled in it makes it look like a "C".
+</i>
+
+<p>
+<IMG alt="Sub-oscillator PCB" BORDER=0 WIDTH=600 HEIGHT=201 SRC="pic/pcb_cgs01_subosc_r2.gif">
+<p>
+<i>PCB overlay for the Rev 2 variant of sub-oscillator. Electronically it is the same as the earlier version. This is the board that will be supplied from now on.</i>
+<p>
+</center>
+<p>
+The circuit can best be understood if viewed in smaller sections, which is why I've broken the circuit diagram up into parts.
+<p>
+The first part simply takes the input signal (preferrably symetrical, such as a square, triange or sine wave), squares it up, and multiplies it by two using a fairly conventional square wave frequency doubler made from a few NAND gates. Both normal and inverted signals are brought out to PCB pads, and the normal signal is fed on to the prescaler or dividers. There are two of these input stages on the PCB, one per channel.
+<p>
+The second diagram covers the prescaler, giving effective frequency divisions of 1, 1.5, 2.5 and 3.5 when the frequency doubler in the input stage is taken into account. If a double pole switch is used as shown, it is possible to route the frequency doubled signal straight through to the divider as well. Of note is that the signal is being fed into the clock enable line, while the clock is held high. The clock enable line is simply inverted then AND gated with the signal from the clock pin within the 4017. Grounding the clock enable line and feeding the clock signal into the clock pin would have worked equally well.
+<p>
+A link is shown on the PCB overlay between points B and C. This link is only installed if you want the prescaler active all of the time. In this case a 1 pole rotary switch can be used, and all wiring between A B and C on the diagram can be ignored, except for the installation of the link shown on the PCB.
+<p>
+The third diagram is the divider, of which there are two. Dividing by two, four, eight etc gives the various octaves.
+<p>
+The fourth diagram simply shows how the multipliers are wired to the two dividers. The outputs are marked M1-4 and can be fed into the mixer as per the example in the mixer diagram, much like any of the signals from the dividers. These four EXOR gates do the digital "ring modulation", with each gate wired so that it is feeding from the same numbered divider stage from each channel.
+<p>
+The fifth diagram shows the mixer. It also gives an example of how the inputs are fed through a resister then a pot and into the mixer. My prototype used thirteen pots, one more than was provided for on the PCB. There is no hard and fast rule to what is fed into the mixer. That much is up to the individual's needs. In my case channel "a" was the divider chain without the prescaler, and the one with the prescaler was channel "b".  From channel "a" I fed the squared input, /2, /4 and /8 signals, being the pads marked 1 to 4 on the divider into the mixer. From channel "b" I fed the frequency doubled input (see note below) the squared input, /2, /4 and /8 signals into the mixer. I also fed all four of the multipler outputs (M1-4) into the mixer.
+<p>
+A few resistors can be omitted from the mixer, if desired. All of the upper parts of the input voltage dividers (47k marked in red) can be left out, if the resistor in the feedback loop of the first op amp is reduced to 22k (marked in red). These voltage dividers were initially included to allow voltage followers to be hooked in at this point, to bring the individual frequencies out to their own jacks.
+
+
+<BR CLEAR="all">
+<a href="pic/wire_cgs01_subosc_r2.gif" target="_blank"><IMG alt="Sub Oscillator" BORDER=0 WIDTH=600 HEIGHT=409 SRC="pic/wire_cgs01_subosc_r2.gif"></a>
+<br>
+<i>
+One example of how to wire the sub-oscillator. The exact position of the terminals on the rotary switch will vary with manufacturer. Wiring for the earlier version of the board is essentially the same, though the pads will be in different locations. <a href="pic/wire_cgs01_subosc_r2.gif" target="_blank">Click for larger view.</a>
+</i>
+
+
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>330pF (1n5*)</td><td align=right>4</td></tr>
+<tr><td>100n</td><td align=right>8</td></tr>
+<tr><td>1uF 25V</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1K</td><td align=right>2</td></tr>
+<tr><td>10K</td><td align=right>7</td></tr>
+<tr><td>47K</td><td align=right>31</td></tr>
+<tr><td>4M7</td><td align=right>2</td></tr>
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>6</td></tr>
+<tr><td>4011</td><td align=right>2</td></tr>
+<tr><td>4017</td><td align=right>1</td></tr>
+<tr><td>4024</td><td align=right>2</td></tr>
+<tr><td>4030</td><td align=right>1</td></tr>
+<tr><td>LF353 or TL072</td><td align=right>2</td></tr>
+<tr><td>LM358 or TL072</td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Ferite beads</td><td align=right>2</td></tr>
+<tr><td>Tinned copper wire</td><td align=right>10cm</td></tr>
+<tr><td>50k Lin pots</td><td align=right>13</td></tr>
+<tr><td>Knobs</td><td align=right>14</td></tr>
+<tr><td>2 pole 5 pos switch</td><td align=right>1</td></tr>
+<tr><td>PCB</td><td align=right>1</td></tr>
+<tr><td>Jacks</td><td align=right>4</td></tr>
+<tr><td colspan=2>* See text</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question.
+<p>
+<b>Notes:</b>
+<ul>
+<li>
+If you wish to mix the frequency doubled outputs (x2 and x2i) into your output, you will need to increase the values of the 330pf capacitors to perhaps 1500 pf, or even higher so the pulse can be heard. At 330 pf, it's just too narrow for anything but internal use. Note that enlarging this capacitor also lowers the maximum frequency at which the sub-oscillator will work. From memory, I'm using 1500 pf capacitors.
+<li>
+Don't make the same mistake I did and tie all the wires going to the pots together. This causes some cross-talk. Either keep the wires apart, or use shielded cable.
+<li>
+When using the sub oscillator, try feeding an audio signal into the "a" input, and a low frequency signal into the "b" input, then mix the "a" channel and multiplied signals together. Due to the action of the EXOR gates, the output of the "a" channel can be gated partially to fully on and off, giving some interesting tonal sequences.
+<li>
+Asymetrical input waveshapes will not drive the input multiplier properly. Nothing says you can't exploit this either.
+</ul>
+
+<BR CLEAR="all">
+<IMG alt="Sub Oscillator" BORDER=0 WIDTH=99 HEIGHT=200 SRC="pic/panel_subosc2.jpg" align=right hspace=10>
+
+<b>Alternate layout</b>
+<p>
+Having had the prototype in my synthesiser for some time now, a second layout became obvious. Instead of having pots for both the B channel and the multiplier outputs, I used a 4 pole 2 position switch to select between the B channel and the multiplier outputs, saving me a lot of panel space. The x2 output was sacrificed, and the rotary switch to select the prescale was replaced by an SPDT switch for the bypass function, and a SPDT center off switch was used to select between divide by 3, 7 and 5. 7 is hard wired as the default on the PCB, so no connection is needed to the switch.
+<p>
+
+<ul>
+<li><a href="panels/suboscillator.gif">200 DPI B&amp;W printable panel artwork version 1.</a>
+<li><a href="panels/suboscillator2.gif">200 DPI B&amp;W printable panel artwork version 2.</a>
+</ul>
+
+
+<p>
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 1999, 2000 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/subosc.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:24:51 GMT -->
+</HTML>

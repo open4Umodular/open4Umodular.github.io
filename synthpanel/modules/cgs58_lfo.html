@@ -1,0 +1,139 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs58_lfo.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:01:04 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Utility LFO</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Utility LFO" BORDER=0 WIDTH=600 HEIGHT=107 SRC="pic/photo_cgs58_lfo.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+This board is a dual utility LFO offering manually variable wave shapes. Standard waveshapes are falling ramp variable through triangle to rising ramp, and variable pulse width. A fixed square is also available, as is a combination waveshape that is variable between the saw/tri output and the square. This is a MIX not a morph. Optional switches allow the variable outputs of the two LFOs to be intermixed.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<p>
+<b><br><a href="pic/schem_cgs58_lfo.gif" target="_blank">Click here for the Schematic</a></b>
+<p>
+
+
+The Utility LFO is based on the standard integrator/schmitt trigger oscillator core. Two pots in the integrator charge path allow for the adjustment of speed, and along with two diodes, for the adjustment of charge versus discharge time. Changing this ratio will allow the triangle/saw output to be adjusted through falling ramp, to triangle to rising ramp. At the same time, the output of the schmitt trigger will reflect this in the length of it output pulse.
+<p>
+A a 0 volt referenced comparator connected to the output of the integrator generates a square wave as there is always an equal portion the ramp/triangle wave above the 0 volt reference, though adjustment of the shape of the ramp/triangle wave does change the phase of this square wave.
+<p>Following the comparator is a buffered voltage divider to bring the square wave done to a more suitable level and also to drive one side of the variable output mixer pot. The other side of the variable output mixer pot is connected directly to the integrator output. The variable output is buffered is used post mixer by another op-amp.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=364 src="pic/wire_cgs58_lfo.gif">
+<br><i>The component overlay and wiring for one of the two LFOs. Wiring for the second LFO is identical.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+There is provision on the copper side of the PCB for tacking some extra decoupling capacitors directly across the power rails of the chips, should they be needed. Capacitors in the range of 10n to 100n would be suitable.
+<p>
+
+
+<center>
+<img width=237 height=249 src="pic/wire_cgs58_lfo2.gif">
+<br><table><tr><td><i>Wiring in two DPDT switches as shown will allow for the variable outputs of the two LFOs to interact. The JOIN switch interconnects the two Vari outputs by swapping their ramp outputs with each other, so that each output is a combination of that LFO's square wave with the other's ramp. The SWAP switch reverses the outputs of the second LFO so that (when JOIN is on) one vari output is a combination of both square waves while the other is a combination of both ramps. When JOIN is off, SWAP merely reverses the direction in which the second LFO's Vari knob works.</i></td></tr></table>
+</center>
+<p>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>This module will work on 12 volts, though the output swings will be reduced by 20%.
+<li><font color="green"><b>PCB info: </b></font>1" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+<li>Want greater range, or a slower LFO? Method 1: Use a 500k pot for speed instead of the 100k pot. Method 2: Increase the value of the 47n between pins 1 and 2 of the TL074. You may need to reduce the value of the 4k7 resistor in series with the speed pot to get your maximum speed back.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47n</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>14</td></tr>
+<tr><td>2k2</td><td align=right>2</td></tr>
+<tr><td>4k7</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>47k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>6</td></tr>
+<tr><td>150k</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>4</td></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+<tr><td>BC547</td><td align=right>2</td></tr>
+
+<tr><td>LED</td><td align=right>2</td></tr>
+
+
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS58 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs58_lfo.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:01:16 GMT -->
+</HTML>

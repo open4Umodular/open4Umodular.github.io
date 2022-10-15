@@ -1,0 +1,152 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs49_twf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:46 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=700>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Twin CMOS VCF</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Filter" BORDER=0 WIDTH=600 HEIGHT=275 SRC="pic/photo_cgs49_twf.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+<p>
+This board containts two independant VCFs based on the popular CMOS based Wasp VCF, In adition it also  features adjustable post-filter distortion.
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<b><br><a href="pic/schem_cgs49_twf.gif" target="_blank">Click here for the Schematic</a></b>
+
+<p>
+Of note is that the filter core is running between 0V and -5V, allowing a simple exponential converter to be used to give an appropriate response to the control voltage. The distortion channel straight signal are mixed via a seque circuit (reverse panner). The final stage is just a regular, inverting amplifier, but with a voltage divider in the feedback loop to avoid the need for an excessively high value resistor to achieve the required gain.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs49_twf.gif">
+<br><table border=0><tr><td><i>The component overlay for the filter.
+
+</i></td></tr></table>
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+The CMOS chip MUST be of the unbuffered type. 4069 continued to be made in UB form long after most other UB 4000 series chips were stopped, so locating them should not be difficult. CD, HEF etc. are acceptable designators. Do not use chips with designators starting with "74".
+<p>
+It has been suggested that connecting the frequency pot between +VE and -VE instead of +VE and GND as shown will allow the filter to be used at lower frequencies. If doing this, you may find it beneficial to change the wiper resistor up to 270k, or add an extra resistor of 150k in series with the wire from the wiper to the PCB.
+<p>
+<b>Tuning</b>. Set the trimmers for a 1 volt per octave response. It will never be as accurate as a VCO as there is no thermal compensation, so "close enough" is good enough.
+<p>
+The photo shows to additional 100k trimmers I added to allow centering of the frequency pots. They are wired between +VE and -VE, with 100k wiper resistors fed to the CVSN pads on each filter. Alternatively, the CCW end of the frequency pots could be wired to -VE (via resistor if needed) instead of to 0V.
+<p>
+<center>
+<img width=678 height=569 src="pic/wire_cgs49_twf.gif">
+<br><table border=0><tr><td><i>Suggested wiring for the filters.
+<P>Note: The CCW end of the frequency pots should be wired to -VE instead of to 0V as shown above.
+</i></td></tr></table>
+</center>
+<p>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<p>
+<li>TI chips (CD4069UBEE4) reportedly give greater distortion than some other brands of 4069.
+<li>If you get absolutely no response to CV, check that the trimmer for that filter is not set to the bottom of it's range.
+<li>The Distortion channel is based on Jurgen Haible's design. Filter originally by Chris Huggett.
+<li><font color="green"><b>PCB info: </b></font>2" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>68pF</td><td align=right>2</td></tr>
+<tr><td>1n</td><td align=right>8</td></tr>
+<tr><td>100n</td><td align=right>6</td></tr>
+<tr><td>220n</td><td align=right>6</td></tr>
+<tr><td>10uF 25V</td><td align=right>6</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k </td><td align=right>6 </td></tr>
+<tr><td>2k2</td><td align=right>4 </td></tr>
+<tr><td>4k7</td><td align=right>4 </td></tr>
+<tr><td>10k</td><td align=right>2 </td></tr>
+<tr><td>33k</td><td align=right>18 </td></tr>
+<tr><td>51k</td><td align=right>6 </td></tr>
+<tr><td>100k</td><td align=right>32 </td></tr>
+<tr><td>1M</td><td align=right>2 </td></tr>
+<tr><td>1k 25 turn trimmer</td><td align=right>2 </td></tr>
+<tr><td>47k or 50k lin pot</td><td align=right>2 </td></tr>
+<tr><td>100k lin pot</td><td align=right>4 </td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>4</td></tr>
+<tr><td>79L05</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>2</td></tr>
+<tr><td>BC557</td><td align=right>4</td></tr>
+<tr><td>CA3080 or LM3080</td><td align=right>4</td></tr>
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><td>4069UB </td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS49 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2007 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs49_twf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:00 GMT -->
+</HTML>

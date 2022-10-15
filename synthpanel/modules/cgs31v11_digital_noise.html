@@ -1,0 +1,188 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs31v11_digital_noise.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:26:26 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=650>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Digital Noise</font><br>
+for music synthesizers.
+</center>
+<p>
+
+<center>
+<IMG alt="Digital Noise" BORDER=0 WIDTH=600 HEIGHT=198 SRC="pic/photo_cgs31_digital_noisev11.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs31v10_digital_noise.html">here</a>.
+The current version can be found <a href="cgs31_digital_noise.html">here</a>.
+<p>
+This module is a very standard pseudo-random digital noise source with a few enhancements. Instead of running a fixed high frequency clock, a VCO is used instead, allowing for unusual sweeps, and for reducing the speed right down to a series of random pulses. The internal linear VCO can also be bypassed so an external source such as a 1V/Oct. VCO or LFO can be substituted. It has pink and white noise outputs, and two separate (unique) digital outputs for use in triggering other circuits.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the CV inputs to a voltage source, and wind the speed input up to maximum. Take the required noise source from the appropriate output. The two LEDs indicate the activity of the two digital outputs. When an external CV source is used, the speed pot acts as an input attenuator. Adjust this pot for the desired effect. Alternately, feed an alternate clock pulse in to the external clock input.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=475 height=600 src="pic/schem_cgs31_digital_noise.gif">
+<br><i>The schematic of the Digital Noise.</i>
+</center>
+<p>
+The circuit consists of several distinct blocks. The first is the internal VCO and its associated parts. From the left, there is a voltage follower then the VCO itself, which is part of a 4046 phase locked loop.
+<p>
+The second circuit block is the timing generator. At the left, there is a comparator based around one half of a TL072. This is there to convert any external clock signal into something suitable for the remainder of the circuitry. With the values given, the sensitivity is set at around 2V, allowing triggering from the variety of signals common in modular synths.
+<p>
+The output of this comparator is fed into the clock input of the shift register, a 4006.
+<p>
+The exclusive OR gates form a complex feedback path and are responsible for the generation of the pseudo-random pulse train. The 1M and 0.47 mfd capacitor are there to start the sequence. A 1uF can be substituted if you are unable to obtain a 0.47uF electro. Reduce the 1M to 470k to compensate.
+<p>
+Several outputs are taken from different points of the feedback path, two being buffered use as digital outputs, the remaining being filtered to produce both pink and white noise outputs.
+<p>
+There are many similarities between this design and the ETI 4600 noise source, as this was developed from my heavily modified ETI unit.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs31v11_noise.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs31v11_noise.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.1 PCB. Due to a manufacturing error, the overlay on these PCBs has become cluttered. Print out the above file to assist with assembly. Note that some values are different to those that are on the actual board. The BAT48 is in the wrong location, and the resistors and capacitor associated with the 4046 have had their values changed.
+<a href="pic/pcb_cgs31v11_noise.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+
+</center>
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+<i>Make sure you insert a 100k resistor between the +15V supply and the normalized connection on the CV jack.</i> This is because +15 will momentarily be fed out of this jack when you plug something into it, due to the mechanical nature of the contacts. There is no provision of the circuit board for this resistor. For those using banana jacks, simply connect the 100k resistor between the +VE rail and the CV input. Any signal present on the jack will swamp the current from the 100k,  effectively removing it from circuit. The 100k pulldown resistor at pin 3 of the TL072 should be omitted.
+<p>
+
+
+There is provision on this PCB for an additional 7 MOTM style power connectors, to allow this board to be used as a distribution hub for nearby modules. Two links are provided to allow for insertion of resistors should greater isolation between the noise circuitry and the other modules. This is a noise source after all - probably not the best host for a power distribution point! Should you add these resistors (10 to 22 ohms), the eighth connector (nearest the circuitry) will also be part of the isolated section. Do NOT use that as your power input. You may find it a suitable point for connecting another noisy module. There is also provision for two extra decoupling capacitors (10uF). Neither is marked on the overlay. Take care with orientation if you install them.
+<p>
+
+To use the wire anchor holes:
+<br>1) Trim off the end of a suitable gauge of hookup wire
+<br>2) Pass it through the larger (pad-less) hole from below and pull a couple of inches through.
+<br>3) Strip the insulation from the end of the wire, twist and tin it.
+<br>4) Bend the wire over and pass the tinned part through the associated pad hole. Trim as needed.
+<br>5) Flip the board and solder the tinned wire to the pad.
+<br>6) Pull the excess wire back through the first hole so only a short length remains between the hole and the second pad. Make sure this is the LAST step, or the insulation will peel back from the wire as it is soldered.
+<p>
+
+
+<center>
+<img width=633 height=622 src="pic/wire_cgs31v11_noise.gif">
+<br><table border=0><tr><td><i>
+The +VE and 0V connections have just been taken from convenient pads. Which location you take them from is not important. Banana jacks have been shown because this variant of the PCB is primarily for use on the Best of CGS #2 panel.
+</i></td></tr></table>
+
+</center>
+
+
+<p>
+
+<b>Notes:</b>
+
+<ul>
+<li>Some values are different to those that are on the actual board. The BAT48 is in the wrong location, and the resistors and capacitor associated with the 4046 have had their values changed to give an improved sweep range.
+<li>The BAT48 is used to improve the dead zone at the lower end of the CV response. You could substitute a 1N4148 as used in the older versions of this board.
+<li>While an LM358 is mentioned on the overlay, TL072 are a better choice.
+<li>Possible sources of the 4006: (I have not dealt with these companies. Copy and paste URLs)
+<br>http://www.web-tronics.com/cd4006.html
+<br>http://www.elfa.se/elfa-bin/dyndok.pl?dok=2013010.htm
+<br>http://www.abra-electronics.com/driver/database.php?search=4006
+<br>http://www.banzaimusic.com/CD4006.html
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise (HF switching glitches), just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>1n</td><td align=right>1</td></tr>
+<tr><td>2n2</td><td align=right>2</td></tr>
+<tr><td>4n7</td><td align=right>1</td></tr>
+<tr><td>15n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>8</td></tr>
+<tr><td>0.47 mfd 25V electro</td><td align=right>1</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>5</td></tr>
+<tr><td>1k8</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>9</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>18k</td><td align=right>1</td></tr>
+<tr><td>33k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>3</td></tr>
+<tr><td>1M</td><td align=right>1</td></tr>
+<tr><td>4M7</td><td align=right>1</td></tr>
+<tr><td>100k lin pot</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>1</td></tr>
+<tr><td>BAT48</td><td align=right>1</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>2</td></tr>
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><td>CD4006</td><td align=right>1</td></tr>
+<tr><td>CD4030/CD4070</td><td align=right>1</td></tr>
+<tr><td>CD4046</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS31 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Read the <a href="parts_faq.html">parts FAQ</a> regarding the choice of suitable components. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001, 2010 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs31v11_digital_noise.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:26:36 GMT -->
+</HTML>

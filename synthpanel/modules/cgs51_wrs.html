@@ -1,0 +1,194 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs51_wrs.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:00 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Weighted Random Switch</font><br>
+for music synthesizers.<p>
+
+<p>
+<h4>In memory of Jeff Pontius.</h4><p> This module was designed at his request.
+<p>
+</center>
+
+
+
+<center>
+<IMG alt="Weighted Random Switch" BORDER=0 WIDTH=600 HEIGHT=210 SRC="pic/photo_cgs51_wrs.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+The weighted random switch is another module for introducing unpredictability into synthesizers. The original requirement was for a circuit that would, upon receiving a clock signal, randomly direct a single input to one of four outputs, but with a twist. Four knobs or control voltages could be used to sway the likelihood of one or more outputs being selected over the others.
+<p>
+The concept has been expanded to include four gate outputs that correspond to the selected output, as well as a derived probability output CV for each of the four channels. What distinguishes these outputs from the input probability voltages is that they are post-multiplexer, and thus are interactive. Any change in any weighting control voltage, and all four of these outputs will be affected. They will be an approximation of the input voltage, and subject to some degree of fluctuation at the rate of the internal clock, though this can be adjusted to the users preference at construction time - thus the reason why no resistor or capacitor values have been specified in the buffer circuits.
+<p>
+The circuit is also designed to be expanded by the addition of one or more <a href="cgs55_asm.html">Analog Switch Matrixes</a>, allowing it to be used to route one input to four outputs, or vice versa, or even to route one signal through one of four external effects (e.g. wave multipliers, filters etc.).
+<p>
+The analog switch is DC coupled so can be used for both control voltages and audio signals, as is the minimal router in the basic version.
+
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=390 src="pic/schem_cgs51_wrs_sm.gif">
+
+<br><i>The schematic of the Weighted Random Switch.(<a href="pic/schem_cgs51_wrs.gif" target="_blank">View full sized.</a>)</i>
+</center>
+<p>
+
+<center>
+<img width=486 height=338 src="pic/schem_cgs51_wrs_ext.gif">
+<br><i>The schematic of the onboard routing switch.</i>
+</center>
+<p>
+
+
+<center>
+<img width=300 height=135 src="pic/analogsw_power_rail.gif">
+<br><i>Power rail connections</i>
+</center>
+<p>
+
+
+The four weighted inputs, be they fed from external CVs or pots, are scanned by a 4 to 1 analog multiplexer (1A) at a high rate. The selected voltage is inverted and limited between 0 and 10 volts, then fed to a comparator (see below) and a VCO. THe VCO's frequency is thus inversely proportional to the selected voltage - the higher the voltage, the slower the VCO. Thus the selected input voltage directly controls the amount of time it is selected - the lower the voltage, the shorter that input will be selected - the higher the voltage, the longer that input will be selected. While how long an input is selected has little effect on how this portion of the circuit works, it is the method by which the weighting is generated.
+<p>
+The address lines that are used to select the input CVs are fed via a latch to a second 4 to 1 analog multiplexer. Unlike the first, this multiplexer remains in a fixed stated until an external clock pulse is received via the CLK input (from a sequencer, rhythm unit, LFO etc.). When a clock pulse is received, the current address of the first multiplexer is latched. The chance of any particular address being latched is related to the length of time that particular input is being selected, as caused via the weighting voltages as described above. There are other factors involved too, such as relative clock rates, but these effects can be ignored in most circumstances.
+<p>
+There is an over-ride condition where an external clock pulse is ignored. If one of the weight determining CVs is below around 0.5 volts, it is deemed to be effectively zero - in other words, an unwanted state. The comparator detects this condition and blocks the clock pulse, so the second multiplexer holds the previous state. This may mess up the perceived weighing of that particular state, but it is preferable to selecting a state to which nothing is connected, thus the unit can be used to switch between 2, 3 or 4 different inputs as required.
+<p>
+One part of the second multiplexer (2B) is used to drive the gate outputs and the LEDs that show which output is active. The other part (2A) is either wired as a 1 to 4 signal router with direct connection o the panel jacks, OR as a driver for controlling the more complex <a href="cgs55_asm.html">Analog Switch Matrix</a>.
+<p>
+The second part of the first multiplexer (1B) is used to drive the weighted CV outputs. These CVs are a bit "soggy" in their responses, and never reach zero. Theoretically when summed the result should always be the same. Thus if one increases, the other three will each decrease by a third of the increase. The LEDs give a vaguely fading indication of the result - useful in its own way, but very different to most LED displays seen in synthesizers. If desired the entire buffer/LED driver section associated with IB can simply be left out.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs51_wrs.gif">
+<br><i>The component overlay.</i>
+</center>
+<p>
+<a href="pcb/cgs51ovr.gif" target="_blank">300DPI printable overlay</a>
+<p>
+Due to a manufacturing error, the overlay on one version of these PCBs has become cluttered. Print out the above file to assist with assembly.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+If you plan to combine this with the <a href="cgs55_asm.html">Analog Switch Matrix</a>, omit the 100k resistor near the "SIG IN" pad, and omit all components in the outlined area containing the TL074.
+<p>
+
+Now for those unspecified component values-.
+<ul>
+<li>RA is part of the filter determining the response of the weighted CV outputs. 100k is a reasonable choice. There are four RA resistors.
+<li>RB determines the frequency of the internal VCO. 10k is a reasonable choice, when used with a CB value of 47n. At 100k, the outputs start to behave sequentially, though this may be a desirable effect on occasion, so experimenters may wish to put a 250k linear pot in series with the 10k resistor to give them something to play around with.
+<li>RC determines the span of the VCO's response. The best span is achieved when this resistor is omitted.
+<li>CA is part of the filter determining the response of the weighted CV outputs. 47n is a reasonable choice when RA is 100k. There are four CA capacitors. At 10n, there is a distinct warble associated with these outputs, as determined by the speed of the VCO at any given moment. 100n may improve smoothing further if no warble is desired. The filter response is also affected by the speed of the VCO - if the VCO is being run vary fast, smaller capacitors will suffice. If it is being run particularly slowly, even the 100k/100n may be inadequate, though the effect could  be interesting.
+<li>CB determines the frequency of the internal VCO. 47n is a good value.
+
+</ul>
+
+<p>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>On the first run of PCBs (no revision number) the 100n capacitor nearest the LM393 is not attached at one end. There are only two tracks near the pad - one track connects to the other end of the same capacitor, and the other track is the one you need to atach it to.
+<li>While untested, the module should work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47p</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>7</td></tr>
+<tr><td>10n</td><td align=right>3</td></tr>
+<tr><td>10uF</td><td align=right>3</td></tr>
+<tr><td>CA</td><td align=right>4</td></tr>
+<tr><td>CB</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>470R</td><td align=right>1</td></tr>
+<tr><td>680R</td><td align=right>8</td></tr>
+<tr><td>820R</td><td align=right>8</td></tr>
+<tr><td>1K</td><td align=right>5</td></tr>
+<tr><td>2K2</td><td align=right>2</td></tr>
+<tr><td>10K</td><td align=right>8</td></tr>
+<tr><td>15K</td><td align=right>1</td></tr>
+<tr><td>100K</td><td align=right>16</td></tr>
+<tr><td>220K</td><td align=right>1</td></tr>
+<tr><td>RA</td><td align=right>4</td></tr>
+<tr><td>RB</td><td align=right>1</td></tr>
+<tr><td>RC</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>4013</td><td align=right>1</td></tr>
+<tr><td>4024</td><td align=right>1</td></tr>
+<tr><td>4046</td><td align=right>1</td></tr>
+<tr><td>4052</td><td align=right>2</td></tr>
+<tr><td>LM393</td><td align=right>1</td></tr>
+<tr><td>TL071</td><td align=right>1</td></tr>
+<tr><td>TL074</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>8</td></tr>
+<tr><td>1N4148</td><td align=right>16</td></tr>
+<tr><td>10VZener</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>1</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS51 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs51_wrs.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:22 GMT -->
+</HTML>

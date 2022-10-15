@@ -1,0 +1,251 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs86_trk.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:58 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=950>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+
+<IMG alt="Serge Touch Responsive Keyboard" BORDER=0 WIDTH=800 HEIGHT=49 SRC="pic/photo_cgs86pad_trk.jpg" hspace=10><p>
+
+<IMG alt="Serge Touch Responsive Keyboard" BORDER=0 WIDTH=800 HEIGHT=267 SRC="pic/photo_cgs86_trk.jpg" hspace=10><p>
+<p>
+</center>
+<IMG alt="Serge Touch Responsive Keyboard" BORDER=0 WIDTH=258 HEIGHT=267 SRC="pic/photo_cgs86_trk2.jpg" hspace=10 align="right">
+<font face="ARIAL,HELVETICA" size=6>Serge Touch Responsive Keyboard</font><br>
+for music synthesizers.
+<p>
+Derived from the Synapse, January/February 1977 magazine article:
+<p>
+Note that by itself, this project can only provide Gate signals and voltages responding to pressure being applied to the pads. There are no musically pitched voltages generated. That must be handled by external circuitry such as the <a href="cgs59_prog.html">Programmer/Sequencer</a>.
+<p>
+This keyboard may be made with as many keys as you like, though the value of RPD (15k) may have to
+be made smaller as more keys are added. Each key provides for touch proportional voltage and pulse outputs. The pulse output stays high for however long the key is touched. In the schematic, each stage's touch voltages are combined through a diode network resulting in an output dominated by whichever key is
+touched hardest. This function is optional, but is useful if you wish to use the keyboard (in conjunction with Programmers) to play melodies with touch control of their dynamics.
+<p>
+<b>How to use this module:</b>
+<p>
+The keyboard may be built and installed to fit any flat surface, for example, the body of an electric guitar. Make sure that all components are mounted in close quarters with the touch keys. Wiring should be kept tight. Note that the pattern surrounding each key should be grounded.
+Connecting your touch responsive keyboard with a <a href="cgs59_prog.html">Programmer</a> will result in an exceptionally powerful unit, able to access as many presets as you want at a touch.
+This means too, that your keyboard will be able to perform non-tempered scales since each of the keys can be preset to a different tuning.
+<p>
+<b>A little on how it works:</b>
+<p>
+On the CGS86D Driver PCB: The transistors make up an emitter coupled astable oscillator with a somewhat distorted square wave output of about 100kHz.
+<p>
+On the CGS86 Detector PCB:
+The first amplifier for each of the two stages shown a full wave rectifier and filter whose output goes positive as more of the 100 kHz is shunted to ground by touching a key. The second amplifier provides the pulse output.
+<p>
+The circuit may be operated with +/-12 or +/-15 volt supplies, although the output voltages will be higher on the higher supply voltage.
+<p>
+<center>
+<img width=856 height=675 src="pic/schem_cgs86_trk.gif">
+<br><table border=0><tr><td><i>The schematic of the Serge Touch Responsive Keyboard. The portion to the left is on the sub board CGS86D, while the touch-pad detector circuits are in groups of eight on the CGS86. The touch-pads themselves are on the CGS86PAD PCB.</i>
+</td></tr></table>
+</center>
+<p>
+
+Pad identification:
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>PAD&nbsp;ID</td><td>Function</td></tr>
+<tr><td colspan=2>TOP EDGE CGS86</td></tr>
+<tr><td>+VE</td><td>wire to +VE pad on CGS86D</td></tr>
+<tr><td>0V</td><td>Shield connection for wire running to touch-pads. (8 off).</td></tr>
+<tr><td>TP</td><td>Core connection for wire running to touch-pads. (8 off).</td></tr>
+<tr><td>PLS</td><td>wire to PSL pad on CGS86D.</td></tr>
+<tr><td colspan=2>BOTTOM EDGE CGS86</td></tr>
+<tr><td>GATE</td><td>Individual touch pad Gate output (8 off).</td></tr>
+<tr><td>0V</td><td>wire to 0V pad on CGS86D</td></tr>
+<tr><td>0V</td><td>0V/GND connection for optional/general use. (8 off).</td></tr>
+<tr><td>CV</td><td>Individual touch pad Control Voltage output. (8 off).</td></tr>
+<tr><td>VO</td><td>Combined CV output for connection to VO pad on CGS86, or for cascading to another CGS86. (2 off)</td></tr>
+<tr><td>GO</td><td>Combined CV output for connection to GO pad on CGS86, or for cascading to another CGS86. (2 off)
+<br>note: on CGS86 VER1.0 one GO pad needs a link to work as its track is missing.)</td></tr>
+<tr><td colspan=2>CGS86D Driver PCB</td></tr>
+<tr><td>-VE</td><td>negative voltage power rail out, for external use if needed.</td></tr>
+<tr><td>0V</td><td>wire to 0V pad on CGS86</td></tr>
+<tr><td>+VE</td><td>wire to +VE pad on CGS86</td></tr>
+<tr><td>PLS</td><td>wire to PSL pad on CGS86.</td></tr>
+<tr><td>VO</td><td>wire to VO pad on CGS86. (2nd pad for connection to second CGS86)</td></tr>
+<tr><td>GO</td><td>wire to GO pad on CGS86. (2nd pad for connection to second CGS86)</td></tr>
+<tr><td>CCVO</td><td>Common CV Output. This is the pressure CV, and will equal the individual CV output of the hardest pressed touch pad.</td></tr>
+<tr><td>CGO</td><td>Common Gate Output. This will go HIGH any time a touch pad is touched.</td></tr>
+</table>
+<p>
+
+
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs86d_trk.gif" target="_blank"><img width=224 height=230 src="pic/pcb_cgs86d_trk.gif"></a> <a href="pic/pcb_cgs86_trk.gif" target="_blank"><img width=691 height=230 src="pic/pcb_cgs86_trk.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCBs. Click the images for enlarged, printable versions. Print at 300dpi for correct scaling. Note that the pad in red (one of the GO pads) is not connected to anything (VER1.0 PCB only). If you wish to use this pad, it needs to be jumpered to the diode immediately above it.</i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+There are two 3mm holes on the CGS86 so the CGS86D driver board to be mounted on it. This is best done after the wiring to the boards has been completed.
+<p>
+A 330pF and 100pF in parallel can be substituted for the 430pF capacitor. Install the 330pF in the location marked 430pF on the PCB. Install 100pF in the unmark location immediately beside it.
+<p>
+
+<center>
+<IMG alt="Serge Touch Responsive Keyboard" BORDER=0 WIDTH=600 HEIGHT=157 SRC="pic/photo_cgs86_trk3.jpg" hspace=10>
+</center>
+<p>
+I recommend wiring the CGS86PAD touch-pads to the CGS86 detector board using shielded wire. <b>All shielded wires should be the same length</b> so they present the same capacitance to the circuit, or you could have difficulty getting the same sensitivity from each pad. Only one shielded wire should have its shield connected at both the CGS86 and the CGS86PAD boards. The remaining wires should have their shields connected at the CGS86 detector board only. Alternately, you can run a separate earth wire, and connected none of the shields at the CGS86PAD end, as per the photograph above.
+<p>
+There are not connections to be made to the front of the CGS86PAD board. The touch-pads themselves are connected via four through-plated holes to a centrally solder pad on the rear of each touch-pad. These pads should line up with holes on the standard one-inch grid used on Serge style Panels. The smaller, nearby pad is for the earth/shield connection. Only one of these pads will be used. It does not matter which one. You may need to drill an extra hole for it. The rectangular pads are possible LED connections, with one of each pair being grounded for common cathode use. It would probably be more convenient not to use these LED mounting pads, due to the difficulty of keeping the connections flush so they don't short to your panel. Instead it would probably be more satisfactory to connect the LEDs to wires or some other carrier PCB on the other side of the panel to which you stick the touch-pad board. The easiest way to mount the CGS86PAD board to your panel is with double sided tape.
+<p>
+There is provision on the CGS86PAD board to allow for LEDs. These will need to be driven by external circuitry, such as the Programmer/Sequencer. If you wish to use the Touch Responsive Keyboard without external circuitry, ultra bright LEDs could be driven via a 4k7 or 10k resistor directly from the GATE outputs of the individual detectors.
+
+<p>
+
+<center>
+<IMG alt="Serge Touch Responsive Keyboard" BORDER=0 WIDTH=800 HEIGHT=559 SRC="pic/photo_cgs86_trk4.jpg" hspace=10>
+<p>
+<IMG alt="Serge Touch Responsive Keyboard" BORDER=0 WIDTH=800 HEIGHT=485 SRC="pic/photo_cgs86_trk5.jpg" hspace=10>
+</center>
+
+
+<center>
+<img width=843 height=901 src="pic/wire_cgs86_trk.gif"></a>
+<br><table border=0><tr><td><i>Example wiring for stand alone use.</i>
+</td></tr></table>
+</center>
+
+<p>&nbsp;
+<p>
+
+
+<p>
+<table border=1 cellpadding=10 cellspacing=0 align=right><tr><td>
+<B>Parts List</b><p>
+<p>
+Touch-pads
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td width="200">Part</td><td align=right>Quantity</td></tr>
+<tr><td><a href="../pcb/index.html">CGS86PAD V1.0</a></td><td align=right>1</td></tr>
+</table>
+</td></tr></table>
+<p>
+Driver board
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td width="200">Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>430pF</td><td align=right>1</td></tr>
+<tr><td>10n</td><td align=right>3</td></tr>
+<tr><td>100n 1206 SMT</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R</td><td align=right>1</td></tr>
+<tr><td>4k7</td><td align=right>1</td></tr>
+<tr><td>6k8</td><td align=right>1</td></tr>
+<tr><td>8k2</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>1</td></tr>
+<tr><td>10k trimmer</td><td align=right>1</td></tr>
+<tr><td>15k (RPD)</td><td align=right>1</td></tr>
+<tr><td>33k</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>BC547</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Ferrite Bead </td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin 90&deg; connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS86D V1.0</a></td><td align=right>1</td></tr>
+</table>
+</td></tr></table>
+<p>
+Detector board.
+<br>1 required per 8 touch-pads
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td width="200">Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pF</td><td align=right>8</td></tr>
+<tr><td>22pF</td><td align=right>8</td></tr>
+<tr><td>1n</td><td align=right>8</td></tr>
+<tr><td>10n</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>6k8</td><td align=right>8</td></tr>
+<tr><td>8k2</td><td align=right>8</td></tr>
+<tr><td>33k</td><td align=right>8</td></tr>
+<tr><td>47k</td><td align=right>16</td></tr>
+<tr><td>68k</td><td align=right>8</td></tr>
+<tr><td>10M</td><td align=right>16</td></tr>
+<tr><td>22M</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>40</td></tr>
+<tr><td>LM3900</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Shielded cable</td><td align=right>1M</td></tr>
+<tr><td><a href="../pcb/index.html">CGS86 V1.0</a></td><td align=right>1</td></tr>
+</table>
+</td></tr></table>
+</td></tr></table>
+<p>&nbsp;
+
+<p>
+<h4>Set Up</h4>
+<p>
+<p>With no keys/touch-pads being touched, the 10K trimmer should be adjusted for zero pulse and voltage outputs at zero touch tor all keys. To do this, monitor the CVO PRESSURE CV OUT pad. Twist the trimmer until you have a reading greater than 0V, then back off until it drops to 0V (give or take a few millivolts). Below this point the trimmer will have no apparent effect during set up, but would affect playability. Check that CGO GATE OUT is at 0 volts. Check that touching each pad gives a voltage out on CVO proportional to how hard you press the pad, and that CGO goes high.
+<p>
+You can check the individual outputs to make sure there are no circuit errors associated with the individual outputs.
+<p>
+
+
+
+<b>Notes:</b>
+<ul>
+<li>The CGS86PAD PCB contains 16 touch-pads, labeled 1 to 16. Two CGS86 detector boards are required to make use of all of the touch-pads. If you only require 8 touch-pads, you can cut the CGS86PAD in half. This will give you two 8-pad boards, although the second will be numbered 9 to 16.
+<li>The module will work on +/-12 or +/-15 volts.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+Check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2013 by <a href="mailto:otherunicorn@gmail,com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs86_trk.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:07:38 GMT -->
+</HTML>

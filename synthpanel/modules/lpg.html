@@ -1,0 +1,202 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/lpg.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:18:20 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Low Pass Gate" BORDER=0 WIDTH=800 HEIGHT=266 SRC="pic/photo_lpg.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Low Pass Gate</font><br>
+for music synthesizers.
+</center>
+&nbsp;
+<p>
+This module is a variation on the Classic Buchla Low Pass Gate module developed by Peter Grenader and released here as his gift to the Serge DIY community.
+<p>
+From <a href="http://electronicmusic.wikia.com/wiki/Lowpass_gate" target="blank">Electronic Music Wiki</a>:
+<blockquote>
+A lowpass gate is essentially a low pass VCF configured to behave like a VCA. The lowpass gate accepts an audio input and a control signal, in the manner of a VCA. When there is no control signal present, the filter's cutoff frequency is in the subsonic range, well below the audio frequencies; therefore, no audio passes the filter. Applying a control voltage causes the cutoff frequency to rise significantly, into the upper end of the audio range, so that most of the audio at the input now passes. If the output of an envelope generator is presented to the control input, the lowpass gate will shape the note envelope as a VCA would, but with some characteristic differences.
+<p>
+The concept of the lowpass gate originated with the Buchla 200 series modular synthesizer series, which offered a lowpass gate as a module in the series. The Buchla design used a vactrol to process the control voltage input; the vactrol had certain non-linearities which made the lowpass gate a good module for imitating some tuned percussion sounds. By feeding in short bursts of noise, or just impulse spikes, the lowpass gate could be made to produce sounds that resembled hand drums, congas, steel drums, or marimba. The original Buchla module is highly sought after and has inspired a number of imitators over the years.
+</blockquote>
+<p>
+From Peter Grenader:
+<blockquote>
+By design, the Low Pass Gate is a Sallen Key FIlter. A Sallen Key is a two pole filter topology. It is sometimes called VCVS, or Voltage Controlled Voltage Source. The Sallen Key topology is often seen in a unity gain filter, although the addition of gain resistors is an obvious enhancement. The designer is cautioned, however, that changing the gain also changes other filter characteristics. Like the other single opamp topologies, changing gain will also affect frequency and filter type (Butterworth, Chebyshev, and Bessel).
+<p>
+The Sallen Key topology is suited to operation from a single supply. Current feedback amplifiers can be used, with the restriction that the connection from the op amp output to inverting input must be the recommended feedback resistor value. This is true whether or not this resistor is part of a gain stage. The Sallen Key topology cannot be used with fully differential amplifiers.
+<p>
+Variable center frequency is obtained by changing the value of two resistors simultaneously - R1 and R2 iin standard Sallen Key filter circuit applications. A quick look at the configuration of the VTL5C3/2 vactrol gives a clear analog to this and why it is ideally suited for this application.
+<p>
+<img width=727 height=258 src="pic/lpg_sallen.jpg">
+<p>
+Adding the this, the natural tendencies for the VTL5C3/2 Vactrol to attenuate high frequency spectrum information unequally to low frequencies manifests the sought after 'ringing' associated this specific LPG circuit while set in the 'BOTH"mode.
+<p>
+Each LPG here has a 470K Ohm resistor, which was added by me over the original Buchla circuit as part of a feedback loop added which compensates the the 3/2 vactrols only going down to 100 ohms and attenuates the audio bleed associated with that device. You can experiment with values anywhere from 1 meg to 0 ohm (link).
+However - the lesser the value, the greater the bleed and the greater the ringing. This is the rub - the more you attenuate the bleed - this can only be heard audibly if you use the LPG in passages where the LPG processed event is the only sound happening - the more you step on the ringing. A suggestion: In latr model Plan B Model 13 Timbral Gates, I would fit one gate with a 470K ohm and omit it the other altogether, yielding a dual personality dual TG.
+<p>
+Please note that these boards can be broken into two piece - two separate PCBS one gate per - suited for non Serge system application where the six inch height my be problematic. When doing this, use a pair of cutters (dikes) to separate the two by cutting the four connecting bridges in the center of the board. Attempting to break the boards with force by itself may not give you the result you want and is not recommended. f you elect to break these in two, the three 0 ohm resistors shown in the component diagram are omitted and each board must be fitted with a four position power connector and the two flanking 10uf filter Caps.
+<p>
+
+The Low Pass Gate has been specifically designed to process AC signals within the audio bandwidth only. There are two capacitors that govern this: a .047uf capacitor leading to the signal input of the LPG and a single 10uf electrolytic leading to the the vactrol's resistive element (not to be confused with the two 10uf's that flank the power connector). Replacing those two components with a jumper wire or zero ohm resistor will allow for sub audio AC or DC voltage gating but be aware that varying the amplitude of these types of signals via the control input will result in slewing - a portemento effect. The ringing of the the vactrol will also contribute to these types of artifacts. For this reason, this modification may not be particularity useful for music applications outside of providing a DC offset/level with sloppy response.
+<p>
+
+Finally, the campaign advertisement which appears on this board for Mssr. Papoon was a standing joke between Gary Chang and Kevin Braheny Fortune while they wre both employed at the Serge plant on Santa Monica Blvd in Hollywood, before the company moved to Haight St. in San Fransisco. Legend has it Kevin put a sticker with the same message on Gary's Synth panel while it was being built and it remains in place there to this day, the only graphic on Gary's otherwise infamous graphic-less eight panel instrument.
+<p>
+Enjoy this board! It was my second built project after the Milton Sequencer and a big reason why I began producing modules commercially. For me the sound associated with the LPG is essential in the creation of electronic music via an analog synthesizer!
+<p>
+I extend this board to the synth community free of profit to me. It was my intention to do this as a gesture of heartfelt thanks for the support I've received in recent months from the community since taking care of the debt associated with Plan B's internal problems in the early part of 2009. I only hope that this seemingly inconsequential diligence on my part serves to parallel your generosities. Thank you again and always remember....
+<p>
+Papoon for President!
+</blockquote>
+
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/lpg_overlay.gif" target="_blank"><img width=800 height=267 src="pic/lpg_overlay.gif"></a>
+<br><table border=0 width=800><tr><td><i>The component overlay for the PCB. <a href="pic/lpg_overlay.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+<p>
+<a href="pic/lpg_error.gif" target="_blank"><img width=800 height=267 src="pic/lpg_error.gif"></a>
+<br><table border=0 width=800><tr><td><i>There is an error on the rear of the PCB. This can be corrected by making two cuts in one track, and placing a jumper around the isolated area. <a href="pic/lpg_error.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+<p>
+<a href="pic/lpg_correction.gif" target="_blank"><img width=428 height=300 src="pic/lpg_correction.gif"></a>
+<br><table border=0 width=800><tr><td><i>Suggested value changes from Peter. <a href="pic/lpg_correction.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> The BOM reflects these changes.</i>
+</td></tr></table>
+
+
+</center>
+<p>
+
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The trim pots control how much gain there is in the CV system. Adust them so you get adequate sweep with your system's CV levels.
+<p>
+J1 (present on both gates) affects the ringing and can be installed or omitted per the builder's personal taste.
+<p>
+The board can be split down the center to make two independent PCBs. If using them joined, three links are needed to link the two sides. The power connector can be omitted from one side.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts.
+<p>
+The mode switch selects between VCA mode and Low Pass Gate mode.
+<p>
+<center>
+<img width=716 height=308 src="pic/wire_lpg.gif">
+<P>
+<table border="0" cellspacing="0" width="650"><tr><td>
+<i>Example wiring for the Low Pass Gate. The wiring for both parts is identical.</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+Each unit has a trimmer that controls how much gain there is in the CV system. Adust them so you get adequate sweep with your system's CV levels.
+
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>220pF styro </td><td align=right>2</td></tr>
+<tr><td>1n (0.001) styro </td><td align=right>2</td></tr>
+<tr><td>4n7 (0.0047) styro </td><td align=right>2</td></tr>
+<tr><td>1n (0.001)</td><td align=right>2</td></tr>
+<tr><td>10n (0.01) </td><td align=right>4</td></tr>
+<tr><td>100n (0.1) </td><td align=right>2</td></tr>
+<tr><td>470n (0.47)</td><td align=right>4</td></tr>
+<tr><td>1uF 25V</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>6</td></tr>
+
+<tr><th colspan=2>Resistors (1% metal film)</th></tr>
+<tr><td>470R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>4</td></tr>
+<tr><td>4k7</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>15k</td><td align=right>6</td></tr>
+<tr><td>33k</td><td align=right>4</td></tr>
+<tr><td>47k</td><td align=right>4</td></tr>
+<tr><td>68k</td><td align=right>4</td></tr>
+<tr><td>100k</td><td align=right>6</td></tr>
+<tr><td>470k</td><td align=right>2</td></tr>
+<tr><td>2M2</td><td align=right>2</td></tr>
+<tr><td>20k trimmer</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>2N3819</td><td align=right>2</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+<tr><td>VTL5C3/2 Vactrol</td><td align=right>2</td></tr>
+<tr><td>1N5228</td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>10k Lin pot</td><td align=right>2</td></tr>
+<tr><td>DPDT Ctr off switch</td><td align=right>2</td></tr>
+<tr><td>2 pin 0.1" header and jumper</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">LPG PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/lpg.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:18:47 GMT -->
+</HTML>

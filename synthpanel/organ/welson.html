@@ -1,0 +1,108 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/organ/welson.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:22:49 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<font face="ARIAL,HELVETICA" size=5>The organ as a source of synthesizer parts.</font>
+</center>
+
+<table align=right><tr><td align="center">
+<IMG alt="TGS" BORDER=0 WIDTH=319 HEIGHT=300 SRC="pic/welson1.jpg"  hspace=10 vspace=10><br>
+<i>The Welson Festival 2000</i>
+</td></tr></table>
+<p>
+The Welson Festival 2000 is an entry level organ from the early 80's. This one I found advertised on the local general store notice board for $30, as a non-working proposition. The advert claimed it had all paperwork and wiring diagrams. A phone call to the seller left me with the impression that I was looking at a top of the line beast. Some what amazingly the seller lived over the road from me, so I walked over for a look.
+<p>
+As soon as I saw it, even with its lid closed, I knew it was entry level. Nothing else could be that small! Opening it revealed that it had two 37 note manuals, and a moderate selection of stops. As previously mentioned, it didn't work. It lit up, and the rhythm light flashed, though there was no sound. There was also a circuit diagram. So I paid the $30 and came back with the ute.
+<p>
+There turned out to be several faults, all pretty minor. The contact in headphone socket had broken, cutting off the speaker, a 3080 had died, disabling the auto accompaniment, and one capacitor in the upper manual keying circuit had died, killing sustain on that key.
+<p>
+With it now working, I spent several evenings studying the circuit diagrams, and experimenting on it, before stripping out the good bits to include in my setup. Below are some of my findings.
+<p>
+<font color="#990033"><b>What parts were of use?</b></font>
+<p>
+<ul>
+<li><font color="#990033"><b>Keyboards and associated circuitry.</b></font>
+<br>Both keyboards: the upper and lower manuals were 37 keys. The upper used a change over contact arrangement, each key with a diode, capacitor and several resistors performing part of the sustain and percussive network for that key. The lower was simply a single contact per key, wired in a 12 by X matrix. The circuitry for these was pretty interesting.
+<p>
+The upper manual used a VCO fed into a TOS, then into a pair of keying ICs. These ICs do the same job of a huge PCB of discrete parts in the Lowrey, and do a better job of it too. Each IC handles 22 notes - six pitches by three or four octaves. Each note seems to be handled by a bank of four linked VCAs, feeding out onto four mixed buses (16', 8', 4' and 2'). A 22uf capacitor on each control pin holds the voltage corresponding to the output level. A voltage is pulsed into these capacitors to give percussive notes. A constant voltage will give a constant note. When the costant voltage is removed, a discharge network gives sustain. Both the length of the percussive delay and the length of the sustain are voltage controlled at the keying networks.
+<p>
+This upper manual generation board also includes mixers giving 16' and 8' staircase waveforms out. This board was undoubtely the best part of the deal. It's one disadvantage is it throws off a lot of RFI.
+<p>
+As the sustain and percussion controls were on the upper manual filter board, I also salvaged that. The preset sounds a pretty average, but adding "drawbars" to the direct outputs of the of the generation board will give a much better array of sounds. I have also been running these outputs through my vocal filter to good effect.
+<p>
+The lower manual circuitry is interesting in that most of the work is handled by a single chip, including top octave synthesis and keyboard scanning, as well as the chord structures for the auto-accompanyment. While only 37 keys were being used, the chip appears to be able to deal with a 61 note keyboard. The real downside of this circuitry was that there is provision for a single sustain envelope: touch any other key during sustain, and all sustain is killed to be replaced by the new note.
+
+<p><b>Possible use:</b>
+These keyboards are about the same depth of the keyboards used by Roland. They are made entirely of plastic and are designed to sit in steel rails. The upper manual and its circuitry have been salvaged to do string ensemble type work. The lower manual has been lobbed into the parts bin.
+
+<br>&nbsp;
+<li><font color="#990033"><b>Pedal board and circuitry.</b></font>
+<br>This organ had a one octave pedal board. Once again a LSI chip handles most of the work. It was very poor in this case: fixed envelope and no sustained note capabilities.
+<p><b>Possible use:</b>
+For the circuitry, in this case, none. The pedals and switch contacts could be wired up as described <a href="../modules/cgs10_pedal.html">in the pedal board module.</a>.
+
+<br>&nbsp;
+<li><font color="#990033"><b>Amplifier and speakers.</b></font>
+<br>As this was an entry level organ, it contained a single (dual cone) speaker and amplifier. The amp can't be much more than 10W. Nothing exciting. In fact, when situated near the upper manual generation board, it picks up the RFI, amplifies it, and then proceeds to cook the capacitor in the output filter network of the amp.
+<br>&nbsp;
+<li><font color="#990033"><b>Expression pedal.</b></font>
+<br>
+This one was pretty good, though almost all plastic in construction. It uses the lamp - metal vane - CDS cell arrangement.
+<p>
+<b>Possible use:</b> Set it up so it gives a voltage out, then use it to control any aspect of the synth you like. This will most likely end up controlling the multi-VCA master volume control I am working on.
+<br>&nbsp;
+<li><font color="#990033"><b>Cabinet.</b></font>
+<br>
+This cabinet is entirely chipboard, laminated with plastic woodgrain. Whatever  they used for glue didn't go the distance, and the veneer is all falling off. The lower part of the cabinet is held together by clips, and knocks down to reduce shipping volume.
+<p><b>Possible use:</b>  I may use the cabinet to hold a couple of speakers, or I may just get rid of it.
+<br>&nbsp;
+<li><font color="#990033"><b>Reverb Tank.</b></font>
+<p>None in this organ.
+<br>&nbsp;
+<li><font color="#990033"><b>Rhythm Unit.</b></font>
+<p>The rhythm unit in this organ is a classic combination of ringing twin-T oscillators and a few filters for handling the noise based effects. The rhythms themselves were attrocious. The auto accompanyment used 3080s and 3280s, so they are worth salvaging.
+<p><b>Possible use:</b> I rigged up the <a href="../modules/rhythm.html">Drum simulators</a> so they can be triggered from external inputs. The rhythm chip will never see power again.
+<br>&nbsp;
+
+<li><font color="#990033"><b>Other parts.</b></font>
+<p>Again, the "Tabs" or "Stops" are specialized switches, and not much use, except for where the whole upper manual filter board was salvaged.
+<p>Many of the chips in this organ were custom parts. As described above, some where quite usable when salvaged with their associated circuitry. The OTAs were of course quite usable. Other chips included common CMOS and common op-amps.
+<p>It turns out that these chips (e.g. M108) were used across several brands of organs, and even in some synthesizers. I have seen the keyer chips (S10430) from the upper manual listed as second-hand spares for US$150 each!
+
+</ul>
+<p>
+<center>
+<IMG alt="Welson" BORDER=0 WIDTH=339 HEIGHT=300 SRC="pic/welson2.jpg" hspace=10 vspace=10>
+<br><i>The Welson when viewed from behind.</i>
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>
+<font size=1>Article, art &amp; design copyright 1999 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/organ/welson.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:22:57 GMT -->
+</HTML>

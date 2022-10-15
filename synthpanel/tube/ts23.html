@@ -1,0 +1,164 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/tube/ts23.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:34 GMT -->
+<HEAD>
+  <TITLE>Audio Synthesis via Vacuum Tubes</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, eric barbour, tube, valve">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width="810">
+<tr><td>
+<font face="ARIAL,HELVETICA" SIZE=2>
+<center>
+<font size=6>Audio Synthesis via Vacuum Tubes</font>
+</center>
+<CENTER><I><B>Eric Barbour</B></I>
+<BR>Owner, <a href="http://www.metasonix.com/" target="_blank">METASONIX</a>, Redwood City, California USA <BR>e-mail: <I><A HREF="mailto:synth@metasonix.com">synth@metasonix.com</A></I></CENTER>
+<p>
+
+<center>
+<H3>METASONIX TS-23 DUAL THYRATRON VCO</h3>
+</center>
+
+<img width=496 height=359 src="pic/ts23schematic.gif" border=0 alt="METASONIX TS-23 DUAL THYRATRON VCO schematic">
+<br><table border=0><tr><td><i>The circuit diagram of the TS-23 Dual Thyratron VCO.
+<a href="pic/ts23schematic.gif" target="_blank">Click here for an enlarged, printable version.</a></i>
+</td></tr></table>
+
+
+<p>
+<font color="red">The following is taken directly from the original owners manual. Only some parts of this document will apply to any home constructed units. Please note that Metasonix is <i>not</i> available for troubleshooting help.
+<p>
+</font>
+<p>
+<h3>TS-23 DUAL THYRATRON VCO owner's manual</h3>
+<p>Metasonix ------- E. Barbour 1/2001
+<P>
+<h4>BEGINNER'S QUICK REFERENCE</h4>
+<P>
+
+<p>
+The TS-23 is NOT an audio signal processor. It is a signal source, for use in the analog synthesizer studio.
+<p>
+1. Plug the TS-23 into a source of 100-120v AC power. It uses about 25 watts. (Check the label on the back--if the unit is wired for 240v, attach 230-240v power.)
+<p>
+2. If you are using a MIDI-CV converter to drive the TS-23, set it to output Hz/V and attach its CV OUTPUT to either CV INPUT of the TS-23. The TS-23's driver circuit was set so that 0.0 volts input gives a C, and 0.25 volts input gives the C one octave above that. See Figure 1 for an example of how to use the TS-23 with its sister modules, the TS-21 and TS-22.
+<p>
+3. Attach the AUDIO OUTPUT to an amplifier or mixing board's high-impedance line-level input. Please use the OUTPUT LEVEL control on the TS-23 to control the listening level. (Headphones are especially useful in understanding the TS-23's sounds when first starting out. If the amp/mixer has a clipping level indicator, keep the TS-23 output level below clipping indication.)
+<p>
+4. Set the controls of the TS-23 as follows:
+<ul>
+<li>VCO1 Tune--12 o-clock (straight up)
+<li>VCO1 Octave--up
+<li>Soft Sync 1>2 -- down
+<li>VCO2 Activate--down
+<li>VCO2 Tune--12 o-clock (straight up)
+<li>VCO2 Octave--down
+<li>BN6 CLIPPER IN/OUT -- OUT (down)
+<li>BN6 SCREEN -- fully clockwise
+<li>OUTPUT LEVEL--set to a reasonable volume level.
+</ul>
+<p>
+5. Turn on the power. Allow the unit to warm up for a few minutes.
+<p>
+6. Tune the VCO1 TUNE control, listen to the variation of the pitch. Then try playing the MIDI keyboard, to find the range of the TS-23--you will need to adjust your MIDI-CV converter at this time, to get proper tracking over at least one octave. You would do this by playing first the low C key, adjusting the MIDI-CV-s SPAN and OFFSET trimmers or settings to get a C (using a tuning fork or chromatic tuner); then play the C key one octave up, and adjust the SPAN control to get a C there. Repeat until these two C keys are within 50 cents of tuned. You will then find that the TS-23 is reasonably close to being in tune for a few keys above and below those C keys. Some thyratron tubes don't stay in tune to the G below the lower C--this is normal.
+<p>
+7. Hold down either C key in the TS-23's range. Set the VCO1 Octave switch DOWN. The pitch should be 2 octaves lower, but still close to being in tune. It might be slightly off-tune, this is occasionally seen and is not a problem. Note that the TS-23 was meant for studio use, not necessarily for live performance; some control settings might upset the tuning settings.
+<p>
+8. Set the VCO2 ACTIVATE switch on (up). You should hear the pitch sound muddled, as there are now two oscillators beating against one another. Tune the VCO2 TUNE control and listen as the oscillators beat, then play in tune, then fall out of tune again. Then try the SOFT SYNC switch, and tune one VCO again--listen as the VCOs attempt to follow one another.
+<p>
+9. You do NOT have to use a MIDI-CV to drive the TS-23. Any control voltage from 0 to 2 volts can be used. You can drive its CV INPUTs from LFOs, envelope generators, even audio signals. (The input circuit of the TS-23 is solid-state, so be careful not to put too much voltage to it.)
+<p>
+10. You can then try the "BN6 Clipper". Set its IN/OUT switch to IN (up). Turn up the BN6 SCREEN control--you will hear the "flattening" effect of this tube. Switch the IN/OUT switch back and fort, and listen to the change in the timbre.
+<p>
+
+<h4>HOW IT WORKS</h4>
+<p>
+The TS-23 uses two 2D21/5727 thyratron tubes to make musical pitches. These are not "vacuum tubes" proper, but gas-filled switching tubes. They act like unstable switching devices, allowing a capacitor to charge, then discharging it at a certain voltage level. By applying a varying voltage to the tube-s grid, you can change the switching point; thus changing the length of the charging cycle; thus, the pitch of the resulting sawtooth wave. The TS-23 uses a solid-state op-amp IC to drive the tubes; it is in a plastic-potted module inside the cabinet, and operates from its own DC power derived from the 6.3v AC heater supply. (We could have used a low-impedance tube, such as a 6AS7, to drive the thyratrons, but this would have increased the size and cost of the unit greatly, with no real sonic difference.)
+<p>
+Because the thyratron is not a very "good" switch, its sawtooth output is not a mathematically-perfect sawtooth. Instead, the discharge cycle is noisy and rounded-off. And the charging follows an exponential curve, not a straight line. The resulting sound is distinctive to such tubes, and unlike any solid-state VCO or pitch source. And as the control voltage (CV) is increased, the amplitude of the waveform decreases, as well as its discharge shape. This was previously seen only in pioneering electronic musical instruments, most notably the "Mixturtrautonium" used by Oskar Sala in a number of movie soundtracks in the 1940s and 1950s. So, though the TS-23 won't be confused with a high-performance laboratory oscillator, its unique sound makes it a worthy adjunct to the analog synthesis studio.
+<p>
+The TS-23 contains two thyratron VCOs, both driven from the same CV source (no, they can't be modulated separately). Switching on VCO 2 allows the player to tune the two VCOs together, or detune them, for a variety of "beat note" sound effects. VCO 2 is mixed into VCO 1's output at a lower level, to differentiate them. The SOFT SYNC switch allows VCO 1 to "force" VCO 2 to follow it over a narrow range of detuning (usually less than one whole interval, approximately).
+<p>
+Sawtooth waveforms are not the only ones available from the TS-23. It contains a special waveform clipper, based on the obscure 6BN6, a beam modulator tube intended for use in FM radio receivers. The 6BN6 is very, very nonlinear--but it doesn't clip like a diode or other conventional circuit. It provides more of a waveform "squishing" effect, which may be varied by changing the tube's screen voltage. The 6BN6 is unique, and does not behave like a typical triode, pentode or other vacuum tube.
+<p>
+
+
+<h4>CONTROLS</h4>
+<p>
+The controls on the LEFT of the TS-23 control the first (main) VCO.
+<p>
+CV INPUT--two CV Input jacks are provided. They behave identically. Once the TS-23 is tuned to follow a MIDI-CV or other CV source in a manner desired, plugging another CV source into the other jack might detune the TS-23. This is normal.
+<p>
+TUNE--tunes the first VCO over approximately a one-half octave range. Setting it to approximately 12-o-clock should result in a pitch of C, if the input control voltages are both at 0.0 volts.
+<p>
+OCTAVE--set this switch down for low-frequency bass pitches. Set it up for midrange pitches (2 octaves above the lower position).
+<p>
+The controls on the RIGHT of the panel are for VCO 2 and the 6BN6 clipper.
+<p>
+ACTIVATE--turns on the second VCO (VCO 2). This may detune VCO 1 if the two were not previously tuned together--this is normal.
+<p>
+TUNE--tunes the second VCO over approximately a one-half octave range. Setting it to approximately 12-o-clock should result in a pitch of C, if the input control voltages are both at 0.0 volts.
+<p>
+OUTPUT--the output signal jack, line-level, approx 2 volts p-p maximum. The volume through the TS-23 varies greatly with settings of the 6BN6 Clipper controls.
+<p>
+
+
+<h4>MAINTENANCE </h4>
+<p>
+When mounting the TS-23 in an EIA 19" rack, note that it produces some heat. It will not get as hot as a guitar amp--but convection cooling must be allowed for. We recommend at least 1/2" space above and below it to allow airflow. The TS-23 uses a 0.5 amp, 5x20mm fast-blow fuse (in 100-120v countries). This fuse SHOULD NOT BLOW under normal circumstances.
+<p>
+Obviously, you should keep the TS-23 cool and dry. Moisture can ruin it instantly.
+<p>
+The tubes in the TS-23 will PROBABLY last for many tens of thousands of hours. They are being run conservatively. (Our warranty is for one year from date of purchase.) Nevertheless, should you need to replace any of them, this is the replacement guide:
+<p>
+WARNING: the TS-23 is full of high voltages. If you are not experienced in working with tube electronics, leave the following to a competent servicer!
+<p>
+Unplug the unit and let it sit for at least 15 minutes, to give the capacitors time to discharge.
+<p>
+Remove the top cover--eight small Phillips-head sheet metal screws. Be sure to replace the cover and screws when done. The tubes are as follows. Be careful not to break any wires when removing or inserting a tube.
+<p>
+V1 is a 6AL5, 5726 or 6097. It is the plate-voltage rectifier tube that powers the other circuits.
+<p>
+V2 and V3 are the thyratron VCO tubes. Use 2D21 or 5727 tubes here. You can use 5696 or 5696A tubes, though their pitch range will be quite a bit higher than the 2D21 types. If you expect the two VCOs to track each other reasonably well over about 1 octave, the use of a matched pair of thyratrons is recommended.
+<p>
+V4 is the clipper tube. Use a 6BN6 or 6KS6 here. Do NOT attempt to use a 3BN6 or 4BN6--their heaters will get too much voltage and burn out prematurely.
+<p>
+
+
+
+<font color="red">
+These circuits are for experienced DIYers only. They are NOT easy
+to construct, and involve dangerous high voltages. Metasonix is not
+available for troubleshooting help----build these at your own risk.
+The schemas are hopefully self-explanatory, to the experienced
+builder who knows tubes.
+<p>
+Also note: readers are permitted to construct these circuits
+FOR THEIR OWN PERSONAL USE ONLY. Eric Barbour retains all rights to them.
+Any attempt to patent, copyright, trademark, or manufacture them for sale,
+without the express written permission of Eric Barbour, will result in
+legal action.
+</font>
+
+<p><b><a href="index.html">Audio Synthesis via Vacuum Tubes Home</a></b>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+
+
+</FONT>
+
+
+<p>
+</td></tr>
+</table>
+</CENTER>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/tube/ts23.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:38 GMT -->
+</HTML>

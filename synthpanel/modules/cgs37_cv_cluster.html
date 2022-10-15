@@ -1,0 +1,155 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs37_cv_cluster.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:16 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=750>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="CV Cluster" BORDER=0 WIDTH=600 HEIGHT=98 SRC="pic/photo_cgs37v11_cv_cluster.jpg">
+</center>
+<p>
+
+<p>
+<b>Ver1.1 documents</b>
+<p>
+<a href="cgs37v10_cv_cluster.html">Go to archive - V1.0/no version docs</a>
+<p>
+
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>CV Cluster</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The CV cluster is an unusual kind of mixer. It takes two input voltages - a base control voltage, and a modulating control voltage, and creates the sum and differences of them. These different voltages are the base voltage offset in a positive direction by the modulating voltage and the base voltage offset in a negative direction by the modulating voltage. A series of equal taps between these two points results in outputs that always maintain the base control voltage at its full amplitude, mixed with a differing amount of the modulating voltage. The center output has equal amounts of positive and negative modulation canceling each other out, and thus behaves as a straight-through connection for the base input.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+Feed your 1/v octave input into the base input, and an envelope generator, LFO, sequencer etc. into the modulation input. Connect the outputs, starting with the center unmodulated output, and working both up and down, to a series of VCOs. While the modulation input remains at zero, all of the VCOs will track. As the modulation voltage increases, the VCOs connected to modulated outputs will shift in frequency away from the base, at an amount proportional to its position from the center output. For example, a small modulation voltage will de-tune the oscillators slightly, fattening the sound. A modulation CV of 5 volts will set each output 1 volt apart, setting the oscillators an octave apart.
+<p>
+An envelope generator connected to the modulation input creates in interesting effect.
+<p>
+It of course can be used with audio frequency signals too, and may prove interesting when driving a cluster of wave multipliers or similar. Two audio signals fed to it could produce interesting stereo effects.
+<p>
+Note: The sum and differences produced by this module are voltage differences, NOT frequency differences. It is NOT a ring modulator.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=679 height=806 src="pic/schem_cgs37v11_cv_cluster.gif">
+<br><i>The schematic of the CV Cluster.</i>
+<p>
+</center>
+<p>
+All four op-amps in the input structure are wired as unity gain voltage inverters or summers.
+<p>
+The base input voltage is inverted by IC1a, and fed to the inverting summers built around IC1C and IC1B. The result, assuming no other input, will be the inversion of the inverted signal, thus restoring the signal to its original condition, but at two separate places. Between these two places there is a string of resistors forming a voltage divider. As both ends of this voltage divider are held at the same voltage, each tap will also be at that voltage.
+<p>
+The modulation CV is mixed directly with the inverted base signal in IC1B, and is thus inverted at the output of IC1B, and the bottom of the voltage divider, the result being the difference of the two voltages, specifically, the base CV minus the modulation CV. The modulation CV is also inverted by IC1D before being mixed with the inverted base signal in IC1C, the result being the sum of the base signal and the modulation signal.
+<p>
+These mixed points are fed to the top and bottom most output jacks. At the various taps of the voltage divider between these two points, there will be correspondingly less of the modulation signal present as the two differing voltages cancel each other out. At the center point they will cancel each other out perfectly. (Because of this, the base CV has been routed directly to the center output, rather than wasting another voltage follower to produce the same voltage.)
+<p>Each tap on the voltage divider is buffered by a self-compensating load-independent voltage follower.
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<a href="pic/pcb_cgs37v11_cv_cluster.gif" target="_blank"><img width=600 height=101 src="pic/pcb_cgs37v11_cv_cluster.gif"></a>
+<br>
+<table border=0><tr><td><i>The component overlay for the VER1.1 PCB.
+<a href="pic/pcb_cgs37v11_cv_cluster.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi for a correct scale printout.</a></i>
+</td></tr></table>
+<p>
+
+<img width=600 height=100 src="pic/photo_cgs37v11r_cv_cluster.jpg">
+<table border=0><tr><td><i>The rear of the PCB. The red arrow indicates the point where the track should be cut if you wish to cascade two boards for double the number of divisions. The board to be cut in half along the center, then jumpers wired between the square pads, to allow for easier fitting behind Euro and Frac rack panels.</i>
+</td></tr></table>
+
+</center>
+<p>
+I would recommend the use of hand matched 1% metal film resistors for all resistors this module.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Points X and Y are the connection points for expanding the CV cluster further if desired. The track will need to be cut between these pads. There is an arrow on the copper side of the PCB to indicate the place to cut.
+<p>
+A switch can be wired between points S and T. This will drop one resistor from the divider chain, the result being that the center "straight through" point is excluded from the voltage divider, giving and even spread of outputs (no null point) as distinct from an odd spread of outputs. Needless to say, the straight-through output continues to operate as normal, but the difference between it and the taps immediately above it and below it will only be half that of the difference between any other pair of taps. When operated in this mode, it is unlikely the center tap would be used.
+<p>
+Provision has been made for 47pF capacitors across each op-amp in this version. You may wish to omit them, adding them only if you find any of the op-amps are oscillating.
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite beads. If you don't care about power-rail noise, just use a link instead.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>12</td></tr>
+<tr><td>100n</td><td align=right>4</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R 1%</td><td align=right>10</td></tr>
+<tr><td>10k 1% matched</td><td align=right>18</td></tr>
+<tr><td>100k 1% matched</td><td align=right>10</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL074</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs37 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs37_cv_cluster.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:57:33 GMT -->
+</HTML>

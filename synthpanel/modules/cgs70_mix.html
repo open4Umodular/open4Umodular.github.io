@@ -1,0 +1,129 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs70_mix.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:03:25 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Dev-mod Mixer/Inverter block</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Mixer/Inverter Block " BORDER=0 WIDTH=200 HEIGHT=200 SRC="pic/photo_cgs70_mix.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+
+While this "development module" does replicate the <a href="cgs04_mix.html">D.C. Mixer</a> to some extent, the intended use is a little different. When prototyping new designs, on frequently fines the need to build certain component blocks over and over again. The options are simple - waste time doing it again, waste a good board to use the subsections that are required, or use something like this, that can be easily salvaged after each use. If course there is nothing to prevent it becoming a permanent part of a one-off design either.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<IMG alt="Mixer/Inverter Block" BORDER=0 WIDTH=539 HEIGHT=507 SRC="pic/schem_cgs70_mix.gif">
+
+
+<p>
+<i>The schematic for the Mixer/Inverter Block.</i>
+<p>
+</center>
+
+<p>
+Each of the blocks is functionally identically and can be configured in several ways. Each block is quite conventional, using a single op-amp in a unity gain inverting configuration. Each block allows three or four DC signals to be summed, as well as providing a summing node (SN) to which more resistors can be connected if desired. The result of the summing is inverted around 0V, making it passable for use with summing audio signals, but less satisfactory for control voltages, unless inversion is what you wish to achieve. To deal with this, the output of a block can be connected to the input of a second one to re-invert the signal, coincidentally adding some "inverted inputs" to the mixer should they be required. Each block is designed so its output is load-independant.
+<p>The circuit board allows the easy connection of one block to the next by providing input and output pads right next to each other, though this does put the signal across two op-amps. For improved isolation between sections, it would be better to use the second block from the same chip to do any re-inverting.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=200 height=200 src="pic/pcb_cgs70_mix.gif">
+<br><table border=0><tr><td><i>The component overlay for the Mixer/Inverter Block .
+
+</i></td></tr></table>
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+Decoupling capacitors are mounted directly one the rear of the PCB under the chips. You can use 1206 surface mount devices, or with a little lead bending, monoblock ceramics.
+<p>
+The over gain of each block can be changed by varying the value of the resistors marked RG (Resistor-Gain). On the schematic these are shown as 100k, which is appropriate for a gain of one.
+<p>
+Around the edge of the board are rows of pads suitable for adding headers to allow dev-blocks to be linked together using the CGS72 joiner or plain old pin header jumpers. Apart from the power rails, these are not assigned, so as to allow maximum versatility. You will need to link these pads to the inputs and outputs of the circuit blocks as required.
+<p>
+Use 1% metal film resistors for the 100k resistors, both for accuracy and lower noise.
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>2" x 2" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>2</td></tr>
+<tr><td>100n 1206 or 805 smt</td><td align=right>4</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R</td><td align=right>4 </td></tr>
+<tr><td>47k</td><td align=right>5 </td></tr>
+<tr><td>100k 1%</td><td align=right>14 </td></tr>
+<tr><td>RG (100k 1%)</td><td align=right>4 </td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072 or similar</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>0.1 headers</td><td align=right>as required</td></tr>
+<tr><td><a href="../pcb/index.html">CGS70 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2007 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs70_mix.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:03:28 GMT -->
+</HTML>

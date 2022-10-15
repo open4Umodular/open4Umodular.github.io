@@ -1,0 +1,157 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs81_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:05:34 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=820>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<!-IMG alt="Voltage Processor" BORDER=0 WIDTH=750 HEIGHT=144 SRC="pic/photo_cgs81_proc.jpg"-->
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Stereo Mixer</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This page demonstrates how the CGS81 PCB can be used as the basis for a basic stereo mixer. Note that as it is DC coupled, it will also work with DC signals and control voltages. Any DC offset that is present at the inputs will affect the outputs, so keep this in mind when interfacing to external equipment.
+<p>
+It will work on either +/- 12 volts or +/-15 volts without modification.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<img src="pic/schem_cgs81_mxp.gif" width="708" height="698" border="0">
+<P><i>The schematic for the basic stereo mixer. Note that many parts left of the squares marked "IN" are mounted off-board.</i>
+<p>
+The circuit is a standard two-inverting-stage op-amp DC Mixer. For each channel, a panner circuit is wired before the inputs to the op-amp stages, which operate as mixers and gain recovery circuits to compensate for the losses in the panning stages.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs81_mixer.gif" target="_blank"><img width=800 height=133 src="pic/pcb_cgs81_mixer.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <b>Note that as this board is being repurposed for the mixer, you need to follow the parts overlay given above, <i>not</i> the on the PCB.</b> <a href="pic/pcb_cgs81_mixer.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components. <b>Note that as this board is being repurposed for the mixer, you need to follow the parts overlay given above, <i>not</i> the on the PCB.</b>
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+If you are not going to separate the board into two units, you do not need to install the beads and power connector at one end of the PCB. The 10uF electrolytics can be installed, as they will help with power rail decoupling.
+<p>
+There is provision on the rear of the board to install 10n to 100n, 1206 or 805 SMT capacitors across the power rails near the 10uF Electrolytic capacitors. These are optional.
+<p>
+The remainder of the circuit needs to be wired, point to point, between the jacks and pots.
+
+<p>
+<h4>Pad identification</h4>
+<p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>0V</td><td>0V connection for jacks and pots</td></tr>
+<tr><td>IN</td><td>Input</td></tr>
+<tr><td>IOUT</td><td>Inverting output, if required.</td></tr>
+<tr><td>OUT</td><td>Output.</td></tr>
+</table>
+
+<p>
+<!--center>
+<img width=618 height=516 src="pic/wire_cgs81v10_dual_proc.gif">
+<P>
+<table border="0" cellspacing="0"><tr><td>
+<i>Example wiring for the Voltage Processor.</i>
+</td></tr></table>
+</center-->
+
+
+
+<p>
+<h4>Set Up</h4>
+No setup is required.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>4</td></tr>
+<tr><td>100n (0.1) decoupling caps</td><td align=right>4</td></tr>
+<tr><td>100n 1206 SMT (optional)</td><td align=right>4</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R (330 Ohms)</td><td align=right>6</td></tr>
+<tr><td>47k 1%</td><td align=right>8</td></tr>
+<tr><td>100k 1%</td><td align=right>8</td></tr>
+<tr><td>150k 1%</td><td align=right>8</td></tr>
+<tr><td>330k 1%</td><td align=right>6</td></tr>
+<tr><td>50k lin pot</td><td align=right>4</td></tr>
+<tr><td>50k log pot</td><td align=right>4</td></tr>
+<tr><td>100k lin pot</td><td align=right>see text</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072 </td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS81 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs81_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:05:38 GMT -->
+</HTML>

@@ -1,0 +1,358 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs121_mem.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:14:56 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=990>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER=0 WIDTH=800 HEIGHT=266 SRC="pic/photo_cgs121_v10_mem.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Quad Comparator and Memory Cell</font><br>
+for music synthesizers.
+</center>
+&nbsp;
+<p>
+This module is the combination of a quad comparator "voting system" and memory cell (flip-flop). It can be built in many ways to suit the builder's needs. For example, if the memory cell functions are not required, they can be omitted. Alternatively, the panel presence of the comparators can be greatly reduced if the memory cell is the primary interest.
+<p>
+The comparator "voting" circuits can be used as OR, AND or 2 of 3, 2 of 4, 3 of 4 etc. type gates, depending on construction. Both positive responding and negative responding inputs are available.
+<p>
+Master AND and OR outputs monitor the four voting circuits. AND goes HIGH when the outputs of all four comparators are HIGH. OR goes HIGH when the output of at least one of the four comparators is HIGH.
+<p>
+The outputs of the four comparators are used to drive the flip-flop memory cell, providing SET, RESET, CLOCK and DATA inputs.
+<p>
+The purpose of the module is to allow the combination of various gate events and CVs to generate responses, rhythms, etc.
+<p>
+When the SET comparator output is HIGH, it will set the Q output (K) of the first Memory cell HIGH.
+<p>
+When the RESET comparator output is HIGH, it will set the Q(inv) output (L) of the first Memory cell HIGH.
+<p>
+Note that when both the SET and RESET comparator outputs are HIGH, both the Q and Q(inv) outputs of the first memory cell will be
+HIGH. When the inputs change, the memory cell will take on the state of the last of the two inputs to fall LOW.
+<p>
+The memory cell can also be programmed with a two-step procedure. The output state of the DATA comparator will be clocked into the first memory cell when the output of the CLOCK comparator goes from LOW to HIGH. At the same time, the previous state of the first memory cell will be loaded into the second memory cell, the result being available at outputs M and N.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=970><tr><td>
+<img src="pic/schem_cgs121_mem.gif" width="819" height="935" border="0">
+<P><i>The schematic for Quad Comparator and Memory Cell module.</i>
+</td></tr></table>
+<br>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs121v10_mem.gif" target="_blank"><img width="900" height="300" src="pic/pcb_cgs121v10_mem.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs121v10_mem.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+1/8W, 1/4W or small bodied 0.6W resistors may be used. 5% carbon resistors are sufficient, although metal film resistors can be used.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The value of RLED is chosen via experimentation. Take an example of your chosen LED, and connected it via a 1k resistor to your supply voltage (+12V or +15V). For a more accurate test, add a diode in series. Look at the LED. If it dazzles you, you need to increase the value of the resistor. If it is too dark, reduce the resistor. Only old, low mcd LEDs will need a low value resistor. I prefer to use high mcd/super-bright/ultra-bright LEDs with resistors in the range of 10k (for red/amber/yellow) to 33k (for green/blue). Using high mcd/super-bright/ultra-bright LEDs reduces the switching noise placed by the LED on the power rails, reduces power consumption and reduces waste heat.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts. Different values for the RO resistors are recommended for use with the different voltages. For +/-12 volts, use 1k2. For +/-15 volts, use 1k6 or something close to that (1k65, 1k62, 1k5).
+<p>
+<b>The first time you power it up, I would suggest you do so with 22 ohm resistors in series with the positive and negative power rails. This should save the chips if you have made a blunder.</b>
+<p>
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER=0 WIDTH=901 HEIGHT=301 SRC="pic/photo_cgs121_v10_mem2.jpg">
+</center>
+<p>
+On the rear of the PCB are various surface mount pads. Two under the 4013 are for emergency use, if you find the second cell does not clock properly. In that case, the two pads connected with a short track need to be separated and a resistor (e.g. 10k) needs to be soldered there. The other location is for a capacitor (e.g. 100pF). Keep the relationship between them more or less the same, e.g. 1k : 1n. Increasing either value will improve the clocking at the cost of maximum speed. In all likelihood, this issue will only arrive if you have sub-standard chips.
+<p>
+Other surface mount pads, marked 47k, are used by the balance pots, and only need be installed if you use them, and do not put the resistors directly on the rear of the pots themselves.
+<p>
+The remaining surface mount pads are expansion points for adding more inputs to the voting circuits. If you are going to be adding a lot of extra inputs, it is probably easier just to mount the resistors directly on the panel jacks, and run a single wire back to the board. The wiring guides will show the details.
+
+<p>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>+VE</td><td>+ rail for panel use. (connects to bias pot wipers)</td></tr>
+<tr><td>-VE</td><td>- rail for panel use.</td></tr>
+<tr><td>0V</td><td>0 volt rail for panel use. (LED return, sleeve connection on jacks, etc.)</td></tr>
+<tr><td>S</td><td>Set/comp 1 + input</td></tr>
+<tr><td>T</td><td>Set/comp 1 - input</td></tr>
+<tr><td>D</td><td>Data/comp 2 + input</td></tr>
+<tr><td>E</td><td>Data/comp 2 - input</td></tr>
+<tr><td>C</td><td>Clock/comp 3 + input</td></tr>
+<tr><td>B</td><td>Clock/comp 3 - input</td></tr>
+<tr><td>R</td><td>Reset/comp 4 + input</td></tr>
+<tr><td>Q</td><td>Reset/comp 4 - input</td></tr>
+
+
+<tr><td>KL</td><td>Memory cell 1 Q to LED anode</td></tr>
+<tr><td>KO</td><td>Memory cell 1 Q to output jack</td></tr>
+<tr><td>LL</td><td>Memory cell 1 Q(inv) to LED anode</td></tr>
+<tr><td>LO</td><td>Memory cell 1 Q(inv) to output jack</td></tr>
+<tr><td>ML</td><td>Memory cell 2 Q to LED anode</td></tr>
+<tr><td>MO</td><td>Memory cell 2 Q to output jack</td></tr>
+<tr><td>NL</td><td>Memory cell 2 Q(inv) to LED anode</td></tr>
+<tr><td>NO</td><td>Memory cell 2 Q(inv) to output jack</td></tr>
+
+<tr><td>YL</td><td>AND to LED anode</td></tr>
+<tr><td>YO</td><td>AND to output jack</td></tr>
+<tr><td>ZL</td><td>OR to LED anode</td></tr>
+<tr><td>ZO</td><td>OR to output jack</td></tr>
+</table>
+<p>
+There are three of each input available. The inputs are grouped in pairs, the non inverted and inverted inputs for each function being next to each other. The inner pair of each input group (e.g., ST) have the option of adding 47k SMT resistors on the rear, for the use with a bias pot. The bias pot affects both the non inverted and inverted inputs, allowing you to raise the trigger point on one while lowering it on the other. This allows the reduction of the number of pots needed on the front panel, compared with the use of individual pots for each input type. The bias covers the range from around -5V to +15V.
+<p>
+
+
+
+<center>
+<IMG alt="Wiring Quad comparator and memory cell" BORDER="0" WIDTH="848" HEIGHT="779" SRC="pic/wire_cgs121V10_mem.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>This diagram shows generic wiring using only provided connection points. The 47k SMD parts MUST be installed for this wiring to work.
+</i></td></tr></table>
+</center>
+<p>
+
+
+<center>
+<h2>Using the PAN121 panel</h2>
+
+<IMG alt="Panel Quad comparator and memory cell" BORDER="0" WIDTH="421" HEIGHT="700" SRC="pic/photo_pan121_mem1.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>This optional panel is available. It is made of 0.1" thick fiberglass, and has a ground plane on the front. The rear includes some pads and traces to help with wiring and assembly.
+</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="900" HEIGHT="297" SRC="pic/photo_cgs121_v10_mem3.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>This photo shows the components that are installed on the PCB when building it for use with the PAN121 panel. Note the zero ohm resistors are nothing more than nicely packaged wire links. There are no components installed on the rear of the PCB.
+</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="900" HEIGHT="571" SRC="pic/photo_pan121_mem2.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>3mm LEDs can be mounted directly on the panel, their own leads supporting them. Form the leads as shown, so the leads are not stressed where they come out of the LED. The LED cathodes go to the pads that are linked to the silver "bezel" around each LED hole. Do not mistakenly fit LEDs to the mounting holes! Do NOT drill out the LED holes to mount larger LEDS as doing so will sever their through-hole connection to the earth plane.
+<p>
+A piece of large diameter heat-shrink tubing or a piece of tape is wrapped around the body of each pot to prevent wires from shorting to their body.
+<p>
+Clippings from component leads are used to connect each jack to their appropriate pad. I folded the tags down on the banana sockets to reduce the required board mounting height.
+<p>
+More wire clippings are used to connect the center (wiper) terminal of the pots to their corresponding pads, as shown. You may wish to insulate these, or use hookup wire.
+</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="713" HEIGHT="318" SRC="pic/photo_pan121_mem4.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>Resistors are mounted as shown, between the pots, jack and nearby pads.
+</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="844" HEIGHT="400" SRC="pic/photo_pan121_mem3.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>This is done for the three pots that are in a row.</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="800" HEIGHT="469" SRC="pic/wire_pan121_mem3.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>Note that the wiring for the fourth pot is a little different. The two 47k resistors go to the left, one having to pass over the pot. Insulate the lead of this resistor.</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="900" HEIGHT="353" SRC="pic/photo_pan121_mem5.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>The left image shows the first 47k resistor soldered in. The right image shows the second 47k, and its insulated lead.</i></td></tr></table>
+</center>
+<p>
+
+
+<center>
+<IMG alt="Quad comparator and memory cell" BORDER="0" WIDTH="900" HEIGHT="683" SRC="pic/photo_pan121_mem6.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>Blue jacks indicate an input that responds positively to an input, adding it to the tally for that channel. A different color jack, in this case green, indicate that an input responds negatively, subtracting the input voltage from the tally for that channel. As an individual may wish to use more or less of each type, the panel allows for some variation. A 100k resistor from the jack to the pad on the left side of the jack results in a positive response, a 100k resistor from the jack to the pad on the right results in a negative response.
+<p>
+The bottom-most jacks only have a pad for a negative response, while the top most jacks only have one for a positive response.
+</i></td></tr></table>
+</center>
+<p>
+
+
+
+<center>
+<IMG alt="Wiring Quad comparator and memory cell" BORDER="0" WIDTH="900" HEIGHT="912" SRC="pic/wire_pan121_mem1.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>This diagram shows the hook-up wire portion of the wiring for the CGS PCB panel PAN121V1.0.  If you are not using PAN121V1.0, you will need to wire directly to the appropriate jacks and LEDs. You may choose to do so, even if using this panel.
+</i></td></tr></table>
+</center>
+<p>
+
+<center>
+<p><IMG alt="Wiring Quad comparator and memory cell" BORDER="0" WIDTH="454" HEIGHT="364" SRC="pic/wire_pan121_mem2.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>For the remaining eight connections, hookup wire could be used. Alternatively a 0.1" spaced wiring strip would work. Although the wiring strip is shown connecting to the top of the CGS121 PCB, it may be easier to feed it through from the bottom and solder it on the top.
+</i></td></tr></table>
+</center>
+
+<center>
+<p><IMG alt="Wiring Quad comparator and memory cell" BORDER="0" WIDTH="682" HEIGHT="500" SRC="pic/photo_pan121_mem7.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>After soldering it on, the wiring strip needs to be folded away from the edge of the panel. This particular strip is a little too long.
+</i></td></tr></table>
+</center>
+
+<center>
+<p><IMG alt="Wiring Quad comparator and memory cell" BORDER="0" WIDTH="800" HEIGHT="525" SRC="pic/photo_pan121_mem8.jpg">
+<p>
+<table border=0 cellpadding=0 cellspacing=2 width="900"><tr><td><i>Completed wiring.
+</i></td></tr></table>
+</center>
+
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF, etc.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<B>Parts list for PCB used without PAN121</B><p>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+<tr><th colspan="3">Resistors</th></tr>
+<tr><td>1k</td><td align="right">10</td></tr>
+<tr><td>39k</td><td align="right">1</td></tr>
+<tr><td>47k</td><td align="right">1</td></tr>
+<tr><td>47k 1206 SMT</td><td align="right">8</td></tr>
+<tr><td>100k Lin pot</td><td align="right">4</td></tr>
+<tr><td>100k</td><td align="right">29</td></tr>
+<tr><td>4M7</td><td align="right">8</td></tr>
+<tr><td>RO (1k2 or 1k6 see text)</td><td align="right">10</td></tr>
+<tr><td>RLED (pick to suit LED)</td><td align="right">10</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>100nF (=0.1uF) Ceramic Monolithic</td><td align="right">5</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">13</td></tr>
+<tr><td>BC547 or sim</td><td align="right">10</td></tr>
+<tr><td>4013 (CD, HEF, MC1)</td><td align="right">1</td></tr>
+<tr><td>TL074</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4Pin</i></td><td align="right">1</td></tr>
+
+<tr><td><a href="../pcb/index.html#CGS121">CGS121 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+
+<!-- alternative parts list -->
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<B>Parts list for full module using PAN121</B><p>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+<tr><th colspan="3">Resistors</th></tr>
+<tr><td>1k</td><td align="right">10</td></tr>
+<tr><td>39k</td><td align="right">1</td></tr>
+<tr><td>47k</td><td align="right">9</td></tr>
+<tr><td>100k Lin pot</td><td align="right">4</td></tr>
+<tr><td>100k</td><td align="right">31</td></tr>
+<tr><td>4M7</td><td align="right">8</td></tr>
+<tr><td>RO (1k2 or 1k6 see text)</td><td align="right">10</td></tr>
+<tr><td>RLED (pick to suit LED)</td><td align="right">10</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>100nF (=0.1uF) Ceramic Monolithic</td><td align="right">5</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">13</td></tr>
+<tr><td>BC547 or sim</td><td align="right">10</td></tr>
+<tr><td>4013 (CD, HEF, MC1)</td><td align="right">1</td></tr>
+<tr><td>TL074</td><td align="right">1</td></tr>
+<tr><td>3mm LED</td><td align="right">10</td></tr>
+
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>Hook-up wire</td><td align="right"></td></tr>
+<tr><td>8-pin ribbon cable jumper (1.5" to 2.0") (<a href="http://www.allelectronics.com/make-a-store/item/rj-158/1.5-8-pin-ribbon-cable-jumper/1.html" target="_blank">e.g.</a>)</td><td align="right">1</td></tr>
+<tr><td>Blue banana jack (Emerson)</td><td align="right">10</td></tr>
+<tr><td>Red banana jack (Emerson)</td><td align="right">10</td></tr>
+<tr><td>Alt color banana jack (Emerson)</td><td align="right">8</td></tr>
+<tr><td>Davies 1900h knobs</td><td align="right">4</td></tr>
+<tr><td>20mm long 3mm standoff</td><td align="right">4</td></tr>
+<tr><td>30mm long 3mm bolt</td><td align="right">4</td></tr>
+<tr><td>3mm nut</td><td align="right">8</td></tr>
+
+
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4Pin</i></td><td align="right">1</td></tr>
+
+<tr><td><a href="../pcb/index.html#CGS121">CGS121 VER1.0 PCB</a></td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html#PAN121">PAN121 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<!-- end alternative parts list -->
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2013 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs121_mem.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:16:34 GMT -->
+</HTML>

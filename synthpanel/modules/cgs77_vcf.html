@@ -1,0 +1,216 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs77_vcf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:19 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=820>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Voltage Controlled Filter</font><br>
+for music synthesizers.<p>
+</center>
+
+
+<center>
+<IMG alt="vcf" BORDER=0 WIDTH=600 HEIGHT=308 SRC="pic/photo_cgs77_vcf1.jpg">
+</center>
+
+
+<br clear=all>&nbsp;
+<p>
+
+<p>
+<b>This is a licensed adaptation of the original Serge VCF</B>
+<p>
+Type: State variable, 2 pole, 12dB/oct LP & HP, 6dB slopes on the BP. Does not self oscillate (see modifications below).
+
+
+<p>
+<h4>A little on how it works.</h4>
+<p>
+The circuit consists of a voltage processor, allowing the filter frequency to respond either proportionally or inverse-proportionally to the incoming CV. The output of the voltage processor is then fed to a pair of exponential converters that control the gain of the CA3080 transconuctance amplifiers in the filter core, thus varying the frequency.
+<p>
+<b><a href="pic/schem_cgs77_vcf.gif" target="_blank">Click here for the Schematic</a></b>
+<p>
+<p>
+<h4>Construction</h4>
+<p>
+
+
+<center>
+<img width=534 height=615 src="pic/wire_cgs77_vcf.gif">
+<br><table border=0><tr><td><i>The component overlay and basic wiring for the VCF. The pots are viewed from the rear. No components need be installed in the buffer section (below the thick line) if it is not needed.
+
+</i></td></tr></table>
+
+<p>
+
+<img width=800 height=262 src="pic/photo_cgs77v12_vcf.jpg">
+<br><table border=0><tr><td><i>Version 1.2 of the PCB. The board is double sided, but the circuit remains unchanged. Some lables have been adjusted. Of note: The frequency pot CW and CCW connections are shown as per the original VCF, i.e. backwards to standard convention. I would suggest you swap these wires!
+</i></td></tr></table>
+
+<p>
+
+</center>
+<p>
+
+<IMG alt="vcf" hspace="10" align="right" BORDER=0 WIDTH=124 HEIGHT=500 SRC="pic/photo_cgs77_vcf3.jpg">
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The holes without pads near the input and output pads are to allow a wire to be fed up from the bottom side, looped over and then soldered to the pad. The slack is then pulled back through the hole, creating an anchor that holds the wire by its insulation, reducing the chance of wire breakage. It is also helpful for a system such as Serge, where wires are traditionally connected from the solder side of the PCB.
+<p>
+<b>See the photo below re mounting the J201 FETs on the VER1.0 PCBs.</b>
+<p>
+
+<p>
+<h4>Setting up</h4>
+<p>
+Adjustments on the vcf board are basic. Set trimmer so that the VCF's center frequency as at an appropriate pitch.
+
+<p>
+
+
+<h4>Modifications and notes.</h4>
+<ul>
+<li>The resistor specified as 11M was actually a 15M on the original. It was hard to determine due to the condition of the original resistor. None the less, there is no notable audio difference between using a 10M or a 15M in the position. I have seen other values in this position on other instruments. As such, I recommend just using a 10M.
+<li>The bias for the LM3080 OTAs was omitted in some later builds. As such, if you don't have any 22M resistors, simply omit them. Again casual testing was unable to determine any difference in response to them being included or not. The associated 100k and 15k could also be omitted if you omit the 22M resistors.
+<li>If you wish the filter to <b>self oscillate</b> at high Q settings, the 68k resistor between pins 2 and 6 of the single op-amp (LM748 on the PCB) can be reduced to 27k. This 68k is physically between the 11M and the 330R resistors. This will also drop the output levels significantly. To recover the levels, feed the LP, BP and HP outputs through three of the onboard buffers, with 39k resistors used in positions marked RG.
+<li>A TL071 can be substituted for the ancient LM748. If you do this, leave out the 5pF capacitor.
+<li>The resistors marked RG1-4 are for setting the gains of the optional buffers. It is unlikely you will need to install them, and then only if you are using the buffers as gain stages for something other than this filter.
+<li>All parts surrounding the TL074, as indicated by the heavy line marking of the area of the PCB, can be omitted if the buffers are not required.
+<li>100k linear pots can be used instead of the 20k or 25k pots. The parts list now reflects this.
+<li>Possible use for the buffers include buffering the input and CV input to compensate for their lower-than-usual input impedance, or buffering the outputs after they have been fed though a level pot, as per the panel in the photo.
+<li>A DPDT switch can be added to short points F and G to 0V (J on ver 1.2 PCB). Doing this will switch the filter into low-frequency mode, as per the VCFX (for CV filtering etc.). While the original Serge boards had this function, it is doubtful it was ever brought out to the panel. Some later builds omitted the 100n capacitors, replacing them with links.
+<li>The LD connection can be connected to one of the outputs to give a visible indication of an output signal. The LED, the associated transistor and resistors can be omitted. The LED resistor is marked 1kLR on the later versions of the board, to help identifying it if you need to adjust its value to compensate for an overly bright LED.
+<li>Even though the panel says "Cynthia" on it, it does NOT mean that this is a module she is offering for sale!
+<li><a href="http://www.sdiy.org/pinky/tracks/73vcf.mp3" target="_blank">Offsite link</a> to an mp3 example of how this filter sounds.
+<li><font color="green"><b>PCB info: </b></font>2" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Will run on +/- 12 volts or +/-15 volts.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+
+</ul>
+<p>
+
+<center>
+<IMG alt="vcf" BORDER=0 WIDTH=500 HEIGHT=346 SRC="pic/photo_cgs77_vcf2.jpg">
+</center>
+<br><table border=0><tr><td><i>On the VER1.0 board, the two FET markings are incorrect for the J201 packages. You need to install these "backwards" with respect to the overlay. This has been corrected for the VER1.1 and later boards.
+
+</i></td></tr></table>
+
+
+
+
+<p>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>5pF (omit for TL071)</td><td align=right>1</td></tr>
+<tr><td>47pF </td><td align=right>5</td></tr>
+<tr><td>100pF </td><td align=right>2</td></tr>
+<tr><td>220pF (Styrene)</td><td align=right>2</td></tr>
+<tr><td>10n</td><td align=right>4</td></tr>
+
+<tr><td>100n (monoblock)</td><td align=right>3</td></tr>
+<tr><td>100n MKT or better</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R </td><td align=right>7</td></tr>
+<tr><td>470R </td><td align=right>4</td></tr>
+<tr><td>1k </td><td align=right>5</td></tr>
+<tr><td>2k2 </td><td align=right>2</td></tr>
+<tr><td>3k3 </td><td align=right>2</td></tr>
+<tr><td>4k7 </td><td align=right>1</td></tr>
+<tr><td>15k </td><td align=right>1</td></tr>
+<tr><td>18k </td><td align=right>1</td></tr>
+<tr><td>22k </td><td align=right>5</td></tr>
+<tr><td>33k </td><td align=right>3</td></tr>
+<tr><td>47k </td><td align=right>1</td></tr>
+<tr><td>68k </td><td align=right>8</td></tr>
+<tr><td>100k </td><td align=right>11</td></tr>
+<tr><td>330k </td><td align=right>2</td></tr>
+<tr><td>470k </td><td align=right>2</td></tr>
+<tr><td>1M </td><td align=right>2</td></tr>
+<tr><td>3M3 </td><td align=right>1</td></tr>
+<tr><td>11M </td><td align=right>1</td></tr>
+<tr><td>22M </td><td align=right>2</td></tr>
+<tr><td>RG1-4 see text </td><td align=right>4</td></tr>
+<tr><td>22k (25k) trimmer</td><td align=right>1</td></tr>
+<tr><td>50k log pot</td><td align=right>1</td></tr>
+<tr><td>100k lin pot</td><td align=right>3</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LED</td><td align=right>1</td></tr>
+<tr><td>1N4148 </td><td align=right>1</td></tr>
+<tr><td>2N3904 </td><td align=right>1</td></tr>
+<tr><td>2N3906 </td><td align=right>4</td></tr>
+<tr><td>J201 </td><td align=right>2</td></tr>
+<tr><td>LM748 or TL071 </td><td align=right>1</td></tr>
+<tr><td>CA3080 or LM3080 </td><td align=right>2</td></tr>
+<tr><td>LM3900 </td><td align=right>1</td></tr>
+<tr><td>TL074 </td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+
+<tr><td><a href="../pcb/index.html">cgs77 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+
+
+<p>
+Classic Serge style knobs can be purchased from<br>
+<a href="http://www.smallbearelec.com/" target="_blank"><b>Small Bear Electronics LLC</b></a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=707" target="_blank">phenolic clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=831" target="_blank">ABS clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=727" target="_blank">Colored ABS clones of Davies 1900H</a>
+
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2006 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs77_vcf.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:04:40 GMT -->
+</HTML>

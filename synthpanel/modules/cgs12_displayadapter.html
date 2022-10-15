@@ -1,0 +1,134 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs12_displayadapter.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:51:54 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Display Adapter" BORDER=0 WIDTH=228 HEIGHT=193 SRC="pic/photo_cgs12_displayadapter.jpg" align=right hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Display Adapter</font><br>
+
+</center>
+
+<p>
+This board was developed to go with the <a href="wavetable.html">Wavetable</a> project, allowing easy displaying of the bank and wave numbers. It will also be used with my new sequencer when I eventually finish it. Unlike many displays, this one will show "1" through "8" instead of "0" through "7".
+<p>I originally worked out this circuit for my old ETI based sequencer, as instead of driving individual LEDs, I had a numeric display.
+<p>
+<b>How to use this module:</b>
+<p>
+This module is designed to be connected to the <a href="wavetable.html">Wavetable</a> via the Wavetable's display connectors. It can also be hooked to anything else that has one or two three-bit addresses.
+<p>
+<b>A little on how it works:</b>
+<p>
+There are three distinct blocks to this circuit. <ul>
+<li>the 7 segment display
+<li>the display driver chip
+<li>the adder.
+</ul>
+<p>
+The little network of components before the 4511 form a simple adder, hard wired to add 1 to whatever binary number is presented to the input of the unit. The transistor and associated resistors are simply a discrete inverter. The array of signal diodes and associated resistor form two AND gates. The best way to understand the logic is to draw up a truth table follow through the circuit yourself - any explanation I could give would be long winded and confusing.
+<p>
+<center>
+<img width=500 height=381 src="pic/schem_cgs12_displayadapter.gif">
+<br><i>The schematic of the Display Adapter. There are two sections to the module, both identical, except for the IC pin numbers. The pin numbers of second section are in brackets.</i>
+</center>
+
+<p>
+<h4>Construction</h4>
+<p>
+Depending on the voltage you plan to run the module from, the value of the LED resistors will need to be changed. When used in conjunction with the wavetable, the unit will be powered from 5V. These resistors will need to be 220R. For higher voltages, pick a resistor that will set the current flow through the LEDs at around 10 to 15 ma. Two examples are given on the circuit diagram. It would be acceptable to simply use 1k resistors for all voltages. The display would be dim when running from 5V, but remains readable in average room lighting.
+
+<p>
+<center>
+<IMG alt="Display Adapter" BORDER=0 WIDTH=210 HEIGHT=160 SRC="pic/pcb_cgs12_displayadapter.gif">
+<br><i>The overlay of the Display Adapter. There are two boards that must be joined at right-angles.</i>
+</center>
+<p>
+
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. Make sure the two edges that must be joined together are clean and smooth. The routing on the boards I have in stock have a small lump on one corner that must be trimmed down.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the diodes and resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as the diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay. Please note that the CMOS chips are static sensitive devices, so make sure you handle them correctly.
+
+<p>
+<center>
+<IMG alt="Display Adapter" BORDER=0 WIDTH=228 HEIGHT=80 SRC="pic/photo_cgs12_displayadapter2.jpg">
+<br><i>The two boards joined at right-angles.</i>
+</center>
+<p>
+
+<p>
+<IMG alt="Display Adapter" BORDER=0 WIDTH=200 HEIGHT=198 SRC="pic/photo_cgs12_displayadapter1.jpg" align="right">
+
+The sub-board that contains the two displays needs to be soldered at right angles to the main board. There are a series of large pads to assist with this. There are also a couple of small holes so a short length of tinned copper wire can be used to secure them together before you start soldering.
+<p>
+The edge main board buts up against the bottom of the display board. Solder two short lengths of tinned copper wire between the corner holes on the main and display boards. These will help you position the two boards so the connections between them can be easilly soldered.
+<p>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>When you join the two boards together, make sure that the pins of the displays do not short against any of the connections on the main board.
+<li>Any common cathode display with the same pinout as the FND500 can be used. FND560 is one example.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>220R*</td><td align=right>14</td></tr>
+<tr><td>100k</td><td align=right>8</td></tr>
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>4030</td><td align=right>1</td></tr>
+<tr><td>4511</td><td align=right>2</td></tr>
+<tr><td>BC547</td><td align=right>2</td></tr>
+<tr><td>FND500 or similar</td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td><a href="../pcb/index.html">CGS12 PCB</a></td><td align=right>1</td></tr>
+<tr><td colspan=2>*See text</td></tr>
+
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying a set of these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs12_displayadapter.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:52:00 GMT -->
+</HTML>

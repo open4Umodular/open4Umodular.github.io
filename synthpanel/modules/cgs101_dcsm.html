@@ -1,0 +1,205 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs101_dcsm.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:12:52 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=990>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Serge Voltage Controlled Stereo Mixer" BORDER=0 WIDTH=900 HEIGHT=324 SRC="pic/photo_cgs101v10_upap.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Dual Channel Stereo Mixer (DCSM).</font><br>
+
+</center>
+&nbsp;
+<p>
+This module is a variation of the Serge Dual Channel Stereo Mixer, built using the CGS101 Quad VCA and the CGS102 Equal Power Panner drivers.
+<p>
+<h4>Paraphrased from the 1982 Serge catalog:</h4>
+<blockquote>The Dual Channel Stereo Mixer (Dcsm) Is An Alternative Output Vca/Mixer/Panner For Two And Three-Panel Systems. The Dual
+Channel Stereo Mixer is used for the standard output level control (or enveloping) and for voltage controlled panning. The DCSM has two
+independent channels for stereo panning. Each channel in the DCSM has two VC inputs, one for amplitude control and one for panning. The
+panning controls are opposite for the two channels, so that if a single control voltage is used, the output signals will pan in opposite
+directions. Auxiliary inputs are used to feed other signals into the outputs of the module. Signals applied here will not be affected by
+knobs or control voltages applied to the module. These are mainly useful for linking other mixers (either manual or voltage controlled)
+to the output bus. The output is available at a pair of banana Jacks (for routing the signals to other modules within the synthesizer), and
+at mini-Jacks (for connecting to external amplifiers, tape decks, and other equipment).
+</blockquote>
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=970><tr><td>
+<img src="pic/schem_cgs101v10_dcsm.gif" width="800" height="1190" border="0">
+<P><i>The schematic for Serge Dual Channel Stereo Mixer module.</i>
+</td></tr></table>
+<br>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs101v10_qvca.gif" target="_blank"><img width=900 height=300 src="pic/pcb_cgs101v10_qvca.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs101v10_qvca.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+The CGS101 DCSM uses four <a href="cgs108_vca.html">CGS108 Serge Gain Cells</a> as it's voltage controlled elements. Refer to the <a href="cgs108_vca.html">CGS108</a> page for construction details.
+<p>
+It also uses two sets of <a href="cgs102_epp.html">CGS102 Equal Power Panner</a> boards. Refer to the <a href="cgs102_epp.html">CGS102</a> page for construction details.
+
+These submodules should be the last things you install on the CGS101 PCB.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts.
+<p>
+<b>The first time you power it up, I would suggest you do so with 22 ohm resistors in series with the positive and negative power rails. This should save the chips if you have made a blunder.</b>
+<p>
+While 100k linear pots have been specified, 50k pots will also work in this circuit.
+<p>
+On the CGS101 VER1.0 PCB there are some corrections required.
+<ul>
+<li>Four 5k6 resistors need to be installed on the rear of the PCB. Each resistor goes between pins 7 (CV) and 8 (0V) of one of the CGS108 submodules.
+<li>Two connections to each CGS102B submodule need to be reversed. Fortunately this can be done entirely on the rear of the PCB by cutting the tracks in the areas shown in light green on the diagram below. After some solder mask is scraped from the remaining track stubs, (shown in copper below) six links can be added. The four links shown in blue can actually be replaced with two short lengths of component wire offcuts. The two links shown in purple are best if done with insulated wire as they pass over other pads.
+<li>Two wires need to be connected to pads directly below the submodules. See the diagram for details.
+</ul>
+<p>
+<center>
+<a href="pic/pcb_cgs101v10_qvca_fix.gif" target="_blank"><img width=900 height=300 src="pic/pcb_cgs101v10_qvca_fix.gif"></a>
+<br><table border=0><tr><td><i>Modifications required on the rear of the CGS101 VER1.0 PCB. <a href="pic/pcb_cgs101v10_qvca_fix.gif" target="_blank">Click here for an enlarged version.</a></i>
+</td></tr></table>
+</center>
+
+<p>
+<center>
+<IMG alt="Serge QCA" BORDER=0 WIDTH=800 HEIGHT=556 SRC="pic/photo_cgs101v10_upap2.jpg">
+<p><i>The CGS101 loaded with eight sub modules.</i>
+</center>
+
+
+<p>
+There may be some confusion regarding the panel layout and marking of this module. There are two input channels, and two output channels. The input channels are called Channel 1 (on the left) and Channel 2 (on the right). Above them are the two output channels, each with an auxiliary input and a pair of outputs, with the left channel to the left, and the right channel to the right.
+<p>Take care not to confuse Channel 1 with the Left output channel, or Channel 2 with the Right output channel.
+<p>
+<table border=1 cellpadding=2 cellspacing=0 align="left">
+<tr><td>PAD ID</td><td>Function</td></tr>
+
+<tr><td>CV</td><td>Aux in, Left output channel</td></tr>
+<tr><td>RV</td><td>Signal in, Channel 1</td></tr>
+<tr><td>RP</td><td>Gain CV for Channel 1</td></tr>
+<tr><td>NP</td><td>Wiper of pan pot of Channel 1</td></tr>
+<tr><td>GP</td><td>Pan CV of Channel 1</td></tr>
+<tr><td>SP</td><td>Wiper of gain pot, Channel 1</td></tr>
+<tr><td>KV</td><td>Aux in, Right output channel</td></tr>
+<tr><td>SV</td><td>Signal in, Channel 2</td></tr>
+<tr><td>BP</td><td>Gain CV for Channel 2</td></tr>
+<tr><td>EP</td><td>Pan CV of Channel 2</td></tr>
+<tr><td>FP</td><td>Wiper of pan pot of Channel 2</td></tr>
+<tr><td>CP</td><td>Wiper of gain pot, Channel 2</td></tr>
+<tr><td>FJ</td><td>Right output jacks</td></tr>
+<tr><td>BN</td><td>Left output jacks</td></tr>
+<tr><td>LK</td><td>Link these two pads</td></tr>
+<tr><td>PV</td><td>Additional aux in, Left output channel</td></tr>
+<tr><td>GV</td><td>Additional aux in, Right output channel</td></tr>
+<tr><td>W</td><td>0V power connection (connected to pots etc. as needed)</td></tr>
+<tr><td>X</td><td>+12V power connection (connected to pots etc. as needed)</td></tr>
+</table>
+
+
+<IMG alt="Serge DCSM" BORDER=0 hspace="10" WIDTH=610 HEIGHT=855 SRC="pic/wire_cgs101_v10_dcsm.gif">
+<center>
+<p><i>Wiring the DCSM. Note the two wires that run under the PCB. See the modifications diagram above for further details.</i>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+There should be no setup required, other than to set the trimmers on the CGS108 PCBs as described on that page.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>330&#8486;</td><td align="right">8</td></tr>
+<tr><td>5.6k</td><td align="right">4</td></tr>
+<tr><td>82k</td><td align="right">4</td></tr>
+<tr><td>100k</td><td align="right">37</td></tr>
+<tr><td>RPD. Use 100k</td><td align="right">6</td></tr>
+<tr><td>220k</td><td align="right">4</td></tr>
+<tr><td>100k lin pot</td><td align="right">4</td></tr>
+
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>82pF ceramic</td><td align="right">4</td></tr>
+<tr><td>220nF (=0.22uF)</td><td align="right">4</td></tr>
+<tr><td>10uF 25V<i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>TL074</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td><a href="cgs108_vca.html">CGS108 submodule</a></td><td align="right">4<tr><td><a href="cgs102_epp.html">CGS102 submodule set</a></td><td align="right">2</td></tr>
+
+<tr><td><a href="../pcb/index.html#CGS101">CGS101 VER1.0 PCB set</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2013 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs101_dcsm.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:13:15 GMT -->
+</HTML>

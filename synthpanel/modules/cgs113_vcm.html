@@ -1,0 +1,252 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs113_vcm.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:14:00 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=820>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Wave Multipliers" BORDER=0 WIDTH=800 HEIGHT=267 SRC="pic/photo_cgs113_vcm.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Wave Multipliers</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is based on the Serge Wave Multipliers.
+<p>
+To quote the 1982 catalog:
+<blockquote>
+For generating and modifying sound, the typical synthesizer patch is VCO-VCF-VCA, linked in series, with suitable control from keyboard, sequencer, or computer. The VCO generates the raw sound, the VCF dynamically varies the timbre (sound quality). and the VCA controls the amplitude and produces the envelope on the sound event. The Serge Modular WAVE MULTIPLIERS (VCM) provide a new link in this chain, representing an advance in synthesizer technology. In this typical patch, the Wave Multiplier could be placed just before the VCF. Like the VCF. the Wave Multiplier affects the timbre. Unlike the VCF, whose action is a subtractive process of filtering frequencies from the input waveform, the Wave Multipliers are able to dynamically process the input waveform to produce new harmonically-related overtones. This function should not be confused with Ring Modulation, since it is a non-linear process using a single audio input. Although it is possible to describe the effect of a VCF by saying the sound gets "bass-heavy", makes a "wah-wah" effect, or sounds "thin" to describe the sound of a Wave Multiplier is much more difficult. The input sound comes out richer in harmonics, somewhat similar to pulse-width modulation and to linear frequency modulation, but with a new characteristic timbre. The nearest we can come to describing the unique sound qualities (there are three different sections) is to say that they alter the timbre in exciting new ways, producing interesting alternative forms of signal processing which are unique in the Serge Modular Music System. Since there are three entirely separate and different types of Wave Multipliers in this module, an enormously varied palette of new effects can be synthesized.
+<p>
+The uppermost section is the simplest of the three multiplier sections. but it has two switchable effects. With the switch set at the "HI" position, the module functions to "square-up" an incoming signal. This is not the same as a simple comparator squaring function, though, since there is a rounded flattening of the signal peaks: an effect somewhat similar to overdriving a tube amplifier (except that in this version the process is voltage controllable!). With the switch in the "LO" position, the module is a linear gain controlled VCA. This is useful for various functions such as amplitude modulation and for gating signals into the other sections.
+<p>
+The middle Wave Multiplier provides a sweep of the odd harmonics (1, 3, 5, 7, 9, 11 and 13th) when a sine wave is applied to its input and the knob is turned up or a control voltage is swept from low to high. This effect is similar to overblowing a wind pipe closed at one end, and thus the module can be used to produce the sounds of various wind instruments. A second input is included to allow two signals to be mixed before processing, a technique that we have found to be very usable. This module can be used to explore timbral areas beyond the range of ring modulation because there are more varied harmonics than the sum and difference tones.
+<p>
+The bottom Wave Multiplier performs non-linear wavehaping known as full-wave rectification, but with sophisticated level-compensating conditioning as well. Actually the circuit uses three full-wave rectifier sections linked in a very refined controllable format. Each section can double the frequency of a sine or triangle wave applied to its input. Thus sweeping the VC input over its range will produce a smooth timbral transition using the even harmonics (second, fourth, and eighth). Many other partials are present in this basic sound, however, and the sonorities are very rich and varied. A notable feature of this multiplier is that the full-wave rectification is not accompanied by a reduction in the output amplitude. There is no alteration of the essential level of the sound. There are two inputs to provide mixing before processing, and two outputs. One output is a "squared up" version of the other. This output resembles voltage controlled pulse width modulation (only much more interesting). The Wave Multipliers are among the most powerful timbral modifiers available on any analog music synthesizer. The rich varieties of inter-patch possibilities are nearly inexhaustible, and these possibilities combined with the flexibility of other Serge modules will provide unique synthesis tools for the person who is eager to experiment with entirely new classes of sounds. The Wave Multipliers provide what has too often been lacking in electric musics. a means of generating sounds as complex and dynamically variable as those found in acoustic sound sources. Yet these are also precision modules which respond accurately to control voltages, so they may be used to give repeatable results in the most exacting analog or digital applications.
+<p>
+</blockquote>
+<p>
+It will work on either +/- 12 volts or +/-15 volts without modification, though in the case of the latter, all input voltage sensitivities, and output voltages are proportionally increased.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<img src="pic/schem_cgs113_vcm1.gif" width="784" width="372" border="0">
+<p>
+<i>The upper multiplier functions as a basic distortion unit, or a VCA, depending on the mode selected.</i>
+
+<p>&nbsp;<p>
+<img src="pic/schem_cgs113_vcm2.gif" width="808" width="575" border="0">
+<p>
+<i>The middle multiplier provides a sweep of the odd harmonics (1, 3, 5, 7, 9, 11 and 13th).  This gives the most amazing filter like sweeps, by adding harmonic content to the input wave.</i>
+<p>&nbsp;<p>
+
+<img src="pic/schem_cgs113_vcm3.gif" width="810" width="472" border="0">
+<p>
+<i>The bottom Wave Multiplier performs controlled full-wave rectification to add even harmonics.</i>
+<p>
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs113_vcm.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs113_vcm.gif"></a>
+<br><table width=800 border=0><tr><td><i>The component overlay for the VER1.0 PCB. Omit the parts filled in red. Use component value given in red. Capacitor CK is 47pF. <a href="pic/pcb_cgs113_vcm.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+<p>&nbsp;<p>&nbsp;
+
+<a href="pic/pcb_cgs113v11_vcm.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs113v11_vcm.gif"></a>
+<br><table width=800 border=0><tr><td><i>The component overlay for the VER1.1 PCB. Capacitors marked *1 are 47pF. Install as needed - see text. <a href="pic/pcb_cgs113v11_vcm.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Note that there are several capacitors on the PCB that should be omitted. They are shown in red on the overlay above. Some are marked 30pF on the PCB itself.
+<p>
+Although the PCB calls for the use of 4558 dual op-amps, the type actually used varied somewhat from build to build. I would recommend using TL072, which appear to be the most stable in the circuit. If you wish to use other varieties, check that none of the op-amps have gone into self oscillation. On my prototype, I needed to add 47pf across pins 6 and 7 of the top 4558. Another test builder found he required caps on each of the op-amps in the section, as shown on the schematic (marked *1). These can be soldered directly to the rear of the PCB at the IC pins. Chips on the schematic are identified via color code, the colors corresponding to the colors of the resistor color code. The chips on the board are numbered from top to bottom, left to right, with the unused 16 pin location being IC0.
+<p>
+IC0 is to allow an LM13700 or similar to be used in place of the two LM/CA3080. Wire the corresponding pins of the first LM3080 location to the pads marked with their numbers on left side of IC0 (5, 3, 2 and 6). Do the same for the second LM3080 to the correspondingly marked pads on the right side of the chip (5, 3, 2, 6 and 4).
+<p>
+You will need to add some 30pF capacitors across pins 10 and 11 of IC 7 and pins 3 and 4 of IC8 if the third multiplier shows any instability. Again, use an oscilliscope to check. If you do not have access to a scope, with no input into the multiplier, plug the output into a VCO. The VCO frequency will usually jump up of there is a stability issue.
+
+<center>
+<IMG alt="Wave Multipliers" BORDER=0 WIDTH=800 HEIGHT=277 SRC="pic/photo_cgs113_vcm1.jpg">
+<i>Additional capacitors soldered to the rear of the PCB as required.</i>
+</center>
+
+<p>
+
+<h4>Pad and part identification</h4>
+<p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>CK</td><td>47pF</td></tr>
+<tr><td>A</td><td>In 1, middle section</td></tr>
+<tr><td>B</td><td>In 2, middle section</td></tr>
+<tr><td>C</td><td>VC, middle section</td></tr>
+<tr><td>D</td><td>Pot wiper, middle section</td></tr>
+
+<tr><td>E</td><td>In 1, bottom section</td></tr>
+<tr><td>F</td><td>In 2, bottom section</td></tr>
+
+<tr><td>G</td><td>In, top section</td></tr>
+<tr><td>H</td><td>Pot wiper, top section</td></tr>
+
+<tr><td>J</td><td>Switch, top section</td></tr>
+<tr><td>K</td><td>Switch, top section</td></tr>
+<tr><td>KO</td><td>Output, top section</td></tr>
+<tr><td>L</td><td>Switch, top section</td></tr>
+
+<tr><td>M</td><td>Output 1, bottom section</td></tr>
+<tr><td>N</td><td>Output 2, bottom section</td></tr>
+<tr><td>R</td><td>Pot wiper, bottom section</td></tr>
+<tr><td>S</td><td>Control voltage, bottom section</td></tr>
+
+<tr><td>+VE</td><td>+ve for CW end of all pots</td></tr>
+<tr><td>u</td><td>0V/GND for CCW end of all pots</td></tr>
+<tr><td>X</td><td>+VE in</td></tr>
+<tr><td>W</td><td>0V in</td></tr>
+<tr><td>Z</td><td>-VE in</td></tr>
+<tr><td>0V</td><td>0V/GND connection for 3.5 or 6.5mm jacks and CCW end of level pot.</td></tr>
+</table>
+<p>
+
+<p>
+<center>
+<img width=610 height=855 src="pic/wire_cgs113_vcm.jpg">
+<P>
+<table border="0" cellspacing="0"><tr><td>
+<i>Example wiring for the Wave Multipliers. Note the 330k resistor soldered directly to the switch.</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+Two trim pots are supplied to adjust CV rejection on the top two wave multipliers. If you have access to an oscillicope, use it. If not, use an audio signal, and monitor the output with an amplifier.
+<p>
+Feed a signal into the CV input of the upper wave multiplier. Monitor its output. Adjust TR1 for minimum output.
+<p>
+Feed a signal into the CV input of the middle wave multiplier. Monitor its output. Adjust TR2 for minimum output.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li><a href="http://www.serge.synth.net/documents/kit/vcwm.html">Original Serge kit instructions.</a>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>30pF</td><td align=right>4</td></tr>
+<tr><td>47pF</td><td align=right>2 (8)</td></tr>
+<tr><td>150pF</td><td align=right>1</td></tr>
+<tr><td>47n</td><td align=right>4</td></tr>
+<tr><td>100n (0.1 ceramic monolythic or similar)</td><td align=right>6</td></tr>
+<tr><td>220n</td><td align=right>2</td></tr>
+<tr><td>1uF BP 25V</td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><td>47uF 25V</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Resistors (1% metal film)</th></tr>
+<tr><td>330R (330 Ohms)</td><td align=right>2</td></tr>
+<tr><td>1k5</td><td align=right>4</td></tr>
+<tr><td>3k3</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>33k</td><td align=right>6</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>82k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>20</td></tr>
+<tr><td>150k</td><td align=right>1</td></tr>
+<tr><td>220k</td><td align=right>2</td></tr>
+<tr><td>330k</td><td align=right>4</td></tr>
+<tr><td>470k</td><td align=right>1</td></tr>
+<tr><td>820k</td><td align=right>3</td></tr>
+<tr><td>1M</td><td align=right>5</td></tr>
+<tr><td>1M5</td><td align=right>1</td></tr>
+<tr><td>2M2</td><td align=right>4</td></tr>
+<tr><td>3M3</td><td align=right>2</td></tr>
+<tr><td>6M8</td><td align=right>1</td></tr>
+<tr><td>10M</td><td align=right>6</td></tr>
+<tr><td>100k trim</td><td align=right>2</td></tr>
+<tr><td>50k or 100k lin pot</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>4V3 or 4V6 400 or 500mW Zener (DZ)</td><td align=right>1</td></tr>
+<tr><td>1N4148</td><td align=right>22</td></tr>
+<tr><td>2N4250 (BC557 or sim)</td><td align=right>2</td></tr>
+<tr><td>LM3080 or CA3080</td><td align=right>2</td></tr>
+<tr><td>LM3900</td><td align=right>2</td></tr>
+<tr><td>TL072 (4558)</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>12 (7 black, 5 blue)</td></tr>
+<tr><td>DPDT switch<td align=right>1</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS113 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs. Alternative part numbers are provided in brackets ().
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+<img src="pic/panel_cgs113_vcm.gif" width="231" height="802">
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2012 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs113_vcm.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:14:35 GMT -->
+</HTML>

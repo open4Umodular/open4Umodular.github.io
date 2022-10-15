@@ -1,0 +1,200 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs47_cynare.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:17 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Cynare drum simulator" BORDER=0 WIDTH=600 HEIGHT=304 SRC="pic/photo_cgs47_cynare.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Cynare drum simulator</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+The Cynare drum simulator is the third in the series of CGS drum simulators. It generates a single drum sound that can be adjusted to sound like a cymbal, hi-hat, snare drum, electronic drum, or numerous other percussive sounds. It is a complete dedicated synthesizer in its own right, including six oscillators, a noise source, a mixer, an envelope generator, a VCF and a VCA.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+There are two inputs for controlling the envelope of the generated sound. The first is Decay. Attack is preset at the fastest rate possible, the decay controlling the fall off rate of the envelope. This decay is also affected by the Damper control, which operates in parallel with the Decay. A gate input into the Sustain jack disables the damper, thus allowing two different rates of decay to be set depending on the input to the sustain jack. Note: if the damper decay rate is set to minimum, and the sustain input is below about 2V, the envelope will be set at minimum, with the decay control having very little effect, so if you do not wish to use the sustain input, the damper decay rate should be turned to maximum.
+<p>If a square wave or similar gate waveform is connected to both the sustain and trigger inputs, the fall-off of the envelope will be affected by the decay control while the gate signal remains high, the damper kicking in as soon as the gate falls low. This allows for easy implementation of open/closed hi-hat sounds etc.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=450 src="pic/schem_cgs47_processor.gif">
+<br><i>The schematic of the core of the Cynare drum simulator.</i>
+</center>
+<p>
+TL072 "A" processes the incoming trigger and sustain signals. The trigger is converted to a short pulse, while the sustain input becomes a gate signal. The trigger pulse will charge the 2u2 envelope capacitor. The capacitor will then discharge through the decay pot, and if the sustain gate signal is low, thought the damper pot as well.
+<p>
+The resultant envelope is passed through a voltage divider and LED to drive pin 5 of the LM3080 which forms the heart of the VCA. The envelope is also passed through a processor that allows it to be scaled, and inverted, giving a range of positive and negative going envelopes to drive the VCF.
+<p>
+There are two noise generators, a conventional reverse biased emitter-base junction, and a "shimmer" generator consisting of six independent oscillators with their outputs "ring" modulated via the exclusive OR gates, and mixed.
+<p>
+A pot allows the ratio of noise to shimmer to be adjusted. A filtered version of the trigger pulse is used to generate an impact sound, and this is mixed with the output of the shimmer/noise section.
+<p>
+The filter section is directly taken from the <a href="cgs35_syntha_vcf.html">Steiner VCF</a>.
+<p>
+All of these sections form a small dedicated synthesizer, when wired in the appropriate order.
+
+<center>
+<p>
+<img width=600 height=377 src="pic/schem_cgs47_vcf.gif">
+<br><i>The VCF portion of the Cynare drum simulator.</i>
+<p>
+<img width=300 height=124 src="pic/dual_power_rail.gif">
+<br><i>Power rail decoupling for the Cynare drum simulator.</i>
+</center>
+<p>
+
+<p>
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs47_cynare.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+This is one of those PCBs than can be assembled in a number of different ways to suit the builder's panel space or "maximum knobs" requirements. The first wiring diagram below gives basic wiring details. A three position rotary switch is used to select the filter mode. Both the filter and VCA are supplied with individual inputs and outputs, meaning that the module MUST be patched to run. Alternately, the mix out (MO) could be hard wired to the VCA in (VCAI). The VCA out (VCAO) hard wired to the filter in (FI) and the filter out (FO) wired to the module output socket. The VCF is place after the VCA so when the VCF resonance is set just short of self oscillation, the VCF can be used as a drum sound. Wiring the VCF before the VCA is an equally legitimate option, thus the suggested multiple sockets. On my module, I used a switch to change the order of the VCA and VCF, elimination the extra sockets. This has the advantage of using less panel space and not needing external patching, but also prevents external signals being processed by the VCF or VCA.
+<p>
+An external CV input can be added to the VCF, but is permanently coupled to the internal envelope generator as well, though the effect of the internal envelope generator can reduced to near zero. The VCA has no external controls.
+<p>
+The Noise output is optional - merely a convenient white noise source for general use.
+<p>
+R1 to R6 are non-critical values, and give the shimmer its desired tone. For example, you could use 47k, 100k, 220k, 330k, 390k, and 470k. This is where experimentation will give each module a unique sound. Alternately, you can use pots. One the PCB, each of these resistors has two spare pads under it. Start by inserting 6 x 10k resistors, each standing on end, into the two holed under each resistor nearest the 40106. Run wires from the two other holes under each resistor to a panel mounted 500k linear pot (to the center and clockwise connections). This will give you six pots with which to adjust the shimmer effect. Other values could also be used - for example, if you use 1M pots, decrease the associated 10n capacitors to 4n7.
+<p>
+If you wish to add a level control to the impact sound, delete the associated 22k resistor. Cut the track between the two pads marked "IL". Run a wire from the "IL" pad connected to the 1n capacitor to the clockwise end of  a 22k pot (or 20k, 25k etc.). Run a wire from the other "IL" pad to the wiper of the pot. Connect the counter-clockwise end to 0V/GND.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+
+<center>
+<img width=600 height=551 src="pic/wire_cgs47_cynare1.gif">
+<br><i>Basic wiring of the Cynare. Point "A" can be joined for automatic coupling of the sustain and trigger functions. The LED MUST be installed. If it is not wanted on the front panel, mount it directly on the PCB.</i>
+</center>
+<b>Notes:</b>
+<ul>
+<li>The 1uF capacitor marked in red limits the response rate of the VCF. If you wish a quicker response, reduce or omit it.
+<li>The 1nF capacitor marked in red limits the impact sound. Increasing it will increase the impact sound.
+<li>If the VCF does not self-oscillate, increase the value of the pot to 2k, or insert a low value resistor in line with it (e.g. 270R).
+</ul>
+
+<center>
+<img width=166 height=123 src="pic/wire_cgs47_cynare2.gif">
+<br><i>How to wire a 3 pole 2 position toggle switch to change the order of the VCA and VCF. This is used instead of the extra sockets. Each PCB connection is shown. OUT goes directly to the output socket.</i>
+</center>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts.
+<li>All pots are linear.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>1</td></tr>
+<tr><td>1n</td><td align=right>1</td></tr>
+<tr><td>2n2</td><td align=right>3</td></tr>
+<tr><td>10n</td><td align=right>8</td></tr>
+<tr><td>100n</td><td align=right>9</td></tr>
+<tr><td>1uF</td><td align=right>3</td></tr>
+<tr><td>2u2 35V</td><td align=right>1</td></tr>
+<tr><td>10uF</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>R1-R6</td><td align=right>See text</td></tr>
+<tr><td>33R</td><td align=right>1</td></tr>
+<tr><td>220R</td><td align=right>2</td></tr>
+<tr><td>820R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>10</td></tr>
+<tr><td>1k2</td><td align=right>1</td></tr>
+<tr><td>2k2</td><td align=right>4</td></tr>
+<tr><td>4k7</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>4</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>2</td></tr>
+<tr><td>39k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>3</td></tr>
+<tr><td>100k</td><td align=right>17</td></tr>
+<tr><td>180k</td><td align=right>1</td></tr>
+<tr><td>220k</td><td align=right>3</td></tr>
+<tr><td>330k</td><td align=right>1</td></tr>
+<tr><td>390k</td><td align=right>1</td></tr>
+<tr><td>2M2</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>CA3080 or LM3080</td><td align=right>1</td></tr>
+<tr><td>TL071</td><td align=right>1</td></tr>
+<tr><td>TL072</td><td align=right>4</td></tr>
+<tr><td>4030 or 4070</td><td align=right>1</td></tr>
+<tr><td>40106 or 74C14</td><td align=right>1</td></tr>
+<tr><td>1N4148</td><td align=right>8</td></tr>
+<tr><td>2N2222</td><td align=right>3</td></tr>
+<tr><td>2N2907</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS47 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs47_cynare.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:59:30 GMT -->
+</HTML>

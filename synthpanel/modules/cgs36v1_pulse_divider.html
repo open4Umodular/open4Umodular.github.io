@@ -1,0 +1,184 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs36v1_pulse_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:14 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Pulse Divider" BORDER=0 WIDTH=600 HEIGHT=207 SRC="pic/photo_cgs36_pulse_divider.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Pulse Divider and Boolean Logic</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The current version can be found <a href="cgs36_pulse_divider.html">here</a>.
+<p>
+This module consists of several parts, a pulse divider with integer divisions between 2 and 8, and several logic elements. The divider is used to generate interrelated pulses for use in creating poly-rhythms, and unusual sequences. It can also be run at audio frequencies as a sub-oscillator/sub harmonic generator. The output pulse from each division is one clock cycle in length, and the relationship between pulses is fixed. Specifically, the /4 output will correspond to every second pulse from the /2 output. Likewise, the /8 will correspond to every second pulse from the /4 output, and the /6 will correspond to every second pulse from the /3 output. Needless to say, the /2 and /3 groups are not related to each other, or to the /5 or /7 outputs. All however share a common external reset, so they can be synchronized. All outputs go high on reset.
+<p>
+As well as the pulse divider, there are also four boolean logic elements. Two are basic inverters. If you apply a LOW (e.g. a gate output in its OFF state) they will give a HIGH (gate ON) output, and vice versa. The OR gate has two inputs, and gives a HIGH whenever <i>one</i> or <i>both</i> inputs are HIGH. The AND gate has two inputs, and gives a HIGH only when <i>both</i> inputs are HIGH. Both of these have built in LED monitors. Unlike the Analog Logic module, these are strictly for processing gate, trigger and clock signals.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+Feed a clock signal into the input of the pulse divider. The divided signal is available simultaneously for each output. If running at audio frequencies, feed some of these to a mixer or other signal processing device. If running at low speed, try driving two different sequencers at the same time from different divisions.
+<p>
+Try feeding the /8 output into the reset - this will force all to synchronize to a /7 count, with the lesser divisions becoming "syncopated".
+<p>
+The AND gate could be used to control a clock signal. If the second input is LOW, no clock signal passes. If the second input is high, the signal passes unimpeded. Of course, there are a lot more things that can be done with the logic gates. For example, the /6 and /7 outputs could be ANDed together, and that would give a pulse every 6 x 7 (42) clock pulses (i.e. 1 pulse immediately the pulse divider is reset, and the second 42 pulses after that etc.).
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<p>Click here for the schematics:
+<br><a href="pic/schem_cgs36_pulse_divider.gif" target="_blank">Rev 1.1 dividers.</a>
+<br><a href="pic/schem_cgs36_boolean.gif" target="_blank">Rev 1.1 Logic.</a>
+<br><a href="pic/schem_cgs36_pulse_divider_r1-1.gif" target="_blank">Rev 1.2 dividers.</a>
+<br><a href="pic/schem_cgs36_boolean_r1-1.gif" target="_blank">Rev 1.2 Logic.</a>
+<p>
+The clock and reset signals are processed by the LM358 (or TL072). The reset is sensitive to rising edges only, meaning that a continuous gate signal would reset the dividers, then allow the module to continue counting. The Reset button on the other hand is wired so that holding it in will stop all counting, and hold all outputs high for as long as the button is held.
+<p>
+Following the input processor are four 4017 decade counters wired to give the various divisions. Where possible, sub-divisions have been taken from the same chip, with the various pulses being ORed together by diodes. Each output is buffered by an emitter follower. Many small signal or switching transistors can be used here without affecting the performance.
+<p>
+The boolean logic are simple discrete R/DTL designs. When either input of the OR gate receives a voltage high enough, the first transistor is switched on, pulling the base of the second transistor low, and thus turning it on as well. This results in the output being pulled up to the voltage governed by the resistor divider. In the case of the AND gate, both input transistors must be turned on before the output transistor can be turned on, as the input transistors are in series with each other. The inverters are basically just the same as the first stage of the OR gate, with the exception of there being only one input.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs36v13.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs36v13.gif"></a>
+<br><i>The component overlay. <a href="pic/pcb_cgs36v13.gif" target="_blank">Click here</a> for an enlarged printable version.</i>
+</center>
+<p>
+Note: <b>On the first run of the PCBs, the 820R and 680R in the AND gate are reversed.</B> Simply swap them. If you forget, one output will be a little lower than the other, but it is NOT critical.<p>
+<p>
+Note: <b>On the first run of the REV1.2 PCBs, the boards are actually labelled REV1.1.</B> They are identifiable because this revision mark is in the same box as the CGS36 ID.
+All Rev1.2 versions: the 1k5 in the second inverter should be 1k8.
+<p>
+VER1.3 PCBs have the upper part of the output dividers marked as RA on the PCB. These resistors are 1k8 for +/-15V operation and 1k5 for +/-12 volt operation. Likewise the two 1k8 resistors in the inverters should be 1k5 for 12 volt operation. The two 1k5 resistors in the OR and AND gates could probably be increased to 1k8 for 15 volt operation. Check your output voltages when you have assembled them. Ideally the voltages will swing between 0 volts and +5 volts. Some small variance either way is nothing to be concerned about.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics  and IC and transistors.
+<p>
+When inserting the IC in its socket, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+<b>Notes:</b>
+<ul>
+<li>On REV1.1 boards the output swing of the inverters are not limited like those in the other gates. Adding a resistor from the collector to emitter of the transistors (one per inverter) will reduce the "high" level output. I would suggest something in the range of 470R to 680R.
+<li>Make sure you use a standard 4000 series CMOS, not 74XXX4000 series, e.g. CD4017, MC14017, HEF4017.
+<br>Markings such as HC4017, HCT4017 imply 74HC4017 and 74HCT4017 and are unsuitable.
+<li>This module will work on +/-12 volts. See the text for resistor value changes.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite beads. If you don't care about power-rail noise, just use a link instead.
+<li>On some boards there is an unmarked capacitor near the power connector. This can be anything in the range of 10n to 100n, and ceramic, or it can be omitted altogether.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><th colspan=2>REV 1.1</th></tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>5</td></tr>
+<tr><td>10uF 25V </td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>680R</td><td align=right>2</td></tr>
+<tr><td>820R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>11</td></tr>
+<tr><td>10k</td><td align=right>10</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>28</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+<tr><td>1N4148</td><td align=right>24</td></tr>
+<tr><td>LM358</td><td align=right>1</td></tr>
+<tr><td>4017</td><td align=right>4</td></tr>
+<tr><td>BC547</td><td align=right>12</td></tr>
+<tr><td>BC557</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>1</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs36 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+<p>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><th colspan=2>REV 1.2, VER1.3</th></tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>5</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>13</td></tr>
+<tr><td>1k5 (12V operation)</td><td align=right>11</td></tr>
+<tr><td>1k8 (15V operation)</td><td align=right>11</td></tr>
+<tr><td>10k</td><td align=right>9</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>21</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+<tr><td>1N4148</td><td align=right>23</td></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>CD4017</td><td align=right>4</td></tr>
+<tr><td>BC547</td><td align=right>12</td></tr>
+<tr><td>BC557</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs36 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs36v1_pulse_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:27:33 GMT -->
+</HTML>

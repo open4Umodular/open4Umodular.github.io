@@ -1,0 +1,1038 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:42:08 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+
+
+<tr><td valign="top" colspan="2"><a href="../help.html"><font face="ARIAL,HELVETICA" size=6 color="red"><B>The FAQ</b></font></a>
+<p>
+<h4><font face="ARIAL,HELVETICA" size=4><a href="../help.html">PLEASE read this</a> before attempting to build anything from these pages.</h4></font>
+</td></tr>
+
+<tr><td>
+<font face="ARIAL,HELVETICA" size=6>Modules</font><br>
+<font face="ARIAL,HELVETICA" size=4>and how to build them.</font>
+<p>
+<font face="ARIAL,HELVETICA">
+Details of each module are given where appropriate, varying from full construction information, to brief summaries, or links to the source of the design. PCBs are available for many of my original designs. Click on the text link or image of the module in which you are interested.
+<p>
+<font face="ARIAL,HELVETICA" size=4>The modules:</font>
+
+<p><b>Latest updates can now be found at <a href="http://www.elby-designs.com/webtek/cgs/cgs.htm" target="_blank">www.elby-designs.com/</a>.</b>
+
+<ul>
+
+
+<li><b>PCBs, kits and ready made CGS modules are available from:</b><br>
+<ul>
+<li><a href="http://www.elby-designs.com/" target="_blank"><b>www.elby-designs.com</b></a> CGS PCBS, CGS in Eurorack, kits for CGS PCBS.
+<li><a href="https://synthcube.com/cart/" target="_blank">https://synthcube.com/cart/</a> Stocks some CGS PCBS and kits. (has taken over Bridechamber)
+<li><a href="https://www.thonk.co.uk/" target="_blank">https://www.thonk.co.uk/</a> Stocks some CGS PCBS and kits.
+<li><a href="http://www.metalbox.com/" target="_blank">www.metalbox.com</a> - Frac-Rack.
+<li><a href="http://www.modularaddict.com/" target="_blank">Modular Addict</a> CGS PCBS, CGS in Eurorack, kits for CGS PCBS.
+
+</ul>
+
+
+<ul>
+
+<p><b>CV processors</b>
+<li><a href="#cgs26">Analog Logic voltage processor</a>
+<li><a href="#cgs34">Analog Shift Register</a>
+<li><a href="#cgs98">Bus Driver</a>
+<li><a href="#cgs43">Cascade Mixer</a>
+<li><a href="#cgs37">C.V. Cluster</a>
+<li><a href="#cgs23">C.V. Mega Mixer</a>
+<li><a href="#cgs04">D.C. Mixer</a>
+<li><a href="#smt04">D.C. Mixer SMT</a>
+<li><a href="#cgs70">D.C. Mixer/Inverter dev block</a>
+<li><a href="#cgs81">D.C. Mixer/Voltage Processor</a>
+<li><a href="#cgs04a">Joystick controller</a>
+<li><a href="#cgs33">Matrix Mixer</a>
+<li><a href="#cgs40">Modulo Magic</a>
+<li><a href="#cgs80">Multi-Mixer</a>
+<li><a href="#cgs82">Serge Negative Slew</a>
+<li><a href="#cgs83">Serge Positive Slew</a>
+<li><a href="#cgs84">Serge Peak and Trough</a>
+<li><a href="#cgsssg">Serge Smooth and Stepped Generator</a>
+<li><a href="#cgs88">Serge Triple Bi-Directional Router.</a>
+<li><a href="#cgs64">Voltage controlled amplifier</a>
+
+
+<p><b>CV Generators/controllers</b>
+<li><a href="#cgs41">Diatonic Converter</a>
+<li><a href="#cgs42">Gate Sequencer CV Adapter</a>
+<li><a href="#cgs32">Infinite Melody</a>
+<li><a href="#cgs10">Pedal board/Mini Keyboard</a>
+<li><a href="#cgs03">Psycho LFO</a>
+<li><a href="#cgs59">Programmer/Sequencer</a>
+<li><a href="#cgs82">Serge Negative Slew</a>
+<li><a href="#cgs97">Serge Noise</a>
+<li><a href="#cgs83">Serge Positive Slew</a>
+<li><a href="#cgsssg">Serge Smooth and Stepped Generator</a>
+<li><a href="#cgs86">Serge Touch Responsive Keyboard</a>
+<li><a href="#cgs21">Super Psycho Modulation source.</a>
+<li><a href="#cgs58">Utility LFO.</a>
+<li><a href="#cgs75">Voltage Controlled Slope (lag) generator. Serge</a>
+<li><a href="#cgs775">Voltage Controlled Slope (lag) generator. Euro. Serge</a>
+<li><a href="#cgs78">Utility Envlope Generator (ADSR).</a>
+<li><a href="#cgs116">VC Extended Envlope Generator (DADSR).</a>
+
+<p><b>Clock/Gate/Trigger processors</b>
+<li><a href="#cgs06">Burst Generator</a>
+<li><a href="#cgs13">Gated Comparator</a>
+<li><a href="#cgs07">Gate Sequencer</a> (obsolete)
+<li><a href="#cgs89">Gate Sequencer</a>
+<li><a href="#cgs24">Gate to Trigger Converter</a>
+<li><a href="#cgs69">Gate/Trigger Dev Block</a>
+<li><a href="#cgs22">Master Divider</a>
+<li><a href="#cgs36">Pulse Divider and Boolean Logic</a>
+<li><a href="#cgs39">Quad Logic Gate</a>
+<li><a href="#cgs62">Slope Detector</a>
+<li><a href="#cgs01">Sub-oscillator/harmonic sequencer</a>
+<li><a href="#uni01">Sub-oscillator/harmonic sequencer (UNI format)</a>
+<li><a href="#cgs78">Utility Envlope Generator (ADSR).</a>
+<li><a href="#cgs121">Quad Comparator and Memory Cell.</a>
+
+
+<p><b>Signal Processors</b>
+<li><a href="#cgs67">Active Real Ring Modulator</a>
+<li><a href="#cgs30">Bandpass Filter</a>
+<li><a href="#cgs57">Bi-N-Tic Voltage controlled Filter/oscillator</a>
+<li><a href="#cgs43">Cascade Mixer</a>
+<li><a href="#cgs44">Delay Development Board</a>
+<li><a href="#cgs45">Dome Filter</a>
+<li><a href="#lpg">Low Pass Gate</a>
+<li><a href="#cgs40">Modulo Magic</a>
+<li><a href="#cgs90">Phaser and audio mixers</a>
+<li><a href="#cgsrmodem">Real Ring Modem</a>
+<li><a href="#cgsrr">Real Ring Modulator</a>
+<li><a href="#cgs95">Reverb</a>
+<li><a href="#cgs38">Saw Pitch Shifter/Wave Multiplier</a>
+<li><a href="#cgs77">Serge 1973 VCF</a>
+<li><a href="#cgs101">Serge Dual Channel Stereo Mixer (DCSM)</a>
+<li><a href="#cgs90">Serge Phaser and audio mixers</a>
+<li><a href="#cgs202">Serge Resonant Equalizer</a>
+<li><a href="#cgs79">Serge Ring Modulator</a>
+<li><a href="#cgs88">Serge Triple Bi-Directional Router.</a>
+<li><a href="#cgs85">Serge Triple Wave Shaper</a>
+<li><a href="#cgs112">Serge Voltage Controlled Resonance Filter</a>
+<li><a href="#cgs113">Serge Voltage Controlled Wave Multiplier</a>
+<li><a href="#cgs52">Simple Wave Folder</a>
+<li><a href="#cgs35">Steiner Voltage Controlled HP, LP &amp; BP Filter</a>
+<li><a href="#cgs35euro">Steiner Voltage Controlled HP, LP &amp; BP Filter, Eurorack format.</a>
+<li><a href="#cgs28">Sequential Switch</a>
+<li><a href="#cgs49">Twin CMOS VCF (WASP)</a>
+<li><a href="#cgs27">Tube VCA and wave folder</a>
+<li><a href="#cgs29">Wave Multiplier</a>
+<li><a href="#cgs64">Voltage controlled amplifier</a>
+<li><a href="#cgs09">Voltage controlled divider</a>
+
+
+
+<p><b>Signal Generators</b>
+<li><a href="#cgs19">Chime Simulator</a>
+<li><a href="#cgs47">Cynare (drum simulator)</a>
+<li><a href="#cgs31">Digital Noise</a>
+<li><a href="#cgs18">Drum Simulator</a>
+<li><a href="#cgs82">Serge Negative Slew (LFO/VCO)</a>
+<li><a href="#cgs97">Serge Noise</a>
+<li><a href="#cgs83">Serge Positive Slew (LFO/VCO)</a>
+<li><a href="#cgs08">V8 Engine Simulator</a>
+<li><a href="#cgs48">VCO</a>
+<li><a href="#CGS02">Wavetable for VCOs</a>
+
+<p><b>General and Accessories</b>
+<li><a href="#cgsmult">Multiple Jack</a>
+<li><a href="#cgs14">+/- 15 Volt Power Supply (dirty/digital)</a>
+<li><a href="#cgs66">+/- 15 Volt Power Supply (clean/analog)</a>
+<li><a href="#cgs124">Breadboard </a>
+<li><a href="#cgs98">Bus Driver</a>
+<li><a href="#cgs99">Bus Expansion Port</a>
+<li><a href="#cgs70">D.C. Mixer/Inverter dev block</a>
+<li><a href="#cgs72">Dev-mod Block joiner</a>
+<li><a href="#cgs12">Display Adapter</a>
+<li><a href="#cgs73">Euro power distribution board.</a></b>
+<li><a href="#cgs69">Gate/Trigger Dev Block</a>
+<li><a href="#cgs71">Generic Dev Block/prototyping area</a>
+<li><a href="#cgsld">LED Driver</a>
+<li><a href="#cgs74">MOTM power distribution board.</a></b>
+<li><a href="#cgs63">Power Supply Delay</a>
+<li><a href="#cgs88">Serge Triple Bi-Directional Router.</a>
+<li><a href="#cgs46">Stomp Box Adapter (Use CGS modules as effects pedals)</a>
+<li><a href="#cgs60">Stomp Box Adapter (Use effects pedals as modules)</a>
+<li><a href="#cgs91">Board mounting rails</a>
+<li><a href="#cgs93">Trunk Lines/Multiples</a>
+<li><a href="#cgs94">Pot mounting rails</a>
+<li><a href="#cgs120">Utility mounting rail</a>
+<p><b>Digital Synth subsections</b>
+<li><a href="#cgs11">D/A Converter</a>
+<li><a href="#cgs20">Digitally Controlled Oscillator</a>
+<li><a href="#cgs25">Keyboard Scanner sub-module</a>
+<li><a href="#cgs05">Parallel port adapter</a>
+</ul>
+<p>
+<li><a href="#original">Other original designs</a>.
+<li><a href="#tube">Tube modules</a>. Something a little different.
+<li><a href="mounting_holes.html">Mounting holes for boards.</a> Some basic dimensions of the boards, and their mounting holes.
+<li><a href="parts_faq.html">Parts FAQ</a>.
+</ul>
+<p>
+<a name="cgs"><font face="ARIAL,HELVETICA" size=4>CGS Modules you can build</font></a>
+<p>
+<ul>
+
+
+<li>
+<b><a name="cgsmult">CGS MULTIPLE</a> <a href="cgsmult.html">Multiple Jack</a></b>
+<br>
+This is a tiny board allows easy wiring of banana jack multiples.
+<p>
+
+<li>
+<b><a name="cgsld">CGSLD</a> <a href="cgsld.html">LED driver</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This is a tiny ancillary board that contains a single transistorized LED driver for monitoring synthesizer module outputs.
+<p>
+
+<li>
+<b><a name="cgsrr">CGSRR</a> <a href="cgsrr.html">Real Ring Modulator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This is a pre-assembled classic diode ring modulator for when a four quadrant multiplier simply won't do.
+<p>
+
+<li>
+<b><a name="cgsrmodem">CGSRRM</a> <a href="cgsrmodem.html">Real Ring Modem</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Someting to try out with your Real Ring Modulators. Two are required.
+<p>
+
+<li>
+<b><a name="cgsssg">CGSSSG</a> <a href="cgsssg_ssg.html">Serge Smooth and Stepped Generator</a></b>
+<br>
+The Serge Smooth and Stepped Function Generator (SSG) is s a complex multi-functional module to provide various slew and sample functions. For new builds, see the <a href="#cgs92">CGS92</a> below.
+<p>
+
+
+
+<li>
+<b><a name="cgsad">Adapter</a> <a href="cgsad.html">Banana to 3.5mm adapter plug</a></b>
+<br>Are your Serge and your Euro rack modules not talking? Try this.
+<p>
+
+<li>
+<b><a name="cgs01">CGS01</a> <a href="cgs01_subosc.html">Sub-oscillator/harmonic sequencer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Use this twin sub-oscillator with one or two VCOs for fat sounding lead or harmonies, or with a VCO and an LFO for harmonic sequences, or as a pattern based sequencer.
+<p>
+
+<li>
+<b><a name="cgs02">CGS02</a> <a href="wavetable.html">Wavetable for VCOs</a></b>
+<br>
+Feed this module with a high frequency from a VCO or DCO for a range of selectable waveforms/tones. ROMs are available that contain 4 or 8 banks of eight waveforms per bank.
+<p>
+
+<li>
+<b><a name="cgs03">CGS03</a> <a href="psycho_lfo.html">Psycho LFO</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This is a bizarre little LFO that produces a wide range of pseudo random effects from  random timed stepped, to smooth flowing. One of my most popular modules.
+<p>
+
+<li>
+<b><a name="cgs04">CGS04</a> <a href="cgs04_mix.html">D.C. Mixer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Mix synthesizer level audio signals or control voltages with this d.c. coupled mixer.
+<p>
+
+<li>
+<b><a name="smt04">SMT04</a> <a href="smt04_mix.html">D.C. Mixer SMT</a></b>
+<br>
+Mix synthesizer level audio signals or control voltages with this d.c. coupled mixer.
+<p>
+
+<li>
+<b><a name="cgs04a">CGS04</a> <a href="joystick.html">Joystick controller</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module uses a pair of D.C. mixers with a two-axis joystick to control various synthesizer funtions.
+<p>
+
+<li>
+<b><a name="cgs06">CGS06</a> <a href="burst_generator.html">Burst Generator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+A rhythm and timing accessory that generates a burst of gate or trigger pulses at various speeds. Used for washboard, maracas or similar rapid-burst percussive effects when connected to the appropriate sound generating device.
+<p>
+
+<li>
+<b><a name="cgs07">CGS07</a> <a href="gate_sequencer2.html">Gate Sequencer</a></b>
+<br>
+An expandable sequencer designed for controlling pulsed or gated events, for rhythm and percussion.
+<p>
+
+<li>
+<b><a name="cgs08">CGS08</a> <a href="v8.html">V8 Engine Simulator</a></b>
+<br>
+A V8 engine sound simulator for revving up your music. A sound-effect module.
+<p>
+
+<li>
+<b><a name="cgs09">CGS09</a> <a href="cgs09_vcd.html">Voltage controlled divider</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>Use this as a timing accessory for sequencers, or with a VCO for frequency trills like those of the old 8-bit computer games.
+Unilke other voltage controlled dividers, this one preserves the pulse width of the incoming signal.
+<p>
+
+<li>
+<b><a name="cgs10">CGS10</a> <a href="cgs10_pedal.html">Pedal board/Mini Keyboard</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>A simple circuit that can be used to make a small monophonic 1 volt per octave keyboard, or pedalboard.
+<p>
+
+<li>
+<b><a name="cgs11">CGS11</a> <a href="cgs11_da_converter.html">D/A Converter</a></b>
+<br>This board was really developed for my own use, to allow my 486 based sequencer to connect to various VCOs etc. It has twelve bit resolution.
+<p>
+
+<li>
+<b><a name="cgs12">CGS12</a> <a href="cgs12_displayadapter.html">Display Adapter</a></b>
+<br>This board was developed to go with the Wavetable project, allowing easy displaying of the bank and wave numbers.
+<p>
+
+<li>
+<b><a name="cgs13">CGS13</a> <a href="cgs13v2_gated_comparator.html">Gated Comparator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module can be used as a simple gate delay, a semi-random melody generator, a comparator, and a gate/clock controlled comparator. All in all, a very versatile module.
+<p>
+
+<li>
+<b><a name="cgs14">CGS14</a> <a href="cgs14_psu.html">+/- 15 Volt Power Supply</a></b>
+<br>A simple PSU for use with modules that don't require a more expensive alternative. This is suitable for the gate sequencer, burst generator, V-8 simulator and a number of other CGS projects.
+<p>
+
+<li>
+<b><a name="cgs18">CGS18</a> <a href="cgs18_drum.html">Drum Simulator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This module is the embodiment of the classic twin-T circuit in a form that is suitable for connection to modular synthesizers. It contains two separate drum sounds, each individually triggered, as well as something unique - adjustable harmonic content.
+<p>
+
+<li>
+<b><a name="cgs19">CGS19</a> <a href="cgs19_chime.html">Chime Simulator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module contains a pair of two or three tone chimes that are suitable for connection
+to modular synthesizers. Each chime sound is created by modulating two or three square wave oscillators together, and applying an envelope to the result. Each chime is individually triggered.
+<p>
+
+<li>
+<b><a name="cgs20">CGS20</a> <a href="cgs20_dco.html">Digitally Controlled Oscillator</a></b>
+<br>This board was really developed for my own use, to allow my 486 based sequencer to drive wavetables etc. It has sixteen bit resolution.
+<p>
+
+<li>
+<b><a name="cgs21">CGS21</a> <a href="cgs21_super_psycho.html">Super Psycho Modulation source.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This module is a much expanded version of the Psycho LFO, featuring six free-running oscillators, each variable between LFO and audio ranges, two of which can be switched to have triangular wave outputs. Each oscillator can be switched between low and high ranges, as well as off, and also has a rate LED, to allow visual determination of the frequency at which it is running. As per the original, there are also level and glide controls.
+<p>
+
+<li>
+<b><a name="cgs22">CGS22</a> <a href="cgs22v2_master_divider.html">Master Divider</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The purpose of this module is to divide down a system master clock (e.g. a VCLFO) to drive an array of sequencers or other timed events. The different phase outputs are to allow for modules that may trigger from the falling edge of a wave, or to allow for deliberate lagging of an event. It would for example be possible to have two sequencers running from this unit, one at 1/8 of the frequency of the other, their outputs being mixed to give a sequence that changes fundamental pitch each eight notes.
+<p>
+
+<li>
+<b><a name="cgs23">CGS23</a> <a href="cgs23_cv_mega_mixer.html">C.V. Mega Mixer</a></b>
+<br>
+This module is an enhanced version of the D.C. mixer designed for both audio and CV mixing. It has both non-inverting (adding) and inverting (subtracting) inputs, as well as a master level control. It also features two inverting outputs, one that is offset by the master level control, and the other which has independent offset and center inputs.
+<p>
+
+<li>
+<b><a name="cgs24">CGS24</a> <a href="cgs24_gatetotrigger.html">Gate to Trigger Converter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module contains a pair of two gate to trigger converters, allowing key-down gate signals, or those from gate sequencers etc. to be converted into a much narrower trigger signal as required by some percussive effects. These may come in handy when adapting various drum sound generators to synthesizer use.
+<p>
+
+<li>
+<b><a name="cgs25">CGS25</a> <a href="cgs25_keyscan.html">Keyboard Scanner sub-module</a></b>
+<br>This board was really developed for my own use, to allow my 486 based sequencer to connect to various keyboards.
+<p>
+
+<li>
+<b><a name="cgs26">CGS26</a> <a href="cgs26_analogic.html">Analog Logic voltage processor</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module is the analog implementation of some basic logic elements. Instead of dealing with binary inputs, the "logic" is applied to whatever voltages are present on the inputs.
+When the AND element is fed several voltages, the output will equal the the lowest input voltage. The NAND output will be the inversion around 0 volts of the AND output.
+When the OR element is fed several voltages, the output will equal the the highest input voltage. The NOR output will be the inversion around 0 volts of the OR output.
+Apparently the AND and OR functions are the same thing as "peak" and "trough" on old Serge synthesizers, though they are implemented somewhat differently.
+<p>
+
+
+<li>
+<b><a name="cgs27">CGS27</a> <a href="cgs27_tube.html">Tube VCA and wave folder</a></b>
+<br>
+This circuit board was designed to allow for easier assembly of 7 pin tube based synthesizer circuits. Going on the number of requests I have had for a tube module that runs on +/- 15 volts, the first project I present using this board is exactly that. It is a simple VCA that doubles as a wave folder/distortion unit. There are no dangers in connection this to solid state modules due to the voltages in use, and the fact that this is really a voltage controlled attenuator, and not an amplifier. There is about 50% signal level loss.
+<p>
+
+<li>
+<b><a name="cgs28">CGS28</a> <a href="cgs28_seq_switch.html">Sequential Switch</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+A basic switching/sequencing module with many uses.
+<p>
+
+
+<li>
+<b><a name="cgs29">CGS29</a> <a href="cgs29_wave_multiplier.html">Wave Multiplier</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The idea for this project came from the fabled middle section of the Serge wave multipliers. It could equally be described as a wave folder or a timbre modulator.
+<p>
+
+<li>
+<b><a name="cgs30">CGS30</a> <a href="cgs30_bpf.html">Bandpass Filter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+A utility bandpass filter for creating artifical instrument resonant cavities etc.
+<p>
+
+<li>
+<b><a name="cgs31">CGS31</a> <a href="cgs31_digital_noise.html">Digital Noise</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module is a very standard pseudo-random digital noise source with a few enhancements. Instead of running a fixed high frequency clock, a VCO is used instead, allowing for unusual sweeps, and for reducing the speed right down to a series of random pulses. The internal linear VCO can also be bypassed so an external source such as a 1V/oct VCO or LFO can be substituted. It has pink and white noise outputs, and two separate (unique) digital outputs for use in triggering other circuits.
+<p>
+
+<li>
+<b><a name="cgs32">CGS32</a> <a href="cgs32_infinite_melody.html">Infinite Melody</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The name of this module is a play on its function. Put simply, it generates a series of semi-random or themed stepped control voltages, or if you prefer, white and pink control voltages. The pink function is probably better known as 1/f.
+<p>
+
+<li>
+<b><a name="cgs33">CGS33EUR</a> <a href="cgs33_matrix_mixer_euro.html">Matrix Mixer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The matrix mixer is a four input, multiple output bipolar or unipolar DC coupled mixer, for mixing control voltages or audio signals. In cases where you require several different mixes from a common set of signals, this module is ideal.
+<p>
+
+<li>
+<b><a name="cgs33old">CGS33</a> <a href="cgs33_matrix_mixer.html">Matrix Mixer</a></b>
+<br>
+The matrix mixer is a five input, five output bipolar or unipolar DC coupled mixer, for mixing control voltages or audio signals. In cases where you require several different mixes from a common set of signals, this module is ideal.
+<p>
+
+
+<li>
+<b><a name="cgs34">CGS34</a> <a href="cgs34_asr.html">Analog Shift Register</a></b>
+<br>It is three stages in length, duplicating the functionality of the Serge ASR, but doing it in a very different way. It is great for producing "arabesque-like" sequences, trills etc., when used with VCOs. Of course it's use is not limited to VCOs only.
+<p>
+
+<li>
+<b><a name="cgs35">CGS35</a> <a href="cgs35_syntha_vcf.html">Steiner Voltage Controlled HP, LP &amp; BP Filter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module is a "tribute" module, based on the awesome Steiner-Parker Synthacon VCF. Those who know me will know I'm not a big VCF fan. Nonetheless, this VCF really appeals to me. Its sound is quite unlike the Moog ladder, and has a lot of character.
+<p>
+
+
+<li>
+<b><a name="cgs35euro">CGS35EURO</a> <a href="cgs35_euro_vcf.html">Steiner Voltage Controlled HP, LP &amp; BP Filter</a></b>
+<br>
+Like the above, this module is a "tribute" module, based on the awesome Steiner-Parker Synthacon VCF. Some circuit improvements such as input level controls and expanded response have been made, as well as a new set of PCBs designed for use in Euro and Frac rack formats.
+<p>
+
+
+<li>
+<b><a name="cgs36">CGS36</a> <a href="cgs36_pulse_divider.html">Pulse Divider and Boolean Logic</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This module consists of several parts, a pulse divider with integer divisions between 2 and 8, and several logic elements. The divider is used to generate interrelated pulses for use in creating poly-rhythms, and unusual sequences or as a sub-oscillator/sub harmonic generator.
+<p>
+As well as the pulse divider, there are also four boolean logic elements, two inverters an OR gate and an AND gate for the processing of gate and trigger signals.
+<p>
+
+<li>
+<b><a name="cgs37">CGS37</a> <a href="cgs37_cv_cluster.html">C.V. cluster</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The C.V. cluster is an unusual kind of mixer. It takes two input voltages - a base control voltage, and a modulating control voltage, and creates the sum and differences of them, as well as a range of voltage in between.<p>
+
+<li>
+<b><a name="cgs38">CGS38</a> <a href="cgs38_saw_pitch_shift.html">Saw Pitch Shifter/Wave Multiplier</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Saw Pitch Shifter is an experimental combination of op-amp summers and comparators with surprising results, ranging from complex wave shaping to pitch shifting of saw tooth waves.
+<p>
+
+<li>
+<b><a name="cgs39">CGS39</a> <a href="cgs39_quad_gate.html">Quad Logic Gate</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Quad Logic Gate is a very simple module that can be built in one of five flavors : XOR, OR, AND, NOR and NAND. It is a simple way to gain additional control of gate and trigger pulses within a system. It can also be used for some simple signal multiplying. The XOR is well known as a square wave "ring modulator", though interesing effects can also be generated using the other configurations. Each gate has an inbuilt LED to indicate the status of the outputof that gate.
+<p>
+
+<li>
+<b><a name="cgs40">CGS40</a> <a href="cgs40_modulo_magic.html">Modulo Magic</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+A CV and signal processor based on the mathematical modulo principle. Makes a great wave multipler too!
+<p>
+
+<li>
+<b><a name="cgs41">CGS41</a> <a href="cgs41_diatonic_converter.html">Diatonic Converter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Diatonic Converter is an adapter for projects such as the Infinite Melody and Gated Comparator, constricting their outputs to the notes of a major or minor diatonic scale instead of the chromatic scale. A single control line selects between major and minor. It can also be used as a stand-alone module when driven from other systhesizer gate events.
+<p>
+
+<li>
+<b><a name="cgs42">CGS42</a> <a href="cgs42_cv_adapter.html">Gate Sequencer CV Adapter</a></b>
+<br>
+The CV Adapter is an addition to the <a href="#cgs07">Gate Sequencer</a> converting it to a traditional eight-step control voltage sequencer.
+<p>
+
+<li>
+<b><a name="cgs43">CGS43</a> <a href="cgs43_cascade_mixer.html">Cascade Mixer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Cascade Mixer is an experimental mixer that can be built in one of several ways - a unity gain cascaded mixer, a binary weighted (or scaled) mixer, or as a staircase generator when coupled with a binary counter.
+<p>
+
+<li>
+<b><a name="cgs44">CGS44</a> <a href="cgs44_ddb.html">Delay Development Board</a></b>
+<br>
+The Delay Development Board has been designed to allow people to experiment with the Princeton Technologies PT2395 Enhanced Digital Echo IC.
+<p>
+
+<li>
+<b><a name="cgs45">CGS45</a> <a href="cgs45_domefilter.html">Dome Filter</a></b>
+<br>
+The dome filter is a 90&deg; phase difference network, as used in frequency shifters. It is not a project in itself, and will be of no use to most people. I designed this board simply because I needed some dome filters for my own experimentation. The boards I am selling are simply left over from this run.
+<p>
+
+<li>
+<b><a name="cgs46">CGS46</a> <a href="cgs46_sba.html">Stomp Box Adapter</a></b>
+<br>
+The Stomp Box Adapter has been designed to allow some of the regular CGS modules to be used as guitar effects. It has an integral power supply and provides two channels of amplification to bring guitar signal levels up to those used by synthesizers, and two attenuators to drop them again, post effect. It also provides the essential bypass circuit.
+<p>
+
+
+<li>
+<b><a name="cgs47">CGS47</a> <a href="cgs47_cynare.html">Cynare (drum simulator)</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Cynare drum simulator is the third in the series of CGS drum simulators. It generates a single drum sound that can be adjusted to sound like a cymbal, hi-hat, snare drum, electronic drum, or numerous other percussive sounds. It is a complete dedicated synthesizer in its own right, including six oscillators, a noise source, a mixer, an envelope generator, a VCF and a VCA.
+<p>
+
+<li>
+<b><a name="cgs48">CGS48</a> <a href="cgs48_vco.html">VCO</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This VCO started out life as a replacement for the original VCOs in my '73 Serge, so it replicates a lot of the functionality of that module. Of course there have been numerous enhancements to the design as well, making it right at home in a 1 volt per octave synthesizer.
+
+<p>
+<li>
+<b><a name="cgs49">CGS49</a> <a href="cgs49_twf.html">Twin CMOS Filter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+A dual version of the popular CMOS based Wasp VCF, featuring adjustable distortion.
+
+<p>
+
+<li>
+<b><a name="cgs51">CGS51</a> <a href="cgs51_wrs.html">Weighted Random Switch</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The weighted random switch is another module for introducing unpredictability into synthesizers. The original requirement was for a circuit that would, upon receiving a clock signal, randomly direct a single input to one of four outputs, but with a twist. Four knobs or control voltages could be used to sway the likelihood of one or more outputs being selected over the others.
+<p>
+
+<li>
+<b><a name="cgs52">CGS52</a> <a href="cgs52_folder.html">Simple Wave Folder</a></b>
+<br>
+The Simple Wave Folder is an ideal beginners project for two reasons - it is simple to build, and its effect is powerful - far beyond what could be suspected from such a simple circuit. The effect it produces is not like unlike that of the Serge middle wave multiplier - harmonically rich waveforms that can be swept for filter-like effects.
+
+<p>
+
+<li>
+<b><a name="cgs54">CGS54</a> <a href="cgs54_xor.html">XOR XNOR logic.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This board is an add-on for the <a href="cgs36_pulse_divider.html">Pulse Divider and Boolean Logic</a> module, adding XOR and XNOR funtionality. It can also be used to compare two analog signals, either positive or negative in value.
+<p>
+
+<li>
+<b><a name="cgs55">CGS55</a> <a href="cgs55_asm.html">Analog Switch Matrix</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Analog Switch Matrix is a complex router, allowing one input to be switched between four outputs, or vice versa, or even to route one signal through one of four external effects (e.g. wave multipliers, filters etc.). It can also be used as four independent analog switches.
+
+<p>
+
+<li>
+<b><a name="cgs56">CGS56</a> <a href="cgs56_gatecon.html">Gate Converter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The purpose of the Gate Converter is to turn standard positive gate signals into negative to postitive going gate signal. This is particularly handy when interfacing to other manufacturer's modules that require a zero crossing singal to operate. It can also be used to convert assorted LFO or VCO signals to square or rectangular waves, to extract some form of gate signal from an envelope and so on.
+<p>
+
+<li>
+<b><a name="cgs57">CGS57</a> <a href="cgs57_bintic.html">Bi-N-Tic Voltage controlled Filter/oscillator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This is a strange mixture of a VCO and a switched capacitor filter based on the filter presented by Jan Hall in Electronotes. If you are after something different, this fits the bill. After all, how many filters have a sync input?
+<p>
+
+<li>
+<b><a name="cgs58">CGS58</a> <a href="cgs58_lfo.html">Utility LFO</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The Utility LFO is a dual manually controlled LFO offering a number of standard and combined outputs for general low frequency work, such as filter and phaser sweeps, clocking sequencers and so on.
+<p>
+
+<li>
+<b><a name="cgs59">CGS59</a> <a href="cgs59_prog.html">Programmer/Sequencer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Serge style programmer/sequencer.<br>
+The Programmer/Sequencer is a Serge inpired multi-stage sequencer. Unlike most sequencers, this one makes no use of binary counters. Rather, it uses a set of individual stages, each one directly accessible.
+<p>
+
+
+<li>
+<b><a name="cgs60">CGS60 VER2.0</a> <a href="cgs60_sba.html">Stomp Box Adapter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This is an external input amplifier with extra provisions so that it can also be used as an effects pedal interface. There are three identical amplifiers on the board.
+<p>
+It replaces both the CGS60 and the CGS46 stomp box adapters.
+<p>
+<font color="gray"><b><a name="cgs60">CGS60 VER1.0</a> <a href="cgs60v1_sba.html">Stomp Box Adapter</a></b>
+It can be used as an external input amplifier, a way to use effects pedals with synthesizer signal levels, or a ay to use synthesizer modules with instruments such as electric guitars.
+This is a smaller version of the <a href="cgs46_sba.html">CGS46 Stomp Box Adapter</a> and is basically for use in the reverse situation - namely to allow use of stomp-boxes (effects pedals) as part of a synthesizer setup. While the original will do the kob, this one dispenses with the power supply and bypass switching, and handles a single channel.</font>
+<p>
+
+<li>
+<b><a name="cgs62">CGS62</a> <a href="cgs62_sd.html">Slope Detector</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The slope detector is an event-driven gate/trigger generating device. It monitors a control voltage, and triggers one of three "gate" output dependent on what the control voltage is doing.
+
+<p>
+<li>
+<b><a name="cgs63">CGS63</a> <a href="cgs63_psd.html">Power Supply Delay</a></b>
+<br>
+Does your commercial PSU fail to start propperly? Does one power rail remain off? If so, this module will solve your problems.
+<p>
+
+<li>
+<b><a name="cgs64">CGS64</a> <a href="cgs64_vca.html">VCA</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Voltage Controlled Amplifier, suitable for both audio and control voltage modulation.
+<p>
+
+<li>
+<b><a name="cgs65">CGS65</a> <a href="cgs65_vca.html">Tube VCA / timbral Gate</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Tube based Voltage Controlled Amplifier / timbral gate. While this module basically operates as a VCA, it does add a degree of distortion to the signal. How much distortion depends on how hard it is driven. Add feedback and it begins to oscillate, syncing to the incoming signal to some extent. All this while running on a standard synthesizer power supply, with no extra heater supply required.
+<p>
+
+
+<li>
+<b><a name="cgs66">CGS66</a> <a href="cgs66_psu.html">+/- 15 Volt Power Supply</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>A PSU suitable for use with both digital or analog modules. It can actually be varied to cover a fair range of voltages. It is suitable for use with Eurorack Doepfer standard modules or Modcan and MOTM standard modules.
+<p>
+
+<li>
+<b><a name="cgs67">CGS67</a> <a href="cgs67_rrm2.html">Active Real Ring Modulator.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>The Real Ring modulator now has buffered inputs and outputs, and a pre-amp stuitable for guitar use.
+<p>
+
+
+<li>
+<b><a name="cgs69">CGS69</a> <a href="cgs69_gtb.html">Dev-mod Gate/Trigger block</a></b>
+<br>A "universal" gate and/or trigger processor for use in developing custom modules, or as a stand alone gate to trigger converter.
+<p>
+
+<li>
+<b><a name="cgs70">CGS70</a> <a href="cgs70_mix.html">Dev-mod Mixer/Inverter block</a></b>
+<br>A "universal" DC mixer and/or analog inverter for use in developing custom modules, or as a stand alone DC mixer.
+<p>
+
+
+<li>
+<b><a name="cgs71">CGS71</a> <a href="cgs71_dev.html">Dev-mod generic prototyping block</a></b>
+<br>A small board for building your own designs.
+<p>
+
+<li>
+<b><a name="cgs72">CGS72</a> <a href="cgs72_join.html">Joining Dev-mod blocks together.</a></b>
+<br>Methods, and a small board for joining Dev-mod PCBs together.
+<p>
+
+
+<li>
+<b><a name="cgs73">CGS73</a> <a href="cgs73_bus.html">Euro power distribution board.</a></b>
+<br>Doepfer compatible power distribution bus board.
+<p>
+
+<li>
+<b><a name="cgs74">CGS74</a> <a href="cgs74_bus.html">MOTM distribution board.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>MOTM compatible power distribution bus board.
+<p>
+
+<li>
+<b><a name="cgs75">CGS75</a> <a href="cgs75_vcs.html">Voltage Controlled Slope (Generic)</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>Adapted from the Serge DUSG, this is a general purpose version of the VCS made popular by Bananalogue. Produced under licence from Serge.
+<p>
+<li>
+<b><a name="cgs775">CGS775</a> <a href="cgs775_vcs.html">Voltage Controlled Slope EURO</a></b>
+<br>Adapted from the Serge DUSG, this is a general purpose version of the VCS made popular by Bananalogue. Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="cgs76">CGS76</a> <a href="cgs76_env.html">Serge 1973 Envelope Generator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This is an adaptation of the original Serge Envelope Generator from the early "R" series PCBs. Produced under licence from Serge. This is NOT an ADSR style generator, and can be used as an LFO.
+<p>
+
+<li>
+<b><a name="cgs77">CGS77</a> <a href="cgs77_vcf.html">Serge 1973 Voltage Controlled Filter</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This is an adaptation of the original Serge VCF from the early "R" series PCBs. Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="cgs78">CGS78</a> <a href="cgs78_env.html">Utility Envelope Generator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This is a basic envelope generator of the ADSR variety.
+<p>
+
+<li>
+<b><a name="cgs79">CGS79</a> <a href="cgs79_ring.html">Serge Ring Modulator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This module is a variation on the 1973 Classic Serge R6 Ring Modulator.
+<p>
+
+<li>
+<b><a name="cgs80">CGS80</a> <a href="cgs80_mix.html">Multi-Mixer</a></b>
+<br>This module is a multi-purpose mixer that can be used for both synth-level audio and control voltages. There are eight input channels, each which has AC coupled and DC coupled inputs and a level control, as well as AC and DC coupled outputs.
+<p>
+
+<li>
+<b><a name="cgs81">CGS81</a> <a href="cgs81_proc.html">Dual Voltage Processor/Mixer.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+This module is a variation on the standard two-inverting-stage op-amp DC Mixer. It has provision for an offset pot, four DC mixer inputs, processor style inputs, with both inverting and non-invering outputs, though the inverting output <i>cannot</i> be used with the processor function.
+<p>
+
+<li>
+<b><a name="cgs81m">CGS81</a> <a href="cgs81_mixer.html">Stereo Mixer.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+This page demonstrates how the CGS81 PCB can be used as the basis for a basic stereo mixer.
+<p>
+
+<li>
+<b><a name="cgs82">CGS82</a> <a href="cgs82_negative_slew.html">Negative Slew.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+This is the Serge Negative Slew which was part of the original line of modules. Ultimately this would go on to be replaced by the <a href="cgs114_dusg.html">Dual Universal Slope Generator</a>. It can be used as a falling sawtooth LFO, VCO, or as the name suggests, a lag/slew for falling voltages. Rising voltages are passed unhindered.
+<p>
+
+<li>
+<b><a name="cgs83">CGS83</a> <a href="cgs83_positive_slew.html">Positive Slew.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+This is the Serge Positive Slew which was part of the original line of modules. Ultimately this would go on to be replaced by the <a href="cgs114_dusg.html">Dual Universal Slope Generator</a>. It can be used as a rising sawtooth LFO, VCO, a simple envelope generator or as the name suggests, a lag/slew for rising voltages. Falling voltages are passed unhindered.
+<p>
+
+<li>
+<b><a name="cgs84">CGS84</a> <a href="cgs84_peakandtrough.html">Dual Peak and Trough.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+This module is a variation on the 1973 Classic Serge Peak and Trough module. It is much like the <a href="#cgs26">Analog Logic voltage processor</a>, though a little less precise. It is presented here for those who want to build themselves a classic Serge.
+<p>
+
+<li>
+<b><a name="cgs85">CGS85</a> <a href="cgs85_tws.html">Triple Wave Shaper.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+This module is a variation on the 1973 Classic Serge Triple Wave Shaper. This design started off as a wave shaper for the original Serge VCO, and has persisted as an available module since that time.
+<p>
+
+<li>
+<b><a name="cgs86">CGS86</a> <a href="cgs86_trk.html">Touch Responsive Keyboard.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+This module is a variation of the Touch Responsive Keyboard published in the January/February 1977 issue of Synapse magazine.
+<p>
+
+<li>
+<b><a name="cgs87">CGS87</a> <a href="cgs87_prog.html">Programmer Sequencer.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+This is a redesigned circuit board for the CGS59 Programmer/Sequencer. Unlike that version, this one has no panel-format specific PCBs. The column boards have been replaced with boards that contain 8 stages. These can be used to drive pots or switches in any panel configuration you wish.
+<p>
+
+
+<li>
+<b><a name="cgs88">CGS88</a> <a href="cgs88_bds.html">Serge Triple Bi-Directional Router.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+The Triple Bi-Directional Router is a group of three switches each of which can route one input to either of two outputs, or either of two inputs to one output according to a pulse or control voltage level. It can also be assembled to sequentially route one input to one of four outputs, or one of four inputs to one output.
+<p>
+
+
+<li>
+<b><a name="cgs89">CGS89</a> <a href="cgs89_gate_sequencer.html">Gate Sequencer.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>A sequencer designed for controlling pulsed or gated events, for rhythm and percussion.
+<p>
+
+<li>
+<b><a name="cgs90">CGS90</a> <a href="cgs90_phaser.html">Phaser and Audio mixers.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This module is a variation on the classic Serge Phaser module. On the PCB are also two AC coupled audio mixers.
+<p>
+
+<li>
+<b><a name="cgs91">CGS91</a> <a href="cgs91_mounting_rail.html">PCB Mounting Rail.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>These mounting rails are a convenient way of mounting CGS PCBs behind a Serge style panel.
+<p>
+
+<li>
+<b><a name="cgs92">CGS92</a> <a href="cgs92_ssg.html">Serge Smooth and Stepped Generator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>
+The Serge Smooth and Stepped Function Generator (SSG) is s a complex multi-functional module to provide various slew and sample functions.
+<p>
+
+<li>
+<b><a name="cgs93">CGS93</a> <a href="cgs93_trunk.html">Trunk Lines/Multiples.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+These boards can be used as cascadable multiples, to create trunk lines between different cabinets, or assuming you have something else that uses the same termination, for expansion/breakout. It uses 16 way ribbon, like used in Euro power, every second wire connected to ground to form a shield between the signal wires. You can mount one of these in each cabinet of a large system, and hook them up from behind with the ribbon. If you hook just two in different cabinets together, you have 8 trunk lines between them, reducing the need for long patch cables. If you place one in each of several cabinets, and run a common ribbon between them, then you have an inter-cabinet bus. If you mount them side by side, and use a common ribbon between them, you have a multiple. As a bonus, the board is designed to work with banana jacks as well, so your bus/trunk lines can go between different types of synths (mini jacks and bananas).
+<p>
+
+
+<li>
+<b><a name="cgs94">CGS94</a> <a href="cgs94_pot_rail.html">Pot mounting rail</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This PCB is designed to help mounting and wiring pots or LEDs to panels. It uses the 1 inch horizontal spacing standard of Serge panels, and provides mounting for 16 pots or LEDs.
+
+
+<p>
+
+<li>
+<b><a name="cgs95">CGS95</a> <a href="cgs95_rev.html">Reverb</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+This is a basic reverb module constructed around the Belton BTDR-2H Reverb Module. From a single input, two channels of raw reverb are generated. Mix outputs are also provided, allowing the input/reverb mix to be controlled via a panel pot. An additional feedback function is provided for emphasizing the effect, or even for generating screaming feedback.
+<p>
+
+<li>
+<b><a name="cgs96">CGS96</a> <a href="cgs96_comp.html">Serge Triple Comparator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>
+The TRIPLE COMPARATOR  consists of three independent functions which are useful in the production of square waves and variable pulse waves. The Comparator reference level can be a time-varying control voltage, a complex audio signal, or a fixed preset voltage. Additionally, the comparators are useful for level detection and for logic decisions based on amplitude. The module also contains a single, non-adjustable, Schmitt trigger.
+<p>
+
+
+
+<li>
+<b><a name="cgs97">CGS97</a> <a href="cgs97_noise.html">Serge Noise</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>
+The Serge noise module can be built in several ways. In it's simplest form, it contains three basic outputs, White noise, Pink noise, and a random voltage suitable for use with Sample and Hold modules. An optional Sample and Hold circuit is included on the PCB. Alternatively, the basic version may be coupled with the <a href="cgs92_ssg.html">CGS92 Serge Smooth and Stepped Generator</a> to make the Random Voltage Generator module.
+<p>
+
+<li>
+<b><a name="cgs98">CGS98</a> <a href="cgs98_busdriver.html">Bus Driver</a></b>
+<br>
+The Bus Driver is a buffered bus for distributing CVs, or even audio to several modules, or even to several cabinets. In the basic configuration, it has four buffers, each of which (through the use of a CGS98 expansion) also offers inversions of these voltages. In the advanced configuration, input 1 is added to the signals of inputs 2, 3 and 4. As such, a root note can be fed into input 1, while sequencers are fed into the other inputs. Changing the voltage on input 1 would then change the root of all three of the sequences, allowing them to follow the root pitch. This was developed due to the drastic shortage of CV inputs on many Eurorack VCO modules.
+<p>
+
+
+<li>
+<b><a name="cgs99">CGS99</a> <a href="cgs99_port.html">Bus Expansion Port</a></b>
+<br>
+The Bus Expansion Port is a simple PCB carrying three 16pin (2x8) headers, two on one side, and one on the other, it's purpose being to provide connections between the inside and outside of case, for the distribution of Euro style power buses, or with CGS93 and CGS98 as a way to link them between cases.
+<p>
+
+
+<li>
+<b><a name="cgs101">CGS101</a> <a href="cgs101_dcsm.html">Serge Dual Channel Stereo Mixer (DCSM)</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This module is a variation of the Serge Dual Channel Stereo Mixer, built using the CGS101 Quad VCA and the CGS101 Equal Power Panner drivers. Produced under licence from Serge.
+<p>
+
+
+<li>
+<b><a name="cgs102">CGS102</a> <a href="cgs102_epp.html">Serge Equal Power Panner</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>Serge Equal Power Panner driver. Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="cgs108">CGS108</a> <a href="cgs108_vca.html">Serge Voltage Controlled Gain Cell</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This is an adaptation of the original gain cell used in many of Serge's later designs. Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="cgs112">CGS112</a> <a href="cgs112_vcfq.html">Serge Voltage Controlled Resonance Filter.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>The VARIABLE Q VCF (VCFQ) is an excellent general-purpose VCF offering simultaneous low-pass, high-pass, band-pass and notch (band-reject) outputs. The resonance (Q) of this filter is dynamically variable by manual or voltage control.
+<p>
+
+<li>
+<b><a name="cgs113">CGS113</a> <a href="cgs113_vcm.html">Serge Voltage Controlled Wave Multiplier</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This is an adaptation of the original Serge VCM containing three distinct sections for the addition of harmonics to a signal. Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="cgs114">CGS114</a> <a href="cgs114_dusg.html">Serge Dual Universal Slope Generator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This is an adaptation of the original Serge DUSG, on which the CGS75 Voltage Controlled Slope is based. Produced under licence from Serge.
+<p>
+
+
+<li>
+<b><a name="cgs116">CGS116</a> <a href="cgs116_env.html">Serge Extended ADSR Envelope Generator</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>This is an adaptation of the original Serge Extended ADSR (voltag controlled). Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="cgs120">CGS120</a> <a href="cgs120_rail.html">Utility mounting rail</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This is a 6 inch long universal mounting board. When snapped in two, lengthwise, it can be used to mount smaller PCBs to CGS91 rails on a standard Serge-style panel. It can also be used to mount 6 pots, LEDS, etc. at 1 inch spacing. Small matrix areas allow for "flying" panel components to be given a sturdy mounting place.
+<p>
+
+<li>
+<b><a name="cgs121">CGS121</a> <a href="cgs121_mem.html">Quad Comparator and Memory Cell</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This module is the combination of a quad comparator "voting system" and memory cell (flip-flop). It can be built in many ways to suit the builder's needs. For example, if the memory cell functions are not required, they can be omitted. Alternatively, the panel presence of the comparators can be greatly reduced if the memory cell is the primary interest.
+<p>
+The comparator "voting" circuits can be used as OR, AND or 2 of 3, 2 of 4, 3 of 4 etc. type gates, depending on construction. Both positive responding and negative responding inputs are available.
+<p>
+Master AND and OR outputs monitor the four voting circuits. The four voting circuits are used to drive the flip-flop memory cell, providing SET, RESET, CLOCK and DATA inputs.
+<p>
+The purpose of the module is to allow the combination of various gate events and CVs to generate responses, rhythms, etc.
+<p>
+
+<li>
+<b><a name="cgs122">CGS122 &amp; CGS123</a> <a href="cgs122_matrix.html">Switched matrix.</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>Eurorack 8x8 switched mixing matrix.
+<p>
+
+<li>
+<b><a name="cgs124">CGS124</a> <a href="cgs124_bread.html">Breadboard </a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>This is a 6 inch x 2 inch, double-sided prototyping board designed to be compatible with other CGS format PCBs.
+<p>
+
+
+<li>
+<b><a name="cgs202">CGS202</a> <a href="cgs202_reseq.html">Serge Resonant Equalizer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a><a href="serge.html"><IMG alt="Licensed Serge design" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_serge.gif" vspace=3></a>
+<br>The RESONANT EQUALIZER (EQ) is a unique ten-band filter designed specifically for electronic sound synthesis and processing. Except for the top and bottom frequency bands, all other bands are spaced at an interval of a major seventh. This non-standard spacing avoids the very common effect of an accentuated resonance in one key, as will be the effect from graphic equalizers with octave or third-octave spacing between bands. Spacing by octaves will reinforce a regular overtone structure for one musical key, thereby producing regularly spaced formants accenting a particular tonality. The Resonant Equalizer's band spacing are much more interesting, producing formant peaks and valleys that are similar to those in acoustic instument sounds. Produced under licence from Serge.
+<p>
+
+<li>
+<b><a name="lpg">LPG</a> <a href="lpg.html">Low Pass Gate</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+Peter Grenader's Buchla style Low Pass Gate.
+<p>
+
+<li>
+<b><a name="pan000">PAN000</a> <a href="pan000.html">Generic 4U x 4.25" panel</a></b>
+<br>
+This is a PCB based panel primarily intended for prototyping and testing of new designs, although there is nothing to stop it being used in a permanent set-up. Four of these panels will fit side by side, in a standard rack boat. The 8mm holes are suitable for banana sockets and Cliff-style insulated 3.5mm jacks.
+<p>
+
+
+
+<li>
+<b><a name="uni01">UNI01</a> <a href="uni01_subosc.html">Sub-oscillator/harmonic sequencer (UNI format)</a></b>
+<br>
+Use this twin sub-oscillator with one or two VCOs for fat sounding lead or harmonies, or with a VCO and an LFO for harmonic sequences, or as a pattern based sequencer. It is designed to fit on a 4U Serge style panel.
+<p>
+
+<li>
+<b><a name="uni33">UNI33</a> <a href="uni33_matrix_mixer.html">Matrix Mixer</a></b>
+<br><a href="../pcb/index.html"><IMG alt="PCB available" BORDER=0 WIDTH=55 HEIGHT=25 SRC="pic/icon_pcb.gif" vspace=3></a>
+<br>
+The matrix mixer is a multiple input, four output bipolar or unipolar DC coupled mixer, for mixing control voltages or audio signals. In cases where you require several different mixes from a common set of signals, this module is ideal. This variant of the matrix mixer is designed for use behind Serge 4U panels.
+<p>
+
+
+
+</ul>
+
+<p>
+<a name="original"><font face="ARIAL,HELVETICA" size=4>Other original designs</font></a>
+<ul>
+<li><a href="comparator.html">Gated Comparator</a>
+<li><a href="gate_sequencer.html">Gate Sequencer</a>
+<li><a href="organ_interface.html">Organ Interface</a>
+<li><a href="v8sim.html">V-8 and Diesel simulators</a>
+<li><a href="pic/arc_weld_mods.gif">Modifying the arc-welder for synth apps.</a>
+</ul>
+
+
+<p>
+<a name="tube"><font face="ARIAL,HELVETICA" size=4>Tube modules</font></a>
+<p>
+Other modules I have built are tube based, including one that uses thirteen tubes. This contains two <a href="tubevco.html">1 volt/oct VCOs</a>, a pair of "modulators", a <a href="../tube/beam.html">beam tube modulator</a> and a VCF designed by <a href="http://web.archive.org/web/20051102054550/http://www.uni-bonn.de/~uzs159/" target="_blank">Ren&eacute; Schmitz</a>.
+<p>
+<ul>
+<li><a href="tubevcf.html">Tube bandpass VCF</a>
+<li><a href="hellfire.html">Metasonix Hellfire Modulator</a>
+<li><a href="tube_psu.html">Power supply for tube modules</a>
+<li><a href="6bn6.html">Beam Modulator</a>
+</ul>
+<p>
+
+
+Individual construction of modules based on the original designs of Ken Stone is encouraged. PCBs are available for some of these designs directly from the designer. Commercial production of these designs is prohibited without written permission from the designer, Ken Stone. Note that no guarantees are given for any of these designs.
+<p>
+Where a design is copyright by a third party, details of that design are not given, rather a way of researching the information or contacting the designer is given instead.
+<p>
+
+<font size=1>Article, art &amp; design copyright 1999 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+
+
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:44:24 GMT -->
+</HTML>

@@ -1,0 +1,190 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs22_master_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:25:48 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--IMG alt="Master Divider" BORDER=0 WIDTH=100 HEIGHT=287 SRC="pic/photo_cgs22.jpg" align=right hspace=10>
+<IMG alt="Master Divider" BORDER=0 WIDTH=100 HEIGHT=287 SRC="pic/photo_cgs22.jpg" align=left hspace=10-->
+<br>
+<font face="ARIAL,HELVETICA" size=6>Master Divider</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is series of dividers and "phase shifters" for converting a single clock pulse train into an array of frequencies. The incoming clock signal is divided into successive clock signals, each half the frequency (twice the period) of the previous. A 180&deg; shifted output is also available for each of the six stages. On top of this, there are two additional networks that can be hardwired or switched to provide 90&deg; and 270&deg; outputs for two of the frequencies. Each output is of 50% duty cycle. There is also a reset input to allow for synchronization. The very first stage cannot provide 90&deg; and 270&deg; outputs.
+<p>
+A LED can be included for each of the sixteen outputs, enough to satisfy anyone with a love of flashing LEDs.
+<p>
+<b>How to use this module:</b>
+<p>
+The purpose of this module is to divide down a system master clock (e.g. a VCLFO) to drive an array of sequencers or other timed events. The different phase outputs are to allow for modules that may trigger from the falling edge of a wave, or to allow for deliberate lagging of an event. It would for example be possible to have two sequencers running from this unit, one at 1/8 of the frequency of the other, their outputs being mixed to give a sequence that changes fundamental pitch each eight notes.
+<p>
+My prototype had one pair of 90&deg; and 270&deg; permanently wired into the second stage, while the other could be connected to any of the stages via a rotary switch.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=456 src="pic/schem_cgs22_master_divider.gif">
+<br><i>The schematic of the master divider. All but one buffer has been reduced to a single box. All are identical.</i>
+</center>
+<p>
+The master divider is a fairly simple circuit with a lot of repetition.
+The circuit consists of several distinct blocks. The first are the input shapers, made from
+IC1A and IC1B and their associated components. These take whatever signal is fed
+into the module and convert them to signals appropriate for driving the rest of the
+circuitry. With the values given, the sensitivity is set at around 2 volts, allowing triggering
+from signals with a +/- 10 volt swing, or with a 0V to +10 volt swing, both of which are
+common in modulars. The output wave forms of some modules will never fall below the
+1.4V level, preventing triggering. This can be solved by increasing the value of the 10k
+resistor between pin 2 of IC1 and ground to 22k, or higher if needed.
+<p>
+IC1A is used to process the Clock input. The frequency of the clock signal determines the speed of the output pulses. It can be derived from an LFO, sequencer or any similar pulse source. It is best if a square wave is used, or the 90&deg; and 270&deg; output will be distorted if connected to the first stage.
+<P>
+IC1B and its associated components form a "gate to trigger converter", generating a narrow
+positive going pulse when the "Reset" input goes above the 2 volt threshold. This is used to reset the 4024 divider, and sends all "A" outputs HIGH, and "C" outputs LOW.
+<p>
+The inverters of IC2 are used to derive the 0&deg; "A" outputs. Unlike a counter, these "A" outputs will all be HIGH when the divider is reset.
+<p>
+The exclusive OR gates of IC3 are wired into two identical networks, each which combines a output stage with the one above it to get the 90&deg; and 270&deg; outputs. The very top division would require the use of the clock signal, but has proved impractical. The QO output should not be used.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=389 height=250 src="pic/pcb_cgs22_master_divider.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram. The resistors marked in red should be 2k2, NOT 1k.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components. Make sure you substitute 2k2 resistors for the 1k resistors where marked on the overlay above.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diode, LEDs, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+I have specified a tantalum capacitor for improved power rail decoupling near the output drivers.
+<p>
+If you decide not to use the LEDs, a link should be installed in place of each LED. The 2k2 pull-down resistors should also be changed to 10k. Note, on the prototype boards, the 2k2 resistors are marked as 1k.
+<p>
+The inputs to the networks which generate the 90&deg; and 270&deg; outputs are labelled S1 and S2 on the PCB. For each network a two pole, six position rotary switch connects each input to two successive outputs of the divider available via the pads labelled Q1 to Q6. As it does not matter which input of each network is used, it is possible to run a single wire from each "Q" output to the rotary switch, where it is connected to two adjacent pins, the exceptions being for Q1 and Q6 which are connected to a single pin each. Q0 is not used.
+<p>
+<b>There is a modification needed on these PCBs:</b>
+<ul>
+<li>A 1N4148 diode needs to be wired between 0 volts (anode) and the junction of the 10n and 47k resistor associated with the RESET input (cathode).
+</ul>
+
+<p>
+<center>
+<table border=0 cellpadding=2 cellspacing=0>
+<tr><td>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PCB</td><td>Switch 1</td></tr>
+<tr><td></td><td>Pole 1</td></tr>
+<tr><td>S1 (pin 1)</td><td>Common</td></tr>
+<tr><td>Q2</td><td>Pos 1 &amp; 2</td></tr>
+<tr><td>Q4</td><td>Pos 3 &amp; 4</td></tr>
+<tr><td>Q6</td><td>Pos 5</td></tr>
+<tr><td></td><td>Pole 2</td></tr>
+<tr><td>S1 (pin 2)</td><td>Common</td></tr>
+<tr><td>Q1</td><td>Pos 1</td></tr>
+<tr><td>Q3</td><td>Pos 2 &amp; 3</td></tr>
+<tr><td>Q5</td><td>Pos 4 &amp; 5</td></tr>
+</table>
+</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PCB</td><td>Switch 2</td></tr>
+<tr><td></td><td>Pole 1</td></tr>
+<tr><td>S2 (pin 1)</td><td>Common</td></tr>
+<tr><td>Q2</td><td>Pos 1 &amp; 2</td></tr>
+<tr><td>Q4</td><td>Pos 3 &amp; 4</td></tr>
+<tr><td>Q6</td><td>Pos 5</td></tr>
+<tr><td></td><td>Pole 2</td></tr>
+<tr><td>S2 (pin 2)</td><td>Common</td></tr>
+<tr><td>Q1</td><td>Pos 1</td></tr>
+<tr><td>Q3</td><td>Pos 2 &amp; 3</td></tr>
+<tr><td>Q5</td><td>Pos 4 &amp; 5</td></tr>
+</table>
+</td></tr>
+</table>
+<p>
+<i>The table above shows how to wire up the two rotary switches.</i>
+</center>
+<p>
+<b>Notes:</b>
+<ul>
+<li>The division ratios are correct for 4/4 based rhythms. Deriving 3/4 based rhythms may prove challenging! A voltage controlled divider or a sequential pulse generator could be used to reset the divider at appropriate times, though whether this results in a usable ratio or not is debatable!
+<li>If you have separate digital and analog power supplies for your synth, connect this one to the digital supply. Due to all the LEDs, it will introduce fluctuations to any supply to which it is connected.
+<li>While untested, the module should work on 12 volts.
+<li>A 10 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>1</td></tr>
+<tr><td>10uF 25V </td><td align=right>1</td></tr>
+<tr><td>10uF 25V Tant</td><td align=right>1</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>16</td></tr>
+<tr><td>2k2</td><td align=right>16</td></tr>
+<tr><td>10k</td><td align=right>1</td></tr>
+<tr><td>15k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>5</td></tr>
+<tr><td>100k</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LM358</td><td align=right>1</td></tr>
+<tr><td>4024B</td><td align=right>1</td></tr>
+<tr><td>4030B</td><td align=right>1</td></tr>
+<tr><td>4069B</td><td align=right>1</td></tr>
+<tr><td>1N4148</td><td align=right>1</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>16</td></tr>
+<tr><td>LED </td><td align=right>16</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>1</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs22 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock. The prototype boards are being sold at half price, because I am not totally happy with them.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs22_master_divider.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:25:54 GMT -->
+</HTML>

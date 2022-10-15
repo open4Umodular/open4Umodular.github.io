@@ -1,0 +1,64 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/tubevco.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:20:41 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<center>
+<font face="ARIAL,HELVETICA" size=6>1 V/oct Tube VCO</font><br>
+<p>
+<table><tr><td align="center">
+<img width=500 height=327 src="pic/photo_tubevco2.jpg">
+<br><i>The tube VCOs and other tube circuits.</i>
+</td></tr></table>
+</center>
+<font face="ARIAL,HELVETICA">
+<a href="pic/tubevco.jpg">Tube VCO Schematic</a>
+<p>
+Here's a circuit for a 1 volt/oct tube VCO.  The expo is based on Ren&eacute; Schmitz neon VCO and VCO3. I haven't put in any temperature compensation yet, but am thinking of using his diff amp in the feedback loop idea, which explains why I've used the LM3086 transistor array. I don't have any spare tempco resistors, otherwise one of those would have been used.
+<a href="http://www.uni-bonn.de/~uzs159/" target="_new">See Ren&eacute; Schmitz site for more info.</a>
+<p>
+The 6CG7 was chosen for the regulator simply because I had one to hand. The second VCO in this module uses the second triode in the 6CG7 as its regulator.
+<p>
+The ECC88 and another similar though not identical unmarked tube (6ES8/ECC189?) worked in the grounded grid amp position. Others may. I was planning to use the second triode in this tube to drive the second VCO, but found I had a lot of cross talk from VCO 1 to VCO 2, so I abandoned the idea. As there did not appear to be any crosstalk in the opposite direction, it is most likely a layout problem. Ren&eacute;'s Neon VCO uses this second triode to amplify the output of the VCO.
+<p>
+Initially my VCO was wired as per <a href="../tube.html" target="_top">Eric's design</a>, and the triode amp was particularly good, with the drive control allowing adjustment between triangle and rectangle output. When the grounded grid amp was added to the VCO, this configuration was not as effective, leaving me with more of a spike waveform. Chances are this could easilly be fixed, but I did not pursue it at the time as I wanted to use the same tube for both grounded grid amps. It may have even been down to a wiring error, or the decoupling capacitor I used being too small.
+<p>
+The 5696 is a thyratron tube. On this tube I used a socket with a tube shield. This blocked interference from both magnetic and light sources.
+<p>
+The 470p cap shown on the diagram is really a pair of 220pf caps in parallel. I switch one in or out to change the range, though the jump isn't exactly an octave. I also have a pair of 330pf caps wired in parallel (660pf), that can be switched in across the first 220pf, giving two octaves down. A second set of contacts on the octave select switch selects between preset fine tune trimpots, the output of which is fed into the CV input mixer to allow correction of any tuning error introduced by the capacitors. The capacitor values are not critical. They were just what was to hand.
+<p>
+The output from the amp stage (6AU6) is too high for connecting into other synths. The resistor divider and zeners will reduce the output down to something more suitable. Check it yourself before jamming it into some high priced semiconductor equipment. If you are planning on going straight into an amp, reduce the value of the lower resistor down to 10k. The 1 Meg resistor can me made from 3 x 330k resistors in series, to reduce the risk of something nasty happening if the resistor fails.
+<p>
+I have had it operating across a range of at least six octaves, and it tracked my Roland 100M VCO perfectly.
+<p>
+This, and all of my other tube modules run off a <a href="tube_psu.html">separate power supply</a> based on <a href="../tube.html" target="_top">Eric's design</a>.
+
+<P><font color="#CC0000"><b>A note to readers: this circuitry is intended for the
+more advanced builder. Because high voltages are used, a shock hazard exists.
+We do NOT recommend that the novice DIY musician try to construct this
+synthesizer. Some experience with tube electronics is highly recommended.</b>
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 1999 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</font>
+</td></tr>
+</table>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</center>
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/tubevco.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:20:50 GMT -->
+</HTML>

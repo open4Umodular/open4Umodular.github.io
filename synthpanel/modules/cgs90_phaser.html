@@ -1,0 +1,208 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs90_phaser.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:09:36 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Phaser" BORDER=0 WIDTH=800 HEIGHT=265 SRC="pic/photo_cgs90_phaser.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Phaser and Mixers</font><br>
+for music synthesizers.
+</center>
+&nbsp;
+<p>
+
+This module is a variation on the classic Serge Phaser module.
+<p>
+From the 1982 catalog: The VC Phaser (PHA) is perhaps the lowest noise and lowest distortion phase shifter available today. As an aid to recreating some of the subtle properties of phase delay in acoustic sounds, three separate outputs are provided with 360 degree, 720 degree, and 1080 degree of voltage controllable phase shift. A MIX output combines the 1080 degree phase shift with the input signal to produce the multiple notch filter effect that is usually associated with phase shifters. The VC Phaser's log-conforming characteristics and the manual and voltage controls enable ultra-smooth,
+precisely centered sweeps of phase shift for both spatial effects and timbral modification. For high-density systems. a 2'' DUAL PHASER (2PHA) is available.
+<p>
+From an early catalog: The Serge MIXER (MIX) is two independent mixers. Each section is a four-in/one-out manual mixer. Three inputs have level control potentiometers and one input is a unity gain (non-attenuated) input. The main output of one section can be connected to the unity gain input of the other section to create larger mixing units. This module can be used as two audio mixers with three variable inputs, or as one mixer with six variable inputs. This module can also
+be used in combination with other mixers, VCA modules and output modules to provide various mixing functions. A two-inch version of the Mixer is available for high density systems.
+<p>
+The mixer presented here is derived from the original R2 mixer, with some concession to later designs. It is inverting, and AC coupled, meaning it is for audio use only. A 741 can be used for the op-amp as per the original design, or a more modern op-amp such as the TL071 can be substituted. There are two of these mixers on the PCB.
+<p>
+Note that the raw 360 degree, 720 degree, and 1080 degree do not provide the classic phasing sound. They must be mixed with the incoming signal for this to occur. The MIX output does this onboard with the 1080 degree output. The two MIX mixers provided on the PCB are to allow you to experiment with mixing the signals, both straight and inverted (these mixers are inverting mixers), as well as experimenting with feedback by mixing the signal to be processed with the phase shifted outputs before feeding it into the input of the phaser itself. Feedback experiments require the use of AC coupled mixers such as these to prevent any op-amp offset cascading and driving the unit into distortion.
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=680 align="left"><tr><td>
+<img src="pic/schem_cgs90_phaser.gif" width="620" height="1041" border="0">
+<P><i>The schematic for the Phaser module. Standard footprint op-amps have been used instead of the original RC4136. LM3403 can be used for comparable performance, or something like TL074 can be substituted.</i>
+</td></tr></table>
+
+<table border=0 cellpadding=0 cellspacing=0 width=160 align="right"><tr><td>
+<IMG alt="Phaser" BORDER=0 WIDTH=150 HEIGHT=522 SRC="pic/photo_cgs90_phaser2.jpg">
+<br><p>
+<IMG alt="Phaser" BORDER=0 WIDTH=150 HEIGHT=522 SRC="pic/photo_cgs90_phaser3.jpg">
+</td></tr></table>
+<br clear="all">
+<p><br>
+<table border=0 cellpadding=0 cellspacing=0 width=680 align="left"><tr><td>
+<img src="pic/schem_cgs90_mixer.gif" width="414" height="309" border="0">
+<P><i>The schematic for one of the mixers. Both sections are identical.</i>
+</td></tr></table>
+
+
+<br clear="all">
+<p>
+
+
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs90_phaser.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs90_phaser.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs90_phaser.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+This is one of those designs where it is possible to experiment with the choice of op-amp used, both in the mixer and the phaser itself. A 741 can be used for the op-amps in the mixers as per the original design, or a more modern op-amp such as the TL071 can be substituted.
+For the phaser itself, standard footprint op-amps have been used instead of the original RC4136. LM3403 can be used for comparable performance, or something like TL074 can be substituted.</i>
+<p>
+It is a good idea to use metal film resistors to help keep the noise floor low.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts.
+
+<p>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td colspan=2>Phaser</tr>
+<tr><td>A</td><td>Input</td></tr>
+<tr><td>B</td><td>"Direct" end of mix pot. CCW</td></tr>
+<tr><td>C</td><td>"Phaser" end of mix pot. CW</td></tr>
+<tr><td>0V</td><td>Wiper of mix pot, CCW end of Phase and CV Level pots</td></tr>
+<tr><td>D</td><td>1080&deg; output </td></tr>
+<tr><td>E</td><td>720&deg; output </td></tr>
+<tr><td>F</td><td>360&deg; output </td></tr>
+<tr><td>G</td><td>Mix out</td></tr>
+<tr><td>I</td><td>CV Level in (to CV LEVEL pot wiper)</td></tr>
+<tr><td>J</td><td>not used</td></tr>
+<tr><td>K</td><td>Phase (to Phase pot wiper)</td></tr>
+<tr><td>W</td><td>0V power connection</td></tr>
+<tr><td>X</td><td>+12V power connection</td></tr>
+<tr><td>Z</td><td>-12V power connection</td></tr>
+<tr><td colspan=2>Mixers</td></tr>
+<tr><td>x1</td><td>Direct input</td></tr>
+<tr><td>INPUTS</td><td>inputs from pot wipers</td></tr>
+<tr><td>EXP</td><td>expansion input (not used)</td></tr>
+<tr><td>OUT</td><td>output</td></tr>
+</table>
+
+<p>
+<center>
+<img width=700 height=700 src="pic/wire_cgs90_phaser.jpg">
+<P>
+<table border="0" cellspacing="0" width="650"><tr><td>
+<i>Example wiring for the Phaser and Mixers. </i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+There is no set-up.
+<a href="http://www.serge.synth.net/documents/kit/phaser.html" target="_blank">Suggested tests are detailed here.</a>
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pF </td><td align=right>6</td></tr>
+<tr><td>47pF </td><td align=right>3</td></tr>
+<tr><td>2n2 </td><td align=right>6</td></tr>
+<tr><td>10n </td><td align=right>3</td></tr>
+<tr><td>100n (0.1) decoupling caps</td><td align=right>4</td></tr>
+<tr><td>470n </td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors 1% metal film</th></tr>
+<tr><td>220R</td><td align=right>3</td></tr>
+<tr><td>330R</td><td align=right>6</td></tr>
+<tr><td>1k5</td><td align=right>2</td></tr>
+<tr><td>15k</td><td align=right>3</td></tr>
+<tr><td>22k</td><td align=right>2</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>68k</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>12</td></tr>
+<tr><td>150k</td><td align=right>1</td></tr>
+<tr><td>1M</td><td align=right>18</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>CA3086 or CA3046</td><td align=right>1</td></tr>
+<tr><td>MC3403 or TL074</td><td align=right>2</td></tr>
+<tr><td>LM741 or TL071</td><td align=right>2</td></tr>
+<tr><td>VTL5C3/2 vactrol</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS90 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; copyright 2013 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs90_phaser.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:10:02 GMT -->
+</HTML>

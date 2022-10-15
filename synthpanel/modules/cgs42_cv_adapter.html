@@ -1,0 +1,129 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs42_cv_adapter.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:58:14 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--IMG alt="CV Adapter" BORDER=0 WIDTH=600 HEIGHT=200 SRC="pic/photo_cgs42_cv_adapter.jpg"-->
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Gate Sequencer CV Adapter</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+The CV Adapter is an addition to the <a href="gate_sequencer2.html">Gate Sequencer</a> converting it to a traditional eight-step control voltage sequencer.
+<p>
+It simply adds a single channel no-nonsense 8 step analog output. Additional boards can be added to increase the number of channels as desired. The pots are assigned to a particular step during construction, so the board can be mounted either vertically or horizontally as required.
+<p>
+All clocking, sequence length and reset functions etc. are handled by the main gate sequencer board.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=500 height=352 src="pic/schem_cgs42_cv_adapter.gif">
+<br><i>The schematic of the core of the CV Adapter.</i>
+<p>
+</center>
+<p>
+To avoid overloading them, each of the column drives from the Gate Sequencer is buffered by a general purpose NPN transistor such as a BC547 or 2N3904 wired as an emitter follower.  The buffered column drives are used to apply a voltage across each of the pots in sequence. The wiper of each pot picks up the reduced voltage, which is then fed into a non-inverting mixer based around a dual op-amp.
+<p>
+As only one put has a voltage across it at any time, only one voltage is fed into the mixer. The remaining inputs are all at 0 volts, and as such have no effect on the summed output.
+<p>
+This board could of course be connected to other signal sources if desired, or even used as a small mixer, if the transistors were omitted and the input signals were fed directly into the pots.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=400 height=242 src="pic/pcb_cgs42_cv_adapter.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (Note that on the first run of PCBs a corner hole is missing. I don't know why - it was on the artwork.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The order the pots will be sequenced is indicated by a small number in the middle of the overlay for each pot. It follows left to right, with no consideration for the vertical offset. This way, each gate sequencer column can be represented by a vertical line. If you would prefer a different arrangement, the wires connecting the "C" pads on this board to the main gate sequencer can be shuffled as required.
+<p>
+There is no power input jack on this board, as it is designed to be jumpered directly to the host gate sequencer board. You will find you need to run a negative feed to the gate sequencer board if oneis not already present.
+<p>
+
+<center>
+<img width=350 height=536 src="pic/wire_cgs42_cv_adapter.gif">
+<br><i>An example of hard wiring the CV Adapter to the gate sequencer board.</i>
+</center>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>3.8" x 2.3" with 3mm mounting holes 0.15" in from the edges.
+<a href="panels/cgs42holeguide.gif" target="_blank">Hole drilling guide (300dpi)</a>
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>1</td></tr>
+<tr><td>10uF Tant</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>1</td></tr>
+<tr><td>33k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>10</td></tr>
+<tr><td>10k lin pot</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td><a href="../pcb/index.html">CGS42 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs42_cv_adapter.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:58:26 GMT -->
+</HTML>

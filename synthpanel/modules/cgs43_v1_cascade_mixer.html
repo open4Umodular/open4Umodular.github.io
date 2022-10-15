@@ -1,0 +1,140 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs43_v1_cascade_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:28:16 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<center>
+<IMG alt="Cascade Mixer" BORDER=0 WIDTH=600 HEIGHT=100 SRC="pic/photo_cgs43_cascade_mixer.jpg">
+</center>
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Cascade Mixer</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The latest version can be found <a href="cgs43_cascade_mixer.html">here</a>.
+<p>
+The Cascade Mixer is an experimental mixer that can be built in one of several ways. It grew out of the need for such a mixer in one of my projects. Others may find it useful too.
+<p>
+<b>Some ideas on how to use this module:</b>
+<p>
+Depending on how it is built, this module can be used as a binary weighted (or similar scaled) mixer, or unity gain cascade mixer. It can also be used to convert square waves of descending octaves into "sawtooth" (staircase) waves, which is its original purpose. It is possible to use this module to  convert the <a href="subosc.html">Sub oscillator</a> to a staircase based unit, though I will leave the details of this to be worked out by the enthusiastic. Note that each successive input would need to be fed with a signal one octave below that of the previous input, and that each successive staircase output would have twice the resolution of the previous output.
+<p>
+When used as a unity gain cascade mixer, it is possible to sum a series of control or signal voltages, and have outputs that present the sum of all inputs up to that input. In other words, looking at the schematic/block diagram below, each output is the sum of all inputs to its left. A very simple example of use would be to feed a sequencer into the first input, and a vibrato signal into the second. The VCO connected to the first output would follow the sequence, while the VCO connected to the second output would follow the sequence, but with vibrato applied. The third output would be the same as the second, but with the addition of whatever was fed into the third input, and so on.
+<p>
+When used as a binary weighted cascade mixer, each output is halved as it is mixed into the successive summer. In other words the first output will equal the first input. The second output will equal half of the first output plus the second input, and so on.
+<p>
+As shown in this article, all inputs are directly fed - without attenuating pots. These could easily be added. Use 50k or 100k pots, and wire them as shown for the <a href="mixer.html">CGS04 mixer</a>.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=252 src="pic/schem_cgs43_cascade_mixer.gif">
+<br><i>The schematic of the Cascade Mixer.</i>
+<p>
+</center>
+<p>
+The circuit is extremely basic - just a row of standard op-amp summers based around the TL072, in the same configuration as the <a href="mixer.html">CGS04 mixer</a> and various other summers used in CGS designs.
+<p>
+The area shown in yellow represents the circuitry on the PCB. Each block in the lower part of the diagram represents one complete circuit as shown in the upper diagram, with "A", "B" and "C" representing the connection points of each.
+<p>
+Each summer has two input. With the values shown on the schematic, the result would be the binary weighted cascade mixer. If the 200k resistors, marked in blue on the schematic (and blue and green on the overlay) are replaced with 100k resistors, the result will be a unity gain cascade mixer.
+<p>
+Different resistors can be substituted for different scaling factors. It would be possible for example to use 20k at this point, resulting in a 5x amplification factor between stages, though this would not be a good idea, as after only two or three stages the voltage swing would be beyond the common mode range of the op-amps, if not beyond the power rail voltages themselves, resulting in clipping or even latch-up.
+<p>
+The first output is a little different to all that follow it in that all it needs to do is follow the associated input. As such, it is merely a multiple jack.
+<p>
+If this is being used as square to staircase converter, or you expect to drive it from digital signals going between 0V and 15V (e.g., directly from CMOS counter chips) additional attenuation will be required or the stages will clip. Reducing the resistors marked in yellow to 49.9k would give a 2:1 scaling factor at each input, but it would also affect the scaling of the signal from the previous output. To compensate for this, the resistors marked in blue would also need to be reduced to 49.9k. The resistor in green on the PCB (for the first stage) would be left as is. An external voltage divider would be needed to scale the very first output.
+<p>
+Alternately the value of all resistors marked in pink could be doubled without affecting the inter-stage gains. The resistor in green on the PCB (for the first stage) would also need to be doubled, and again an external voltage divider would be needed to scale the very first output.
+<p>
+Note that there are no positions for 1k protection resistors on any of the outputs on the PCB, as the original intent was for this module to be integrated into a prewired circuit. If you are planning to take these outputs to jacks, include the 1k resistors as shown on the schematic.
+<p>
+Needless to say, power supply decoupling is provided on the PCB, though it is not shown on the schematic.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=101 src="pic/pcb_cgs43_cascade_mixer.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram. See text for details on the components marked with color.</i>
+</center>
+<p>
+The first thing to do is decide what sort of mixer you need, and select the resistor values accordingly.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module will work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>14</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>7</td></tr>
+<tr><td>100k 1%</td><td align=right>28*</td></tr>
+<tr><td>200k 1%</td><td align=right>7*</td></tr>
+<tr><td colspan=2 align="right">* see text</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL072</td><td align=right>7</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS43 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs43_v1_cascade_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:28:26 GMT -->
+</HTML>

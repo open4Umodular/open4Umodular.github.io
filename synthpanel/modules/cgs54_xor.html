@@ -1,0 +1,144 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs54_xor.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:27 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>XOR/XNOR Logic</font><br>
+for music synthesizers.<p>
+</center>
+
+<!--center>
+<IMG alt="XOR/XNOR Logic" BORDER=0 WIDTH=600 HEIGHT=245 SRC="pic/photo_cgs54_xor.jpg">
+</center-->
+
+
+<br clear=all>&nbsp;
+<P>
+The previous version can be found <a href="cgs54v1_xor.html">here</a>.
+<p>
+This board is an add-on for the <a href="cgs36_pulse_divider.html">Pulse Divider and Boolean Logic</a> module, adding XOR and XNOR functionality. Unlike a true digital gate, the module is not sensitive to specific levels, but rather to the difference between them. If the two inputs are within approximately approximately 1.2 volts of each other, they are regarded as being the same logical value. If they are more than approximately 1.2 volts apart, they are regarded as being different. This means that while this module will work quite satisfactorily with any logic levels, it can also be used to compare two analog signals, either positive or negative in value. If only one input is connected, the output will be the same as if two identical inputs were present.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=465 height=351 src="pic/schem_cgs54v11_xor.gif">
+<br><i>The schematic of the XOR/XNOR Logic VER1.1</i>
+</center>
+<p>
+Normally the two inputs of each op-amp are held (approximately) 1.2 volts apart via the pull-up and pull-down resistors, and the four diodes in the input circuit. Connecting two similar input voltages to the inputs will not affect this replationship, other than to move the absolue voltages up or down. The outputs of the op-amps, which are wired as comparators, will reflect this. On the XOR, the inverting input will be higher than the non-inverting input, resulting in the op-amp output being negative. The opposite will occur with the XNOR comparator. As long as the difference between the two inputs is less than approximately 1.2 volts (two diode voltage drops), the relationship between the comparator inputs will remain, and the outputs will not change.
+<p>
+Once the two input voltages begin to differ, the diode connected between the pull-up resistor and the lower of the two input voltages will pull the connected comparator inputs down, while the diode connected to the  pull-down resistor and the higher of the two input voltages will pull the connected comparator inputs up. The other diodes will cease to conduct.
+<p>
+Once the two input are taken more than 1.2 volts apart, the voltage at the diode- pull-up resistor junction will be lower than that at the diode- pull-down resistor, and the relationship between the comparator inputs will be reversed, i.e. on the XOR, the inverting input will be lower than the non-inverting input, resulting in the op-amp output being positive, and the opposite occuring for the XNOR comparator.
+<p>Technically there is a tiny band where the difference between the two inputs can result in an "analog"  (i.e. not logic 1, or logic 0) voltage at the output, though this may only be an issue if using the gates with analog input voltages.
+<p>
+The outputs of the op-amp comparators are passed throug a diode so that only positive going voltages reach the output. Any negative going voltages (logic 0) are blocked, and the output held at 0 volts by the pull-down resistor at the output. The 1k8 resistors in line with the output, when combined with the pull-down resistors, limit the positive (logic 1) output level to around 5 volts.
+<p>
+The LEDs indicate the output levels of the gates. As the gates share a common input structure, these LED have a complimentary relationship - if one is lit, the other is off. As such, a single LED would suffice to indicate the state of both gates.
+<p>
+Select the value of RLED to suit the LEDs you are using. For standard brightness LEDs a value in the area of 1k is suitable. For modern high-brightness LEDs, a much higher value is required, though the exact value will depend on the LEDs you are using, and will need to be selected though trial. A good value to start with is 33k.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs54v11_xor.gif" target="_blank"><img width=200 height=100 src="pic/pcb_cgs54v11_xor.gif"></a>
+<br><i>The component overlay. <a href="pic/pcb_cgs54v11_xor.gif" target="_blank">Click here</a> for an enlarged printable version.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+PCB connections:
+<br>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>LN</td><td>to anode of XNOR LED</td></tr>
+<tr><td>LO</td><td>to anode of XOR LED</td></tr>
+<tr><td>XN</td><td>to XNOR output jack</td></tr>
+<tr><td>XO</td><td>to XOR output jack</td></tr>
+<tr><td>0V</td><td>XNOR LED cathode</td></tr>
+<tr><td>0V</td><td>XOR LED cathode</td></tr>
+<tr><td>0V</td><td>0V power input</td></tr>
+<tr><td>-VE</td><td>-VE power input (-12 to -15V)</td></tr>
+<tr><td>+VE</td><td>+VE power input (12 to 15V)</td></tr>
+<tr><td>IN</td><td>to input jack one</td></tr>
+<tr><td>IN</td><td>to input jack two</td></tr>
+</table>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>Substitute 1k5 for the two 1k8 resistors if running from +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>1" x 2" with two 3mm mounting holes 0.15" in from the bottom and edges. It is designed to sit above one end of a regular 2" width CGS PCB.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>2</td></tr>
+<tr><td>1k8</td><td align=right>2</td></tr>
+<tr><td>2k2</td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>2</td></tr>
+<tr><td>RLED (see text)</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>6</td></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td><a href="../pcb/index.html">CGS54 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs54_xor.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:32 GMT -->
+</HTML>

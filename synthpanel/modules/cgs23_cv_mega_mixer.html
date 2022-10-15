@@ -1,0 +1,153 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs23_cv_mega_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:42 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--IMG alt="C.V. Mega Mixer" BORDER=0 WIDTH=250 HEIGHT=272 SRC="pic/photo_cgs23_cv_mega_mixer.jpg" align=right hspace=10>
+<IMG alt="C.V. Mega Mixer" BORDER=0 WIDTH=100 HEIGHT=287 SRC="pic/photo_cgs241.jpg" align=left hspace=10-->
+<br>
+<font face="ARIAL,HELVETICA" size=6>C.V. Mega Mixer</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is an enhanced version of the <a href="mixer.html"> D.C. mixer</a> designed for both audio and CV mixing. It has both non-inverting (adding) and inverting (subtracting) inputs, as well as a master level control. It also features two inverting outputs, one (out2) that is offset by the master level control, and the other (out3) which has independent offset and center inputs.
+<p>
+<b>How to use this module:</b>
+<p>
+Some ideas: <p>
+Feed it several control voltage sources, for example from a bank of Psycho LFOs. Use the non-inverting output to control one VCA, and the offset inverting output (out2) to drive a second VCA, giving a pseudo random panning effect, the overall output level of which can be controlled by the master level control.
+<p>
+Use it to mix multiple synth level audio signals.
+<p>
+Use it to subtract one envelope shape from another.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=600 height=265 src="pic/schem_cgs23_cv_mega_mixer.gif">
+<br><i>The schematic of the C.V. Mega Mixer. Only two input pots are shown as examples.</i>
+</center>
+<p>
+The core of the circuit is quite conventional, using two op-amps in a unity gain inverting configuration. The first stage mixes the signals from the six inputs, one of which is an expansion input and requires the use of external resistors. The output signal from this op-amp is then sent to the second stage where it is mixed with six more inputs, the inverting inputs, again one of which is an expansion input and requires the use of external resistors. The feedback resistor in this stage is variable, one half of a dual pot, allowing the output level to be controlled. The normal output (out1) is taken from the output of this op-amp via a 1k resistor.
+<p>
+This signal is also fed to two more inverting stages. The first again an op-amp in a unity gain inverting configuration. This time, an offset voltage is mixed with the incoming signal, the offset voltage being derived from the second section of the output level pot in such a way that the offset is reduced as the output level is reduced. When the output level is zero, the offset will also be zero.
+<p>
+The second inverting stage has no inbuilt offset and will reflect around the 0 volt line, though has two inputs so that the reflection point can be varied, one inverting (offset), and the other non-inverting (center).
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<table><tr><td>
+<img width=210 height=200 src="pic/pcb_cgs23_cv_mega_mixer.gif">
+<br><i>The component overlay.</i>
+</td><td>
+<img width=210 height=200 src="pic/pcb_cgs23_cv_mega_mixer0.gif">
+<br><i>Proto component overlay.</i>
+</td></tr></table>
+</center>
+<p>
+Please note, an earlier version of the PCB was accidently sent to the etchers. It is functionally fine if you make a small modification. The connections on the PCB marked LC and LB should have a 47k resistor installed between them. The resistor in the feedback path of the second op-amp should be omitted, instead, this is where the pot connections for LC and LB should go. See the second overlay above.
+<p>
+<IMG alt="C.V. Mega Mixer" BORDER=0 WIDTH=250 HEIGHT=272 SRC="pic/photo_cgs23_cv_mega_mixer.jpg" align=right hspace=10>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+If you wish to have more than five inverting or non inverting inputs, extra 47k resistors will be required, each running between the extra input jacks or level pots and the EXP (non-inverting) or IEXP (inverting) pads on the PCB.
+<p>
+PCB connections and their descriptions
+<ul>
+<li>NIN - Non inverting mixer input
+<li>EXP - Non inverting expansion input
+<li>IIN -Inverting mixer input
+<li>IEXP - Inverting expansion input
+<li>LB - Level pot beginning of track (CCW)
+<li>LC - Level pot center (Wiper)
+<li>OB - Offset pot beginning of track (CCW)
+<li>OC - Offset pot center (Wiper)
+<li>OE - Offset pot end of track (CW)
+<li>GND - 0 volts/ground
+<li>OUT1 - Normal output
+<li>OUT2 - Offset inverting output
+<li>OUT3 - Inverting output (reflects around 0 volts)
+<li>CTR - Reflection point input for second inverter
+<li>OFFS - Offset input for second inverter
+</ul>
+<p>
+<b>Notes:</b>
+<ul>
+<li>Needless to say, all of the inputs do not need to be used. It may suit your purposes to use five non-inverting inputs and a single inverting input, or to use three of each. While ideally each input will have a level pot connected to it, it would still be valid to run some of the inputs directly to jacks, especially if the modules you are connecting to already incorporate output attenuators/adjustable output levels. The EXP and IXP inputs <i>must</i> be used with series resistors (e.g. one 47k resistor per extra input) and should not be wired directly to a front panel jack.
+<li>While untested, the module should work on +/-12 volts.
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k</td><td align=right>3</td></tr>
+<tr><td>47k</td><td align=right>17</td></tr>
+<tr><td>220k</td><td align=right>3</td></tr>
+<tr><td>50k lin dual pot</td><td align=right>1</td></tr>
+<tr><td>50k lin pot (1 per channel)</td><td align=right>?</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>LM358</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><n href="../pcb/index.html">cgs23 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+Of you want to make this project, you will need to make your own PCB. The artwork is available below. Print at 300dpi.
+<p>
+<a href="pcb/cgs23pcb.gif" target="_blank">PCB</a>
+<br><a href="pcb/cgs23ovr.gif" target="_blank">Overlay</a>
+
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs23_cv_mega_mixer.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:52 GMT -->
+</HTML>

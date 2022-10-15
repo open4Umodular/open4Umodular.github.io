@@ -1,0 +1,148 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs84_peakandtrough.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:26 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=850>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<!--IMG alt="Peak and Trough" BORDER=0 WIDTH=750 HEIGHT=144 SRC="pic/photo_cgs84_peakandtrough.jpg"-->
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Peak and Trough</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is a variation on the 1973 Classic Serge Peak and Trough module. It is much like the <a href="cgs26_analogic.html">Analog Logic Peak and Trough</a>, though a little less precise. It is presented here for those who want to build themselves a classic Serge. There are two of each of the Peak and Trough modules on the PCB, each having an additional input for use with a manual level pot. The second of each has additional inputs to allow for the unit to be built on an eight row panel instead of the original six row panel. A little additional circuitry has been added to remove the unit's dependence on a +6 volt power rail. Both the Peak and Trough operate in the range of 0V to half of the positive power rail, i.e. 6V on a 12 volt system, and 7.5 volts on a 15 volt system, though in practice, you may find the Trough section does respond to input voltages going a volt or two below 0V.
+
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=680><tr><td>
+<img src="pic/schem_cgs84_peakandtrough.gif" width="670" height="437" border="0">
+<P><i>The schematic for one half of the dual Peak and Trough module. Both sections are identical with the exception of additional inputs on the second set.</i>
+</td></tr></table>
+</center>
+<p>
+The Peak module is effectively a diode OR gate. An emitter follower (the lower transistor) is used to cancel out the voltage drop of the input diodes. The upper transistor is a constant current sink acting as a pull-up.
+<p>
+The Trough module is the reverse of the Peak, based around a diode AND gate, again with an emitter follower (upper transistor) compensating for the voltage drop across the input diodes, and a current source acting as a pull-down.
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs84_peakandtrough.gif" target="_blank"><img width=600 height=100 src="pic/pcb_cgs84_peakandtrough.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs84_peakandtrough.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors and diodes first, followed by the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, and transistors.
+<p>
+
+<i>The schematic, overlay and parts lists all specify the transistors originally used by Serge. <B>They are not critical</b>. BC547 and BC557 can be used directly, or 2N3904 and 2N3906 can be used if they are soldered in with their package backwards with respect to the overlay. Any general purpose silicon transistors should work in this circuit.</i>
+<p>
+Each of the four sub modules work independently, so you can omit the parts associated with any sub module you do not need. For example, if you only need a single Peak and a single Trough function, all part to the right of the center line can be omitted. It would be possible to cut the board along this line too, to use the second part of the board elsewhere, but if you do, you will need to arrange your own power connections for the second part of the board.
+<p>
+<center>
+<img width=667 height=320 src="pic/wire_cgs84_peakandtrough.gif">
+<P>
+<img width=667 height=320 src="pic/wire_cgs84_peakandtrough2.gif">
+<P>
+<table border="0" cellspacing="0" width="650"><tr><td>
+<i>Example wiring for the Peak and Trough.</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>There is no setup required
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n (0.1) decoupling caps</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>2k2</td><td align=right>16</td></tr>
+<tr><td>10k</td><td align=right>4</td></tr>
+<tr><td>15k</td><td align=right>2</td></tr>
+<tr><td>150k</td><td align=right>2</td></tr>
+<tr><td>220k 1%</td><td align=right>2</td></tr>
+<tr><td>10k Lin pot</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>28</td></tr>
+<tr><td>2N3565 (BC547 or sim)</td><td align=right>2</td></tr>
+<tr><td>2N3566 (BC547 or sim)</td><td align=right>2</td></tr>
+<tr><td>2N4250 (BC557 or sim)</td><td align=right>4</td></tr>
+<tr><td></td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2 (4)</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1 (2)</td></tr>
+<tr><td><a href="../pcb/index.html">CGS84 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs84_peakandtrough.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:38 GMT -->
+</HTML>

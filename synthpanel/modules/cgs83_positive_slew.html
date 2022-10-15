@@ -1,0 +1,205 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs83_positive_slew.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:07 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Positive Slew" BORDER=0 WIDTH=800 HEIGHT=265 SRC="pic/photo_cgs83_positive_slew.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Positive Slew</font><br>
+for music synthesizers.
+</center>
+&nbsp;
+<p>
+
+This module is a variation on the 1973 Classic Serge Positive Slew module. It is a forerunner to the popular <a href="cgs114_dusg.html">Dual Universal Slope Generator</a>. It is presented here for those who want to build themselves a classic Serge. There are two Positive Slew modules on the PCB. It can be used as both a rising slew rate controller, or a upwards sloping ramp LFO by hooking the lower pulse out into the Start input. In this configuration it also operates as a utility oscillator, suitable for fixed key sequencing and general sound effects and noise making. It is not suitable for tracking a keyboard.
+<p>
+<b>A little on how it works:</b>
+<p>
+Sending a gate or trigger into the START jack will cause the slew generator to lock into a rising waveform, regardless of what is happening at the other inputs, although the ramp is affected by them. The upper PULSE OUT remains on for this period. When the peak of the cycle is reached, both the OUTPUT and upper PULSE OUT outputs reset.
+<p>
+Sending a gate into the SUSTAIN jack will will start a cycle, much like above, with one difference. Once the cycle ends, and fore as long as the gate signal remains, the OUTPUT with remain at its peak, and upper PULSE OUT will remain on.
+<p>
+The lower PULSE OUT is derived from the analog OUTPUT. It is NOT an inverted version of the upper PULSE OUT. Connecting this output to START or SUSTAIN will cause the Positive Slew to operate as a VCO or LFO.
+<p>
+The VC input has a processor style level pot, allowing the response to the incoming control voltage to be tailored to respond directly to the signal, or to respond to it in reverse.
+<p>
+If not running a cycle as described above, the OUTPUT will follow any signal at the input, with any rising voltage subject to slewing as set by the RATE pot and any control voltage present at the VC input.
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=550 align="left"><tr><td>
+<img src="pic/schem_cgs83_pos_slew.gif" width="505" height="818" border="0">
+<P><i>The schematic for one half of the dual Positive Slew module. Both sections are identical. The unbracketd letter and pin number  designators are for one circuit, while the bracketed ones are for the other.</i>
+</td></tr></table>
+
+<IMG alt="Positive Slew" BORDER=0 WIDTH=258 HEIGHT=600 SRC="pic/photo_cgs83_positive_slew2.jpg" align=right>
+<br clear="all">
+<p>
+
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs83_pos_slew.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs83_pos_slew.gif" border="1"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs83_pos_slew.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Any general purpose silicon transistors should work in this circuit. Take care with your connections, as some have reversed pin outs to those shown on the overlay.
+<p>
+Traditionally, this design uses an additional 6V power rail. While a pad(Y) is provided, there is no need to connect 6 volts to it, as there is a simple transistor regulator on board. If replacing an existing board in a vintage Serge, you may wish to use the existing 6V rail instead of the onboard regulator.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts. The "6 volt" rail will rise to about 7.5 volts when running on +/-15 volts. This is not a problem. Just bear it in mind if you need to do any fault finding.
+<p>
+There are no LED drivers provided. If you wish to add LEDs, use some of the modern high brightness LEDs. Connect their cathodes to 0V. Connect their anodes to the corresponding output jacks via 4k7 resistors.
+<p>
+There are two 22k resistors used as pulldowns on the sustains input. Using 100k resistors here will bring this input up to modern standards.
+<p>
+100k linear pots can be used for all pots, despite what is written on the diagrams. Likewise, the trimmers can be any value between 20k and 100k.
+
+
+<p>
+<table border=1 cellpadding=3 cellspacing=0 FRAME=BOX bordercolor="CCCCCC">
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>A</td><td>VC</td></tr>
+<tr><td>B</td><td>Input</td></tr>
+<tr><td>C</td><td>Start</td></tr>
+<tr><td>D</td><td>Sustain</td></tr>
+<tr><td>E</td><td>Output</td></tr>
+<tr><td>F</td><td>Inv Pulse Output</td></tr>
+<tr><td>G</td><td>Pulse Output</td></tr>
+<tr><td>H</td><td>VC</td></tr>
+<tr><td>I</td><td>Input</td></tr>
+<tr><td>J</td><td>Start</td></tr>
+<tr><td>K</td><td>Sustain</td></tr>
+<tr><td>L</td><td>Output</td></tr>
+<tr><td>M</td><td>Inv Pulse Output</td></tr>
+<tr><td>N</td><td>Pulse Output</td></tr>
+<tr><td>W</td><td>0V power connection</td></tr>
+<tr><td>X</td><td>+12V power connection</td></tr>
+<tr><td>Y</td><td>Not used. (+6V power connection if internal regulator is not used.)</td></tr>
+<tr><td>Z</td><td>-12V power connection</td></tr>
+</table>
+
+<p>
+<center>
+<img width=800 height=509 src="pic/wire_cgs83_positive_slew.jpg">
+<P>
+<table border="0" cellspacing="0" width="650"><tr><td>
+<i>Example wiring for the Positive Slew. Note that the wiper of the VC pots are connected directly to the VC jacks. This negates the need to run four wires to the PCB (A, H and two wiper wires).</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+Each slew unit has a trimmer that affects the rate. Use it to set the rates to the range you want, or to standardize your center frequency.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>220pF </td><td align=right>2</td></tr>
+<tr><td>100n (0.1) decoupling caps</td><td align=right>2</td></tr>
+<tr><td>100n mylar, MKT or sim</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>33R</td><td align=right>2</td></tr>
+<tr><td>100R</td><td align=right>2</td></tr>
+<tr><td>220R</td><td align=right>6</td></tr>
+<tr><td>3k3</td><td align=right>2</td></tr>
+<tr><td>4k7</td><td align=right>12</td></tr>
+<tr><td>5k6</td><td align=right>1</td></tr>
+<tr><td>6k8</td><td align=right>1</td></tr>
+<tr><td>10k</td><td align=right>2</td></tr>
+<tr><td>18k</td><td align=right>4</td></tr>
+<tr><td>22k (use 100k)</td><td align=right>2</td></tr>
+<tr><td>47k </td><td align=right>2</td></tr>
+<tr><td>100k</td><td align=right>8</td></tr>
+<tr><td>220k</td><td align=right>4</td></tr>
+<tr><td>470k</td><td align=right>6</td></tr>
+<tr><td>820k</td><td align=right>2</td></tr>
+<tr><td>1M</td><td align=right>4</td></tr>
+<tr><td>20k (or sim) single turn trimmer</td><td align=right>2</td></tr>
+<tr><td>100k lin pot</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>4</td></tr>
+<tr><td>2N3565 (BC547)</td><td align=right>6</td></tr>
+<tr><td>2N3566 (BC547)</td><td align=right>2</td></tr>
+<tr><td>2N4248 (BC557)</td><td align=right>4</td></tr>
+<tr><td>BC547 or sim</td><td align=right>1</td></tr>
+<tr><td>MC3401 (can use LM3900)</td><td align=right>2</td></tr>
+<tr><td>LM3900</td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs83 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs83_positive_slew.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:26 GMT -->
+</HTML>

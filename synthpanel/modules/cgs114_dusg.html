@@ -1,0 +1,229 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs114_dusg.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:05:54 GMT -->
+<HEAD>
+ <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+ <META name="description" content="vcwm KIT INSTRUCTIONS">
+ <META name="keywords" content="Serge">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table width="700"><tr><td>
+<img width=261 height=400 src="../synth/serge/kit/dusg_kit_panel.gif" border=0 align="right">
+<p>
+<H3>Dual Universal Slope Generator</H3>
+<p>
+<h4>The following is based on the original Serge kit assembly instructions, and is to allow builders of the Best of CGS "B" panel to wire up their DUSG.</h4>
+<p>
+Parts for Kit
+<ul>
+<li>4 Black Banana Jacks
+<li>4 Blue Banana Jacks
+<li>4 Red Banana Jacks
+<li>12 Star Washers for Banana Jacks
+<li>2 1P3T Switches (three position)
+<li>6 Linear Potentiometers w/nut &amp; lockwashers
+<li>6 Knobs
+<li>10 Shoulder Washers
+<li>220" #22 Insulated Hook-up Wire (stranded)
+<li>10" #20 Bare Hook-up Wire (solid)
+<li>2 LED Kits
+<li>1 SLOPE 114 PC Board (or assembled CGS114 PC Board)
+</ul>
+<p>&nbsp;
+<br clear="all">
+<p>
+<table width="310" border="0" align="left"><tr><td>
+<img width=278 height=500 src="pic/cgs114_dusg_kit_wire.jpg" border=0>
+</td></tr>
+<tr><td><i>Note that this is the rear of the panel illustrated at the top of the page, and that it is inverted - i.e. the top of the panel is at the bottom of this diagram.
+<i></td></tr>
+</table>
+<p>
+Patch the END pulse to the TRIG IN jack. Turn the RISE and FALL knobs fully CW. Patch the OUTPUT into an audio mixer or Output Module to monitor the output. There should be a 5000 Hz triangle wave present which can be changed to a sawtooth wave of lower frequency by turning down either the RISE or
+FALL knob. The frequency and timbre will depend upon the settings and the shape as set by the relationship between the Rise and Fall times.
+<p>
+Patch the OUTPUT of the DSG into the control voltage input of an oscillator and listen for the proper shape as the RISE and FALL knobs are turned down to longer times.
+<p>
+Check for proper VC action by patching a control voltage from a processor or other source into the VC In jack. Note the effect on the Rise, the Fall, and the Rise+Fall times with the position of the switch. Check that a voltage into the IV/oct IN will produce a doubling of frequency (halving of the Rise and Fall times) for each volt applied.
+<p>
+The DSG may not track as well as the NTO's and PCO's when used as an oscillator.
+<p>
+Remove the patch from the END and TRIG IN jacks, and apply a control voltage from a keyboard, Stopped Function, or Stapped Random Voltage Generator. Turn the RISE and FALL knobs all the way up (clockwise, and apply the output to the control input of an oscillator. The signal should be the same as the input. As the RISE and FALL knobs are turned down, there should be a portamento or slowing Effect on the changing stepped voltage.
+<p>
+The DSG can be used as a simple envelope generator, a low frequency oscillator, pulse generator, or in a variety of other applications. As an envelope generator, the unit can be triggered in two different ways:
+<ol>
+<li>Connect a trigger pulse to the TRIG IN jack. When a pulse is applied here, an envelope defined by the RISE and FALL knobs will be produced which goes from 0 to +5 volts. If a second trigger is received before the envelope has finished, it will not re-initiate the envelope. Using a pulse train into this input, the DSG can be used as a frequency divider, or sub-harmonic generator. A waveshape and a pulse from the END jack will, be produced for each pulse applied to the TRIG IN jack as long as the total envelope time is thorter than the pulse period.
+<p>
+If the envelope time is slightly longer than the pulse period, then the DSG wil I only be triggered on alternate pulses, producing a division of two. If the envelope is slightly longer than two pulse periods, then it will only be triggered on every third pulse, producing a division by three, and so on.
+<li>With a gate signal into the IN jack, an envelope will be produced which begins to rise at a rate set by the RISE knob to a level equal to the gate level. The level will remain at this level as long as the gate is present: an envelope with sustain.
+<p>
+When the gate level drops back to zero at its end, the envelope will fall at the rate set by the FALL knob. If the gate level rises before the end of the FALL cycle, the output will rise again, rising toward the gate level, at a rate set by the RATE knob. Multiple gate signals will re-initiate the envelope, even if the envelope has not completed its cycle back to zero volts.
+<p>
+A positive signal applied to the IN jack will always over-ride any trigger at the TRIG IN jack.
+</ol>
+<p>
+The DSG can be used as a slew limiting processor to change discrete voltage steps into gliding voltages (portamento). Voltages from a keyboard, sequencer, or other sources can be applied to the IN jack, and the RISE and FALL knobs will now determine the rate of glide in the positive and negative direction, independently.
+<p>
+The slopes from the DSG are linear (equal voltages per unit of time), but they can be altered using feedback. If the OUTPUT is patched to the VC IN jack, then the slope can be given an exponential or a logarithmic shape determined by the amount of feedback set by the processing knob. Since both the RISE and FALL can be switched to be controlled separately or together, the slope of either or both can be shaped using this technique. This is useful for producing slow, gradual amplitude changes with the Equal Power VCA modules.
+<p>
+If the TRIG IN jack is connected to the TRIG OUT jack, the DSG will oscillate with a waveform and frequency set by the RISE and FALL knobs. A series of pulses will appear at the TRIG OUT jack, and the duty cycle (the time the pulse is high compared to when it is low in each cycle) is set by the RISE and FALL knobs. The FALL knob determine how long the pulse is low. When the DSG is in the RISE part of the cycle or when the output is zero or less, the output of the TRIG OUT will be high. In some applications, a pulse with a very long duty cycle will cause erratic triggering in other modules. If such a symptom occurs, try increasing the FALL time and decreasing the RISE time to get the same pulse rate.
+<p>
+The DSG may be used as a positive peak follower by setting the RISE time to minimum (full CW) and applying an audio signal to the IN jack. Adjust the FALL knob for a compromise between response time and the best filtering of the audio component at the DSG output. If the FALL time is turned to minimum, and the RISE knob adjusted for optimum response time and filtering, then the unit will function as an envelope, follower-producing a negative envelope corresponding to the negative peaks ofthe input audio signal.
+<p>
+Adjustments on the DSG board are set to obtain a 0 to +5 volt level when the unit is cycling, producing a 100Hz triangle wave. An oscilloscope is required for this adjustment. This should not need to be adjusted unless components are replaced.
+
+
+<H4>Extra notes for the CGS114 adaptation of the DUSG/DTG PCB</H4>
+</td></tr></table>
+<center>
+<img width=894 height=765 src="pic/schem_cgs114_dusg.gif">
+<br><i>The schematic of one section of the DUSG.</i>
+</center>
+<p>
+<table width="700"><tr><td>
+<p>
+Both units on this board have identical labelling, as per the upper unit in the wiring diagram above. A separate LED driver board is not required. Unmarked diodes are 1N4148 or similar.
+<p>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>A</td><td>Trig In</td></tr>
+<tr><td>BPO</td><td>AC coupled output</td></tr>
+<tr><td>C</td><td>Signal In</td></tr>
+<tr><td>DCO</td><td>Main (DC) output. DCO on PCB. "6" in panel diagram above</td></tr>
+<tr><td>D</td><td>optional "bipolar" output</td></tr>
+<tr><td>E</td><td>exp CV input. So called "1V/oct"</td></tr>
+<tr><td>F</td><td>CV input "VC IN"</td></tr>
+<tr><td>FA</td><td>CCW end of "VC IN" pot</td></tr>
+<tr><td>FB</td><td>WIPER of "VC IN" pot (G and T on the wiring diagram)</td></tr>
+<tr><td>FC</td><td>CW end of "VC IN" pot</td></tr>
+<tr><td>H</td><td>WIPER of FALL pot</td></tr>
+<tr><td>K</td><td>WIPER of RISE pot</td></tr>
+<tr><td>M</td><td>END or GATE (output)</td></tr>
+<tr><td>MA</td><td>RISE/FALL/BOTH switch Rise contact (I and 2 on the wiring diagram)</td></tr>
+<tr><td>MB</td><td>RISE/FALL/BOTH switch Fall contact (J and 3 on the wiring diagram)</td></tr>
+<tr><td>MC</td><td>RISE/FALL/BOTH switch common (or use the common 0V wire as per the diagram)</td></tr>
+<tr><td>LA</td><td>LED anode</td></tr>
+<tr><td>LK</td><td>LED cathode</td></tr>
+<tr><td>"U"</td><td>U connection on the panel wiring diagram connects to 0V. There is no U on the PCB. Use one of the pads marked "0V" instead.</td></tr>
+<tr><td>W</td><td>0V power connection</td></tr>
+<tr><td>X</td><td>+12V power connection</td></tr>
+<tr><td>Z</td><td>-12V power connection</td></tr>
+</table>
+
+<center>
+<a href="pic/pcb_cgs114_dusg.gif" target="_blank"><IMG BORDER=0 WIDTH=600 HEIGHT=200 SRC="pic/pcb_cgs114_dusg.gif"></a>
+<br><table width=600 cellspacing=0 cellpadding=0><tr><td><i>The component overlay for the PCB. <a href="pic/pcb_cgs114_dusg.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i> Please note the recommended parts value changes marked in red.
+</td></tr></table>
+</center>
+
+
+
+<br>TL072 can be used in place of either op-amp.
+<br>For improved triggering at higher frequencies, it is recommended that the parts in the trigger circuit be updated to the values shown in red.
+<br>There is provision on the rear of the board for two 1206 100n decoupling capacitors. These are the pairs of hole-less rectangle pads. Install or ignore at your discression.
+<br>It is a good idea to match the transistors of the same type in the core with each other. At least use transistors from the same batch.
+<br>2N3906 can be substituted for the 2N4250 and 2N3904 substituted for the 2N5089. Note that the pinouts of these transistors will differ.
+<br>2N3563 can be any general purpose NPN such as 2N3904. Note that the pinouts of these transistors will differ.
+<br>The unit WILL run on +/-15 volts with no modification.
+<br>If using high brightness LEDs with 4k7 or higher series resistors, the base resistors of the LED drivers should be increased to 150k, as per the schematic.
+<br>
+<br>
+
+
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF </td><td align=right>4</td></tr>
+<tr><td>1n</td><td align=right>2</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>22n</td><td align=right>2</td></tr>
+<tr><td>100n</td><td align=right>10</td></tr>
+<tr><td>100n SMT1206 (optional)</td><td align=right>2</td></tr>
+<tr><td>47uF 25V</td><td align=right>2</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>100R </td><td align=right>2</td></tr>
+<tr><td>330R </td><td align=right>2</td></tr>
+<tr><td>1k </td><td align=right>4</td></tr>
+<tr><td>1k5 </td><td align=right>2</td></tr>
+<tr><td>2k2 </td><td align=right>6</td></tr>
+<tr><td>8k2 </td><td align=right>2</td></tr>
+<tr><td>33k </td><td align=right>6</td></tr>
+<tr><td>47k </td><td align=right>6</td></tr>
+<tr><td>68k </td><td align=right>2</td></tr>
+<tr><td>82k </td><td align=right>6</td></tr>
+<tr><td>100k </td><td align=right>12</td></tr>
+<tr><td>150k* see text</td><td align=right>2</td></tr>
+<tr><td>220k </td><td align=right>8</td></tr>
+<tr><td>330k </td><td align=right>2</td></tr>
+<tr><td>470k </td><td align=right>4</td></tr>
+<tr><td>820k </td><td align=right>6</td></tr>
+<tr><td>1M </td><td align=right>10</td></tr>
+<tr><td>10M </td><td align=right>4</td></tr>
+<tr><td>100k trimmer</td><td align=right>2</td></tr>
+<tr><td>50k lin pot</td><td align=right>6</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>5V6 400mW zener </td><td align=right>2</td></tr>
+<tr><td>LED</td><td align=right>2</td></tr>
+<tr><td>1N4148 </td><td align=right>8</td></tr>
+<tr><td>2N3904 (2N3563)  </td><td align=right>2</td></tr>
+<tr><td>2N3904 (2N5089) </td><td align=right>4</td></tr>
+<tr><td>2N3906 (2N4250) </td><td align=right>6</td></tr>
+<tr><td>4558 or TL072 </td><td align=right>2</td></tr>
+<tr><td>LF353 or TL072 </td><td align=right>2</td></tr>
+<tr><td>LM3900 </td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>SPDT Switch</td><td align=right>2</td></tr>
+
+
+<tr><td>CGS114 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b><font color="red">Please note that prior to September 25, 2011, this documentation had connections "C" and "E" swapped on the wiring diagrams. If you used the former diagram as a wiring guide, I would suggest you check your wiring again. These connections are in reverse to those used on boards produced by Serge.
+</font></b>
+
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+
+
+<p>
+Classic Serge style knobs can be purchased from<br>
+<a href="http://www.smallbearelec.com/" target="_blank"><b>Small Bear Electronics LLC</b></a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=707" target="_blank">phenolic clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=831" target="_blank">ABS clone of Davies 1900H</a>
+<br><a href="http://www.smallbearelec.com/Detail.bok?no=727" target="_blank">Colored ABS clones of Davies 1900H</a>
+
+<p>
+<!--This PCB is available only as part of the CGS "B" board set (US$170).-->
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+
+
+
+<p>
+<a href="index.html">back</a>
+<p>
+</td></tr></table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs114_dusg.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:07 GMT -->
+</HTML>

@@ -1,0 +1,155 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs60_sba.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:09 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=650>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--center>
+<IMG alt="Stomp Box Adapter" BORDER=0 WIDTH=400 HEIGHT=129 SRC="pic/photo_cgs60_sba.jpg">
+</center-->
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Stomp Box Adapter</font><br>
+<P>
+</center>
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs60_sba.html">here</a>.
+<p>
+This is a new version of the Stomp Box Adapter</a>. This time there is no provision for any jacks on the PCB. It can be used as an external input amplifier, a way to use effects pedals with synthesizer signal levels, or a way to use synthesizer modules with instruments such as electric guitars.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=579 height=383 src="pic/schem_cgs60v2_sba.gif">
+<br><table border=0><tr><td><i>The schematic of the Stomp Box Adapter. The jacks shown on the diagram are for connection to the stomp-box. Note that the switching contact on the input jack is connected to 0V.</i>
+</td></tr></table>
+</center>
+<p>
+Modular synthesizers generally use much higher signal levels than are used in effects pedals, so directly connection the two will create two problems. First, the excessive signal will cause the input of the effects pedal to overload/distort. Second, the output from effects pedal is too weak to drive synthesizer modules without some amplification. To compensate for these problems, the signal from the synthesizer must be dropped to a fraction of what it was, while the output of the effects pedal must be amplified by the same amount to restore it to a level suitable for the synthesizer. I have chosen to use a ratio of 20 as this encompases the signal levels of many synths. If you know for certain that the ratio is too great, the ratio can be reduced to reduce the amplification of any effects pedal noise. For example, if an effects pedal works on a 1V p-p signal, and a synthesizer has a maximum output of 5V p-p, a ratio of 5 would be adequate.
+
+<p>
+The preamplifier of the stomp box adapter is a basic non-inverting amplifier with an AC gain of 20, and suppression capacitors as needed. The input impedance is approximately 150k. The AC gain can be reduced if need by by increasing the value of the 470R resistor. For example, a 1k resistor in this position would give a gain of 10. The 1k resistor of the input divider would need to be increased to 2k2 to keep the drop and gain matched.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs60v2_sba.gif" target="_blank"><img border="1" width=600 height=100 src="pic/pcb_cgs60v2_sba.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.3 PCB. <a href="pic/pcb_cgs60v2_sba.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+
+</center>
+<p>
+There are three identical "modules" on this board. Depending on your requirements, you may need only insert parts in one or two of them. Each is clearly segmented on the PCB. It would also be possible to separate this board into three sections, each with two mounting holes. Two would need off board 10uF decoupling capacitors and a power connector.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+There are pads provided on the rear of the circuit board for 1206 or 805 100n decoupling capacitors. You can install these <i>or</i> regular through hole capacitors. There is no need to install both types.
+<p>
+Any single op-amp with industry standard pinouts can be substituted as needed.
+<p>
+To use the wire anchor holes:
+<br>1) Trim off the end of a suitable gauge of hookup wire
+<br>2) Pass it through the larger (pad-less) hole from below and pull a couple of inches through.
+<br>3) Strip the insulation from the end of the wire, twist and tin it.
+<br>4) Bend the wire over and pass the tinned part through the associated pad hole. Trim as needed.
+<br>5) Flip the board and solder the tinned wire to the pad.
+<br>6) Pull the excess wire back through the first hole so only a short length remains between the hole and the second pad. Make sure this is the LAST step, or the insulation will peel back from the wire as it is soldered.
+<p>
+
+<center>
+<img width=614 height=389 src="pic/wire_cgs60v2_sba.gif">
+<br><table border=0><tr><td><i>Two examples of how this board can be wired.
+</i></td></tr></table>
+</center>
+
+<p>&nbsp;<p>
+<center>
+<img width=448 height=694 src="pic/wire_cgs60_sar.jpg">
+<br><table border=0><tr><td><i>How to wire the CGS60 V2.0 as a Send and Receive module.
+</i></td></tr></table>
+</center>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>The module will run on +/-12 volts or +/- 15 volts with no changes.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pF</td><td align=right>3</td></tr>
+<tr><td>47pF</td><td align=right>3</td></tr>
+<tr><td>100n</td><td align=right>9</td></tr>
+<tr><td>10uF 25V</td><td align=right>8</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>470R</td><td align=right>3</td></tr>
+<tr><td>1k</td><td align=right>6</td></tr>
+<tr><td>10k</td><td align=right>3</td></tr>
+<tr><td>22k</td><td align=right>3</td></tr>
+<tr><td>150k</td><td align=right>3</td></tr>
+<tr><td>1M</td><td align=right>3</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL071</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS60 VER2.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2010 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs60_sba.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:21 GMT -->
+</HTML>

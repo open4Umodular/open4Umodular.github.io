@@ -1,0 +1,227 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs87_prog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:07:38 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=1000>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,H7ELVETICA" size=6>Programmer/Sequencer</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Programmer/Sequencer" BORDER=0 WIDTH=417 HEIGHT=200 SRC="pic/photo_cgs87s_prog.jpg">
+<p>
+<IMG alt="Programmer/Sequencer" BORDER=0 WIDTH=800 HEIGHT=200 SRC="pic/photo_cgs87_prog.jpg">
+</center>
+<p>&nbsp;
+
+<H2>Experienced builders only!</H2>
+
+<br clear=all>&nbsp;
+<p>
+This is a redesigned circuit board for the <a href="cgs59_prog.html">CGS59 Programmer/Sequencer</a>. Unlike that version, this one has no panel-format specific PCBs. The master PCB still exists, though is somewhat different in structure. The output amplifiers have also been made using TL074 instead of TL072 chips. The column boards have been replaced with boards that contain 8 stages. Pots and their mix resistors can be mounted on something like the <a href="cgs94_pot_rail.html">CGS94 pot carrier</a> if you want 1" horzontal spacing, or simply panel mounted and hand wired as was traditionally done.
+<p>
+The Programmer/Sequencer is a Serge inpired multi-stage sequencer. Unlike most sequencers, this one makes no use of binary counters. Rather, it uses a set of individual stages, each one directly accessible. As such it could be considered to allow "random access". The first sequencer produced by Serge was a 4017 based counter that put out gate pulses. In order to get a control voltage sequencer, the gate outputs were fed to the input stages of a multi-state programmer. Usually built in groups of four, but sometimes coupled through a switch, these programmers would only allow a single stage to be active at any time, outputting the corresponding control voltages to their bussed output jacks. The stages could be selected either via a gate/trigger input or a panel mounted push button.
+<p>
+This module replicates the programmer, but with one major exception - up and down inputs allow it to be sequenced without connection to an external gate source. Any stage can be activated at any time by a direct pulse or button press. Up or down pulses will then step it from that stage. To limit the number of steps in the sequence, the pulse (gate) output of a stage is simply routed to the external pulse input for the first stage of the sequence. Note that the first stage used in a sequence need not be the first stage on the panel. For example it would be possible to have the first few stages used as an "introduction", with the sequence automatically looping to a stage in the middle of the panel once the sequence's first run was completed.
+<p>
+There is also no theoretical limit to the number of stages that can be used, and I do know of sequencers that have been built with 16 stages. The maximum number of stages is of course chosen prior to building. The astute will recognise the circuits as having grown from that published in the Synapse article. Make no mistake - it wasn't simply copied. Hundreds of hours of R&amp;D and numerous prototypes were needed to get it right, as the circuit has been taken far beyond its original intentions.
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<center>
+<img width=625 height=874 src="pic/schem_cgs87s_prog.gif">
+<br><table border=0><tr><td><i>The schematic for the CGS87S Programmer/Sequencer interface PCB. Only one of these is needed per programmer/sequencer.
+</i></td></tr></table>
+<p>
+</center>
+
+<center>
+<img width=339 height=427 src="pic/schem_cgs87_prog.gif">
+<br><table border=0><tr><td><i>The schematic of a single stage of the CGS87 Programmer/Sequencer main PCB. Each of these board contains enough stages for eight steps. They can be cascaded for a greater number of steps.
+</i></td></tr></table>
+<p>
+</center>
+
+<center>
+<img width=965 height=679 src="pic/schem_cgs87_prog_overview.gif">
+<br><table border=0><tr><td><i>The schematic of the interboard wiring and pot array. Extra CGS87 boards can be added. G and J on the right side of the first PCB are wired to the G and J on the left side of the next, with the final pair looping back to the first G and J. The CGS87S can be wired to either end of the CGS87.
+</i></td></tr></table>
+<p>
+</center>
+
+
+
+
+<br>
+<p>
+When looking at the PCB with the pads facing down, as per the photos and diagrams here, the LEFT end of the PCB is stage 1. This is fine if you work on the rear of your panels with the panel flipped top to bottom. If you wish to reverse the sequence order, simply use all UP connections as down, and all DOWN connections as up.
+<p>
+Bus"C" is the output of a current source. This source is capable of holding only one stage on at a time. When a second stage is triggered, it deprives the currently latched stage of current, causing it to reset. In doing so, it removes its load from the current source, allowing the recently triggered stage to remain on.
+<p>
+The up-down function is provided by a dedicated pulse generator in each stage. Only when that stage is active are the pulse generators enabled. Upon receiving an up or down pulse from the corresponding bus, either the next or previous stage will be sent a trigger pulse.
+
+<ul>
+<li>CPO - Common Pulse Out. (original Serge name. A better name would be 'Button Gate Out') Goes high and remains high while a push button is pushed.
+<li>AEP - All Event Pulse. Gives a trigger pulse on any change of stage.
+</ul>
+
+<p>
+<h4>Construction</h4>
+<p>
+
+<center>
+<a href="pic/pcb_cgs87s_prog.gif" target="_blank"><img width=446 height=224 src="pic/pcb_cgs87s_prog.gif" border="1"></a>
+<br><table width=800 border=0><tr><td><i>The component overlay for the Programmer/Sequencer I/O board. <a href="pic/pcb_cgs87s_prog.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+<p>&nbsp;<p>&nbsp;
+<a href="pic/pcb_cgs87_prog.gif" target="_blank"><img width=900 height=224 src="pic/pcb_cgs87_prog.gif" border="1"></a>
+<br><table width=800 border=0><tr><td><i>The component overlay for the Programmer/Sequencer main board. <b>Please note that on the VER1.0 PCB, +VE and 0V at the right hand end of the PCB are incorrectly labeled as each other. 0V should be at the top.</b> <a href="pic/pcb_cgs87_prog.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+</center>
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+
+On the rear of the "S" board there are two pairs of small square pads under the TL074s. These pads are for 100n 1206 (or even 805) SMT/SMD capacitors (or 10n, or 47n - it isn't critical). Put a little solder on one pad. Move the capacitor into position, and re-heat the solder. The capacitor will now be held in place. Solder the opposite end, then go back and tidy up the first joint if needed. Use ceramic monoblock caps, NOT electro or tantalum.
+
+<p><img width=323 height=230 src="pic/wire_cgs59_skip.gif" align="left" vspace=20> It is possible to add skip/stop switches to each stage. What's more, it is possible to do it in such a way that behavior in each direction can be controlled independently. Instead of running wires between pads J, H and G as described above, switches can be wired in as shown in the diagram to the left. Using on-off-on switches will result in each stage having three possible behaviors: Normal, where the stage will activate in sequence; Refuse, where the stage refuses to activate, causing the sequence to stop at the stage before, where it will remain until either the sequence is reversed, or some other manual override forces the sequence away from that stage, and; Skip, where that stage behaves as if it is not there, the following enabled stage activating on the next clock pulse. Setting several steps in a row to Skip will result in all of those stages being skipped.
+<p>If two single pole on-off-on switches are used per stage, each direction can be set independently. If one double pole switch is used per stage, only a single switch per stage is required, though functionality will be reduced.
+<p>Note that the diagram assumes UP will advance the step to the RIGHT. It needs to be mirrored if it is to be used as a wiring diagram.
+<p>The skip functionality was developed at the suggestion of and in conjunction with Ryk Thekreator.
+<br clear=all>
+
+
+<p>&nbsp<p>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>8" x 2" with four 3mm mounting holes 0.15" in from the edges. Extra holes provided for   carrying the sub-board.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left" width="300">
+
+<tr><th colspan=2>CGS87S</th></tr>
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>Ferrit Bead</td><td align="right">2</td></tr>
+<tr><td>330&#8486;</td><td align="right">4</td></tr>
+<tr><td>1k</td><td align="right">4</td></tr>
+<tr><td>2.2k</td><td align="right">2</td></tr>
+<tr><td>10k</td><td align="right">6</td></tr>
+<tr><td>22k</td><td align="right">1</td></tr>
+<tr><td>33k</td><td align="right">1</td></tr>
+<tr><td>47k</td><td align="right">9</td></tr>
+<tr><td>100k</td><td align="right">17</td></tr>
+<tr><td>150k</td><td align="right">1</td></tr>
+<tr><td>220k</td><td align="right">2</td></tr>
+<tr><td>470k</td><td align="right">3</td></tr>
+<tr><td>1M</td><td align="right">1</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>47pF</td><td align="right">8</td></tr>
+<tr><td>10nF (=0.01uF)</td><td align="right">4</td></tr>
+<tr><td>100nF (=0.1uF) monoblock</td><td align="right">3</td></tr>
+<tr><td>100nF (=0.1uF) 1206 SMT</td><td align="right">2</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">2</td></tr>
+<tr><td>BC547</td><td align="right">3</td></tr>
+<tr><td>BC557</td><td align="right">2</td></tr>
+<tr><td>LM393</td><td align="right">1</td></tr>
+<tr><td>TL074</td><td align="right">2</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS87S PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+
+
+
+
+<b>Parts list</b>
+<p>
+The parts list has been divided into two, one part per board type used. Only one "B" type board and its associated parts will be needed. A minimum of three type "A" boards and associated parts will be needed.
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+
+
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left" width="300">
+
+<tr><th colspan=2>CGS87</th></tr>
+
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>680&#8486;</td><td align="right">8</td></tr>
+<tr><td>820&#8486;</td><td align="right">8</td></tr>
+<tr><td>RLED (10k)</td><td align="right">8</td></tr>
+<tr><td>47k</td><td align="right">24</td></tr>
+<tr><td>100k</td><td align="right">40</td></tr>
+<tr><td>150k</td><td align="right">24</td></tr>
+<tr><td>470k</td><td align="right">8</td></tr>
+<tr><td>1M</td><td align="right">8</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>470pF</td><td align="right">8</td></tr>
+<tr><td>10nF (=0.01uF)</td><td align="right">16</td></tr>
+<tr><td>22nF (=0.022uF)</td><td align="right">8</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">40</td></tr>
+<tr><td>BC547</td><td align="right">8</td></tr>
+<tr><td>BC557</td><td align="right">24</td></tr>
+<tr><td><a href="../pcb/index.html">CGS87 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs87_prog.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:08:06 GMT -->
+</HTML>
+

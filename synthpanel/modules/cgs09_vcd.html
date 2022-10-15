@@ -1,0 +1,186 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs09_vcd.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:48:54 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Voltage Controlled Divider" BORDER=0 WIDTH=600 HEIGHT=205 SRC="pic/photo_cgs09_ncom.jpg" hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Voltage Controlled Divider</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This is an upgraded version of my older voltage controlled divider. It has additional mixing and a comparator at the clock input, additional range, and will now work on 12V if needed, as the internal regulator has been eliminated.
+<p>
+<a href="cgs09_vcd_mk1.html">Details of the earlier versions can be found here.</a>
+<p>
+
+This was originally developed a timing accessory for a sequencer I was working on, though when fed from a VCO, interesting frequency trills like those of the old 8-bit computer games can be produced. Feeding the control voltage from a <a href="psycho_lfo.html">Psycho LFO</a> produces some interesting effects.
+<p>There are two outputs, one a narrow "trigger" pulse, the other following the pulse width of the incoming signal. This means that any mark/space ratio sweep being applied to a VCO connected to this module, will also be on the output signal of this module.
+<p>The division can be varied from divide by 1 to approximately divide by 60.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the input to a signal source such as a VCO, LFO or sequencer master clock. Use the control voltage input to determine the number of incoming pulses per output pulse.
+<p>
+There are two pulse outputs, marked HO and LO on the PCB. HO (High Frequency out) gives a narrow trigger pulse output. LO (Low Frequency out) gives a pulse output, the width of which varies with the pulse width of the incoming signal. Depending on the individual ICs you use, the propagation delays of the chips will limit the speed at which the LO output can function. I estimate it drops out above 10 kHz, though as mentioned, it does vary with individual 40106 chips.
+<p>
+Experiment with it.
+<p>
+<b>A little on how it works:</b>
+<p>
+<p>
+<center>
+<img width=600 height=510 src="pic/schem_cgs09_ncom_r2s.gif">
+<br><i>The schematic of the Voltage Controlled Divider.</i>
+</center>
+
+<p>
+The Voltage Controlled Divider consists of several distinct blocks, each which is fairly simple in its operation.
+<p>
+The circuitry around IC1B processes the incoming frequency, and squares up the waveform so it is suitable for the digital portions of the circuit. It drives the counter (4024) and sets the output flip-flop based around two portions of the 40106. This block is fed via a DC mixer stage which includes both inverting and non-inverting inputs, as well as a DC offset allowing for easy adjustment of the "sweet spot" for the incoming signal. The mixer also has an output making the unit a handy utility module even when you are not doing any dividing.
+<p>
+The output of the counter (4024) is connected to a D to A converter made using an R/2R resistor ladder.  The incoming pulse train will step the counter (4024) until the voltage on the output of the D to A converter is greater than that on pin 2 of IC1A, at which point the output of IC1A changes state, putting a HIGH on the HO output, resetting the flip-flop, and triggering a short delay that resets the counter to zero. This clears the HO output back to LOW.
+<p>
+The flip-flop drives the LO output through a transistor buffer.
+<p>
+IC2 is dedicated to processing the incoming control voltage. The first part of the circuit is a precession half-wave rectifier, blocking any CV that goes below 0 volts. The second part is used to set the minimum and maximum of the voltage presented to IC1A, as going past either end of the operating range results in either silence or an unpredictable oscillation. (Divide by 0 is NOT very practical!)
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=600 height=201 src="pic/pcb_cgs09_ncom.gif">
+<br><i>The component overlay.</i>
+</center>
+<p>
+There are two unmarked capacitors near the power connector. These can be ignored, or if you prefer, have decoupling capacitors installed in them. Any 100n capacitors would do.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+<h4>Setup</h4>
+<p>
+This module requires setting up. Feed an audio signal into the Clock In input. Monitor the output at HO Pulse Out. With the control voltage set at 0 volts, adjust the OFFSET trimmer until the input frequency equals the output frequency. With the control voltage set at the maximum (15 volts if wired as per the diagram), adjust the SPAN trimmer until you get the lowest frequency possible. If the output stops then back up until you get a signal again.
+<p>
+<font color="red"><b>Important.</b></font> The first run of PCBs has a minor error - the voltage follower IC4B (center bottom of the PCB) has its wiring confused. The track between pin 5 and 6 must be cut, as must be the incoming trace that connects to pin 6. This trace is then wired to pin 5, and pin 6 is wired to pin 7. Refer to the PCB/overlay diagram above when correcting the board.
+<p>
+
+<b>PCB connections:</b>
+<p>
+<b>HO   </b>High frequency usage output (fixed pulse).
+<br><b>CMP  </b>Clock sensitivity pot. Arrows indicate CCW end, wiper and CW end.
+<br><b>MOUT </b>Clock mixer output (not essential)
+<br><b>M-IN </b>Clock mixer negative input (not essential)
+<br><b>M+IN </b>Clock mixer posative input (use as primary clock input)
+<br><b>M+IN </b>Clock mixer posative input (not essential)
+<br><b>LO   </b>Low frequency usage output (follows clock input pulse width. Does not work at high frequency)
+<br><b>LA   </b>LED anode
+<br><b>LK   </b>LED cathode
+<br><b>STUP </b>Climbing staircase CV output
+<br><b>STDN </b>Falling staircase CV output
+
+<br><b>CVN  </b>+VE supply to "normalized" switch contact on CV input jack.
+<br><b>CVI  </b>CV input jack #1 (fed via pot)
+<br><b>DIV  </b>CV input jack #2
+
+
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>The alternate "*" values on the PCB can be ignored. These are optional to provide a "softer" signal for more sensitive synthesizers.
+<li>Only the 100k resistors in the D/A really need to be 100%, though if you are out buying them, you might as well use 1% for them all.
+<li>For a maximim division of 32, leave the two resistors marked with circles off the board and place a link in place of the 100k.
+<li>A 10 to 22 ohm resistor can be used instead of a ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please excuse the overly colorful schematic, but that was the best way to make it clear.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>1n5</td><td align=right>1</td></tr>
+<tr><td>10n</td><td align=right>1</td></tr>
+<tr><td>100n</td><td align=right>8</td></tr>
+<tr><td>100n (unmarked/optional)</td><td align=right>2</td></tr>
+<tr><td>10uF 25V</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>10R</td><td align=right>2</td></tr>
+<tr><td>1k</td><td align=right>7</td></tr>
+<tr><td>2k2</td><td align=right>1</td></tr>
+<tr><td>6k8</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>12</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k 1%</td><td align=right>18</td></tr>
+<tr><td>200k 1%</td><td align=right>8</td></tr>
+<tr><td>220k</td><td align=right>1</td></tr>
+<tr><td>1M</td><td align=right>1</td></tr>
+
+<tr><td>2k trim</td><td align=right>1</td></tr>
+<tr><td>47k trim</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>9</td></tr>
+<tr><td>4024B*</td><td align=right>1</td></tr>
+<tr><td>40106B</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>2</td></tr>
+<tr><td>LM358</td><td align=right>2</td></tr>
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>LED (panel mounted)</td><td align=right>1</td></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS09 PCB</a></td><td align=right>1</td></tr>
+</table>
+<p>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<br clear=all>
+<P>
+*If using a Motorola chip here, make sure it is the MC14024 and not an MC4024, which is entirely the wrong chip.
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2003 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs09_vcd.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:51:28 GMT -->
+</HTML>

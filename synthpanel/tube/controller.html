@@ -1,0 +1,165 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/tube/controller.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:23 GMT -->
+<HEAD>
+ <TITLE>Audio Synthesis via Vacuum Tubes</TITLE>
+ <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+ <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, eric barbour, tube, valve">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width="900">
+<tr><td>
+<font face="ARIAL,HELVETICA" SIZE=2>
+<center>
+<font size=6>Audio Synthesis via Vacuum Tubes</font>
+</center>
+<CENTER><I><B>Eric Barbour</B></I>
+<BR>Owner, <a href="http://www.metasonix.com/" target="_blank">METASONIX</a>, Redwood City, California USA <BR>e-mail: <I><A HREF="mailto:synth@metasonix.com">synth@metasonix.com</A></I></CENTER>
+<p>
+
+<B>Controllers</B>
+
+<P>Classic analog synthesizers commonly achieved equal tempering
+with one of two schemes: either a linear-response
+VCO (or VCOs) with a keyboard attached to a voltage
+divider network with exponential scaling; or, more
+commonly, a VCO with an exponential-to-linear voltage scaler circuit,
+and a keyboard with a linear divider network. Both schemes have
+their weaknesses. The former, when an LFO or other modulation voltage
+was added to the VCO input, did not offset in equal tempering.
+<BR>Also, the resistor divider often required unusual high-precision
+values. The latter scheme was easy to do, IF one could
+control the temperature drift endemic to the exponential
+scaler (it usually relies on base-emitter exponential
+response to do the conversion, which drifts a great deal with temperature).
+The thermistors used in early exponential scalers are now difficult
+to obtain, and the Curtis chips used in later instruments are no
+longer in production and becoming scarce.
+
+<P>These problems do not apply directly to our tube synthesizer.
+Instead, we have a different problem: our very simple
+VCO is temperature-stable, but has a response that
+varies semi-randomly with the individual thyratron tube used. So,
+we not only have to use a non-linear divider on the keyboard; we have to
+use one that can be ADJUSTED for the individual thyratron.
+If we want to use two or more VCOs in parallel, we
+have to match the thyratrons for pitch-to-voltage
+response curves.
+
+<P>The Trautonium never had this problem--it used a ribbon
+controller, with no fixed keys. We could always do
+that with our tube circuits. Refer to the classic
+ELECTRONOTES newsletter for a number of suitable circuits. However,
+if you insist on having an equally-tempered keyboard, we
+must use a divider made of trimpots.
+
+<P>Figure 1 shows how this is done. Normally, the output
+voltage of the divider drifts up to the supply voltage
+(you can use +12 or +15), because none of the keys
+are down and the voltage is not divided. When a key is pressed,
+the voltage goes to a lower level. By appropriately adjusting
+the trimpots, the output voltage can be set to driven
+a tube VCO to follow equal tempering. (It should be
+obvious that you adjust the pots starting at the LEFTMOST key, i.e.,
+the lowest-pitch key.)
+
+<P>We follow the buffer IC1a (which can be any inexpensive
+single-supply quad op-amp) with a sample-and-hold, Q1. IC1b is used as
+a comparator to detect the drop of the divider voltage
+from the +V, and raises its output. This is the GATE
+signal. It triggers the S/H, and may be used to operate any conventional
+ADSR or otherenvelope generator to feed the VCA. Q1 can be any inexpensive
+n-channel junction FET, such as the commonly-used 2N3819
+or 2N5486. (Obviously, +v should come from a well-regulated supply. Less
+than 20 mA are needed by this design.) The PITCH BEND/ADJ
+pot shown on the output buffer IC1D is optional--novices
+would be smart to just ground that point from the 10k resistor,
+and leave this pot out. It complicates tune-up. Note that it will
+not give a full pitch-control range on the lowest few keys.
+If you desire a true up-or-down pitch bend, this would
+be more easily done with the master-tune pot in the
+anode of the thyratron.
+
+<p>Our controller circuit
+will give about 2 1/2 octaves of control range on
+the tube VCO, from a few hundred millivolts above ground to nearly +V.
+This should be enough for most experimental music applications.
+(Getting a greater range out of the thyratron VCO is an advanced
+subject, which we will not get into at this time.)
+The AGO keyboard sold by PAIA Electronics can be used with
+this circuit. It has 37 keys. We can only use about
+28, so remove the unused keys after the keyboard is
+installed in your intended cabinet, and cover the
+open areas with aluminum or plastic plates. I have built a few such
+circuits, and can assure you that they work very well.
+
+<P>Alternatively, if you already have an old Moog or ARP
+(or other) analog controller keyboard and want to
+convert it to drive the tube VCOs, just substitute
+the trimpot divider for the existing voltage divider. This may ruin
+any collectibility value of the keyboard, but one gains a small side
+benefit; the keyboard can be used to drive ANY VCO, tube
+or transistor, linear, exponential, what-have-you.
+And it can produce any desired scale; equal-tempered,
+just, microtonal. Simply drive the VCO desired and adjust each trimpot
+(while holding down its key) for the desired pitch.
+
+<P>Finally, MIDI control of your tube circuits. You can NOT
+use a conventional MIDI-CV converter, due to to difficulty
+of converting the (usually linear) CV output to the
+voltage the tube VCO would like to see. So, just replace the keyboard
+in Figure 1 with a JW Electronic MTP-1 MIDI-to-relay interface board.
+Its relay outputs are open-collector, and perform the same
+function as the keyboard by shorting the required
+divider point to ground. JW is at: essfc@csv.warwick.ac.uk,
+web site http://www.warwick.ac.uk/~essfc/mtp1.html. I
+have used an MTP-1 for this successfully. Its major advantages are that
+it is less expensive and easier to use than other
+MIDI-parallel interfaces now available. (And yes,
+there is nothing to keep you from wiring the MTP-1 AND
+the keyboard to a single controller. All they do is ground a point
+on the divider. So, as long as one is not being used, the
+other can control the synth.)
+
+<P><B>Schematics</B>
+<p>
+<center>
+<img width=540 height=355 src="pic/schem_cont1.gif" border=0 alt="VCA schematic">
+<p>
+<img width=525 height=244 src="pic/schem_cont2.gif" border=0 alt="VCA schematic">
+</center>
+
+<p>
+<B>About the Author</B>
+
+<P>Eric Barbour holds a BSEE degree from Northern Arizona
+University. He has been a regular contributor with GLASS AUDIO magazine since 1991, staff editor of VACUUM TUBE VALLEY magazine since its founding in 1995, and has
+written articles for many other music and audiophile publications.
+<p>
+<CENTER>&copy; 1997 Eric Barbour, All Rights Reserved</CENTER>
+
+<p><b><a href="index.html">Audio Synthesis via Vacuum Tubes Home</a></b>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+
+<P><font color="#CC0000"><b>A note to readers: this circuitry is intended for the
+more advanced builder. Because high voltages are used, a shock hazard exists.
+We do NOT recommend that the novice DIY musician try to construct this
+synthesizer. Some experience with tube electronics is highly recommended.</b>
+</font>
+
+</FONT>
+
+
+<p>
+</td></tr>
+</table>
+</CENTER>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/tube/controller.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:21:27 GMT -->
+</HTML>

@@ -1,0 +1,243 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs116_env.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:14:35 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=820>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Extended ADSR Envelope Generator" BORDER=0 WIDTH=600 HEIGHT=191 SRC="pic/photo_cgs116_env.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Extended ADSR Envelope Generator</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is based on the Serge Extended ADSR. In addition to the usual Attack, Decay, Sustain, Release envelope, it has an adjustable delay at the beginning of the envelope. All timings and the Sustain level can be voltage controlled. The envelope can be linear or exponential, or linear with an exponential attack. There is also a master CV input that allows all timings to be reduced at once. When controlled by the same voltage as being used for VCO pitch, this allows for shorter envelopes for higher frequencies, as happens in acoustic instruments.
+<p>
+It will work on either +/- 12 volts or +/-15 volts without modification, though in the case of the latter, all input voltage sensitivities, and output voltages are proportionally increased.
+<p>
+Note that this design is a little unusual in that the Gate input will sit at "ON" when nothing is connected to its jack.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+<a href="pic/schem_cgs116a_env.gif" target="_blank"><img src="pic/schem_cgs116a_env.gif" width="800" border="0"></a>
+<P><a href="pic/schem_cgs116a_env.gif" target="_blank" >Click here</a> to view an enlarged copy of the schematic.</i>
+<p>
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs116_env.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs116_env.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs116_env.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+<p><br><br>
+<a href="pic/pcb_cgs116v11_env.gif" target="_blank"><img width=800 height=266 src="pic/pcb_cgs116v11_env.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.1 PCB. The only difference is that the orientation of the LED driver transistor has been corrected.<a href="pic/pcb_cgs116v11_env.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+
+<p><br><br>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, transistors and ICs.
+<p>
+<b>Note</b>
+<dl>
+
+<DT><b>VER1.0</b></dt>
+<dd>
+On the VER1.0 PCB the 2N3565 LED driver transistor has a mirror image outline to the other transistors. You will need to install this transistor in reverse to the outline shown. The emitter pad IS correctly marked. This transistor is in RED on the diagram above.
+<p>
+The transistor outlines on the PCB are consistent with PN versions of the 2N/PN3565 and 2N/PN4248. Check the data for the brand you purchase. The 2N5089 outline is correct for the 2N5089 variant. I am unable to locate data on any PN variant. <i>If you use BC547 and BC557, note that with the exception of the LED driver transistor mentioned above, they will need to be installed in reverse to what the layout indicates. Again, the emitter is correctly marked on the PCBs. Use that as your reference.</i>
+</block>
+</dd>
+
+<DT><b>VER1.1</b></dt>
+<dd>
+<p>
+The transistor outlines on the PCB are consistent with PN versions of the 2N/PN3565 and 2N/PN4248, and are now labeled as such. Check the data for the brand you purchase. The 2N5089 outline is correct for the 2N5089 variant. <i>If you use BC547 and BC557, note that they will need to be installed in reverse to what the layout indicates. Again, the emitter is correctly marked on the PCBs. Use that as your reference.</i>
+</block>
+</dd>
+
+</dl>
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Serge's comments re the curious arrangement of R15a 47 ohms in series with R15b 82k:
+"The curious 47 ohm resistor I remember leaving in the
+schematic as a means to do in the field adjustments of the total resistance.
+This had to do with making sure the switching between linear vs exponential
+decay slopes could be optimized if need be.  As it turns out, I never had to
+do this. So the 47 Ohm resistor can be deleted!"
+<p>So you can use a 47 ohm, or a piece of wire.
+<p>The capacitors marked with "*" are additions to the original design to ensure op-amp stability.
+<p>Transistors and op-amps can be substituted as outlined in the parts list. T1 and T2 should be matched. T3 and T4 should be matched. With modern manufacturing techniqes, transistors from the same batch should be matched well enough that you can skip any hand-matching process. Other than selecting transistors from the same batch, I did no matching.
+<p>A 1k resistor is specified as the LED resistor. If you use a superbright LED, this value should be increased, to as much as 33k, dependent on the individual LED.
+<p>Pot values are not critical as they are only used as voltage dividers. Anything between 10k and 100k will work.
+
+<h4>Pad identification</h4>
+<p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+<tr><td>A</td><td>Switch contact for Exponential Attack Only mode</td></tr>
+<tr><td>B</td><td>Switch contact for Linear Envelope mode</td></tr>
+<tr><td>C</td><td>Output</td></tr>
+<tr><td>D</td><td>+VE to pots and switch common</td></tr>
+<tr><td>E</td><td>T2 Pot wiper (Attack)</td></tr>
+<tr><td>F</td><td>T3 VC (Decay)</td></tr>
+<tr><td>g</td><td>T3 Pot wiper (Decay)</td></tr>
+<tr><td>H</td><td>Trigger In</td></tr>
+<tr><td>I</td><td>Sustain VC</td></tr>
+<tr><td>K</td><td>Gate In</td></tr>
+<tr><td>L</td><td>T1 pot wiper (Delay)</td></tr>
+<tr><td>LA</td><td>LED anode</td></tr>
+<tr><td>LK</td><td>LED cathode</td></tr>
+<tr><td>M</td><td>0V to pots</td></tr>
+<tr><td>N</td><td>T2 VC (Attack)</td></tr>
+<tr><td>P</td><td>VC All (exponential)</td></tr>
+<tr><td>R</td><td>T1 VC (Delay)</td></tr>
+<tr><td>S</td><td>Sustain pot</td></tr>
+<tr><td>T</td><td>T4 pot wiper (Release)</td></tr>
+<tr><td>U</td><td>T4 VC (Release)</td></tr>
+<tr><td>X</td><td>+VE in</td></tr>
+<tr><td>W</td><td>0V in</td></tr>
+<tr><td>Z</td><td>-VE in</td></tr>
+<tr><td>+VE</td><td>+VE power rail out (not used)</td></tr>
+<tr><td>-VE</td><td>-VE power rail out (not used)</td></tr>
+<tr><td>0V</td><td>0V/GND connection for 3.5 or 6.5mm jacks.</td></tr>
+</table>
+<p>
+
+<p>
+<center>
+<img width=692 height=700 src="pic/wire_cgs116_env.gif">
+<P>
+<table border="0" cellspacing="0"><tr><td>
+<i>Example wiring for the Extended ADSR Envelope Generator.</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>
+There is no setup required.
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pF</td><td align=right>1</td></tr>
+<tr><td>47pF</td><td align=right>2</td></tr>
+<tr><td>100pF</td><td align=right>1</td></tr>
+<tr><td>220pF</td><td align=right>2</td></tr>
+<tr><td>1n</td><td align=right>1</td></tr>
+<tr><td>10n</td><td align=right>5</td></tr>
+<tr><td>22n</td><td align=right>1</td></tr>
+<tr><td>47n</td><td align=right>1</td></tr>
+<tr><td>10uF</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>47R (or LINK)</td><td align=right>1</td></tr>
+<tr><td>330R (330 Ohms)</td><td align=right>2</td></tr>
+<tr><td>1k (pick to suit LED)</td><td align=right>1</td></tr>
+<tr><td>2k 1%</td><td align=right>5</td></tr>
+<tr><td>3k3</td><td align=right>2</td></tr>
+<tr><td>8k2</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>3</td></tr>
+<tr><td>33k</td><td align=right>2</td></tr>
+<tr><td>34k 1%</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>3</td></tr>
+<tr><td>47k5 1%</td><td align=right>4</td></tr>
+<tr><td>51k1 1%</td><td align=right>1</td></tr>
+<tr><td>82k</td><td align=right>7</td></tr>
+<tr><td>100k</td><td align=right>8</td></tr>
+<tr><td>110k</td><td align=right>5</td></tr>
+<tr><td>330k</td><td align=right>4</td></tr>
+<tr><td>470k</td><td align=right>1</td></tr>
+<tr><td>2M2</td><td align=right>1</td></tr>
+<tr><td>22M</td><td align=right>1</td></tr>
+<tr><td>50k or 100k lin pot</td><td align=right>5</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>7</td></tr>
+<tr><td>PN3565 (BC547)</td><td align=right>4</td></tr>
+<tr><td>PN4250 (BC557)</td><td align=right>3</td></tr>
+<tr><td>2N5089 (BC547)</td><td align=right>2</td></tr>
+<tr><td>4558 (TL072)</td><td align=right>2</td></tr>
+<tr><td>TL082 (TL072)</td><td align=right>1</td></tr>
+<tr><td>4001B*</td><td align=right>1</td></tr>
+<tr><td>4016* (4066)</td><td align=right>1</td></tr>
+<tr><td>4069*</td><td align=right>1</td></tr>
+<tr><td>LM324</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>1</td></tr>
+<tr><td colspan=2>*MC1, HEF, CD</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>10</td></tr>
+<tr><td>SPST Ctr-Off switch<td align=right>1</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS116 VER1.1 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs. Alternative part numbers are provided in brackets (). Make sure that you use 4000 series CMOS, and not a 74HCx4xxx variant.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2010 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs116_env.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:14:54 GMT -->
+</HTML>

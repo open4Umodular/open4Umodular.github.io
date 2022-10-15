@@ -1,0 +1,124 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs56_gatecon.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:42 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Gate Converter</font><br>
+for music synthesizers.<p>
+Design by Richard Brewster. PCB by Ken Stone.
+</center>
+
+<!--center>
+<IMG alt="Gate Converter" BORDER=0 WIDTH=600 HEIGHT=245 SRC="pic/photo_cgs56_gatecon.jpg">
+</center-->
+
+<br clear=all>&nbsp;
+<p>
+The purpose of the Gate Converter is to turn standard positive gate signals into negative to positive going gate signal. This is particularly handy when interfacing to other manufacturer's modules that require a zero crossing signal to operate. It can also be used to convert assorted LFO or VCO signals to square or rectangular waves, to extract some form of gate signal from an envelope and so on.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<img width=438 height=374 src="pic/schem_cgs56_gatecon.gif">
+<br><i>The schematic of the Gate Converter.</i>
+</center>
+<p>
+This circuit is a basic comparator with a little hysteresis. It is set to detect input voltages above or below the reference voltage of approximately 1.4 volts. The output of the comparator is then reduced by the resistive divider to approximately + or - 5 volts, depending on whether the input voltage is above or below the reference voltage.
+<p>
+There are 4 identical units on the PCB.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=400 height=288 src="pic/wire_cgs56_gatecon.gif">
+<br><i>The component overlay of the first version of the board, including a wiring example.</i>
+</center>
+<p>
+<center>
+<a href="pic/pcb_cgs56v11_gatecon.gif" target="_blank"><img width=200 height=130 src="pic/pcb_cgs56v11_gatecon.gif"></a>
+<br><i>The component overlay of the VER1.1 PCB. Wiring remains the same as the example shown above <a href="pic/pcb_cgs56v11_gatecon.gif" target="_blank">Click here</a> for an enlarged printable version.</i>
+</center>
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+This board can be integrated into a module as either an input processor or output processor, or wired up as a regular utility module.
+<p>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>To use the module with +/-12 volts, replace the 3k3 resistors with 2k2 or 2k4 resistors.
+<li><font color="green"><b>PCB info: </b></font>1.15" x 2" with two 3mm mounting holes 0.15" in from the bottom and edges. It is designed to sit above one end of a regular 2" width CGS PCB.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k8</td><td align=right>4</td></tr>
+<tr><td>2k2</td><td align=right>4</td></tr>
+<tr><td>3k3</td><td align=right>4</td></tr>
+<tr><td>10k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>1</td></tr>
+<tr><td>2M2</td><td align=right>4</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>TL074</td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td><a href="../pcb/index.html">CGS56 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs56_gatecon.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:00:48 GMT -->
+</HTML>

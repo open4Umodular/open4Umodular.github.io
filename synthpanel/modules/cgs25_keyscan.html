@@ -1,0 +1,125 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs25_keyscan.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:55 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=600>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<!--center>
+<IMG alt="Keyboard Scanner" BORDER=0 WIDTH=600 HEIGHT=207 SRC="pic/photo_cgs25_keyscan.jpg">
+</center-->
+<p>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Keyboard Scanner sub-module</font><br>
+for music synthesizers.
+<br><h3><font color="red">PREVIEW</font></h3>
+
+</center>
+<br clear=all>&nbsp;
+<p>
+<p>
+This module is intended for use in conjunction with the <a href="../other/paraport/paraport.html">parallel port adapter</a> and a PC. It allows the PC to scan the synthesizer keyboard to which it is connected, then to drive <a href="cgs20_dco.html">DCOs</a> or VCOs via <a href="cgs11_da_converter.html">D/A converters</a>. It essentially contains the required parts to scan 32 keys, so two or more will be required for larger keyboards.
+<p>
+As shown in the diagrams, it is wired so each group of 8 keys is accessed via an external select line, though a little cutting and jumpering using the alternate select lines of the 74LS138s, the keys can be selected as groups of 16 as is required by the <a href="../other/paraport/paraport.html">parallel port adapter</a>.
+<p>
+Alternately, the enthusiastic may choose to connect these to a dedicated microcomputer such as the z80 based TEC-1 or other similar small systems, in which case the select lines would probably be used as is, or in conjunction with an additional 74LS138.
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<a href="pic/schem_cgs25_keyscan_large.gif" target="_blank"><img width=600 height=149 src="pic/schem_cgs25_keyscan.gif" border="0"></a>
+<br><i>The schematic of the Keyboard Scanner. <a href="pic/schem_cgs25_keyscan_large.gif" target="_blank">Click for a larger version</a></i>
+</center>
+<p>
+For a general description of how it works, please see the <a href="../other/paraport/paraport.html">parallel port adapter</a>.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=500 height=155 src="pic/pcb_cgs25_keyscan.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the links first, followed by the diodes, the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as the electrolytics and ICs.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay. Note that sockets introduce a point for future failure. I only use sockets when I expect to try several ICs for test purposes.
+<p>
+As mentioned, you may wish to modify the board to add a fourth address line.
+<ul>
+<li>On the first and third chips, isolate pin 5 (E2 active LOW enable pin). You will need to jumper the 0V line around the cuts in the tracks
+<li>On the second and fourth chips, isolate pin 6 (E3 active HIGH enable pin). Do this by cutting the track between pin 16 of the chip and the large unused pad.
+<li>
+Join all of the isolated pins together, i.e. chip 1, pin 5 joins to chip 2, pin 6  joins to chip 3, pin 5  joins to chip 4, pin 6. If you are using more than one scanner PCB, continue this right through the remainder of the boards. This new set of connections are A3, the fourth address line.
+<li>New select lines are made by joining the E1 active LOW enable pins in pairs, i.e.  the pad marked E0 is connected to the pad marked E1, and these form the new E0 select line. The pad marked E2 is connected to the pad marked E3, and these form the new E1 select line, and so on across the remainder of the PCBs.
+</ul>
+<p>
+<h4>Wiring</h4>
+<p>
+If we consider each set of contacts on the keyboard as a switch, we will find that we have at least one isolated contact per key, that makes contact when the key is pressed. This is what we wire each corresponding diode to. KEY00 goes to the contact for the lowest note, KEY01 to the second lowest and so on. Note that these are not marked on the PCB. Ideally, the contact you will be wiring to is the center contact of a single pole double throw switch arrangement. When pressed, this contact will touch a second normally open contact. These normally open contacts need to be wired together right across the length of the keyboard. In many cases this will already be done for you in the form of a keying bus. This bus is then connected to an input on the parallel port so that it can be read.
+If your keyboard has a second, normally closed contact, these can be connected together to form a second bus, assuming they aren't already wired this way. This bus is then connected to a second input on the parallel port so that it can be read. Theoretically, this second bus would give us the opportunity to read keyboard velocity, dependent on the scanning frequency.
+<p>
+<b>Notes:</b>
+<ul>
+<li>The first run of the PCB mistakenly labels the A2 address line as A3. It is indeed A2.
+<li>Fast 74xxxx CMOS chips with the same pin configuration can be used in the circuit.
+<li>If your keyboard uses individual key-switches instead of buses, it would be possible to wire the scanner as a matrix - i.e. the 1st and 33rd keys would both be connected to the first output of the first 74LS138. It is important to note that only the 1st would actually connect to KEY00. A second diode would need to be added between the 33rd key and pin 15 if the 74LS138 to maintain isolation, and so on for the remainder of the keys. The bus spanning keys 00 to 31 would then go to one input on the parallel port while the bus spanning keys 32 to 63 would then go to a second input on the parallel port.
+<li>Being a TTL based digital circuit this board requires 5 volts.
+<li><b><font color="Red">This board has not yet been tested, though I may be prepared to sell a couple to people with sufficient skill to do their own trouble shooting, if they wish to evaluate it. Demand will determine how many are produced in the future. Despite what the listing on the PCBs for sale page says, I DO have some in stock.</font></b>
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>32</td></tr>
+<tr><td>74LS138, 74HC138 etc</td><td align=right>4</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td><a href="../pcb/index.html">cgs25 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs25_keyscan.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:58 GMT -->
+</HTML>

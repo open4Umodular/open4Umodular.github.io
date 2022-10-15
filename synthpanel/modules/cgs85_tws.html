@@ -1,0 +1,175 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs85_tws.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:38 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=920>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Triple Wave Shaper" BORDER=0 WIDTH=800 HEIGHT=135 SRC="pic/photo_cgs85_tws.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Triple Wave Shaper</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+This module is a variation on the 1973 Classic Serge Triple Wave Shaper module.
+<p>
+To quote the 1982 catalog: The Triple Wave Shaper (TWS) is a non-linear modifier which can transform a sawtooth wave into a sine wave. This module incorporates three independent wave shapers for modifying synthesizer waveforms or for processing signals from preamplified instruments. Although originally designed as a wave shaper for our early oscillators, this module has been found to be a excellent modifier of electronic and acoustic sounds, and is highly recommended for subtle timbrel modifications beyond the range of simple oscillator/filter patches.
+<p>
+Of course, it's uses go beyond this. When used in series, they can be used to add folds to the wave shape. Each extra wave shaper you put in series adds a fold to the waveform. As such, quite a lot of tonal variety/harmonic enrichment can be achieve.
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=900>
+<tr>
+<td>
+<object width="400" height="225"><param name="movie" value="http://www.youtube.com/v/_mBCTUjgo7I?version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/_mBCTUjgo7I?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="400" height="225" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<p><i>Single stage.</i>
+</td>
+<td><object width="400" height="225"><param name="movie" value="http://www.youtube.com/v/hoJ9vv9P-a8?version=3&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/hoJ9vv9P-a8?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="400" height="225" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+<p><i>Three stages in series.</i>
+</td>
+</tr>
+</table>
+<p>
+<b>A little on how it works:</b>
+<p>
+<center>
+<table border=0 cellpadding=10 cellspacing=0 width=680><tr><td>
+<img src="pic/schem_cgs85_tws.gif" width="492" height="1011" border="0" hspace="50">
+<br clear=all>
+<P><i>The schematic of Triple Wave Shaper module. All sections are identical.
+<br>An example of coupling is also shown.</i>
+</td><td>
+<img src="pic/photo_cgs85_tws_panel.jpg" width="172" height="400" border="0" hspace="50">
+</td></tr></table>
+</center>
+<p>
+On the 1973 version of the Tripe Wave Shaper, all of the input pull down resistors were 22k, not 100k as shown in this schematic, and the components for the AC coupled outputs were mounted on the back of the jacks themselves. By around 1975, these AC coupled outputs were dropped, and both output jacks were simply linked. The output is usually in the 0-5V region. The AC coupled output "centers" it around 0V, an apparent offset varying with wave shape. 25k pots were used for the input level controls. Later two-column panel designs dropped the second outputs altogether, and added a Join switch that coupled the three shapers together. The pots were moved from the PCBs to the panel, but the PCB remained essentially unchanged.
+<p>
+On the schematic for the CGS85 version shown here, additional 220k input resistors have been added, allowing for a Join switch while preserving the individual inputs, unlike the original, which disconnects them. The new Join switch wiring connects all three wave shapers in series, but allows input and output connections to each shaper. If using this Join switch wiring option, the input pots for the second and third shapers are bypassed, and have no effect on the signal coming from the previous shaper. They do, however, allow mixing in an additional signal connected to the corresponding shaper input. If you still wish to use the "classic" joining of the modules, it can easily be arranged by leaving the Join switch off, and using patch cords between the three shapers. 100k pots have been used, bringing the input impedance up to the modern standard of 100k.
+<p>
+<center>
+<img src="pic/photo_cgs85_tws_waveforms.jpg" width="900" height="300" border="0">
+</center>
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs85_tws.gif" target="_blank"><img width=800 height=132 src="pic/pcb_cgs85_tws.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs85_tws.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors and diodes first, followed by the taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as electrolytics, diodes, ICs and transistors.
+<p>
+Traditionally, when the join switch is used, the signal is fed into the bottom wave shaper, and taken from the top one. As such, the top stage on the schematic is the bottom stage on the panel.
+
+<p>
+<center>
+<img width=564 height=694 src="pic/wire_cgs85_tws.jpg">
+<P>
+<table border="0" cellspacing="0" width="650"><tr><td>
+<i>Example wiring for the Triple Wave Shaper. The optional Join switch is shown here off-panel. This Join example uses the bottom section as the input and the top as the output.</i>
+</td></tr></table>
+</center>
+
+
+
+<p>
+<h4>Set Up</h4>
+<p>If you have fitted a "join" switch, switch it off. If you have access to a CRO, use it. If not, a multimeter set to the AC volts position can be used. Plug an audio frequency sawtooth wave into the IN jack on the top section. Monitor the OUT jack while turning the knob to fully clockwise. Adjust the appropriate trim pot until the output level is approximately that of the input. If using a meter, read the voltage on the input. It doesn't matter what the actual value is, as it probably won't be accurate. Adjust the trimmer until you get approximately the same voltage on the output. Repeat for each stage.
+<p>
+Control voltages applied to VC1 and VC2 should then modify the shape of the output wave.
+<p>
+For those interested, original Serge kit assembly and set-up instructions can be found here:
+<br><a href="http://www.serge.synth.net/documents/kit/tws_r5b.html" target="_blank">R5 PCB with board mounted pots</a>
+<br><a href="http://www.serge.synth.net/documents/kit/tws_r5.html" target="_blank">Early version with panel mounted pots</a>
+<br><a href="http://www.serge.synth.net/documents/kit/tws.html" target="_blank">Later version with panel mounted pots</a>.
+<p>
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 1" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100pF decoupling caps</td><td align=right>3</td></tr>
+<tr><td>100n (0.1) decoupling caps</td><td align=right>1</td></tr>
+<tr><td>470n MKT or sim</td><td align=right>3</td></tr>
+<tr><td>10uF 25V</td><td align=right>1</td></tr>
+<tr><td>47uF 25V</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R</td><td align=right>3</td></tr>
+
+<tr><td>100k</td><td align=right>6</td></tr>
+<tr><td>150k</td><td align=right>3</td></tr>
+<tr><td>220k</td><td align=right>6</td></tr>
+<tr><td>1M5</td><td align=right>9</td></tr>
+<tr><td>22k trimmer</td><td align=right>3</td></tr>
+<tr><td>100k Lin pot</td><td align=right>3</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>12</td></tr>
+<tr><td>LM3900</td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Jacks</td><td align=right>as needed</td></tr>
+<tr><td>Ferrite Bead </td><td align=right>1</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1 (2)</td></tr>
+<tr><td><a href="../pcb/index.html">CGS85 VER1.0 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2011 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs85_tws.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:06:58 GMT -->
+</HTML>

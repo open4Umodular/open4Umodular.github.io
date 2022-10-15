@@ -1,0 +1,182 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs67_rrm2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:03:09 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=640>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Active Real Ring Modulator</font><br>
+for music synthesizers.<p>
+</center>
+
+
+<center>
+<IMG alt="Ring Modulator" BORDER=0 WIDTH=600 HEIGHT=102 SRC="pic/photo_cgs67_rrm2.jpg">
+</center>
+
+
+<br clear=all>&nbsp;
+<p>
+
+<p>
+<b>Please note: This is not a guitar effect where you can "plug in your guitar and get a sound out". Extra circuity is absolutely essential, either directly wired, or as parts of other equipment. If you need to ask how to use it, then it's not for you.</B>
+<p>
+Four quadrant multipliers have more or less replaced ring modulators in synthesizers, even though they still bear the label "ring modulator". The distortion in these is lower than that of a true diode ring modulator, because the diode voltage drops have been eliminated. This leads to better specifications, though in a noise maker, this is not always desirable.
+<p>
+Here is an updated version of the popular "Real Ring Modulator", a traditional diode and transformer ring modulator. This time, a preamplifier for external input, and input and output buffers for conventional synthesizer levels are included.
+<p>
+
+
+<p>
+<h4>A little on how it works.</h4>
+
+
+<p>
+<b><br><a href="pic/schem_cgs67_rrm2.gif" target="_blank">Click here for the Schematic</a></b>
+<p>
+
+
+There are several distinct sections to this circuit.
+<p>
+A TL071 op amp is wired as a high input impedance 10x gain stage for dealing with small signals such as from microphones and electric guitars, though the latter's output is probably hot enough to drive the stage into distortion.
+<p>The NE5532 is wired as two adjustable, low output impedance buffers for driving the transformer coils of the ring modulator itself. They only differ in the upper one mixes the above pre-amp output with a synth level input, while the other has three inputs - two DC coupled, and one AC coupled. One of the DC coupled inputs is wired to a pot to allow a DC voltage to be fed into the modulator to unbalance it, thus changing its characteristics. The unbalance function is not unlike a wet/dry mixer.
+<p>
+The core of the circuit is of course the passive ring modulator, consisting of two transformers and four diodes in a ring. Traditionally these diodes should be germanium, though schottky diodes such as the BAT48 can be used. Even 1N4148 silicon diodes will work, though with greater distortion due to the larger voltage drop.
+<p>
+Following the core is a nulling circuit. The circuit allows either a positive or negative portion of the original carrier and input signals to be mixed with the output to reduce the amount of bleed though. If this is not desired, the trim pots can simply be left off the board.
+<p>
+Finally there is an output buffer and recovery amp. The 100k resistor marked with an asterisk on the schematic should be a lot lower - say 33k, or even as low as 10k, if you find you do not have enough gain. This will depend on the transformers used. With the 100k shown (REV0.0), the maximum gain is unity.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+
+<ul><b>Note:</b>
+<li>On the REV0.0 PCB there is one capacitor marked 470pf. Put a 47pF in that location. The resistor mentioned above  is at the bottom right end of the circuit board.
+<li>On the REV0.0 and VER1.0 PCBs, the pad marked as 0V near the unicorn is actually -VE. If you have connected to this pad, please reroute your wire to a more suitable location.
+<p>
+
+<center>
+<a href="pic/pcb_cgs67_rrm2v11.gif" target="_blank"><img border="1" width=600 height=100 src="pic/pcb_cgs67_rrm2v11.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the active ring modulator. <a href="pic/pcb_cgs67_rrm2v11.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a>
+
+</i></td></tr></table>
+<p>
+
+<img width=626 height=462 src="pic/wire_cgs67_rrm2.gif">
+<br><table border=0><tr><td><i>The basic wiring for the active ring modulator. The pots are viewed from the rear. The board version is out of date, but shows an example of where 0V can be connected to. On VER1.1 boards, there is a 0V pad near the first transformer.
+
+</i></td></tr></table>
+
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The decoupling capacitors used are SMT1206 variety, though 805 will fit. Two of the locations will allow for a through hole component to be used instead, if desired. There is no need to install both the though hole and SMT parts at the same location. These two through-hole capacitors are not included in the parts list.
+<p>
+The part bumber of the Germanium diodes is not critical. Use whatever you can get.
+<p>
+The transformers I use are "M 0222" 3k-3kCT coupling transformers from www.altronics.com.au.
+Other transformers will work in this circuit. You will want transformers with an impedance equal to or higher than these.
+<p>
+<h4>Setting up</h4>
+If the unbalance pot is fitted, turn it fully CCW, checking with a meter that it's wiper is at zero volts.
+<p>
+Feed an audible signal into the input, and monitor the output. Adjust the SNULL trimmer for minimum output volume. It will be near the center of the trimmer's travel.
+<p>
+Remove the signal from the input and feed it into the AC coupled carrier input. Adjust the CNULL trimmer for minimum output volume. Again, it will be near the center of the trimmer's travel.
+<p>
+If you disconnected it, reconnect the wiper of the unbalance pot.
+<p>
+
+
+<p>
+<b>Notes:</b>
+<ul>
+<li><font color="green"><b>PCB info: </b></font>1" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>10pf </td><td align=right>1</td></tr>
+<tr><td>47pF </td><td align=right>5</td></tr>
+<tr><td>100n 1206SMT</td><td align=right>8</td></tr>
+<tr><td>10uF 25V</td><td align=right>4</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R </td><td align=right>3</td></tr>
+<tr><td>1k </td><td align=right>1</td></tr>
+<tr><td>10k </td><td align=right>1</td></tr>
+<tr><td>33k </td><td align=right>1</td></tr>
+<tr><td>100k </td><td align=right>8</td></tr>
+<tr><td>150k </td><td align=right>1</td></tr>
+<tr><td>330k </td><td align=right>1</td></tr>
+<tr><td>1M </td><td align=right>2</td></tr>
+<tr><td>22k trimmer</td><td align=right>2</td></tr>
+<tr><td>100k trimmer</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>Germanium diode </td><td align=right>4</td></tr>
+<tr><td>NE5532 </td><td align=right>1</td></tr>
+<tr><td>TL071 </td><td align=right>1</td></tr>
+<tr><td>TL072 </td><td align=right>1</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td>3k-3k coupling transformer</td><td align=right>2</td></tr>
+
+<tr><td><a href="../pcb/index.html">CGS67 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2006 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs67_rrm2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:03:16 GMT -->
+</HTML>

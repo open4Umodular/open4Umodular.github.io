@@ -1,0 +1,232 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs112_vcfq.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:13:48 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=990>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<p>
+<center>
+<IMG alt="Serge Voltage Controlled Q VCF" BORDER=0 WIDTH=900 HEIGHT=305 SRC="pic/photo_cgs112v1.0_vcfq.jpg">
+</center>
+<p>
+
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Serge Voltage Variable Q VCF</font><br>
+for music synthesizers.
+</center>
+&nbsp;
+<p>
+This module is a variation on the Serge Voltage Variable Q VCF module (VCFQ) and the Extended Range VCF (VCFX).
+<p>
+<h4>From the 1982 Serge catalog:</h4>
+The VARIABLE Q VCF (VCFQ) is an excellent general-purpose VCF offering
+simultaneous low-pass, high-pass, band-pass and notch (band-reject) outputs.
+The resonance (Q) of this filter is dynamically variable by manual or
+voltage control. The VCFQ has two signal inputs. One incorporates an
+automatic gain control to prevent the filter from overloading at high Q
+settings. The second input has a level control so that the percussive
+effects of overloading the filter can be exploited. When a pulse is applied
+to the Trigger input, the filter will ring, producing a damped waveform
+similar to that produced by striking a resonant object. The nature of this
+ringing is controlled by the Q and the filter frequency. Percussive effects
+ranging from clicks to the sound of wood blocks and bell tones can be
+produced and controlled. This ringing effect can be used in conjunction with
+signals applied to either of the audio inputs to achieve highly controlled
+complex tonal qualities.
+<p>
+In addition to the three VCF's, Serge Modular offers an EXTENDED RANGE VCF
+(VCFX) which is identical to the VCFQ except it features a second sub-audio
+range. This low-frequency range allows use as a control voltage processor. A
+fast envelope or trigger applied to the filter in the low range at high Q
+settings will cause low-frequency ringing, generating complex envelopes and
+damped vibrato effects. The VCFX can be patch programmed to oscillate by
+patching the band-pass output to the manual input. The outputs will be in
+quadrature relationships (90 degrees out of phase).
+<p>
+
+<b>A little on how it works:</b>
+<p>
+
+<table border=0 cellpadding=0 cellspacing=0 width=970><tr><td>
+<img src="pic/schem_cgs112v1.0_vcfq.gif" width="962" height="645" border="0">
+<P><i>The schematic for Serge Voltage Variable Q VCF module.</i>
+</td></tr></table>
+<br>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs112v1.0_vcfq.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs112v1.0_vcfq.gif"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.0 PCB. <a href="pic/pcb_cgs112v1.0_vcfq.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a></i>
+</td></tr></table>
+</center>
+<p>
+The CGS112 VCFQ uses three <a href="cgs108_vca.html">CGS108 Serge Gain Cells</a> as it's voltage controlled elements. Refer to the <a href="cgs108_vca.html">CGS108</a> page for construction details. The boards are built exactly as per that page. They should be the last things you install on the CGS112 PCB.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with low profile components such as resistors and diodes first, followed by successively taller components.
+<p>
+Take particular care with the orientation of the polarized components, such as ICs, electrolytics, diodes, and transistors.
+<p>
+When inserting the ICs in their sockets, if used, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+R12: This resistor is not usually fitted. If a 100k is soldered in this position, the frequency controls will also affect the Q.
+<br>CX, CY, CZ: Stabilizing capacitors. If you find you have high frequency oscillation occurring in your op-amps, fit 33pF - 47pF capacitors in these positions.
+<p>
+The 1M resistor connected to pad R is incorrectly marked. It should be 100k.
+<p>
+The unit will run on either +/-12 volts or +/-15 volts.
+<p>
+Serge suggests that linear pots of 50k are suitable for use. My prototype uses 100k pots without trouble.
+<p>
+<b>The first time you power it up, I would suggest you do so with 22 ohm resistors in series with the positive and negative power rails. This should save the chips if you have made a blunder.</b>
+<p>
+
+
+<center>
+<IMG alt="Serge Voltage Controlled Q VCF" BORDER=0 WIDTH=900 HEIGHT=513 SRC="pic/photo_cgs112v1.0_vcfq2.jpg">
+</center>
+
+
+<p>
+<table border=1 cellpadding=2 cellspacing=0>
+<tr><td>PAD ID</td><td>Function</td></tr>
+<tr><td>A</td><td>to Q pot wiper</td></tr>
+<tr><td>B</td><td>to Trigger input jack</td></tr>
+<tr><td>C</td><td>0V for pots. CCW end of Q pot. CW end of FREQ pot</td></tr>
+<tr><td>D</td><td>Unused 1V/oct input</td></tr>
+<tr><td>E</td><td>1V/oct input</td></tr>
+<tr><td>F</td><td>to Frequency pot wiper</td></tr>
+<tr><td>G</td><td>to CW end of VC F pot</td></tr>
+<tr><td>H</td><td>to CCW end of VC F pot</td></tr>
+<tr><td></td><td>Wiper of VC F pot goes to VC C jack via a 47k resistor physically mounted between the two (i.e. use a 47k resistor as the wire between them)</td></tr>
+<tr><td>I</td><td>VCQ input</td></tr>
+<tr><td>J</td><td>High pass out</td></tr>
+<tr><td>K</td><td>Notch out (called AGC Out on older panels)</td></tr>
+<tr><td>L</td><td>Band pass out</td></tr>
+<tr><td>M</td><td>To wiper on Gain pot. (Input on old VCFX) </td></tr>
+<tr><td>N</td><td>+12V power for pots. CW end of Q pot. CCW end of FREQ pot</td></tr>
+<tr><td>P</td><td>Range switch pole 1 end</td></tr>
+<tr><td>P'</td><td>Range switch pole 1 common</td></tr>
+<tr><td>R</td><td>AGC IN</td></tr>
+<tr><td>S</td><td>Range switch pole 2 end</td></tr>
+<tr><td>S'</td><td>Range switch pole 2 common</td></tr>
+<tr><td>T</td><td>Low pass out</td></tr>
+<tr><td>W</td><td>0V power connection (not used)</td></tr>
+<tr><td>X</td><td>+12V power connection (not used)</td></tr>
+<tr><td>Z</td><td>-12V power connection (not used)</td></tr>
+</table>
+
+<p>
+<h4>Set Up</h4>
+<p>
+The only trim pot on the CGS112 PCB is adjusted to give a 1 volt per octave response. See the <a href="cgs48_vco.html">VCO page</a> for suggestions on how to set this. It is probably easier to adjust while the filter is set to self oscillation (Patch IN 2 to BP output, and turn up GAIN pot).
+<p>
+From Serge kit instructions:
+<p>
+<blockquote>
+Test Procedure;
+<p>
+1. Apply a sawtooth wave from an oscillator or slew into input 1. Manually turning the center frequency pot and the "Q" pot should produce filter sweeps of varying "Q"s and frequency ranges at the LOW, HIGH, and BAND pass outputs.
+<p>
+2. Using a control voltage source, test the VC-F and VC-Q functions. Note the processing input on the VC-F as well as a calibrated IV/octave input.
+<p>
+3. Apply a signal to the manual gain input (IN 2), and turn up the manual gain pot. This input differs from IN 1 in that the gain of IN 1 is automatically controlled for use with increasing Q. As Q is increased, the gain of IN I is decreased to compensate for the peaked response of the high Q filter. Note the difference by first applying a signal to IN 2 and increasing and decreasing the Q, then applying a signal to IN 1 varying the Q.
+<p>
+4. The NOTCH output should produce a phasing type sound if a sawtooth wave or a noise signal is applied to the filter input, the 0 is low, and the frequency is swept.
+<p>
+5. Apply a pulse source into the TRIG input while listening to the BAND output. A percussive timbre should be present which can be changed dramatically by changing the filter frequency and increasing the Q.
+</blockquote>
+
+<p>
+
+<b>Notes:</b>
+<ul>
+<li>330R refers to 330 ohms. 100n = 0.1 uF.
+<li>The module will work on +/-12 volts or +/-15 volts.
+<li><font color="green"><b>PCB info: </b></font>6" x 2" with 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">e-mail me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+
+<tr><th colspan="3">Resistors (1% metal film)</th></tr>
+<tr><td>100&#8486; <i>trimmer</i></td><td align="right">1</td></tr>
+<tr><td>330&#8486;</td><td align="right">6</td></tr>
+<tr><td>1k</td><td align="right">1</td></tr>
+<tr><td>2k</td><td align="right">1</td></tr>
+<tr><td>15k</td><td align="right">2</td></tr>
+<tr><td>22k</td><td align="right">2</td></tr>
+<tr><td>47k</td><td align="right">5</td></tr>
+<tr><td>100k</td><td align="right">12</td></tr>
+<tr><td>110k</td><td align="right">1</td></tr>
+<tr><td>150k</td><td align="right">1</td></tr>
+<tr><td>220k</td><td align="right">1</td></tr>
+<tr><td>330k</td><td align="right">1</td></tr>
+<tr><td>1.5M</td><td align="right">1</td></tr>
+<tr><td>R12</td><td align="right">not fitted</td></tr>
+<tr><th colspan="3">Capacitors</th></tr>
+<tr><td>CX, CY, CZ</td><td align="right">not fitted</td></tr>
+<tr><td>22pF</td><td align="right">2</td></tr>
+<tr><td>220pF MKT or ceramic</td><td align="right">2</td></tr>
+<tr><td>220pF styrene</td><td align="right">2</td></tr>
+<tr><td>1nF (=0.001uF) MKT or better</td><td align="right">1</td></tr>
+<tr><td>100nF (=0.1uF) MKT or better</td><td align="right">3</td></tr>
+<tr><td>100nF (=0.1uF) 1206 SMT</td><td align="right">3</td></tr>
+<tr><td>10uF <i>electrolytic</i></td><td align="right">2</td></tr>
+<tr><th colspan="3">Semi's</th></tr>
+<tr><td>1N4148</td><td align="right">5</td></tr>
+<tr><td>TL072</td><td align="right">1</td></tr>
+<tr><td>TL074</td><td align="right">1</td></tr>
+<tr><th colspan="3">Misc.</th></tr>
+<tr><td>Ferrite Bead</td><td align="right">2</td></tr>
+<tr><td>DPDT switch </td><td align="right">1</td></tr>
+<tr><td>MTA-156 connector <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td>MTA-156 header <i>4Pin</i></td><td align="right">1</td></tr>
+<tr><td><a href="cgs108_vca.html">CGS108 submodule</a></td><td align="right">3</td></tr>
+
+<tr><td><a href="../pcb/index.html#CGS92">CGS112 VER1.0 PCB set</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+<p>
+
+
+<br clear=all>&nbsp;<p>
+
+<font size=1>Article, art &amp; design copyright 2013 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs112_vcfq.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:14:00 GMT -->
+</HTML>

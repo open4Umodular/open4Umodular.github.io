@@ -1,0 +1,207 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs26_analogic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:53:59 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=850>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Analog Logic" BORDER=0 WIDTH=400 HEIGHT=178 SRC="pic/photo_cgs26_analogic.jpg" align=right hspace=10>
+
+<br>
+<font face="ARIAL,HELVETICA" size=6>Analog Logic</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+
+<p>
+This module is the analog implementation of some basic logic elements. Instead of dealing with binary inputs, the "logic" is applied to whatever voltages are present on the inputs.
+When the AND element is fed several voltages, the output will equal the the lowest input voltage. The NAND output will be the inversion around 0 volts of the AND output.
+When the OR element is fed several voltages, the output will equal the the highest input voltage. The NOR output will be the inversion around 0 volts of the OR output.
+Apparently the AND and OR functions are the same thing as "peak" and "trough" on old Serge synthesizers, though they are implemented somewhat differently.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the inputs to several voltage sources feed the outputs to a module that requires a CV input. Unused inputs will automatically set themselves to a voltage where they will not interfere with the operation of the logic elements. The modules have an operational range of +/-10V.
+<p>
+
+<b>A little on how it works:</b>
+<p>
+
+
+<center>
+<img width=840 height=690 src="pic/schem_cgs26_v12_analog_logic.gif">
+
+<br><i>The schematic of the Analog Logic. There are  minor differences between this diagram and the earlier version, notably with the output buffers.</i>
+<p><br>
+<img width=662 height=386 src="pic/schem_cgs26_v12_analog_mixer.gif">
+<br><i>The schematic of the onboard mixer included on the VER1.2 PCB.</i>
+
+</center>
+
+<p>
+The elements along the left side of the schematic are essentially "perfect diodes", that is diodes with a voltage drop of 0 volts. For the OR/NOR module, the diodes are forward biased, while for the AND/NAND module they are reverse biased. Pull down resistors on the inputs of the OR/NOR module set any unused inputs to the lowest voltage possible, so that those inputs will not affect the output. Pull up resistors pull any unused inputs of the AND/NAND module to the highest possible voltage for the same reason.
+<P>
+In both modules (AND/NAND and OR/NOR), the next op amp is wired as a voltage follower, to buffer the voltage from the combined inputs. Following that are traditional unity gain inverting buffers, the first giving the inverted  outputs and the second giving the non inverted outputs for their corresponding modules. There is a trimpot in series with each of the output buffers, allowing the modules to be precisely trimmed for 1/V per octave on at least one of the inputs.
+<P>
+Two transistors wired as emitter followers give the (approx.) +10 volt and -10 volt levels as used elsewhere in the circuit.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<img width=450 height=196 src="pic/pcb_cgs26_analogic.gif">
+<br><i>The component overlay. Connections can be determined from the circuit diagram.</i>
+</center>
+<p>
+
+
+<center>
+<a href="pic/pcb_cgs26_analog_logic.gif" target="_blank"><img width=600 height=200 src="pic/pcb_cgs26_analog_logic.gif"></a>
+<br>
+<table border=0><tr><td><i>The component overlay for the VER1.2 PCB. <a href="pic/pcb_cgs26_analog_logic.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi for a correct scale printout.</a></i>
+</td></tr></table>
+
+</center>
+
+<p>
+Note that the VER1.2 board has the following issues:
+<br>OR and NOR outputs have their labels swapped with each other.
+<br>AND and NAND outputs have their labels swapped with each other.
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, diodes, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+Ideally, the diodes should all be matched for voltage drop, so all inputs can be set to track 1/v per octave. I did not do this on my prototype, instead selecting one input to be accurate, and accepting the others as they came, as they were only being used for varying LFO voltages, or other voltage sources for which any variation could be trimmed out elsewhere.
+<p>
+To match diodes, try connecting them in series with a 10k resistor across 10 to 15 volts, and measuring for identical drops across the diodes themselves. It would be best to use the same supply and resistor for all measurements, and try to do all measurements at the same temperature. Avoid handling the diodes while testing them to prevent body heat changing their temperature. Note: I did not do this for my module, so this is untried. Alternatively, you could use the diode test function present on most digital multimeters.
+<p>
+If you are going to match your diodes, it would be worth the extra effort to hand-match the 10k resistors too.
+<p>Diodes and resistors need only match each other within each gate. There is no need for the OR/NOR parts to match the AND/NAND parts.
+<p>
+When assembly is complete, the trimpots can be adjusted so that the output voltage on each module accurately tracks one input of the corresponding module. This is to counteract the attenuation of the input networks. It would be possible to substitute the input resistors for 1k, and the pull down and pull up resistors for 1M, for less attenuation though as this is countered by the gain in the later stages, it is not really an issue.
+<p>
+Euro and Frac rack builders can cut off the mixer section of the VER1.2 board if required.
+<p>
+
+The value of the pot used in the processor will affect the response of the pot. The pot itself MUST be linear. Other values of pot will vary the degree of the curve. For example, a 50k will be slightly anti-log.
+<ul>
+<li>10k - Anti-log response - Greater sensitivity near center of rotation. Finer control towards ends of travel.
+<li>100k - Linear response.
+<li>1M - Log response - Finer control near center of rotation. Greater sensitivity towards ends of travel.
+</ul>
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>With no inputs connected, the AND module output will sit at approx. +10V.
+<li>With no inputs connected, the OR module output will sit at approx.  -10V.
+<li>Do not connect the inputs of the AND module to the OR module to produce a combined module with only three inputs, as the pull up and pull down resistors will interfere with each other. It is however fine to connect the inputs of both modules to the same voltage source, as the voltage source will override the effects of the pull up and pull down resistors.
+<li>If you wish to have a panel mounted pot to set the maximum voltage for the AND/NAND module and the minimum for the OR/NOR module, they can be wired in with the pots connected between the outputs of the transistor regulators (+10V and -10V) with their wipers fed via a signal diode to pin 10 of the corresponding voltage follower. This is possible because the "perfect diode" is not required in this circumstance. Use a pot of 5k or 10k to get a more linear response. Higher values will work, but the pot response will be decidedly curved.  Additional "inaccurate" inputs for other voltage sources could also be added in a similar manner - with a diode and series 1k resistor wired into the corresponding voltage follower. These "inaccurate" inputs will be affected by the output impedance of what is driving them, so do not be surprised if it responds differently when connected to different modules.
+<li>While untested, the module should work on +/-12 volts, though you will need to adjust the resistor networks for the +/- 10 volt regulators if you wish to maintain the range (use 2k2 resistors instead of the 4k7 resistors for the two transistor base resistors).
+<li>A 10 to 22 ohm resistor can be used instead of the ferrite bead. If you don't care about power-rail noise, just use a link instead.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+Version 1.2
+<p>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>8</td></tr>
+<tr><td>100n</td><td align=right>7</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>330R (1%)</td><td align=right>8</td></tr>
+<tr><td>4k7 1%</td><td align=right>4</td></tr>
+<tr><td>10k 1%</td><td align=right>24</td></tr>
+<tr><td>100k 1%</td><td align=right>18</td></tr>
+<tr><td>270k 1%</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>14</td></tr>
+<tr><td>BAT48</td><td align=right>4</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>1</td></tr>
+<tr><td>BC557 (or sim)</td><td align=right>1</td></tr>
+<tr><td>TL072</td><td align=right>4</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs26 VER2.1 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+Versions prior to 1.2
+<p>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100n</td><td align=right>2</td></tr>
+<tr><td>10uF 25V </td><td align=right>2</td></tr>
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>1k (1%)</td><td align=right>4</td></tr>
+<tr><td>4k7 1%</td><td align=right>4</td></tr>
+<tr><td>10k 1%</td><td align=right>24</td></tr>
+<tr><td>100 1%k</td><td align=right>6</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>12</td></tr>
+<tr><td>BC547 (or sim)</td><td align=right>1</td></tr>
+<tr><td>BC557 (or sim)</td><td align=right>1</td></tr>
+<tr><td>TL072</td><td align=right>2</td></tr>
+<tr><td>TL074</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">cgs26 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs26_analogic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:54:06 GMT -->
+</HTML>

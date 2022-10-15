@@ -1,0 +1,162 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs62_sd.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:30 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=850>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Slope Detector</font><br>
+for music synthesizers.<p>
+</center>
+
+<center>
+<IMG alt="Slope Detector" BORDER=0 WIDTH=800 HEIGHT=143 SRC="pic/photo_cgs62v12_sd.jpg">
+</center>
+
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs62v10_sd.html">here</a>.
+<p>
+
+The slope detector is an event-driven gate/trigger generating device. It monitors a control voltage, and responds according to what that voltage is doing. If the voltage is rising, the slope detector gives a "gate" output (approx. 5V) on its "rising" output. Likewise, if the voltage is falling, the slope detector gives an output on its "falling" output. The duration of this gate signal depends on the incoming CV and the setting of the sensitivity pot. When the CV is remaining constant, the "steady" output activates.
+<p>
+These gate signals can be used to fire envelope generators dependent on the action of the CV, for example opening a filter when a melody is rising in pitch, and closing it when the melody is falling in pitch. It can also be used to generate gate signals from LFOs, envelope generators, to advance sequencers etc.
+<p>
+The sensitivity pot allows the slope detector to work with either relatively fast events, like the edges of a square wave pulse train, or very slow events, such as the sine output of an LFO being used to drive filter/phaser sweeps.
+<p>
+<p>
+<b>A little on how it works:</b>
+<p>
+
+<center>
+<IMG alt="Slope Detector" BORDER=0 WIDTH=527 HEIGHT=559 SRC="pic/schem_cgs62_sd.gif">
+
+
+<p>
+<i>The schematic for the slope detector.</i>
+<p>
+</center>
+
+
+The circuit can be divided into three parts, "rising", "falling" and "steady". Both the rising and falling circuits are identical with the exception of the polarity of their detectors.
+<p>
+Consider the falling part of the circuit - the upper op-amp (used as a comparator) and its associated components. At rest, the voltage differences between pin 5 and 6 of the op-amp will be very close. The 100n capacitor will have charged or discharged through the sensitivity resistor/pot until the voltage across it equals that at the input. Thus the voltage at the inverting input of the op-amp (pin 6) will be equal to the voltage at the cv input. The voltage at the non-inverting input of the op-amp (pin 5) will be slightly higher, pulled up by the 1M/2k2 voltage divider, just enough to keep the comparator output high. The reason why a high is needed here (the opposite of what we really want) is because the next stage is a PNP inverting buffer. When the comparator output is high, the PNP will be switched off, allowing the 1k resistor between the output jack and earth to pull the output to 0V (LOW).
+<p>
+If the input voltage begins to fall, the voltage at pin 5 will immediately follow it, albeit slightly higher in value. The voltage on pin 6, however, is initially held where it was by the 100n capacitor, and slowly charges or discharges through the sensitivity pot/resistor. Thus while the input voltage is falling, the voltage at pin 5 will be lower than that at pin 6, causing the output of the comparator to fall, switching on the PNP inverter, pulling the output jack high via the 1k8 resistor. The 1k8/1k output divider reduces the output voltage to around 5.3 volts. The transistor also switches on the LED at the same time.
+<p>
+If the input voltage becomes steady, the 100n capacitor will eventually charge/discharge to the same voltage as the input voltage, and the voltage on pin 5 of the op-amp will again be slightly higher than that on pin 6 of the op-amp, so the output of the op-amp will swing high, switching off the transistor.
+<p>
+A rising voltage at the input will merely lift the voltage at pin 5 even higher than the delayed voltage at pin 6, thus ensuring the op-amp output remains high, and the buffer output in its OFF state.
+<p>
+The lower section of the circuit based around the second op-amp works in exactly the same way, but inverted so that it detects rising voltages.
+<p>
+When the input voltage is changing, either one or the other of the outputs of the comparators will be HIGH (near the positive supply voltage) while the other is LOW (near the negative supply voltage). The two 100k resistors between them function as a voltage divider, the voltage at their junction being near enough to 0 volts. This is not enough to turn on the NPN transistor. However, when the input voltage is steady, the outputs of both comparators will be high, and the two 100k resistors will no longer function as a voltage divider, but will instead behave as if they were in parallel, connected to the positive supply rail (less the internal op-amp voltage drop), turning on the NPN transistor. This will turn on the following PNP buffer, giving a HIGH at the "steady" output.
+
+
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+<a href="pic/pcb_cgs62v12_sd.gif" target="_blank"><img width=600 height=100 src="pic/pcb_cgs62v12_sd.gif" border="1"></a>
+<br><table border=0><tr><td><i>The component overlay for the VER1.2 PCB. <a href="pic/pcb_cgs62v12_sd.gif" target="_blank">Click here for an enlarged, printable version. Print at 300dpi.</a> </i>
+</td></tr></table>
+</center>
+
+
+<p>
+
+</center>
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges. (With the boards supplied by me, the edges are already milled, and etching faults are very rare.)
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC socket if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components such as electrolytics, diodes,  transistors and ICs.
+<p>
+When inserting ICs into sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay.
+<p>
+The range switch and second 100n capacitor  are entirely optional, and really not needed. To be more useful, the capacitor could be made larger so that the range switch does more than just double the sensitivity. This part is marked as "C low" (Clow) on the VER1.2 pcb.
+<p>
+The LED resistors (RLED) can be selected as needed. If you are using common LEDs, 1k to 2k2 would be appropriate. If you are using any of the super-bright modern LEDs for their unique colors, the resistors can be much higher, 10k to 33k for example, so that the LEDs don't dazzle you.
+<p>
+<b>Notes:</b>
+<ul>
+<li> A 1N4148 protection diode has been added for the Ver1.2 boards. Earlier versions do not need modification.
+<li><font color="green"><b>PCB info: </b></font>1" x 6" with four 3mm mounting holes 0.15" in from the edges.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>100nF (0.1uF)</td><td align=right>6</td></tr>
+<tr><td>C low 100nF See text</td><td align=right>1</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+<tr><td>100uF 25V</td><td align=right>1</td></tr>
+
+
+<tr><th colspan=2>Resistors</th></tr>
+<tr><td>10R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>3</td></tr>
+<tr><td>1k8</td><td align=right>3</td></tr>
+<tr><td>2k2</td><td align=right>2</td></tr>
+<tr><td>10k</td><td align=right>5</td></tr>
+<tr><td>47k</td><td align=right>3</td></tr>
+<tr><td>100k</td><td align=right>3</td></tr>
+<tr><td>1M</td><td align=right>2</td></tr>
+<tr><td>RLED pick to suit LEDs</td><td align=right>3</td></tr>
+
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>1N4148</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>1</td></tr>
+<tr><td>BC557</td><td align=right>3</td></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><td>LED</td><td align=right>3</td></tr>
+
+
+<tr><th colspan=2>Misc.</th></tr>
+<tr><td>1M Lin pot</td><td align=right>1</td></tr>
+<tr><td>Ferrite Bead (or 10R resistor)</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS62 VER1.2 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2004 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs62_sd.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 17:02:36 GMT -->
+</HTML>

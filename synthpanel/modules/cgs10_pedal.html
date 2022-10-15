@@ -1,0 +1,145 @@
+<HTML>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs10_pedal.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:51:28 GMT -->
+<HEAD>
+  <TITLE>Ken Stone's Modular Synthesizer</TITLE>
+  <META name="description" content="Descriptions of the various modules in a home built music synthesizer.">
+  <META name="keywords" content="electronics, modular, diy, d.i.y., synthesizer, kit, music, audio, synthesiser, ken stone, lowrey, organ">
+</HEAD>
+<BODY bgcolor="#FFFFFF" link="#FF3366" alink="#FF0000" vlink="#990033" text="#000000">
+
+<center>
+<table border=0 cellpadding=0 cellspacing=0 width=750>
+<tr><td>
+<font face="ARIAL,HELVETICA">
+<center>
+<IMG alt="Mini Keyboard" BORDER=0 WIDTH=400 HEIGHT=300 SRC="pic/photo_cgs10v11_pedal.jpg" align=right hspace=10>
+<br>
+<font face="ARIAL,HELVETICA" size=6>Pedal board/<br>Mini Keyboard</font><br>
+for music synthesizers.
+</center>
+<br clear=all>&nbsp;
+<p>
+The previous version can be found <a href="cgs10v10_pedal.html">here</a>.
+
+
+<p>
+Elsewhere I have said the best use I can think of for a set of pedals from an old organ would be to control the base frequency at which a sequencer is running. I am forever having to abandon whatever chord I am playing to reach up and tap the keyboard controlling the sequencer. On the other hand, I am quite capable of playing the organ pedal board, but don't because the sequencer is running my bass line.
+<p>
+Other DIYers have suggested creating a miniature "calculator" style keyboard that would allow them to pick out a tune on a small hand-held module. I can think of the advantages of having such a keypad permanently built into the control panel of synth too.
+<p>
+This module can be used for both of the above purposes, and any other that requires a keyboard of around one octave range.
+<p>
+<b>How to use this module:</b>
+<p>
+Connect the output to a VCO or similar voltage controlled device. Hitting a key/pedal will push the output to that voltage, and supply a gate pulse for as long as the key is held. It's behavior is very much like any of the older monophonic keyboards. If you have set it up with a calculator style keypad, try connecting the output to a VCA. That will give you a push-button volume control. If you are running a sequencer or wavetable that has voltage controlled selection of sequence length, waveform or whatever, you would have push-button control of that function.
+<p>
+Experiment with it.
+<p>
+<b>A little on how it works:</b>
+<p>
+<p>
+<center>
+<img width=474 height=710 src="pic/schem_cgs10v11_keyboard.gif">
+<br><i>The schematic of the Mini Keyboard Ver1.1.</i>
+</center>
+<p>
+By far most of the work is done by the Keyboard scanning chip, a 74C922. This chip is perfect for the job. It scans keys arranged in a 4x4 matrix, and when one is pressed, transfers a binary value corresponding to the button pressed to its data outputs, and also sends its data available (DA) output HIGH. When the key is released, the DA line returns to LOW, but the latched key data remains on the data outputs.
+<p>
+An R/2R resistor ladder converts the binary data into a voltage. This is buffered using a traditional two stage op-amp buffer. Adjustments are provided for Tune and Span, so the output can be zeroed, and the span set to 1 volt per octave. There is an additional 1M resistor so an external tune pot (100k linear) can be added. Note that tuning voltage is up-side down: taking it positive will send the frequency down, so wire the tuning pot accordingly (CCW end to +VE and CW end to -VE).
+<p>
+The data available output is buffered using an emitter follower, and will give a gate signal that goes between 0 volts and around 14 volts.
+<p>
+<h4>Construction</h4>
+<p>
+<center>
+
+<a href="pic/pcb_cgs10v11_keyboard.gif" target="_blank"><img width=300 height=226 src="pic/pcb_cgs10v11_keyboard.gif" border="1"></a>
+<p>
+<i>The component overlay. <a href="pic/pcb_cgs10v11_keyboard.gif" target="_blank">Click here for an enlarged version.</a></i>
+<p>
+&nbsp;
+<p>
+<img width=709 height=487 src="pic/wire_cgs10v11_pedal.gif">
+</center>
+<i>How to wire the board. If using 1/4 or 1/8 jacks, run wires from the 0V pads to the jack "sleeve" connections.</i>
+
+<p>
+Before you start assembly, check the board for etching faults. Look for any shorts between tracks, or open circuits due to over etching. Take this opportunity to sand the edges of the board if needed, removing any splinters or rough edges.
+<p>
+When you are happy with the printed circuit board, construction can proceed as normal, starting with the resistors first, followed by the IC sockets if used, then moving onto the taller components.
+<p>
+Take particular care with the orientation of the polarized components, the electrolytics, transistors and ICs.
+<p>
+When inserting the ICs in their sockets, take care not to accidentally bend any of the pins under the chip. Also, make sure the notch on the chip is aligned with the notch marked on the PCB overlay. Please note that the CMOS chips are static sensitive devices, so make sure you handle them correctly.
+<p>
+The best way to tune this is to play the lowest "C" (results in 0000 binary at the output of the chip) and set the TUNE trimmer so the CV output reads exactly 0 volts. When this is done, play the high "C" (results in 1100 binary at the output of the chip), and adjust the SPAN trimmer until the output reads exactly 1 volt. You may then adjust the TUNE trimmer again to offset the output to whatever voltage you require.
+
+<p>
+<b>Notes:</b>
+<ul>
+<li>While untested, the module should work on +/-12 volts. Use 1k5 for RA.
+<li>Please <a name="mailto:otherunicorn@gmail.com">email me</a> if you find any errors.
+</ul>
+
+<p>
+<table border=0 cellpadding=10 cellspacing=0 align=right><tr><td>
+<table border=1 cellpadding=3 cellspacing=0><tr><td>
+<table border=0 cellpadding=0 cellspacing=2 align="left">
+<tr><td>Part</td><td align=right>Quantity</td></tr>
+<tr><th colspan=2>Capacitors</th></tr>
+<tr><td>47pF</td><td align=right>2</td></tr>
+<tr><td>0.1/100n monlythic ceramic</td><td align=right>2</td></tr>
+<tr><td>100n MKT or sim</td><td align=right>1</td></tr>
+<tr><td>2.2uF 25V</td><td align=right>1</td></tr>
+<tr><td>10uF 25V</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Resistors 1% metal film</th></tr>
+<tr><td>330R</td><td align=right>1</td></tr>
+<tr><td>1k</td><td align=right>1</td></tr>
+<tr><td>RA 1k5 (12V supply)</td><td align=right>1</td></tr>
+<tr><td>RA 1k8 (15V supply)</td><td align=right>1</td></tr>
+<tr><td>22k</td><td align=right>1</td></tr>
+<tr><td>47k</td><td align=right>1</td></tr>
+<tr><td>100k</td><td align=right>5</td></tr>
+<tr><td>200k</td><td align=right>5</td></tr>
+<tr><td>1M</td><td align=right>2</td></tr>
+
+<tr><td>100k multiturn trim</td><td align=right>2</td></tr>
+
+<tr><th colspan=2>Semi's</th></tr>
+<tr><td>74C922</td><td align=right>1</td></tr>
+<tr><td>BC547</td><td align=right>1</td></tr>
+<tr><td>TL072</td><td align=right>1</td></tr>
+<tr><th colspan=2>Misc</th></tr>
+<tr><td>Ferrite Bead</td><td align=right>2</td></tr>
+<tr><td>0.156 4 pin connector</td><td align=right>1</td></tr>
+<tr><td><a href="../pcb/index.html">CGS10 Ver 1.1 PCB</a></td><td align=right>1</td></tr>
+</table>
+
+</td></tr></table>
+</td></tr></table>
+<p>
+<b>Parts list</b>
+<p>
+This is a guide only. Parts needed will vary with individual constructor's needs.
+<p>
+If anyone is interested in buying these boards, please check the <a href="../pcb/index.html">PCBs for Sale</a> page to see if I have any in stock.
+<p>
+Can't find the parts? See the <a href="parts_faq.html">parts FAQ</a> to see if I've already answered the question. Also see the <a href="http://groups.yahoo.com/group/cgs_synth" target="_blank">CGS Synth discussion group.</a>
+
+<br clear=all>&nbsp;<p>
+<font size=1>Article, art &amp; design copyright 2001 by <a name="mailto:otherunicorn@gmail.com">Ken Stone</a></font>
+<p><b><a href="../index.html" target="_top">Modular Synth Home</a></b><P><a href="../disclaimer.html" target="main">Disclaimer</a><p>
+</font>
+</td></tr>
+</table>
+</center>
+<br>
+<br>
+<br>
+<br>&nbsp;
+</BODY>
+
+<!-- Mirrored from www.synthpanel.com/modules/cgs10_pedal.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 18 Jan 2022 16:51:44 GMT -->
+</HTML>
